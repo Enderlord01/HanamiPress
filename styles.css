@@ -2,7 +2,7 @@
 body {
     margin: 0;
     font-family: Helvetica, Arial, sans-serif; /* Font principale */
-    background-color: #ff00ff; /* Sfondo del sito */
+    background-color: #0000ff; /* Sfondo del sito */
     color: white; /* Colore del testo principale */
     font-size: 16px; /* Impostiamo una dimensione di font base */
 }
@@ -86,20 +86,6 @@ nav:not(.hidden) {
     display: none;
 }
 
-/* Stile footer */
-footer {
-    background-color: #ff00ff; /* Sfondo del footer */
-    color: white;
-    text-align: center; /* Testo centrato */
-    font-size: 1rem; /* Stessa dimensione del testo principale */
-    height: 60px; /* Altezza fissa del footer */
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    margin: 0; /* Rimuoviamo il margine per evitare spostamenti */
-
-    }
-
 /* Sezione tra header e footer */
 .construction-section {
     background-color: #0000ff; /* Sfondo blu */
@@ -114,5 +100,17 @@ footer {
 /* Per garantire che il testo non si sovrapponga o sia troppo grande */
 .construction-section p {
     margin: 0; /* Rimuove margini extra per il paragrafo */
-    
+}
+
+/* Stile footer */
+footer {
+    background-color: #ff00ff; /* Sfondo del footer */
+    color: white;
+    text-align: center; /* Testo centrato */
+    font-size: 1rem; /* Stessa dimensione del testo principale */
+    height: 60px; /* Altezza fissa del footer */
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    margin: 0; /* Rimuoviamo margini esterni */
 }
