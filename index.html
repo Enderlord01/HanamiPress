@@ -20,7 +20,7 @@
         <p>Sito in costruzione.</p>
     </section>
 
-    <nav id="dropdown-menu">
+    <nav id="dropdown-menu" class="hidden">
         <ul>
             <li><a href="#zine">Zine</a></li>
             <li><a href="#stampe">Stampe</a></li>
@@ -32,6 +32,11 @@
         Hanami Press, 2025
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('dropdown-menu');
+            menu.classList.toggle('hidden'); // Nasconde o mostra il menu
+        }
+    </script>
 </body>
 </html>
