@@ -1,34 +1,48 @@
-/* Impostazioni di base */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* Reset base */
 body {
-    background-color: #0000ff; /* Sfondo blu */
-    height: 100vh; /* Occupare tutta l'altezza della finestra */
+    margin: 0;
+    font-family: Helvetica, Arial, sans-serif; /* Font principale */
+    background-color: #0000ff; /* Sfondo del sito */
+    color: white; /* Colore del testo principale */
+}
+
+/* Stile header */
+header {
+    background-color: #ff00ff; /* Sfondo dell'header */
+    color: white;
     display: flex;
-    flex-direction: column; /* Disporre i contenuti in colonna */
-    justify-content: center; /* Centrare il contenuto orizzontalmente */
-    align-items: center; /* Centrare il contenuto verticalmente */
-    font-family: 'Helvetica', sans-serif; /* Font Helvetica */
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
 }
 
-/* Centrare il contenuto principale */
-.content h1 {
-    color: white; /* Colore della scritta */
-    font-size: 4em; /* Dimensione del font */
+/* Testo Hanami Press */
+.brand {
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
-/* Stile del footer */
+/* Icona hamburger */
+.hamburger {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hamburger div {
+    width: 30px;
+    height: 4px;
+    background-color: white;
+}
+
+/* Stile footer */
 footer {
-    background-color: #ff00ff; /* Colore del footer (fucsia) */
-    color: white; /* Colore del testo in bianco */
-    width: 100%; /* Larghezza del footer al 100% */
-    text-align: center; /* Centrare il testo nel footer */
-    padding: 10px 0; /* Distanza tra il bordo e il testo */
-    position: absolute; /* Posizione fissa in fondo alla pagina */
-    bottom: 0; /* Aggiungere il footer in basso */
+    background-color: #ff00ff; /* Sfondo del footer */
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
 }
-
