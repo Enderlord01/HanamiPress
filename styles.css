@@ -1,7 +1,7 @@
 /* Reset base */
 body {
     margin: 0;
-    font-family: Helvetica, Arial, sans-serif; /* Font principale */
+    font-family: 'Helvetica', sans-serif; /* Font principale Helvetica Regular */
     background-color: #0000ff; /* Sfondo del sito */
     color: white; /* Colore del testo principale */
     font-size: 16px; /* Impostiamo una dimensione di font base */
@@ -23,7 +23,7 @@ header {
 /* Testo Hanami Press */
 .brand {
     font-size: 1.5rem;
-    font-weight: bold;
+    font-weight: normal; /* Imposta il font come regular */
     color: white; /* Colore del testo */
     text-align: left; /* Allineamento a sinistra */
 }
@@ -69,7 +69,7 @@ nav ul li {
 nav ul li a {
     color: white;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1rem; /* Stessa dimensione del font per i link */
 }
 
 nav ul li a:hover {
@@ -100,12 +100,6 @@ nav:not(.hidden) {
     justify-content: center;
     align-items: center; /* Centra il testo verticalmente */
 }
-
-/* Per garantire che il testo non si sovrapponga o sia troppo grande */
-.construction-section p {
-    margin: 0; /* Rimuove margini extra per il paragrafo */
-}
-
 
 /* Per garantire che il testo non si sovrapponga o sia troppo grande */
 .construction-section p {
