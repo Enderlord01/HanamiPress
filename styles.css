@@ -13,7 +13,10 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 0 20px; /* Rimuoviamo il padding verticale */
+    height: 60px; /* Altezza fissa dell'header */
+    z-index: 10; /* Assicura che l'header rimanga sopra il menu */
+    position: relative; /* Per gestire meglio la sovrapposizione con il menu */
 }
 
 /* Testo Hanami Press */
@@ -42,10 +45,10 @@ header {
 nav {
     background-color: #ff00ff;
     position: absolute;
-    top: 0; /* Non ci deve essere distanza dall'header */
+    top: 60px; /* Posizionato subito sotto l'header */
     left: 0;
     width: 100%; /* Menu che occupa tutta la larghezza */
-    z-index: 1000;
+    z-index: 1; /* Il menu deve stare sotto l'header */
     display: none; /* Menu nascosto di default */
 }
 
@@ -87,7 +90,8 @@ footer {
     background-color: #ff00ff; /* Sfondo del footer */
     color: white;
     text-align: center;
-    padding: 10px 0;
+    padding: 0 20px; /* Rimuoviamo il padding verticale */
+    height: 60px; /* Altezza fissa del footer */
     position: fixed;
     width: 100%;
     bottom: 0;
