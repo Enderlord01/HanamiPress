@@ -47,6 +47,7 @@ nav {
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 1000;
+    display: none; /* Menu nascosto di default */
 }
 
 nav ul {
@@ -67,6 +68,11 @@ nav ul li a {
 
 nav ul li a:hover {
     text-decoration: underline;
+}
+
+/* Menu visibile quando non è hidden */
+nav:not(.hidden) {
+    display: block;
 }
 
 /* Nascondi menu di default */
