@@ -111,3 +111,18 @@ footer {
     align-items: center; /* Centra verticalmente */
 }
 
+/* Sezione "In arrivo" */
+.coming-soon {
+    background-color: #0000ff; /* Sfondo blu */
+    color: white; /* Colore del testo */
+    text-align: center; /* Testo centrato orizzontalmente */
+    font-size: 2rem; /* Dimensione del testo */
+    width: 100%; /* Larghezza completa */
+    height: 300px; /* Altezza fissa per ottenere un quadrato */
+    display: flex; /* Abilita il Flexbox */
+    justify-content: center; /* Centra il contenuto orizzontalmente */
+    align-items: center; /* Centra il contenuto verticalmente */
+    margin: 0; /* Rimuove margini esterni */
+    padding: 0; /* Rimuove padding */
+}
+
