@@ -1,31 +1,31 @@
 /* Reset base */
 body {
     margin: 0;
-    font-family: 'Helvetica', sans-serif; /* Font principale Helvetica Regular */
-    background-color: #0000ff; /* Sfondo del sito */
-    color: white; /* Colore del testo principale */
-    font-size: 16px; /* Impostiamo una dimensione di font base */
+    font-family: 'Helvetica', sans-serif;
+    background-color: #0000ff;
+    color: white;
+    font-size: 16px;
 }
 
 /* Stile header */
 header {
-    background-color: #ff00ff; /* Sfondo dell'header */
+    background-color: #ff00ff;
     color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px; /* Rimuoviamo il padding verticale */
-    height: 60px; /* Altezza fissa dell'header */
-    z-index: 10; /* Assicura che l'header rimanga sopra il menu */
-    position: relative; /* Per gestire meglio la sovrapposizione con il menu */
+    padding: 0 20px;
+    height: 60px;
+    z-index: 10;
+    position: relative;
 }
 
 /* Testo Hanami Press */
 .brand {
     font-size: 1.5rem;
-    font-weight: normal; /* Imposta il font come regular */
-    color: white; /* Colore del testo */
-    text-align: left; /* Allineamento a sinistra */
+    font-weight: normal;
+    color: white;
+    text-align: left;
 }
 
 /* Icona hamburger */
@@ -46,21 +46,19 @@ header {
 nav {
     background-color: #ff00ff;
     position: absolute;
-    top: 60px; /* Posizionato subito sotto l'header */
+    top: 60px;
     left: 0;
-    width: 100%; /* Menu che occupa tutta la larghezza */
-    z-index: 1; /* Il menu deve stare sotto l'header */
-    display: none; /* Menu nascosto di default */
-    visibility: hidden; /* Impedisce l'interazione quando non è visibile */
-    opacity: 0; /* Menu invisibile di default */
-    transition: opacity 0.3s ease, visibility 0s 0.3s; /* Aggiunta di transizione per la visibilità e l'opacità */
+    width: 100%;
+    z-index: 1;
+    max-height: 0; /* Impostiamo l'altezza massima iniziale a 0 (menu nascosto) */
+    overflow: hidden; /* Nascondiamo il contenuto in eccesso */
+    transition: max-height 0.5s ease-out; /* Aggiungiamo un effetto di transizione sull'altezza */
 }
 
+/* Menu visibile */
 nav.visible {
-    display: block; /* Menu visibile */
-    visibility: visible; /* Permette l'interazione */
-    opacity: 1; /* Menu visibile */
-    transition: opacity 0.3s ease, visibility 0s 0s; /* Rimuove il delay della visibilità */
+    max-height: 500px; /* Altezze più alte quando il menu è visibile (adatta a seconda dei tuoi contenuti) */
+    transition: max-height 0.5s ease-in; /* Aggiungiamo una transizione più rapida per la visibilità */
 }
 
 nav ul {
@@ -68,7 +66,7 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: flex-end; /* Allineamento dei testi a destra */
+    justify-content: flex-end;
     width: 100%;
 }
 
@@ -79,7 +77,7 @@ nav ul li {
 nav ul li a {
     color: white;
     text-decoration: none;
-    font-size: 1rem; /* Stessa dimensione del font per i link */
+    font-size: 1rem;
 }
 
 nav ul li a:hover {
@@ -93,44 +91,43 @@ nav.hidden {
 
 /* Sezione quadrata tra header e footer */
 .construction-section {
-    background-color: #0000ff; /* Sfondo blu */
-    color: white; /* Colore del testo */
-    text-align: center; /* Centra il testo */
-    font-size: 1.5rem; /* Imposta una dimensione del font */
-    padding: 20px; /* Padding per aggiungere spazio attorno al testo */
-    margin: 0; /* Rimuove margini esterni */
-    width: 100%; /* Larghezza al 100% della pagina */
-    height: 300px; /* Altezza fissa per fare in modo che sia quadrata */
+    background-color: #0000ff;
+    color: white;
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 20px;
+    margin: 0;
+    width: 100%;
+    height: 300px;
     display: flex;
     justify-content: center;
-    align-items: center; /* Centra il testo verticalmente */
+    align-items: center;
 }
 
 /* Per garantire che il testo non si sovrapponga o sia troppo grande */
 .construction-section p {
-    margin: 0; /* Rimuove margini extra per il paragrafo */
+    margin: 0;
 }
 
 /* Stile footer */
 footer {
-    background-color: #ff00ff; /* Sfondo del footer */
+    background-color: #ff00ff;
     color: white;
-    text-align: center; /* Testo centrato */
-    font-size: 1rem; /* Stessa dimensione del testo principale */
-    height: 60px; /* Altezza fissa del footer */
+    text-align: center;
+    font-size: 1rem;
+    height: 60px;
     position: fixed;
     width: 100%;
     bottom: 0;
-    margin: 0; /* Rimuoviamo margini esterni */
+    margin: 0;
 }
 
 /* Media Query per dispositivi mobili */
 @media (max-width: 768px) {
-    /* Adattamenti per il menu su schermi piccoli */
     nav ul {
-        flex-direction: column; /* I link del menu si disporranno in verticale */
+        flex-direction: column;
         width: 100%;
-        align-items: center; /* Centra i link orizzontalmente */
+        align-items: center;
     }
 
     nav ul li {
