@@ -38,6 +38,42 @@ header {
     background-color: white;
 }
 
+/* Stile menu a tendina */
+nav {
+    background-color: #ff00ff;
+    position: absolute;
+    top: 50px; /* Posizionato sotto l'header */
+    right: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 10px 0;
+}
+
+nav ul li {
+    padding: 10px 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Nascondi menu di default */
+.hidden {
+    display: none;
+}
+
 /* Stile footer */
 footer {
     background-color: #ff00ff; /* Sfondo del footer */
