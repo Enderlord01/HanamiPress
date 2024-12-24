@@ -92,9 +92,10 @@ footer {
     color: white;
     text-align: center; /* Testo centrato */
     font-size: 1rem; /* Stessa dimensione del testo principale */
-    padding: 0 20px; /* Rimuoviamo il padding verticale */
     height: 60px; /* Altezza fissa del footer */
     position: fixed;
     width: 100%;
     bottom: 0;
+    margin: 0; /* Rimuoviamo il margine per evitare spostamenti */
+
 }
