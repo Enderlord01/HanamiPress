@@ -49,9 +49,7 @@ nav {
     top: 60px;
     left: 0;
     width: 100%;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease-out;
+    display: none; /* Menu nascosto di default */
 }
 
 nav ul {
@@ -76,8 +74,12 @@ nav ul li a:hover {
 }
 
 /* Menu visibile */
-nav.visible {
-    max-height: 300px; /* Imposta un'altezza massima sufficiente per contenere tutti gli elementi */
+nav.hidden {
+    display: none; /* Nasconde il menu */
+}
+
+nav:not(.hidden) {
+    display: block; /* Mostra il menu */
 }
 
 /* Sezione in costruzione */
