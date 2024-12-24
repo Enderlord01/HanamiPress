@@ -17,8 +17,8 @@ body {
 
 /* Centrare il contenuto principale */
 .content h1 {
-    color: ff00ff; /* Colore della scritta */
-    font-size: 2em; /* Dimensione del font */
+    color: white; /* Colore della scritta */
+    font-size: 4em; /* Dimensione del font */
     text-transform: uppercase; /* Testo maiuscolo */
     font-weight: bold; /* Grassetto */
 }
