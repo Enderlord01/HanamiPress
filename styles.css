@@ -86,7 +86,7 @@ nav:not(.hidden) {
     display: none;
 }
 
-/* Sezione tra header e footer */
+/* Sezione quadrata tra header e footer */
 .construction-section {
     background-color: #0000ff; /* Sfondo blu */
     color: white; /* Colore del testo */
@@ -94,8 +94,18 @@ nav:not(.hidden) {
     font-size: 1.5rem; /* Imposta una dimensione del font */
     padding: 20px; /* Padding per aggiungere spazio attorno al testo */
     margin: 0; /* Rimuove margini esterni */
-    height: auto; /* Altezza automatica in base al contenuto */
+    width: 100%; /* Larghezza al 100% della pagina */
+    height: 300px; /* Altezza fissa per fare in modo che sia quadrata */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centra il testo verticalmente */
 }
+
+/* Per garantire che il testo non si sovrapponga o sia troppo grande */
+.construction-section p {
+    margin: 0; /* Rimuove margini extra per il paragrafo */
+}
+
 
 /* Per garantire che il testo non si sovrapponga o sia troppo grande */
 .construction-section p {
