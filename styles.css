@@ -99,7 +99,9 @@ nav:not(.hidden) {
     display: flex;
     justify-content: center;
     align-items: center; /* Centra il testo verticalmente */
+    margin-top: 60px; /* Aggiungi margine sopra per separarlo dall'header */
 }
+
 
 /* Per garantire che il testo non si sovrapponga o sia troppo grande */
 .construction-section p {
