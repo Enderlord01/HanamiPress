@@ -19,7 +19,6 @@ body {
 .content h1 {
     color: white; /* Colore della scritta */
     font-size: 4em; /* Dimensione del font */
-    text-transform: uppercase; /* Testo maiuscolo */
     font-weight: bold; /* Grassetto */
 }
 
