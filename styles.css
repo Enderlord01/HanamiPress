@@ -97,5 +97,19 @@ footer {
     width: 100%;
     bottom: 0;
     margin: 0; /* Rimuoviamo il margine per evitare spostamenti */
+/* Sezione tra header e footer */
+.construction-section {
+    background-color: #0000ff; /* Sfondo blu */
+    color: white; /* Colore del testo */
+    text-align: center; /* Centra il testo */
+    font-size: 1.5rem; /* Imposta una dimensione del font */
+    padding: 20px; /* Padding per aggiungere spazio attorno al testo */
+    margin: 0; /* Rimuove margini esterni */
+    height: auto; /* Altezza automatica in base al contenuto */
+}
 
+/* Per garantire che il testo non si sovrapponga o sia troppo grande */
+.construction-section p {
+    margin: 0; /* Rimuove margini extra per il paragrafo */
+    
 }
