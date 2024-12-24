@@ -8,7 +8,7 @@ html, body {
     overflow-x: hidden; /* Disabilita lo scorrimento orizzontale */
 }
 
-/* Stile header */
+/* Header */
 header {
     background-color: #ff00ff;
     color: white;
@@ -21,15 +21,14 @@ header {
     position: relative;
 }
 
-/* Testo Hanami Press */
+/* Logo */
 .brand {
     font-size: 1.5rem;
     font-weight: normal;
-    color: white;
     text-align: left;
 }
 
-/* Icona hamburger */
+/* Hamburger */
 .hamburger {
     cursor: pointer;
     display: flex;
@@ -43,36 +42,27 @@ header {
     background-color: white;
 }
 
-/* Stile menu a tendina */
+/* Menu */
 nav {
     background-color: #ff00ff;
     position: absolute;
     top: 60px;
     left: 0;
     width: 100%;
-    z-index: 1;
-    max-height: 0; /* Impostiamo l'altezza massima iniziale a 0 (menu nascosto) */
-    overflow: hidden; /* Nascondiamo il contenuto in eccesso */
-    transition: max-height 0.5s ease-out; /* Aggiungiamo un effetto di transizione sull'altezza */
-}
-
-/* Menu visibile */
-nav.visible {
-    max-height: 500px; /* Altezze più alte quando il menu è visibile (adatta a seconda dei tuoi contenuti) */
-    transition: max-height 0.5s ease-in; /* Aggiungiamo una transizione più rapida per la visibilità */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
 }
 
 nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
+    text-align: center;
 }
 
 nav ul li {
-    padding: 20px 30px;
+    padding: 15px 0;
 }
 
 nav ul li a {
@@ -85,19 +75,18 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
-/* Nascondi menu di default */
-nav.hidden {
-    display: none;
+/* Menu visibile */
+nav.visible {
+    max-height: 300px; /* Imposta un'altezza massima sufficiente per contenere tutti gli elementi */
 }
 
-/* Sezione quadrata tra header e footer */
+/* Sezione in costruzione */
 .construction-section {
     background-color: #0000ff;
     color: white;
     text-align: center;
     font-size: 1.5rem;
     padding: 20px;
-    margin: 0;
     width: 100%;
     height: 300px;
     display: flex;
@@ -105,12 +94,7 @@ nav.hidden {
     align-items: center;
 }
 
-/* Per garantire che il testo non si sovrapponga o sia troppo grande */
-.construction-section p {
-    margin: 0;
-}
-
-/* Stile footer */
+/* Footer */
 footer {
     background-color: #ff00ff;
     color: white;
@@ -120,18 +104,4 @@ footer {
     position: fixed;
     width: 100%;
     bottom: 0;
-    margin: 0;
-}
-
-/* Media Query per dispositivi mobili */
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        width: 100%;
-        align-items: center;
-    }
-
-    nav ul li {
-        padding: 15px 0;
-    }
 }
