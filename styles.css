@@ -20,6 +20,8 @@ header {
 .brand {
     font-size: 1.5rem;
     font-weight: bold;
+    color: white; /* Colore del testo */
+    text-align: left; /* Allineamento a sinistra */
 }
 
 /* Icona hamburger */
