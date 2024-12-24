@@ -4,6 +4,7 @@ body {
     font-family: Helvetica, Arial, sans-serif; /* Font principale */
     background-color: #0000ff; /* Sfondo del sito */
     color: white; /* Colore del testo principale */
+    font-size: 16px; /* Impostiamo una dimensione di font base */
 }
 
 /* Stile header */
@@ -89,7 +90,8 @@ nav:not(.hidden) {
 footer {
     background-color: #ff00ff; /* Sfondo del footer */
     color: white;
-    text-align: center;
+    text-align: center; /* Testo centrato */
+    font-size: 1rem; /* Stessa dimensione del testo principale */
     padding: 0 20px; /* Rimuoviamo il padding verticale */
     height: 60px; /* Altezza fissa del footer */
     position: fixed;
