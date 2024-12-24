@@ -98,12 +98,16 @@ nav:not(.hidden) {
 
 /* Footer */
 footer {
-    background-color: #ff00ff;
-    color: white;
-    text-align: center;
-    font-size: 1rem;
-    height: 60px;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+    background-color: #ff00ff; /* Sfondo del footer */
+    color: white; /* Colore del testo */
+    text-align: center; /* Testo centrato orizzontalmente */
+    font-size: 1rem; /* Dimensione del testo */
+    height: 60px; /* Altezza fissa del footer */
+    position: fixed; /* Fissato in basso alla pagina */
+    width: 100%; /* Occupa tutta la larghezza */
+    bottom: 0; /* Posizionato in fondo */
+    display: flex; /* Abilita Flexbox */
+    justify-content: center; /* Centra orizzontalmente */
+    align-items: center; /* Centra verticalmente */
 }
+
