@@ -9,15 +9,28 @@ body {
     background-color: #0000ff; /* Sfondo blu */
     height: 100vh; /* Occupare tutta l'altezza della finestra */
     display: flex;
-    justify-content: center; /* Allineare orizzontalmente */
-    align-items: center; /* Allineare verticalmente */
+    flex-direction: column; /* Disporre i contenuti in colonna */
+    justify-content: center; /* Centrare il contenuto orizzontalmente */
+    align-items: center; /* Centrare il contenuto verticalmente */
     font-family: 'Helvetica', sans-serif; /* Font Helvetica */
 }
 
+/* Centrare il contenuto principale */
 .content h1 {
     color: white; /* Colore della scritta */
     font-size: 4em; /* Dimensione del font */
     text-transform: uppercase; /* Testo maiuscolo */
     font-weight: bold; /* Grassetto */
+}
+
+/* Stile del footer */
+footer {
+    background-color: #ff00ff; /* Colore del footer (fucsia) */
+    color: white; /* Colore del testo in bianco */
+    width: 100%; /* Larghezza del footer al 100% */
+    text-align: center; /* Centrare il testo nel footer */
+    padding: 10px 0; /* Distanza tra il bordo e il testo */
+    position: absolute; /* Posizione fissa in fondo alla pagina */
+    bottom: 0; /* Aggiungere il footer in basso */
 }
 
