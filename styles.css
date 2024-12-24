@@ -2,7 +2,7 @@
 body {
     margin: 0;
     font-family: Helvetica, Arial, sans-serif; /* Font principale */
-    background-color: #0000ff; /* Sfondo del sito */
+    background-color: #ff00ff; /* Sfondo del sito */
     color: white; /* Colore del testo principale */
     font-size: 16px; /* Impostiamo una dimensione di font base */
 }
