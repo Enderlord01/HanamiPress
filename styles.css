@@ -51,6 +51,16 @@ nav {
     width: 100%; /* Menu che occupa tutta la larghezza */
     z-index: 1; /* Il menu deve stare sotto l'header */
     display: none; /* Menu nascosto di default */
+    visibility: hidden; /* Impedisce l'interazione quando non è visibile */
+    opacity: 0; /* Menu invisibile di default */
+    transition: opacity 0.3s ease, visibility 0s 0.3s; /* Aggiunta di transizione per la visibilità e l'opacità */
+}
+
+nav.visible {
+    display: block; /* Menu visibile */
+    visibility: visible; /* Permette l'interazione */
+    opacity: 1; /* Menu visibile */
+    transition: opacity 0.3s ease, visibility 0s 0s; /* Rimuove il delay della visibilità */
 }
 
 nav ul {
@@ -76,13 +86,8 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
-/* Menu visibile quando non è hidden */
-nav:not(.hidden) {
-    display: block;
-}
-
 /* Nascondi menu di default */
-.hidden {
+nav.hidden {
     display: none;
 }
 
@@ -117,4 +122,18 @@ footer {
     width: 100%;
     bottom: 0;
     margin: 0; /* Rimuoviamo margini esterni */
+}
+
+/* Media Query per dispositivi mobili */
+@media (max-width: 768px) {
+    /* Adattamenti per il menu su schermi piccoli */
+    nav ul {
+        flex-direction: column; /* I link del menu si disporranno in verticale */
+        width: 100%;
+        align-items: center; /* Centra i link orizzontalmente */
+    }
+
+    nav ul li {
+        padding: 15px 0;
+    }
 }
