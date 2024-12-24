@@ -9,15 +9,30 @@
 <body>
     <header>
         <div class="brand">Hanami Press</div>
-        <div class="hamburger">
+        <div class="hamburger" onclick="toggleMenu()">
             <div></div>
             <div></div>
             <div></div>
         </div>
     </header>
 
+    <nav id="dropdown-menu" class="hidden">
+        <ul>
+            <li><a href="#zine">Zine</a></li>
+            <li><a href="#stampe">Stampe</a></li>
+            <li><a href="#contatti">Contatti</a></li>
+        </ul>
+    </nav>
+
     <footer>
         Hanami Press, 2025
     </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('dropdown-menu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
 </body>
 </html>
