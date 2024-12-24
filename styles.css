@@ -14,7 +14,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0px; /* Rimuoviamo il padding verticale */
+    padding: 0 20px; /* Rimuoviamo il padding verticale */
     height: 60px; /* Altezza fissa dell'header */
     z-index: 10; /* Assicura che l'header rimanga sopra il menu */
     position: relative; /* Per gestire meglio la sovrapposizione con il menu */
@@ -100,7 +100,6 @@ nav:not(.hidden) {
     justify-content: center;
     align-items: center; /* Centra il testo verticalmente */
 }
-
 
 /* Per garantire che il testo non si sovrapponga o sia troppo grande */
 .construction-section p {
