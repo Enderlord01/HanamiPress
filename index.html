@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hanami Press</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Collegamento al file CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
@@ -16,12 +16,11 @@
         </div>
     </header>
 
-    <!-- Nuova sezione "Sito in costruzione" -->
     <section class="construction-section">
         <p>Sito in costruzione.</p>
     </section>
 
-    <nav id="dropdown-menu" class="hidden">
+    <nav id="dropdown-menu">
         <ul>
             <li><a href="#zine">Zine</a></li>
             <li><a href="#stampe">Stampe</a></li>
@@ -33,11 +32,6 @@
         Hanami Press, 2025
     </footer>
 
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById('dropdown-menu');
-            menu.classList.toggle('visible'); // Cambia tra visibile e nascosto, attivando l'animazione
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
