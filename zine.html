@@ -1,1 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Hanami Press" />
+    <meta property="og:description" content="Autoproduzioni." />
+    <meta property="og:image" content="logo-hanami.png" />
+    <meta property="og:url" content="https://hanamipress.xyz" />
+    <meta property="og:type" content="website" />
+    <title>Hanami Press</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="brand">Hanami Press</div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+
+    <nav id="dropdown-menu" class="hidden">
+        <ul>
+            <li><a href="zine.html">Zine</a></li>
+            <li><a href="stampe.html">Stampe</a></li>
+            <li><a href="artisti.html">Artist*</a></li>
+            <li><a href="contatti.html">Contatti</a></li>
+        </ul>
+    </nav>
+
+    <!-- Sezione quadrata con "In arrivo" -->
+    <section class="coming-soon">
+        <p>Zine</p>
+    </section>
+
+    <footer>
+        Hanami Press, 2025
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('dropdown-menu');
+            menu.classList.toggle('hidden'); // Nasconde o mostra il menu
+        }
+    </script>
+</body>
+</html>
 
