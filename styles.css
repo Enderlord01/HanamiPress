@@ -174,10 +174,10 @@ footer {
     object-fit: cover; /* Assicura che l'immagine si adatti senza distorsioni */
 }
 
-/* Stile per dispositivi mobili */
+/* Media Query per dispositivi mobili (fino a 768px) */
 @media (max-width: 768px) {
     .container {
-        grid-template-columns: 1fr; /* Una colonna su dispositivi mobili */
+        grid-template-columns: 1fr; /* Una colonna su schermi piccoli */
         gap: 20px; /* Spazio tra i quadrati */
         padding: 0 20px; /* Aggiunge bordo di 20px ai lati */
         width: 100%; /* Larghezza piena */
@@ -195,11 +195,23 @@ footer {
     }
 }
 
-/* Media Query per dispositivi mobili */
-@media (max-width: 768px) {
+/* Media Query per dispositivi come iPad (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
     .container {
-        grid-template-columns: 1fr; /* Una colonna su schermi piccoli */
-        gap: 10px;
+        grid-template-columns: repeat(3, 1fr); /* 3 colonne su iPad */
+        gap: 20px; /* Spazio tra i quadrati */
+    }
+}
+
+/* Media Query per desktop (oltre 1024px) */
+@media (min-width: 1025px) {
+    .container {
+        grid-template-columns: repeat(5, 1fr); /* 5 colonne su desktop */
+        gap: 0; /* Nessuno spazio tra i quadrati su desktop */
+        justify-content: center; /* Centra la griglia */
+        padding: 0; /* Rimuove padding */
+        max-width: calc(5 * 330px); /* Larghezza massima della griglia su desktop */
+        margin: 0 auto; /* Centra la griglia */
     }
 }
 
