@@ -169,8 +169,8 @@ footer {
 }
 
 .circle img {
-    width: 100%;
-    height: 100%;
+    width: 100%; /* Impedisce all'immagine di sbordare */
+    height: 100%; /* Impedisce all'immagine di sbordare */
     object-fit: cover; /* Assicura che l'immagine si adatti senza distorsioni */
 }
 
