@@ -128,7 +128,7 @@ footer {
 
 .container {
     display: grid;
-    grid-template-columns: repeat(5, 200px); /* 5 colonne su desktop */
+    grid-template-columns: repeat(5, 330px); /* 5 colonne su desktop */
     gap: 20px;
     justify-content: center;
     padding: 20px;
