@@ -175,3 +175,8 @@ footer {
         gap: 10px;
     }
 }
+
+.brand {
+    text-decoration: none; /* Rimuove la sottolineatura */
+    color: white; /* Cambia il colore del testo, se necessario */
+}
