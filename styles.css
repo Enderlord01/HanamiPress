@@ -126,18 +126,23 @@ footer {
     padding: 0; /* Rimuove padding */
 }
 
+/* Griglia generale */
 .container {
     display: grid;
-    grid-template-columns: repeat(5, 330px); /* 5 colonne su desktop */
-    gap: 20px;
-    justify-content: center;
-    padding: 0px;
+    grid-template-columns: repeat(5, 1fr); /* 5 colonne su desktop */
+    gap: 0; /* Nessuno spazio tra i quadrati su desktop */
+    justify-content: center; /* Centra la griglia */
+    padding: 0; /* Rimuove padding */
+    max-width: calc(5 * 330px); /* Larghezza massima della griglia su desktop */
+    margin: 0 auto; /* Centra la griglia */
 }
 
+/* Quadrati */
 .square {
-    width: 330px;
-    height: 330px;
-    background: linear-gradient(180deg, #0000ff, #ff00ff);
+    width: 100%; /* Adatta al contenitore */
+    max-width: 330px; /* Mantieni una dimensione fissa */
+    height: 330px; /* Altezza fissa */
+    background: linear-gradient(180deg, #0000ff, #ff00ff); /* Sfondo blu e viola */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -148,24 +153,18 @@ footer {
     box-shadow: 0 0px 0px rgba(0, 0, 0, 0.0);
 }
 
-.circle {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-bottom: 10px;
-}
+/* Stile per dispositivi mobili */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr; /* Una colonna su dispositivi mobili */
+        gap: 20px; /* Spazio tra i quadrati */
+        padding: 0 20px; /* Aggiunge bordo di 20px ai lati */
+        width: 100%; /* Larghezza piena */
+    }
 
-.circle img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.name {
-    font-size: 16px;
-    font-weight: bold;
-    color: white;
+    .square {
+        margin: 0 auto; /* Centra ogni quadrato orizzontalmente */
+    }
 }
 
 /* Media Query per dispositivi mobili */
