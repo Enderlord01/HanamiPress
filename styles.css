@@ -1,4 +1,10 @@
 /* Reset base */
+*,
+*::before,
+*::after {
+    box-sizing: border-box; /* Garantisce che padding e bordi non influenzino la larghezza totale */
+}
+
 html, body {
     margin: 0;
     font-family: 'Helvetica', sans-serif;
@@ -160,6 +166,7 @@ footer {
         gap: 20px; /* Spazio tra i quadrati */
         padding: 0 20px; /* Aggiunge bordo di 20px ai lati */
         width: 100%; /* Larghezza piena */
+        max-width: 100%; /* Limita la larghezza della griglia su mobile */
     }
 
     .square {
