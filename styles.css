@@ -139,15 +139,15 @@ footer {
     gap: 0; /* Nessuno spazio tra i quadrati su desktop */
     justify-content: center; /* Centra la griglia */
     padding: 0; /* Rimuove padding */
-    max-width: calc(5 * 330px); /* Larghezza massima della griglia su desktop */
+    max-width: calc(5 * 340px); /* Larghezza massima della griglia su desktop */
     margin: 0 auto; /* Centra la griglia */
 }
 
 /* Quadrato con immagine rotonda */
 .square {
     width: 100%; /* Adatta al contenitore */
-    max-width: 330px; /* Mantieni una dimensione fissa */
-    height: 330px; /* Altezza fissa */
+    max-width: 340px; /* Mantieni una dimensione fissa */
+    height: 340px; /* Altezza fissa */
     background: linear-gradient(180deg, #0000ff, #ff00ff); /* Sfondo blu e viola */
     display: flex;
     flex-direction: column;
