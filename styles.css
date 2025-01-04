@@ -220,18 +220,22 @@ footer {
     color: white; /* Cambia il colore del testo, se necessario */
 }
 
-/* Stile per l'icona Instagram a sinistra del nome */
+/* Stile per il rettangolo attorno al nome con angoli stondati */
 .name a {
     text-decoration: none;
     color: white; /* Colore bianco per il testo */
-    font-weight: bold;
-    display: flex; /* Usa flexbox per allineare l'icona e il nome */
-    align-items: center; /* Allinea verticalmente l'icona e il nome */
-    gap: 8px; /* Distanza tra l'icona e il nome */
+    font-size: 16px; /* Impostiamo la dimensione del testo a 16px */
+    font-weight: normal; /* Impostiamo il peso del font a regular (normale) */
+    display: inline-block; /* Display inline-block per il rettangolo */
+    padding: 8px 12px; /* Aggiunge spazio attorno al testo */
+    background-color: rgba(0, 0, 0, 0.1); /* Nero con opacità al 10% */
+    border-radius: 12px; /* Angoli stondati */
+    transition: background-color 0.3s ease; /* Transizione per l'hover */
 }
 
-.name a i {
-    font-size: 20px; /* Imposta la dimensione dell'icona */
+/* Hover: cambia il colore di sfondo su hover */
+.name a:hover {
+    background-color: rgba(0, 0, 0, 0.2); /* Opacità al 20% al passaggio del mouse */
 }
 
 /* Hover: Mantieni il colore bianco e rimuovi la sottolineatura */
@@ -242,4 +246,10 @@ footer {
 
 .name a:hover i {
     color: white; /* Cambia il colore dell'icona al passaggio del mouse */
+}
+
+/* Icona Instagram */
+.name a i {
+    font-size: 20px; /* Imposta la dimensione dell'icona */
+    margin-right: 8px; /* Aggiunge distanza tra l'icona e il nome */
 }
