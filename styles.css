@@ -219,3 +219,15 @@ footer {
     text-decoration: none; /* Rimuove la sottolineatura */
     color: white; /* Cambia il colore del testo, se necessario */
 }
+
+/* Rimuovi la sottolineatura dai link e imposta il colore del testo su bianco */
+.name a {
+    text-decoration: none;  /* Rimuove la sottolineatura */
+    color: white;           /* Imposta il colore del testo su bianco */
+}
+
+/* Se vuoi aggiungere un effetto hover (quando l'utente passa il mouse sul nome) */
+.name a:hover {
+    color: white;           /* Mantieni il colore bianco anche al passaggio del mouse */
+    text-decoration: none;  /* Rimuovi la sottolineatura anche al passaggio del mouse */
+}
