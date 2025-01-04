@@ -220,14 +220,26 @@ footer {
     color: white; /* Cambia il colore del testo, se necessario */
 }
 
-/* Rimuovi la sottolineatura dai link e imposta il colore del testo su bianco */
+/* Stile per l'icona Instagram a sinistra del nome */
 .name a {
-    text-decoration: none;  /* Rimuove la sottolineatura */
-    color: white;           /* Imposta il colore del testo su bianco */
+    text-decoration: none;
+    color: white; /* Colore bianco per il testo */
+    font-weight: bold;
+    display: flex; /* Usa flexbox per allineare l'icona e il nome */
+    align-items: center; /* Allinea verticalmente l'icona e il nome */
+    gap: 8px; /* Distanza tra l'icona e il nome */
 }
 
-/* Se vuoi aggiungere un effetto hover (quando l'utente passa il mouse sul nome) */
+.name a i {
+    font-size: 20px; /* Imposta la dimensione dell'icona */
+}
+
+/* Hover: Mantieni il colore bianco e rimuovi la sottolineatura */
 .name a:hover {
-    color: white;           /* Mantieni il colore bianco anche al passaggio del mouse */
-    text-decoration: none;  /* Rimuovi la sottolineatura anche al passaggio del mouse */
+    color: white;
+    text-decoration: none;
+}
+
+.name a:hover i {
+    color: white; /* Cambia il colore dell'icona al passaggio del mouse */
 }
