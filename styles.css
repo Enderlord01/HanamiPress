@@ -121,7 +121,7 @@ footer {
 .coming-soon {
     background-color: #0000ff; /* Sfondo blu */
     color: white; /* Colore del testo */
-    text-align: center; /* Testo centrato orizzontalmente */
+    text-align: space-between; /* Testo centrato orizzontalmente */
     font-size: 32px; /* Dimensione del testo */
     width: 100%; /* Larghezza completa */
     height: 300px; /* Altezza fissa per ottenere un quadrato */
