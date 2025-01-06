@@ -2,17 +2,17 @@
 *,
 *::before,
 *::after {
-    box-sizing: border-box; /* Garantisce che padding e bordi non influenzino la larghezza totale */
+    box-sizing: border-box;
 }
 
 html, body {
     margin: 0;
     font-family: 'Helvetica', sans-serif;
-    background-color: var(--background-color); /* Usa la variabile per il colore di sfondo */
-    color: var(--text-color); /* Usa la variabile per il colore del testo */
+    background-color: var(--background-color);
+    color: var(--text-color);
     font-size: 32px;
-    overflow-x: hidden; /* Disabilita lo scorrimento orizzontale */
-    transition: background-color 0.5s ease, color 0.5s ease; /* Transizione per cambiamento di colore */
+    overflow-x: hidden;
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 /* Definizione delle variabili CSS */
@@ -20,13 +20,19 @@ html, body {
     --main-color: #ff00ff; /* Colore principale */
     --background-color: #ff00ff; /* Colore di sfondo iniziale */
     --text-color: white; /* Colore del testo */
-    --border-color: #000000; /* Colore dei bordi */
+    --dark-background-color: #000000; /* Colore di sfondo per la modalità scura */
+    --dark-text-color: white; /* Colore del testo per la modalità scura */
 }
 
-/* Header */
+/* Modalità scura (dark-mode) */
+body.dark-mode {
+    --background-color: var(--dark-background-color);
+    --text-color: var(--dark-text-color);
+}
+
 header {
-    background-color: var(--main-color); /* Usa la variabile per il colore di sfondo */
-    color: var(--text-color); /* Colore del testo */
+    background-color: var(--main-color);
+    color: var(--text-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -41,8 +47,8 @@ header {
     font-size: 32px;
     font-weight: normal;
     text-align: left;
-    text-decoration: none; /* Rimuove la sottolineatura */
-    color: var(--text-color); /* Colore del logo */
+    text-decoration: none;
+    color: var(--text-color);
 }
 
 /* Hamburger */
@@ -56,17 +62,17 @@ header {
 .hamburger div {
     width: 30px;
     height: 4px;
-    background-color: var(--text-color); /* Colore del menu hamburger */
+    background-color: var(--text-color);
 }
 
 /* Menu */
 nav {
-    background-color: var(--main-color); /* Colore di sfondo del menu */
+    background-color: var(--main-color);
     position: absolute;
     top: 60px;
     left: 0;
     width: 100%;
-    display: none; /* Menu nascosto di default */
+    display: none;
 }
 
 nav ul {
@@ -81,7 +87,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: var(--text-color); /* Colore dei link nel menu */
+    color: var(--text-color);
     text-decoration: none;
     font-size: 16px;
 }
@@ -92,137 +98,11 @@ nav ul li a:hover {
 
 /* Menu visibile */
 nav.hidden {
-    display: none; /* Nasconde il menu */
+    display: none;
 }
 
 nav:not(.hidden) {
-    display: block; /* Mostra il menu */
-}
-
-/* Sezione in costruzione */
-.construction-section {
-    background-color: #0000ff;
-    color: var(--text-color);
-    text-align: space-between;
-    font-size: 32px;
-    padding: 20px;
-    width: 100%;
-    height: 300px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* Footer */
-footer {
-    background-color: var(--main-color); /* Sfondo del footer */
-    color: var(--text-color); /* Colore del testo */
-    text-align: center; /* Testo centrato orizzontalmente */
-    font-size: 16px; /* Dimensione del testo */
-    height: 60px; /* Altezza fissa del footer */
-    position: fixed; /* Fissato in basso alla pagina */
-    width: 100%; /* Occupa tutta la larghezza */
-    bottom: 0; /* Posizionato in fondo */
-    display: flex; /* Abilita Flexbox */
-    justify-content: center; /* Centra orizzontalmente */
-    align-items: center; /* Centra verticalmente */
-}
-
-/* Sezione "In arrivo" */
-.coming-soon {
-    background-color: #0000ff; /* Sfondo blu */
-    color: var(--text-color);
-    text-align: space-between;
-    font-size: 32px;
-    width: 100%;
-    height: 300px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0;
-    padding: 20px;
-}
-
-/* Griglia generale */
-.container {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 0;
-    justify-content: center;
-    padding: 0;
-    max-width: calc(5 * 360px);
-    margin: 0 auto;
-}
-
-/* Quadrato con immagine rotonda */
-.square {
-    width: 100%;
-    max-width: 360px;
-    height: 360px;
-    background: linear-gradient(180deg, #0000ff, #ff00ff);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    border-radius: 0px;
-    padding: 10px;
-    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.0);
-}
-
-/* Cerchio */
-.circle {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-bottom: 10px;
-}
-
-.circle img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Media Query per dispositivi mobili (fino a 768px) */
-@media (max-width: 768px) {
-    .container {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 0 20px;
-        width: 100%;
-        max-width: 100%;
-    }
-
-    .square {
-        margin: 0 auto;
-    }
-
-    .circle {
-        width: 150px;
-        height: 150px;
-    }
-}
-
-/* Media Query per dispositivi come iPad (769px - 1024px) */
-@media (min-width: 769px) and (max-width: 1024px) {
-    .container {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-    }
-}
-
-/* Media Query per desktop (oltre 1024px) */
-@media (min-width: 1025px) {
-    .container {
-        grid-template-columns: repeat(5, 1fr);
-        gap: 0;
-        justify-content: center;
-        padding: 0;
-        max-width: calc(5 * 330px);
-        margin: 0 auto;
-    }
+    display: block;
 }
 
 /* Pulsante di cambio colore (switch) */
@@ -272,8 +152,48 @@ footer {
     background-color: #e600e6;
 }
 
-/* Transizione fluida per il cambio di colore di sfondo */
-body {
-    transition: background-color 0.5s ease;
+/* Sezione in costruzione */
+.coming-soon {
+    background-color: #0000ff;
+    color: var(--text-color);
+    text-align: space-between;
+    font-size: 32px;
+    padding: 20px;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+
+/* Footer */
+footer {
+    background-color: var(--main-color);
+    color: var(--text-color);
+    text-align: center;
+    font-size: 16px;
+    height: 60px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Sezione "In arrivo" */
+.coming-soon {
+    background-color: #0000ff;
+    color: var(--text-color);
+    text-align: space-between;
+    font-size: 32px;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+}
+
 
