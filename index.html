@@ -15,14 +15,10 @@
 <body>
     <header>
         <a href="https://hanamipress.xyz" class="brand">Hanami Press</a>
-        <div class="menu-container">
-            <div class="hamburger" onclick="toggleMenu()">
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <!-- Pulsante per cambiare colore -->
-            <div id="bg-toggle-btn" onclick="toggleBackgroundColor()"></div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
     </header>
 
@@ -44,8 +40,12 @@
         Hanami Press, 2025
     </footer>
 
-    <!-- Aggiungiamo il JavaScript -->
-    <script src="script.js"></script>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('dropdown-menu');
+            menu.classList.toggle('hidden'); // Nasconde o mostra il menu
+        }
+    </script>
 </body>
 </html>
 
