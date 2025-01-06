@@ -2,7 +2,7 @@
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+    box-sizing: border-box; /* Garantisce che padding e bordi non influenzino la larghezza totale */
 }
 
 html, body {
@@ -11,8 +11,7 @@ html, body {
     background-color: #ff00ff;
     color: white;
     font-size: 32px;
-    overflow-x: hidden;
-    transition: background-color 0.5s ease;
+    overflow-x: hidden; /* Disabilita lo scorrimento orizzontale */
 }
 
 /* Header */
@@ -56,7 +55,7 @@ nav {
     top: 60px;
     left: 0;
     width: 100%;
-    display: none;
+    display: none; /* Menu nascosto di default */
 }
 
 nav ul {
@@ -82,15 +81,15 @@ nav ul li a:hover {
 
 /* Menu visibile */
 nav.hidden {
-    display: none;
+    display: none; /* Nasconde il menu */
 }
 
 nav:not(.hidden) {
-    display: block;
+    display: block; /* Mostra il menu */
 }
 
-/* Sezione "In arrivo" */
-.coming-soon {
+/* Sezione in costruzione */
+.construction-section {
     background-color: #0000ff;
     color: white;
     text-align: space-between;
@@ -105,103 +104,111 @@ nav:not(.hidden) {
 
 /* Footer */
 footer {
-    background-color: #ff00ff;
-    color: white;
-    text-align: center;
-    font-size: 16px;
-    height: 60px;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+    background-color: #ff00ff; /* Sfondo del footer */
+    color: white; /* Colore del testo */
+    text-align: center; /* Testo centrato orizzontalmente */
+    font-size: 16px; /* Dimensione del testo */
+    height: 60px; /* Altezza fissa del footer */
+    position: fixed; /* Fissato in basso alla pagina */
+    width: 100%; /* Occupa tutta la larghezza */
+    bottom: 0; /* Posizionato in fondo */
+    display: flex; /* Abilita Flexbox */
+    justify-content: center; /* Centra orizzontalmente */
+    align-items: center; /* Centra verticalmente */
+}
+
+/* Sezione "In arrivo" */
+.coming-soon {
+    background-color: #0000ff; /* Sfondo blu */
+    color: white; /* Colore del testo */
+    text-align: space-between; /* Testo centrato orizzontalmente */
+    font-size: 32px; /* Dimensione del testo */
+    width: 100%; /* Larghezza completa */
+    height: 300px; /* Altezza fissa per ottenere un quadrato */
+    display: flex; /* Abilita il Flexbox */
+    justify-content: space-between; /* Centra il contenuto orizzontalmente */
+    align-items: center; /* Centra il contenuto verticalmente */
+    margin: 0; /* Rimuove margini esterni */
+    padding: 20px; /* Rimuove padding */
+}
+
+/* Griglia generale */
+.container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 colonne su desktop */
+    gap: 0; /* Nessuno spazio tra i quadrati su desktop */
+    justify-content: center; /* Centra la griglia */
+    padding: 0; /* Rimuove padding */
+    max-width: calc(5 * 360px); /* Larghezza massima della griglia su desktop */
+    margin: 0 auto; /* Centra la griglia */
+}
+
+/* Quadrato con immagine rotonda */
+.square {
+    width: 100%; /* Adatta al contenitore */
+    max-width: 360px; /* Mantieni una dimensione fissa */
+    height: 360px; /* Altezza fissa */
+    background: linear-gradient(180deg, #0000ff, #ff00ff); /* Sfondo blu e viola */
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    align-items: center;
+    text-align: center;
+    border-radius: 0px;
+    padding: 10px;
+    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.0);
 }
 
-/* Modalità scura (dark-mode) */
-body.dark-mode {
-    background-color: #000000;
-    color: white;
+/* Cerchio */
+.circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%; /* Crea il cerchio */
+    overflow: hidden; /* Nasconde la parte dell'immagine che sborda */
+    margin-bottom: 10px;
 }
 
-/* Menu hamburger e pulsante di cambio colore */
-.menu-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-/* Pulsante switch per il cambio colore */
-#bg-toggle-btn {
-    width: 40px;
-    height: 20px;
-    background-color: #ff00ff;
-    border-radius: 50px;
-    position: relative;
-    cursor: pointer;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-/* L'indicatore del pulsante switch */
-#bg-toggle-btn:before {
-    content: '';
-    width: 16px;
-    height: 16px;
-    background-color: #fff;
-    border-radius: 50%;
-    position: absolute;
-    top: 2px;
-    transition: transform 0.3s ease;
-}
-
-/* Quando il pulsante è attivo */
-#bg-toggle-btn.active {
-    background-color: #000000;
-}
-
-#bg-toggle-btn.active:before {
-    transform: translateX(20px);
-}
-
-/* Hover sul pulsante */
-#bg-toggle-btn:hover {
-    background-color: #e600e6;
+.circle img {
+    width: 100%; /* Impedisce all'immagine di sbordare */
+    height: 100%; /* Impedisce all'immagine di sbordare */
+    object-fit: cover; /* Assicura che l'immagine si adatti senza distorsioni */
 }
 
 /* Media Query per dispositivi mobili (fino a 768px) */
 @media (max-width: 768px) {
     .container {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 0 20px;
-        width: 100%;
+        grid-template-columns: 1fr; /* Una colonna su schermi piccoli */
+        gap: 20px; /* Spazio tra i quadrati */
+        padding: 0 20px; /* Aggiunge bordo di 20px ai lati */
+        width: 100%; /* Larghezza piena */
+        max-width: 100%; /* Limita la larghezza della griglia su mobile */
     }
+
     .square {
-        margin: 0 auto;
+        margin: 0 auto; /* Centra ogni quadrato orizzontalmente */
+    }
+
+    /* Riduzione delle dimensioni dei cerchi su mobile */
+    .circle {
+        width: 150px; /* Riduce la dimensione del cerchio su mobile */
+        height: 150px;
     }
 }
 
 /* Media Query per dispositivi come iPad (769px - 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
     .container {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
+        grid-template-columns: repeat(3, 1fr); /* 3 colonne su iPad */
+        gap: 20px; /* Spazio tra i quadrati */
     }
 }
 
 /* Media Query per desktop (oltre 1024px) */
 @media (min-width: 1025px) {
     .container {
-        grid-template-columns: repeat(5, 1fr);
-        gap: 0;
-        justify-content: center;
-        padding: 0;
+        grid-template-columns: repeat(5, 1fr); /* 5 colonne su desktop */
+        gap: 0; /* Nessun spazio tra i quadrati */
+        justify-content: center; /* Centra la griglia */
+        padding: 0; /* Rimuove il padding */
     }
 }
-
-
-
