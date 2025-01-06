@@ -8,7 +8,6 @@
     <meta property="og:image" content="logo-hanami.png" />
     <meta property="og:url" content="https://hanamipress.xyz" />
     <meta property="og:type" content="website" />
-    <meta name="description" content="Hanami Press è una micro casa editrice di autoproduzioni e stampe risograph dal lieve retrogusto nipponico.">
     <title>Hanami Press</title>
     <link rel="icon" type="image/x-icon" href="favicon.png">
     <link rel="stylesheet" href="styles.css">
@@ -17,12 +16,15 @@
     <header>
         <a href="https://hanamipress.xyz" class="brand">Hanami Press</a>
         <div class="menu-container">
-            <div class="hamburger" onclick="toggleMenu()" aria-expanded="false" aria-controls="dropdown-menu">
+            <!-- Hamburger -->
+            <div class="hamburger" onclick="toggleMenu()">
                 <div></div>
                 <div></div>
                 <div></div>
             </div>
-            <button id="bg-toggle-btn" onclick="toggleBackground()"> </button> <!-- Pulsante switch -->
+
+            <!-- Pulsante di cambio colore -->
+            <button id="bg-toggle-btn" onclick="toggleBackgroundColor()"></button>
         </div>
     </header>
 
@@ -44,32 +46,28 @@
     </footer>
 
     <script>
+        // Funzione per togglare il menu hamburger
         function toggleMenu() {
             const menu = document.getElementById('dropdown-menu');
-            const hamburger = document.querySelector('.hamburger');
-            
             menu.classList.toggle('hidden');
-            const isExpanded = !menu.classList.contains('hidden');
-            hamburger.setAttribute('aria-expanded', isExpanded);
         }
 
-        function toggleBackground() {
+        // Funzione per togglare il colore di sfondo
+        function toggleBackgroundColor() {
+            const body = document.body;
             const btn = document.getElementById('bg-toggle-btn');
-            btn.classList.toggle('active'); // Cambia lo stato dello switch
+            const isActive = body.classList.contains('dark-mode');
 
-            // Modifica le variabili CSS
-            if (btn.classList.contains('active')) {
-                document.documentElement.style.setProperty('--main-color', '#000000');
-                document.documentElement.style.setProperty('--background-color', '#000000');
-                document.documentElement.style.setProperty('--text-color', '#ffffff');
-                document.documentElement.style.setProperty('--border-color', '#ffffff');
+            // Se il body ha la classe 'dark-mode', passiamo alla modalità light
+            if (isActive) {
+                body.classList.remove('dark-mode');
+                btn.classList.remove('active');
             } else {
-                document.documentElement.style.setProperty('--main-color', '#ff00ff');
-                document.documentElement.style.setProperty('--background-color', '#ffffff');
-                document.documentElement.style.setProperty('--text-color', '#000000');
-                document.documentElement.style.setProperty('--border-color', '#000000');
+                body.classList.add('dark-mode');
+                btn.classList.add('active');
             }
         }
     </script>
 </body>
 </html>
+
