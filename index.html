@@ -22,7 +22,7 @@
                 <div></div>
                 <div></div>
             </div>
-            <button id="bg-toggle-btn" onclick="toggleBackground()">Cambia Colore</button>
+            <button id="bg-toggle-btn" onclick="toggleBackground()"> </button> <!-- Pulsante switch -->
         </div>
     </header>
 
@@ -54,15 +54,22 @@
         }
 
         function toggleBackground() {
-            const currentBgColor = document.body.style.backgroundColor;
-            
-            if (currentBgColor === 'rgb(0, 0, 0)') {
-                document.body.style.backgroundColor = '#ff00ff'; // Imposta lo sfondo su #ff00ff
+            const btn = document.getElementById('bg-toggle-btn');
+            btn.classList.toggle('active'); // Cambia lo stato dello switch
+
+            // Modifica le variabili CSS
+            if (btn.classList.contains('active')) {
+                document.documentElement.style.setProperty('--main-color', '#000000');
+                document.documentElement.style.setProperty('--background-color', '#000000');
+                document.documentElement.style.setProperty('--text-color', '#ffffff');
+                document.documentElement.style.setProperty('--border-color', '#ffffff');
             } else {
-                document.body.style.backgroundColor = '#000000'; // Imposta lo sfondo su #000000
+                document.documentElement.style.setProperty('--main-color', '#ff00ff');
+                document.documentElement.style.setProperty('--background-color', '#ffffff');
+                document.documentElement.style.setProperty('--text-color', '#000000');
+                document.documentElement.style.setProperty('--border-color', '#000000');
             }
         }
     </script>
 </body>
 </html>
-
