@@ -207,8 +207,49 @@ footer {
 @media (min-width: 1025px) {
     .container {
         grid-template-columns: repeat(5, 1fr); /* 5 colonne su desktop */
-        gap: 0; /* Nessun spazio tra i quadrati */
+        gap: 0; /* Nessuno spazio tra i quadrati su desktop */
         justify-content: center; /* Centra la griglia */
-        padding: 0; /* Rimuove il padding */
+        padding: 0; /* Rimuove padding */
+        max-width: calc(5 * 330px); /* Larghezza massima della griglia su desktop */
+        margin: 0 auto; /* Centra la griglia */
     }
+}
+
+.brand {
+    text-decoration: none; /* Rimuove la sottolineatura */
+    color: white; /* Cambia il colore del testo, se necessario */
+}
+
+/* Stile per il rettangolo attorno al nome con angoli stondati */
+.name a {
+    text-decoration: none;
+    color: white; /* Colore bianco per il testo */
+    font-size: 16px; /* Impostiamo la dimensione del testo a 16px */
+    font-weight: normal; /* Impostiamo il peso del font a regular (normale) */
+    display: inline-block; /* Display inline-block per il rettangolo */
+    padding: 8px 12px; /* Aggiunge spazio attorno al testo */
+    background-color: rgba(0, 0, 0, 0.1); /* Nero con opacità al 10% */
+    border-radius: 12px; /* Angoli stondati */
+    transition: background-color 0.3s ease; /* Transizione per l'hover */
+}
+
+/* Hover: cambia il colore di sfondo su hover */
+.name a:hover {
+    background-color: rgba(0, 0, 0, 0.2); /* Opacità al 20% al passaggio del mouse */
+}
+
+/* Hover: Mantieni il colore bianco e rimuovi la sottolineatura */
+.name a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.name a:hover i {
+    color: white; /* Cambia il colore dell'icona al passaggio del mouse */
+}
+
+/* Icona Instagram */
+.name a i {
+    font-size: 20px; /* Imposta la dimensione dell'icona */
+    margin-right: 8px; /* Aggiunge distanza tra l'icona e il nome */
 }
