@@ -8,19 +8,21 @@
     <meta property="og:image" content="logo-hanami.png" />
     <meta property="og:url" content="https://hanamipress.xyz" />
     <meta property="og:type" content="website" />
+    <meta name="description" content="Hanami Press è una micro casa editrice di autoproduzioni e stampe risograph dal lieve retrogusto nipponico.">
     <title>Hanami Press</title>
     <link rel="icon" type="image/x-icon" href="favicon.png">
     <link rel="stylesheet" href="styles.css">
-    <head>
-    <meta name="description" content="Hanami Press è una micro casa editrice di autoproduzioni e stampe risograph dal lieve retrogusto nipponico.">
 </head>
 <body>
     <header>
         <a href="https://hanamipress.xyz" class="brand">Hanami Press</a>
-        <div class="hamburger" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
+        <div class="menu-container">
+            <div class="hamburger" onclick="toggleMenu()" aria-expanded="false" aria-controls="dropdown-menu">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <button id="bg-toggle-btn" onclick="toggleBackground()">Cambia Colore</button>
         </div>
     </header>
 
@@ -33,7 +35,6 @@
         </ul>
     </nav>
 
-    <!-- Sezione quadrata con "In arrivo" -->
     <section class="coming-soon">
         <p>Hanami Press è una micro casa editrice che produce zine, stampe e piccoli oggetti, alla ricerca dei migliori materiali e dei migliori talenti.</p>
     </section>
@@ -45,8 +46,23 @@
     <script>
         function toggleMenu() {
             const menu = document.getElementById('dropdown-menu');
-            menu.classList.toggle('hidden'); // Nasconde o mostra il menu
+            const hamburger = document.querySelector('.hamburger');
+            
+            menu.classList.toggle('hidden');
+            const isExpanded = !menu.classList.contains('hidden');
+            hamburger.setAttribute('aria-expanded', isExpanded);
+        }
+
+        function toggleBackground() {
+            const currentBgColor = document.body.style.backgroundColor;
+            
+            if (currentBgColor === 'rgb(0, 0, 0)') {
+                document.body.style.backgroundColor = '#ff00ff'; // Imposta lo sfondo su #ff00ff
+            } else {
+                document.body.style.backgroundColor = '#000000'; // Imposta lo sfondo su #000000
+            }
         }
     </script>
 </body>
 </html>
+
