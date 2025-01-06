@@ -253,3 +253,30 @@ footer {
     font-size: 20px; /* Imposta la dimensione dell'icona */
     margin-right: 8px; /* Aggiunge distanza tra l'icona e il nome */
 }
+/* Allinea il menu hamburger e il pulsante di cambio colore */
+.menu-container {
+    display: flex;
+    align-items: center; /* Allinea verticalmente gli elementi */
+    gap: 10px; /* Distanza tra hamburger e pulsante */
+}
+
+/* Stile del pulsante di cambio colore */
+#bg-toggle-btn {
+    background-color: #ff00ff; /* Colore iniziale del pulsante */
+    color: white; /* Colore del testo */
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 5px;
+}
+
+/* Effetto hover sul pulsante */
+#bg-toggle-btn:hover {
+    background-color: #e600e6; /* Colore al passaggio del mouse */
+}
+
+/* Transizione fluida per il cambio di colore di sfondo */
+body {
+    transition: background-color 0.5s ease;
+}
