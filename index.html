@@ -16,15 +16,13 @@
     <header>
         <a href="https://hanamipress.xyz" class="brand">Hanami Press</a>
         <div class="menu-container">
-            <!-- Hamburger -->
             <div class="hamburger" onclick="toggleMenu()">
                 <div></div>
                 <div></div>
                 <div></div>
             </div>
-
-            <!-- Pulsante di cambio colore -->
-            <button id="bg-toggle-btn" onclick="toggleBackgroundColor()"></button>
+            <!-- Pulsante per cambiare colore -->
+            <div id="bg-toggle-btn" onclick="toggleBackgroundColor()"></div>
         </div>
     </header>
 
@@ -37,37 +35,18 @@
         </ul>
     </nav>
 
+    <!-- Sezione quadrata con "In arrivo" -->
     <section class="coming-soon">
         <p>Hanami Press è una micro casa editrice che produce zine, stampe e piccoli oggetti, alla ricerca dei migliori materiali e dei migliori talenti.</p>
     </section>
-   
+
     <footer>
         Hanami Press, 2025
     </footer>
 
-    <script>
-        // Funzione per togglare il menu hamburger
-        function toggleMenu() {
-            const menu = document.getElementById('dropdown-menu');
-            menu.classList.toggle('hidden');
-        }
-
-        // Funzione per togglare il colore di sfondo
-        function toggleBackgroundColor() {
-            const body = document.body;
-            const btn = document.getElementById('bg-toggle-btn');
-            const isActive = body.classList.contains('dark-mode');
-
-            // Se il body ha la classe 'dark-mode', passiamo alla modalità light
-            if (isActive) {
-                body.classList.remove('dark-mode');
-                btn.classList.remove('active');
-            } else {
-                body.classList.add('dark-mode');
-                btn.classList.add('active');
-            }
-        }
-    </script>
+    <!-- Aggiungiamo il JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
+
 
