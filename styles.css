@@ -253,22 +253,3 @@ footer {
     font-size: 20px; /* Imposta la dimensione dell'icona */
     margin-right: 8px; /* Aggiunge distanza tra l'icona e il nome */
 }
-
-/* Stile del footer su dispositivi mobili */
-@media (max-width: 768px) {
-    footer ul {
-        display: flex;
-        flex-direction: column; /* Dispone i link uno sotto l'altro */
-        align-items: flex-start; /* Allinea i link a sinistra */
-        padding: 0 20px; /* Aggiunge spazio laterale */
-    }
-
-    footer ul li {
-        margin-bottom: 10px; /* Aggiunge spazio tra i link */
-    }
-
-    footer ul li a {
-        font-size: 14px; /* Riduce leggermente la dimensione del testo su mobile */
-        text-align: left; /* Assicura l'allineamento a sinistra */
-    }
-}
