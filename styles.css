@@ -16,7 +16,7 @@ html, body {
 
 /* Header */
 header {
-    background: linear-gradient(to bottom, #0000ff, transparent); /* Sfumatura da magenta a trasparente */
+    background: #ff00ff
     color: white;
     display: flex;
     justify-content: space-between;
