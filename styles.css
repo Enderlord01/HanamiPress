@@ -107,7 +107,7 @@ footer {
     display: flex; /* Imposta il layout Flexbox */
     justify-content: space-between; /* Spaziatura tra gli elementi */
     align-items: center; /* Allinea verticalmente */
-    background-color: #0000ff; /* Sfondo del footer */
+    background-color: linear-gradient(to right, #0000ff , #ff00ff); /* Sfondo del footer */
     color: white; /* Colore del testo */
     padding: 10px 20px; /* Spazio interno */
     font-size: 16px; /* Dimensione del testo */
