@@ -104,18 +104,28 @@ nav:not(.hidden) {
 
 /* Footer */
 footer {
+    display: flex; /* Imposta il layout Flexbox */
+    justify-content: space-between; /* Spaziatura tra gli elementi */
+    align-items: center; /* Allinea verticalmente */
     background-color: #0000ff; /* Sfondo del footer */
     color: white; /* Colore del testo */
-    text-align: center; /* Testo centrato */
-    padding: 20px;
+    padding: 10px 20px; /* Spazio interno */
     font-size: 16px; /* Dimensione del testo */
-    height: 60px; /* Altezza fissa del footer */
-    position: fixed; /* Fissato in basso alla pagina */
+    height: 60px; /* Altezza fissa */
+    position: fixed; /* Rimane fisso in fondo */
     width: 100%; /* Occupa tutta la larghezza */
-    bottom: 0; /* Posizionato in fondo */
-    display: flex; /* Abilita Flexbox */
-    justify-content: center; /* Centra orizzontalmente */
-    align-items: center; /* Centra verticalmente */
+    bottom: 0; /* Ancorato in fondo */
+}
+
+footer .instagram-icon {
+    font-size: 24px; /* Dimensione dell'icona */
+    color: white; /* Colore dell'icona */
+    text-decoration: none; /* Rimuove la sottolineatura */
+    transition: color 0.3s ease; /* Animazione su hover */
+}
+
+footer .instagram-icon:hover {
+    color: #ff00ff; /* Cambia il colore dell'icona su hover */
 }
 
 /* Sezione "In arrivo" */
