@@ -124,7 +124,7 @@ footer {
     text-align: space-between; /* Testo centrato orizzontalmente */
     font-size: 32px; /* Dimensione del testo */
     width: 100%; /* Larghezza completa */
-    height: 300px; /* Altezza fissa per ottenere un quadrato */
+    height: 400px; /* Altezza fissa per ottenere un quadrato */
     display: flex; /* Abilita il Flexbox */
     justify-content: space-between; /* Centra il contenuto orizzontalmente */
     align-items: center; /* Centra il contenuto verticalmente */
