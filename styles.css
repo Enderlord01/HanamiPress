@@ -106,7 +106,7 @@ nav:not(.hidden) {
 footer {
     background-color: #0000ff; /* Sfondo del footer */
     color: white; /* Colore del testo */
-    text-align: left; /* Testo centrato a sinistra */
+    text-align: center; /* Testo centrato */
     padding: 20px;
     font-size: 16px; /* Dimensione del testo */
     height: 60px; /* Altezza fissa del footer */
