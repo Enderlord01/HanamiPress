@@ -8,7 +8,7 @@
 html, body {
     margin: 0;
     font-family: 'Helvetica', sans-serif;
-    background-color: #cd00cd;
+    background-color: #ff00ff;
     color: white;
     font-size: 32px;
     overflow-x: hidden; /* Disabilita lo scorrimento orizzontale */
@@ -16,7 +16,7 @@ html, body {
 
 /* Header */
 header {
-    background: #cd00cd
+    background: #ff00ff
     color: white;
     display: flex;
     justify-content: space-between;
@@ -107,7 +107,7 @@ footer {
     display: flex; /* Imposta il layout Flexbox */
     justify-content: space-between; /* Spaziatura tra gli elementi */
     align-items: center; /* Allinea verticalmente */
-    background-image: linear-gradient(to right, #0000ff , #cd00cd); /* Sfondo del footer */
+    background-image: linear-gradient(to right, #0000ff , #ff00ff); /* Sfondo del footer */
     color: white; /* Colore del testo */
     padding: 10px 20px; /* Spazio interno */
     font-size: 16px; /* Dimensione del testo */
@@ -159,7 +159,7 @@ footer .instagram-icon:hover {
     width: 100%; /* Adatta al contenitore */
     max-width: 360px; /* Mantieni una dimensione fissa */
     height: 360px; /* Altezza fissa */
-    background: linear-gradient(180deg, #0000ff, #cd00cd); /* Sfondo blu e viola */
+    background: linear-gradient(180deg, #0000ff, #ff00ff); /* Sfondo blu e viola */
     display: flex;
     flex-direction: column;
     align-items: center;
