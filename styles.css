@@ -270,6 +270,7 @@ footer .instagram-icon:hover {
     padding: 20px;
     color: white;
     text-align: left;
+    margin-bottom: 20px; /* Distanza tra le sezioni */
 }
 
 .carousel-container {
