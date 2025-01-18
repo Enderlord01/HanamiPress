@@ -332,6 +332,7 @@ footer .instagram-icon:hover {
     background-color: #ffcc00;
     color: #0000ff;
     font-size: 32px;  /* Aumentato la dimensione del testo */
+    font-family: Helvetica, sans-serif; /* Font Helvetica */
     border: none;
     border-radius: 20px;
     cursor: pointer;
