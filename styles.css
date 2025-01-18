@@ -264,3 +264,61 @@ footer .instagram-icon:hover {
     font-size: 20px; /* Imposta la dimensione dell'icona */
     margin-right: 8px; /* Aggiunge distanza tra l'icona e il nome */
 }
+
+.carousel-section {
+    background-color: #0000ff;
+    padding: 20px;
+    color: white;
+    text-align: center;
+}
+
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel img {
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.carousel-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.carousel-controls button {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.carousel-controls button:hover {
+    background: rgba(255, 255, 255, 0.8);
+    color: black;
+}
+
+.info {
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.info p strong {
+    font-weight: bold;
+}
