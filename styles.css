@@ -58,7 +58,7 @@ header {
 
 /* Menu */
 nav {
-    background-image: linear-gradient(rgba(255,0,255,0), rgba(255,0,255,1));
+    background-image: linear-gradient(rgba(255,0,255,1), rgba(255,0,255,1), rgba(255,0,255,0));
     position: absolute;
     top: 60px;
     left: 0;
