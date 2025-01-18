@@ -329,12 +329,12 @@ footer .instagram-icon:hover {
     display: block;  /* Rende il pulsante un blocco che occupa tutta la larghezza disponibile */
     width: 100%;     /* Occupa tutta la larghezza del suo contenitore */
     margin-top: 20px; /* Distanza tra il testo e il pulsante */
-    padding: 15px 0;  /* Maggiore altezza del pulsante */
-    background-color: #ffcc00;
-    color: #0000ff;
+    padding: 20px 0;  /* Maggiore altezza del pulsante */
+    background-color: #ff00ff;
+    color: #ffffff;
     font-size: 32px;  /* Aumentato la dimensione del testo */
     font-family: Helvetica, sans-serif; /* Font Helvetica */
     border: none;
-    border-radius: 30px;
+    border-radius: 0px;
     cursor: pointer;
 }
