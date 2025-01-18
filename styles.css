@@ -301,7 +301,7 @@ footer .instagram-icon:hover {
 }
 
 .carousel-controls button {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.0);
     color: white;
     border: none;
     font-size: 20px;
