@@ -338,19 +338,3 @@ footer .instagram-icon:hover {
     border-radius: 0px;
     cursor: pointer;
 }
-
-/* Imposta la griglia per la sezione dei caroselli */
-.carousel-section {
-    display: flex; /* Layout flessibile */
-    flex-direction: column; /* Imposta la direzione verticale per mobile */
-    margin-bottom: 20px; /* Spaziatura tra sezioni */
-}
-
-.carousel-container {
-    flex: 1;
-    margin: 10px;
-}
-
-.carousel-section .info {
-    text-align: center;
-}
