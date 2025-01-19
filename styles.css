@@ -361,9 +361,6 @@ footer .instagram-icon:hover {
 
 /* Layout a griglia per desktop */
 @media (min-width: 1024px) {
-    body {
-        padding: 20px; /* Un po' di spazio attorno alla pagina */
-    }
     .carousel-section {
         display: grid;
         grid-template-columns: repeat(4, 1fr); /* 4 colonne */
