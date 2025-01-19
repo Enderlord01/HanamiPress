@@ -60,6 +60,7 @@ header {
 nav {
     background-color: #ff00ff;
     position: absolute;
+    z-index: 9999; /* Valore alto per sovrapporsi ad altri elementi */
     top: 60px;
     left: 0;
     width: 100%;
