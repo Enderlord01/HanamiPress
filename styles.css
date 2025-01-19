@@ -358,22 +358,3 @@ footer .instagram-icon:hover {
 .carousel-section .info {
     text-align: center;
 }
-
-/* Layout a griglia per desktop */
-@media (min-width: 1024px) {
-    .carousel-section {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr); /* 4 colonne */
-        gap: 20px; /* Spaziatura tra le colonne e righe */
-        align-items: stretch; /* Uniforma l'altezza degli elementi */
-    }
-
-    .carousel-container {
-        display: flex;
-        flex-direction: column; /* Carosello sopra e info sotto */
-    }
-
-    .info {
-        margin-top: 10px;
-    }
-}
