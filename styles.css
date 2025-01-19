@@ -143,7 +143,7 @@ footer .instagram-icon:hover {
     text-align: justify; /* Testo centrato orizzontalmente */
     font-size: 32px; /* Dimensione del testo */
     width: 100%; /* Larghezza completa */
-    height: 400px; /* Altezza fissa per ottenere un quadrato */
+    height: 800px; /* Altezza fissa per ottenere un quadrato */
     display: flex; /* Abilita il Flexbox */
     justify-content: space-between; /* Centra il contenuto orizzontalmente */
     align-items: center; /* Centra il contenuto verticalmente */
