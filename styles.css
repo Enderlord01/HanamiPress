@@ -58,7 +58,7 @@ header {
 
 /* Menu */
 nav {
-    background-image: linear-gradient(rgba(255,0,255,1), rgba(255,0,255,1) 50%, rgba(255,0,255,0));
+    background-image: linear-gradient(rgba(255,0,255,1), rgba(255,0,255,1) 55%, rgba(255,0,255,0));
     position: absolute;
     z-index: 9999; /* Valore alto per sovrapporsi ad altri elementi */
     top: 60px;
@@ -118,7 +118,6 @@ footer {
     padding: 10px 20px; /* Spazio interno */
     font-size: 16px; /* Dimensione del testo */
     height: 60px; /* Altezza fissa */
-    position: fixed; /* Rimane fisso in fondo */
     width: 100%; /* Occupa tutta la larghezza */
     bottom: 0; /* Ancorato in fondo */
 }
