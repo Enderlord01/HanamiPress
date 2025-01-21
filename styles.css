@@ -24,14 +24,13 @@ html, body {
 
 /* Header */
 header {
-    background: #ff00ff
+    background: #ff00ff;
     color: white;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-    height: 60px;
-    z-index: 10;
+    flex-direction: column; /* Cambia il layout in colonna */
+    align-items: center; /* Allinea gli elementi al centro */
+    padding: 20px; /* Aggiunge spazio interno */
+    height: auto; /* Adatta l'altezza al contenuto */
     position: relative;
 }
 
@@ -39,7 +38,8 @@ header {
 .brand {
     font-size: 32px;
     font-weight: normal;
-    text-align: left;
+    text-align: center; /* Centra il testo */
+    margin-bottom: 10px; /* Spazio tra il testo e il tasto hamburger */
 }
 
 /* Hamburger */
@@ -47,7 +47,9 @@ header {
     cursor: pointer;
     display: flex;
     flex-direction: column;
+    align-items: center; /* Centra il tasto */
     gap: 5px;
+    margin-top: 10px; /* Spazio sopra il tasto hamburger */
 }
 
 .hamburger div {
