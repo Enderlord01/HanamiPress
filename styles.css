@@ -138,7 +138,7 @@ footer .instagram-icon:hover {
 
 /* Sezione "In arrivo" */
 .coming-soon {
-    background-color: #0000ff; /* Sfondo blu */
+    background-image: linear-gradient(#ff00ff, #ffff00);
     color: white; /* Colore del testo */
     text-align: justify; /* Testo centrato orizzontalmente */
     font-size: 32px; /* Dimensione del testo */
