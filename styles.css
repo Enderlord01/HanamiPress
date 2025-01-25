@@ -140,15 +140,22 @@ footer .instagram-icon:hover {
 .coming-soon {
     background-image: linear-gradient(#ff00ff, #ffff00);
     color: white; /* Colore del testo */
-    text-align: justify; /* Testo centrato orizzontalmente */
-    font-size: 32px; /* Dimensione del testo */
+    text-align: justify; /* Testo giustificato */
+    font-size: 32px; /* Dimensione del testo per default */
     width: 100%; /* Larghezza completa */
     height: 100%; /* Altezza fissa per ottenere un quadrato */
     display: flex; /* Abilita il Flexbox */
     justify-content: space-between; /* Centra il contenuto orizzontalmente */
     align-items: center; /* Centra il contenuto verticalmente */
     margin: 0; /* Rimuove margini esterni */
-    padding: 20px; /* Rimuove padding */
+    padding: 20px; /* Padding interno */
+}
+
+/* Regole per schermi grandi (desktop) */
+@media (min-width: 1024px) {
+    .coming-soon {
+        font-size: 128px; /* Font più grande su desktop */
+    }
 }
 
 /* Griglia generale */
