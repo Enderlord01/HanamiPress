@@ -355,7 +355,7 @@ footer .instagram-icon:hover {
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     height: 60vh; /* Altezza della sezione */
     display: flex;
     justify-content: center;
