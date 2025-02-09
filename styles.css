@@ -365,7 +365,7 @@ footer .instagram-icon:hover {
     height: 100vh;
     top: 0;
     left: 0;
-    z-index: -1; /* Mette le particelle dietro gli altri elementi */
+    z-index: 100; /* Mette le particelle sopra gli altri elementi */
     pointer-events: none; /* Evita interferenze con i clic */
 }
 
