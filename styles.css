@@ -370,6 +370,6 @@ footer .instagram-icon:hover {
 }
 
 ::selection {
-    background-color: #ffcc00; /* Giallo */
-    color: #000; /* Nero */
+    background-color: #0000ff; /* Giallo */
+    color: #000000; /* Nero */
 }
