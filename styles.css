@@ -367,6 +367,7 @@ footer .instagram-icon:hover {
     left: 0;
     z-index: 100; /* Mette le particelle sopra gli altri elementi */
     pointer-events: none; /* Evita interferenze con i clic */
+    background: transparent;
 }
 
 ::selection {
