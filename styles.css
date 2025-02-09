@@ -358,21 +358,3 @@ footer .instagram-icon:hover {
     border-radius: 0px;
     cursor: pointer;
 }
-
-/* Sezione parallasse */
-.parallax {
-    background-image: url(/img/'parallax-landing.jpg'); /* Percorso dell'immagine */
-    background-size: cover; /* Mostra l'immagine intera */
-    background-repeat: no-repeat; /* Evita ripetizioni dell'immagine */
-    background-position: center; /* Centra l'immagine */
-    height: 60vh; /* Altezza della sezione */
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    padding: 20px;
-    font-size: 32px;
-    font-family: 'Helvetica', sans-serif;
-}
