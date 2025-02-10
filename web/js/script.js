@@ -12,7 +12,7 @@ const ENABLE_REWIND = true;
 const ENABLE_PAUSE = false;
 const ENABLE_SWITCH_PALETTES = true;
 const OSGP_DEADZONE = 0.1; // On screen gamepad deadzone range
-const CGB_COLOR_CURVE = 2; // 0: none, 1: Sameboy "Emulate Hardware" 2: Gambatte/Gameboy Online
+const CGB_COLOR_CURVE = 1; // 0: none, 1: Sameboy "Emulate Hardware" 2: Gambatte/Gameboy Online
 
 // List of DMG palettes to switch between. By default it includes all 84
 // built-in palettes. If you want to restrict this, change it to an array of
