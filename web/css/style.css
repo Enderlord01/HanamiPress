@@ -54,7 +54,7 @@ body {
   display: block;
   width: 48px;
   height: 48px;
-  background-image: url(/web/button_center.png);
+  background-color: #0c3084;
   position: absolute;
   left: 68px;
   top: 68px;
@@ -66,7 +66,7 @@ body {
   top: 68px;
   width: 48px;
   height: 48px;
-  background-image: url(/web/button_left.png);
+  background-color: #0c3084;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
 }
@@ -77,7 +77,7 @@ body {
   top: 68px;
   width: 48px;
   height: 48px;
-  background-image: url(/web/button_right.png);
+  background-color: #0c3084;
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
 }
@@ -88,7 +88,7 @@ body {
   top: 20px;
   width: 48px;
   height: 48px;
-  background-image: url(/web/button_up.png);
+  background-color: #0c3084;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
 }
@@ -99,7 +99,7 @@ body {
   top: 116px;
   width: 48px;
   height: 48px;
-  background-image: url(/web/button_down.png);
+  background-color: #0c3084;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
 }
@@ -127,9 +127,7 @@ body {
   width: 64px;
   height: 64px;
   border-radius: 64px;
-  background: #870a4c;
-  background: radial-gradient(ellipse at center, #ab1465 0%, #8b1e57 100%);
-  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.2);
+  background-color: #0c3084;
 }
 
 .capsuleBtn {
@@ -144,9 +142,7 @@ body {
   width: 64px;
   height: 32px;
   border-radius: 40px;
-  background: #222;
-  background: radial-gradient(ellipse at center, #666 0%, #555 100%);
-  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.2);
+  background-color: #0c3084;
 }
 
 #controller_start {
