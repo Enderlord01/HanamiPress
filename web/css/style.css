@@ -54,13 +54,7 @@ body {
   display: block;
   width: 48px;
   height: 48px;
-  background: #5c5c5c;
-  background: radial-gradient(
-    ellipse at center,
-    #5c5c5c 0%,
-    #555 59%,
-    #5c5c5c 60%
-  );
+  background-image: url(/web/bottom_center.png);
   position: absolute;
   left: 68px;
   top: 68px;
@@ -72,8 +66,7 @@ body {
   top: 68px;
   width: 48px;
   height: 48px;
-  background: #666;
-  background: radial-gradient(ellipse at center, #666 0%, #5c5c5c 80%);
+  background-image: url(/web/bottom_left.png);
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
 }
@@ -84,8 +77,7 @@ body {
   top: 68px;
   width: 48px;
   height: 48px;
-  background: #666;
-  background: radial-gradient(ellipse at center, #666 0%, #5c5c5c 80%);
+  background-image: url(/web/bottom_right.png);
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
 }
@@ -96,8 +88,7 @@ body {
   top: 20px;
   width: 48px;
   height: 48px;
-  background: #666;
-  background: radial-gradient(ellipse at center, #666 0%, #5c5c5c 80%);
+  background-image: url(/web/bottom_up.png);
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
 }
@@ -108,8 +99,7 @@ body {
   top: 116px;
   width: 48px;
   height: 48px;
-  background: #666;
-  background: radial-gradient(ellipse at center, #666 0%, #5c5c5c 80%);
+  background-image: url(/web/bottom_down.png);
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
 }
