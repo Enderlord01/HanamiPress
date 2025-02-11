@@ -122,12 +122,11 @@ body {
   align-items: center;
   font-weight: bold;
   font-size: 32px;
-  color: #440f1f;
+  color: #04102c;
   line-height: 64px;
   width: 64px;
   height: 64px;
-  border-radius: 64px;
-  background-color: #0c3084;
+  background-image: url(/web/button_round.png);
 }
 
 .capsuleBtn {
