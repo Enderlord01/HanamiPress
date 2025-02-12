@@ -107,14 +107,16 @@ body {
 
 #controller_a {
   position: absolute;
-  bottom: 110px;
-  right: 20px;
+  bottom: 203px;
+  right: 23px;
+  opacity: 0.0
 }
 
 #controller_b {
   position: absolute;
-  bottom: 80px;
-  right: 100px;
+  bottom: 179px;
+  right: 94px;
+  opacity: 0.0
 }
 
 .roundBtn {
@@ -125,8 +127,8 @@ body {
   font-size: 32px;
   color: #04102c;
   line-height: 64px;
-  width: 64px;
-  height: 64px;
+  width: 48px;
+  height: 48px;
   background-image: url(/web/button_round.png);
 }
 
@@ -139,26 +141,27 @@ body {
   align-items: center;
   line-height: 40px;
   text-transform: uppercase;
-  width: 64px;
-  height: 32px;
+  width: 48px;
+  height: 24px;
   border-radius: 40px;
   background-color: #0c3084;
 }
 
 #controller_start {
   position: absolute;
-  bottom: 20px;
-  right: 15px;
+  bottom: 90px;
+  right: 135px;
+  opacity: 0;
 }
 
 #controller_select {
   position: absolute;
-  bottom: 20px;
-  right: 100px;
+  bottom: 90px;
+  right: 190px;
+  opacity: 0;
 }
 
 .btnPressed {
-  opacity: 0.5;
 }
 
 .spinner {
