@@ -18,6 +18,7 @@ body {
 }
 
 .mask {
+            background-image: url(/web/mask.png);
             position: absolute;
             width: 320px;
             height: 288px;
