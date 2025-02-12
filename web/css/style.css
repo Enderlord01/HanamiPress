@@ -1,5 +1,6 @@
 body {
-  background: #031921;
+  background: #000000;
+  background-image: url(/web/gb_layout.png);
   color: #fff;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
     Helvetica, Arial, "Lucida Grande", sans-serif;
@@ -42,29 +43,30 @@ body {
 
 #controller_dpad {
   position: absolute;
-  bottom: 20px;
-  left: 0px;
-  width: 184px;
-  height: 184px;
+  bottom: 150px;
+  left: 20px;
+  width: 100px;
+  height: 155px;
+  opacity: 0
 }
 
 #controller_dpad:before {
   content: "";
   display: block;
-  width: 48px;
-  height: 48px;
+  width: 32px;
+  height: 32px;
   background-color: #0c3084;
   position: absolute;
-  left: 68px;
-  top: 68px;
+  left: 36px;
+  top: 76px;
 }
 
 #controller_left {
   position: absolute;
-  left: 20px;
-  top: 68px;
-  width: 48px;
-  height: 48px;
+  left: 4px;
+  top: 76px;
+  width: 32px;
+  height: 32px;
   background-color: #0c3084;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
@@ -72,10 +74,10 @@ body {
 
 #controller_right {
   position: absolute;
-  left: 116px;
-  top: 68px;
-  width: 48px;
-  height: 48px;
+  left: 68px;
+  top: 76px;
+  width: 32px;
+  height: 32px;
   background-color: #0c3084;
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
@@ -83,10 +85,10 @@ body {
 
 #controller_up {
   position: absolute;
-  left: 68px;
-  top: 20px;
-  width: 48px;
-  height: 48px;
+  left: 40px;
+  top: 44px;
+  width: 32px;
+  height: 32px;
   background-color: #0c3084;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
@@ -94,10 +96,10 @@ body {
 
 #controller_down {
   position: absolute;
-  left: 68px;
-  top: 116px;
-  width: 48px;
-  height: 48px;
+  left: 40px;
+  top: 108px;
+  width: 32px;
+  height: 32px;
   background-color: #0c3084;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
