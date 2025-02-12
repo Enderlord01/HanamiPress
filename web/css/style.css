@@ -27,6 +27,7 @@ body {
             align-items: center;
             overflow: hidden;
             z-index: 1000;
+            padding: 20px;
         }
         .mask img {
             width: 100%;
