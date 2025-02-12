@@ -18,15 +18,14 @@ body {
 }
 
 .mask {
-            width: 300px;
-            height: 300px;
-            border: 2px solid #000;
+            width: 320px;
+            height: 288px;
             display: flex;
             justify-content: center;
             align-items: center;
             overflow: hidden;
         }
-        .container img {
+        .mask img {
             width: 100%;
             height: auto;
         }
