@@ -1,13 +1,9 @@
 body {
-  background: #000000;
-  background-image: url(/web/gb_layout.png);
+  background: #031921;
   color: #fff;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
     Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 300;
-  width: 390px;
-  height: 844px;
-  overflow: hidden; /* Evita lo scrolling */
   margin: 0;
   padding: 0;
   touch-action: none;
@@ -17,21 +13,6 @@ body {
   overflow: hidden;
 }
 
-.mask {
-  background-image: url(/web/mask.png);
-  position: absolute;
-  width: 320px;
-  height: 288px;
-  overflow: hidden;
-  z-index: 1000;
-  top: 35px;
-  left: 34px;
-
-}
-.mask img {
-height: auto;
-}
-
 #game {
   display: flex;
   flex-direction: column;
@@ -39,8 +20,6 @@ height: auto;
   width: 100%;
   height: 100%;
   touch-action: none;
-  top: 35px;
-  left: -1px;
 }
 
 #game canvas {
@@ -49,7 +28,7 @@ height: auto;
   image-rendering: -webkit-crisp-edges;
   image-rendering: pixelated;
   image-rendering: crisp-edges;
-  height: 288px;
+  height: 100%;
 }
 
 #controller {
@@ -59,84 +38,92 @@ height: auto;
   height: 210px;
   width: 100%;
   touch-action: none;
+  opacity: 0.8;
 }
 
 #controller_dpad {
   position: absolute;
-  bottom: 152px;
-  left: 23px;
-  width: 100px;
-  height: 273px;
-  opacity: 0
+  bottom: 20px;
+  left: 0px;
+  width: 184px;
+  height: 184px;
 }
 
 #controller_dpad:before {
   content: "";
   display: block;
-  width: 32px;
-  height: 32px;
-  background-color: #0c3084;
+  width: 48px;
+  height: 48px;
+  background: #5c5c5c;
+  background: radial-gradient(
+    ellipse at center,
+    #5c5c5c 0%,
+    #555 59%,
+    #5c5c5c 60%
+  );
   position: absolute;
-  left: 36px;
-  top: 76px;
+  left: 68px;
+  top: 68px;
 }
 
 #controller_left {
   position: absolute;
-  left: 4px;
-  top: 76px;
-  width: 32px;
-  height: 32px;
-  background-color: #0c3084;
+  left: 20px;
+  top: 68px;
+  width: 48px;
+  height: 48px;
+  background: #666;
+  background: radial-gradient(ellipse at center, #666 0%, #5c5c5c 80%);
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
 }
 
 #controller_right {
   position: absolute;
-  left: 68px;
-  top: 76px;
-  width: 32px;
-  height: 32px;
-  background-color: #0c3084;
+  left: 116px;
+  top: 68px;
+  width: 48px;
+  height: 48px;
+  background: #666;
+  background: radial-gradient(ellipse at center, #666 0%, #5c5c5c 80%);
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
 }
 
 #controller_up {
   position: absolute;
-  left: 40px;
-  top: 44px;
-  width: 32px;
-  height: 32px;
-  background-color: #0c3084;
+  left: 68px;
+  top: 20px;
+  width: 48px;
+  height: 48px;
+  background: #666;
+  background: radial-gradient(ellipse at center, #666 0%, #5c5c5c 80%);
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
 }
 
 #controller_down {
   position: absolute;
-  left: 40px;
-  top: 108px;
-  width: 32px;
-  height: 32px;
-  background-color: #0c3084;
+  left: 68px;
+  top: 116px;
+  width: 48px;
+  height: 48px;
+  background: #666;
+  background: radial-gradient(ellipse at center, #666 0%, #5c5c5c 80%);
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
 }
 
 #controller_a {
   position: absolute;
-  bottom: 320px;
-  right: 28px;
-  opacity: 0
+  bottom: 110px;
+  right: 20px;
 }
 
 #controller_b {
   position: absolute;
-  bottom: 295px;
+  bottom: 80px;
   right: 100px;
-  opacity: 0
 }
 
 .roundBtn {
@@ -145,11 +132,14 @@ height: auto;
   align-items: center;
   font-weight: bold;
   font-size: 32px;
-  color: #04102c;
+  color: #440f1f;
   line-height: 64px;
-  width: 48px;
-  height: 48px;
-  background-image: url(/web/button_round.png);
+  width: 64px;
+  height: 64px;
+  border-radius: 64px;
+  background: #870a4c;
+  background: radial-gradient(ellipse at center, #ab1465 0%, #8b1e57 100%);
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.2);
 }
 
 .capsuleBtn {
@@ -161,27 +151,28 @@ height: auto;
   align-items: center;
   line-height: 40px;
   text-transform: uppercase;
-  width: 48px;
-  height: 24px;
+  width: 64px;
+  height: 32px;
   border-radius: 40px;
-  background-color: #0c3084;
+  background: #222;
+  background: radial-gradient(ellipse at center, #666 0%, #555 100%);
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.2);
 }
 
 #controller_start {
   position: absolute;
-  bottom: 200px;
-  right: 143px;
-  opacity: 0;
+  bottom: 20px;
+  right: 15px;
 }
 
 #controller_select {
   position: absolute;
-  bottom: 200px;
-  right: 202px;
-  opacity: 0;
+  bottom: 20px;
+  right: 100px;
 }
 
 .btnPressed {
+  opacity: 0.5;
 }
 
 .spinner {
@@ -229,6 +220,103 @@ height: auto;
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  #game canvas {
+    margin-top: 0px;
+    width: 100%;
+    max-width: 512px;
+    border: 0px;
+    border-radius: 0px;
+  }
+}
+
+@media only screen and (max-device-width: 812px) and (orientation: portrait) {
+  body {
+    margin: 0;
+  }
+
+  #game {
+    width: 100%;
+    position: fixed;
+    touch-action: none;
+  }
+
+  #game canvas {
+    margin: 0;
+    display: block;
+    width: 100% !important;
+    height: auto !important;
+  }
+}
+
+@media only screen and (max-device-width: 320px) and (orientation: portrait) {
+  #controller_dpad {
+    left: -5px;
+    bottom: -5px;
+  }
+
+  #controller_a {
+    right: 5px;
+    bottom: 95px;
+  }
+
+  #controller_b {
+    right: 80px;
+  }
+
+  #controller_start {
+    right: 5px;
+  }
+
+  #controller_select {
+    right: 80px;
+  }
+}
+
+@media only screen and (max-width: 500px) and (max-height: 400px) {
+  #controller {
+    display: none;
+  }
+}
+
+/* Small devices in landscape */
+@media only screen and (max-device-width: 300px) and (orientation: landscape) {
+  html,
+  body {
+    height: 100%;
+  }
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #game:after {
+    content: "PLEASE ROTATE ↻";
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  #game canvas {
+    display: none;
+    max-width: 480px;
+  }
+
+  #controller {
+    display: none;
+  }
+}
+
+/* Devices large enough for landscape */
+@media only screen and (min-width: 300px) and (orientation: landscape) {
+  #controller {
+    bottom: 50%;
+    transform: translateY(50%);
+    opacity: 0.5;
   }
 }
 
