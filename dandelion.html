@@ -9,6 +9,10 @@
       font-family: "Courier New", monospace;
       font-size: 16px;
       white-space: pre-wrap; /* Per gestire il testo su più righe */
+      transition: color 0.2s ease; /* Per il cambiamento di colore */
+    }
+    .listening {
+      color: red; /* Colore quando si rileva il suono */
     }
   </style>
 </head>
@@ -36,11 +40,13 @@
  jgs  `\ :/'/``   
 `^^`^`^``^^`^^^`^^`^^^`^
   </pre>
+  <div id="status"></div>
 
   <script>
     // Funzione per rilevare il suono tramite il microfono
     async function startListening() {
       const asciiElement = document.getElementById('asciiArt');
+      const statusElement = document.getElementById('status');
       let stream;
       try {
         // Richiedi l'accesso al microfono
@@ -66,6 +72,10 @@
 
           // Se il suono supera una certa soglia, modifica l'arte ASCII
           if (average > 50) { // Soglia regolabile per il soffio
+            // Aggiungi un feedback visivo (cambia colore dell'arte ASCII)
+            asciiElement.classList.add('listening');
+            statusElement.textContent = "Soffio rilevato!";
+            
             // Rimuove la parte specificata dell'arte ASCII
             const asciiText = asciiElement.textContent;
             const newText = asciiText.replace(
@@ -73,6 +83,10 @@
               '' // Rimuove la parte dell'arte ASCII
             );
             asciiElement.textContent = newText;
+          } else {
+            // Se non viene rilevato soffio, resetta il feedback visivo
+            asciiElement.classList.remove('listening');
+            statusElement.textContent = "";
           }
           
           requestAnimationFrame(checkSound); // Continuare a monitorare il suono
