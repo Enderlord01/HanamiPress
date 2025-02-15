@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASCII Art</title>
+    <title>ASCII Art Scomparente</title>
     <style>
         body {
             display: flex;
@@ -11,19 +11,22 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #ffffff;
-            font-family: "Courier New", monospace;
+            background-color: #f0f0f0;
+            font-family: monospace;
         }
         pre {
-            font-family: "Courier New", monospace;
             white-space: pre-wrap;
             word-wrap: break-word;
             font-size: 16px;
+            overflow: hidden;
+        }
+        .hidden {
+            visibility: hidden;
         }
     </style>
 </head>
 <body>
-    <pre>
+    <pre id="ascii-art">
       _.--'--._
     .'. ':. ' :'.
    '`' : `. `: ':'  
@@ -33,18 +36,70 @@
    : : .:`' .:`.': 
     '.: . :`. :.'  
       `'--,--'`  
-          y      
-         (       
-          \       _
-           \    /`/
-     _      |__/:/_  
-     \`\    |\ :  / 
-     _\:\_  /\ : /_ 
-     \ : /_/\  :  / 
-     _\ : /_/ : /` 
-     \  :  /.'/`  
- jgs  `\ :/'/``  
-`^^`^`^``^^`^^^`^^`^^^`^
     </pre>
+
+    <script>
+        // Variabili per l'API Web Audio
+        let audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        let analyser = audioContext.createAnalyser();
+        let microphone;
+        let javascriptNode;
+        
+        // Inizializzare l'audio e ottenere il microfono
+        navigator.mediaDevices.getUserMedia({ audio: true }).then(function(stream) {
+            microphone = audioContext.createMediaStreamSource(stream);
+            javascriptNode = audioContext.createScriptProcessor(2048, 1, 1);
+            microphone.connect(analyser);
+            analyser.connect(javascriptNode);
+            javascriptNode.connect(audioContext.destination);
+
+            javascriptNode.onaudioprocess = function() {
+                let bufferLength = analyser.frequencyBinCount;
+                let dataArray = new Uint8Array(bufferLength);
+                analyser.getByteFrequencyData(dataArray);
+
+                // Calcolare il volume medio
+                let sum = 0;
+                for (let i = 0; i < bufferLength; i++) {
+                    sum += dataArray[i];
+                }
+                let average = sum / bufferLength;
+
+                // Se il volume è abbastanza alto (soffio), avvia il processo di scomparsa
+                if (average > 50) { // Puoi regolare questa soglia a seconda della sensibilità
+                    fadeOut();
+                }
+            };
+        }).catch(function(err) {
+            console.log('Errore nell\'acquisizione del microfono: ' + err);
+        });
+
+        // Funzione che fa scomparire i caratteri dell'ASCII art gradualmente
+        function fadeOut() {
+            let asciiArt = document.getElementById("ascii-art");
+            let chars = asciiArt.innerText.split('');
+            let visibleChars = chars.map((char, index) => {
+                return { char: char, index: index, isHidden: false };
+            });
+
+            let interval = setInterval(function() {
+                if (visibleChars.every(char => char.isHidden)) {
+                    clearInterval(interval); // Se tutti i caratteri sono nascosti, ferma il processo
+                }
+
+                // Trova il prossimo carattere visibile e nascondilo
+                for (let i = 0; i < visibleChars.length; i++) {
+                    if (!visibleChars[i].isHidden) {
+                        visibleChars[i].isHidden = true;
+                        chars[visibleChars[i].index] = '<span class="hidden">' + visibleChars[i].char + '</span>';
+                        break;
+                    }
+                }
+
+                // Ricostruisci il testo con i caratteri nascosti
+                asciiArt.innerHTML = chars.join('');
+            }, 100); // Ogni 100ms scompare un carattere
+        }
+    </script>
 </body>
 </html>
