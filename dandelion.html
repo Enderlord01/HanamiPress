@@ -44,17 +44,17 @@
     </pre>
 
     <script>
-        // Soglia per il volume (puoi regolarla a piacere)
-        const VOLUME_THRESHOLD = 0.03;
+        // Soglia per il volume (soglia più alta)
+        const VOLUME_THRESHOLD = 0.1;
 
         // Otteniamo l'elemento pre con il testo dell'ASCII art
         const asciiArt = document.getElementById('ascii-art');
         
-        // Funzione per aggiornare il colore del carattere
+        // Funzione per aggiornare il colore del carattere (permanente)
         function highlightCharacter(index) {
-            const text = asciiArt.textContent;
+            const text = asciiArt.innerHTML;
             const newText = text.split('').map((char, i) => {
-                if (i === index) {
+                if (i === index && !char.includes('<span class="highlight">')) {
                     return `<span class="highlight">${char}</span>`;
                 } else {
                     return char;
