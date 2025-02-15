@@ -8,7 +8,8 @@
         body {
             font-family: monospace;
             white-space: pre;
-            background-color: #ffffff;
+            background-color: #282c34;
+            color: white;
             text-align: center;
             padding: 20px;
         }
@@ -42,69 +43,74 @@
     <script>
         // Funzione per attivare il microfono e ascoltare il suono
         async function startListening() {
-            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-            const analyser = audioContext.createAnalyser();
-            const microphone = audioContext.createMediaStreamSource(stream);
-            microphone.connect(analyser);
+            try {
+                // Richiesta per accedere al microfono
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const analyser = audioContext.createAnalyser();
+                const microphone = audioContext.createMediaStreamSource(stream);
+                microphone.connect(analyser);
 
-            const bufferLength = analyser.frequencyBinCount;
-            const dataArray = new Uint8Array(bufferLength);
+                const bufferLength = analyser.frequencyBinCount;
+                const dataArray = new Uint8Array(bufferLength);
 
-            function checkSound() {
-                analyser.getByteFrequencyData(dataArray);
-                let total = 0;
-                for (let i = 0; i < bufferLength; i++) {
-                    total += dataArray[i];
-                }
-                let average = total / bufferLength;
+                function checkSound() {
+                    analyser.getByteFrequencyData(dataArray);
+                    let total = 0;
+                    for (let i = 0; i < bufferLength; i++) {
+                        total += dataArray[i];
+                    }
+                    let average = total / bufferLength;
 
-                // Se il suono supera una certa soglia, cambia l'ASCII art
-                if (average > 100) {
-                    document.getElementById('ascii-art').textContent = `
-                      y
-                     ( 
-                      \\       _
-                       \\    //
-                 _      |__/:/_  
-                 \\\\    |\\ :  /
-                 _\\:\\_  /\\ : /_
-                 \\ : /_/\\  :  /
-                 _\\ : /_/ : /
-                 \\  :  /.'/ 
-                 jgs  \\ :/'/
-                 ^^^^^^^^^^^^^^^
-                    `;
-                } else {
-                    document.getElementById('ascii-art').textContent = `
-                      _.--'--._
-                    .'. ':. ' :'.
-                   \`\`' : \`. \`: ':' 
-                  : : '.'. .'.':.\`:
-                  :' -\`= \`+ .= - \`:
-                  :.' .'.' :.'.\`:':
-                   : : .:\`' .:\`.':
-                    '.: . :\`. :.'
-                      \`'--,--'\`  
+                    // Se il suono supera una certa soglia, cambia l'ASCII art
+                    if (average > 100) {
+                        document.getElementById('ascii-art').textContent = `
                           y
                          ( 
                           \\       _
-                           \\    /\`/
+                           \\    //
                      _      |__/:/_  
-                     \\\`\\    |\\ :  /
+                     \\\\    |\\ :  /
                      _\\:\\_  /\\ : /_
                      \\ : /_/\\  :  /
                      _\\ : /_/ : /
-                     \\  :  /.'/\`
-                   jgs  \`\\ :/'/\`\`
-                \`^^\`^ \`^^\` ^^ \`^^^\` ^^`^ \`^
-                    `;
+                     \\  :  /.'/ 
+                     jgs  \\ :/'/
+                     ^^^^^^^^^^^^^^^
+                        `;
+                    } else {
+                        document.getElementById('ascii-art').textContent = `
+                          _.--'--._
+                        .'. ':. ' :'.
+                       \`\`' : \`. \`: ':' 
+                      : : '.'. .'.':.\`:
+                      :' -\`= \`+ .= - \`:
+                      :.' .'.' :.'.\`:':
+                       : : .:\`' .:\`.':
+                        '.: . :\`. :.'
+                          \`'--,--'\`  
+                              y
+                             ( 
+                              \\       _
+                               \\    /\`/
+                         _      |__/:/_  
+                         \\\`\\    |\\ :  /
+                         _\\:\\_  /\\ : /_
+                         \\ : /_/\  :  /
+                         _\\ : /_/ : /
+                         \\  :  /.'/\`
+                       jgs  \`\\ :/'/\`\`
+                    \`^^\`^ \`^^\` ^^ \`^^^\` ^^`^ \`^
+                        `;
+                    }
+
+                    requestAnimationFrame(checkSound);
                 }
 
-                requestAnimationFrame(checkSound);
+                checkSound();
+            } catch (error) {
+                alert('Accesso al microfono fallito. Verifica che il microfono sia abilitato.');
             }
-
-            checkSound();
         }
 
         startListening();
