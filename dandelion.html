@@ -1,117 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Microfono e ASCII Art</title>
-  <style>
-    pre {
-      font-family: "Courier New", monospace;
-      font-size: 16px;
-      white-space: pre-wrap; /* Per gestire il testo su più righe */
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASCII Art</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: monospace;
+        }
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
-  <button id="startButton">Abilita Microfono</button>
-  <pre id="asciiArt">
+    <pre>
       _.--'--._
     .'. ':. ' :'.
    '`' : `. `: ':'  
-  : : '.'. .'.':.`:
-  :' -`= `+ .= - `:
+  : : '.'. .'.':.`: 
+  :' -`= `+ .= - `: 
   :.' .'.' :.'.`:':
-   : : .:`' .:`.':
-    '.: . :`. :.'
+   : : .:`' .:`.': 
+    '.: . :`. :.'  
       `'--,--'`  
-          y
-         ( 
+          y      
+         (       
           \       _
            \    /`/
      _      |__/:/_  
-     \`\    |\ :  /
-     _\:\_  /\ : /_
-     \ : /_/\  :  /
-     _\ : /_/ : /`
-     \  :  /.'/`
- jgs  `\ :/'/``   
+     \`\    |\ :  / 
+     _\:\_  /\ : /_ 
+     \ : /_/\  :  / 
+     _\ : /_/ : /` 
+     \  :  /.'/`  
+ jgs  `\ :/'/``  
 `^^`^`^``^^`^^^`^^`^^^`^
-  </pre>
-
-  <script>
-    // Funzione per rilevare il suono tramite il microfono
-    async function startListening() {
-      const asciiElement = document.getElementById('asciiArt');
-      let asciiText = asciiElement.textContent;
-      let textToRemove = `
-      _.--'--._
-    .'. ':. ' :'.
-   \`' : \` . \`: ':'  
-  : : '.'. .'.':.`:
-  :' -\`= \`+ .= - \`:
-  :.' .'.' :.'.\`:':
-   : : .:\`' .:\`.':
-    '.: . :\`. :.'
-      \`'--,--'\`  
-      `;  // La parte da rimuovere gradualmente
-
-      let currentIndex = 0; // Indice per i caratteri da rimuovere
-      let interval = null;
-
-      try {
-        // Richiesta permesso esplicita per il microfono
-        console.log("Richiesta permesso per il microfono...");
-        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-        console.log("Microfono attivato");
-
-        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-        const analyser = audioContext.createAnalyser();
-        const microphone = audioContext.createMediaStreamSource(stream);
-        microphone.connect(analyser);
-        
-        const bufferLength = analyser.frequencyBinCount;
-        const dataArray = new Uint8Array(bufferLength);
-
-        // Funzione per monitorare il suono e rimuovere i caratteri gradualmente
-        function checkSound() {
-          analyser.getByteFrequencyData(dataArray);
-          let sum = 0;
-
-          // Calcola la "forza" del suono
-          for (let i = 0; i < bufferLength; i++) {
-            sum += dataArray[i];
-          }
-
-          const average = sum / bufferLength;
-
-          // Se il suono supera una certa soglia, avvia la rimozione graduale
-          if (average > 50 && !interval) {
-            interval = setInterval(() => {
-              if (currentIndex < textToRemove.length) {
-                // Rimuovi un carattere alla volta
-                currentIndex += 1;
-                const newText = asciiText.replace(textToRemove.slice(0, currentIndex), '');
-                asciiElement.textContent = newText;
-              } else {
-                clearInterval(interval); // Ferma quando tutto è stato rimosso
-              }
-            }, 100); // Ogni 100ms rimuove un carattere
-          }
-
-          requestAnimationFrame(checkSound); // Continua a monitorare il suono
-        }
-
-        checkSound(); // Avvia il monitoraggio del suono
-
-      } catch (err) {
-        console.error("Errore nell'accesso al microfono: ", err);
-      }
-    }
-
-    // Aggiungi il gestore per il pulsante
-    document.getElementById('startButton').addEventListener('click', () => {
-      startListening();
-    });
-  </script>
+    </pre>
 </body>
 </html>
