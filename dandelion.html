@@ -13,6 +13,7 @@
   </style>
 </head>
 <body>
+  <button id="startButton">Abilita Microfono</button>
   <pre id="asciiArt">
       _.--'--._
     .'. ':. ' :'.
@@ -58,8 +59,11 @@
       let interval = null;
 
       try {
-        // Richiedi l'accesso al microfono
+        // Richiesta permesso esplicita per il microfono
+        console.log("Richiesta permesso per il microfono...");
         const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        console.log("Microfono attivato");
+
         const audioContext = new (window.AudioContext || window.webkitAudioContext)();
         const analyser = audioContext.createAnalyser();
         const microphone = audioContext.createMediaStreamSource(stream);
@@ -100,12 +104,14 @@
         checkSound(); // Avvia il monitoraggio del suono
 
       } catch (err) {
-        console.error('Errore nell\'accesso al microfono: ', err);
+        console.error("Errore nell'accesso al microfono: ", err);
       }
     }
 
-    // Avvia la funzione di ascolto del microfono
-    startListening();
+    // Aggiungi il gestore per il pulsante
+    document.getElementById('startButton').addEventListener('click', () => {
+      startListening();
+    });
   </script>
 </body>
 </html>
