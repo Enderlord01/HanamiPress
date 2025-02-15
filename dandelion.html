@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASCII Art Scomparente</title>
+    <title>ASCII Art Scomparente e Posizionata Casual</title>
     <style>
         body {
             display: flex;
@@ -13,6 +13,7 @@
             margin: 0;
             background-color: #f0f0f0;
             font-family: monospace;
+            position: relative;
         }
         pre {
             white-space: pre-wrap;
@@ -23,19 +24,37 @@
         .hidden {
             visibility: hidden;
         }
+        .random-position {
+            position: absolute;
+            font-size: 16px;
+            color: black;
+            transition: top 1s, left 1s;
+        }
     </style>
 </head>
 <body>
     <pre id="ascii-art">
       _.--'--._
     .'. ':. ' :'.
-   '`' : `. `: ':'  
-  : : '.'. .'.':.`: 
-  :' -`= `+ .= - `: 
+   '`' : `. `: ':'
+  : : '.'. .'.':.`:
+  :' -`= `+ .= - `:
   :.' .'.' :.'.`:':
-   : : .:`' .:`.': 
-    '.: . :`. :.'  
+   : : .:`' .:`.':
+    '.: . :`. :.'
       `'--,--'`  
+          y
+         ( 
+          \       _
+           \    /`/
+     _      |__/:/_  
+     \`\    |\ :  /
+     _\:\_  /\ : /_
+     \ : /_/\  :  /
+     _\ : /_/ : /`
+     \  :  /.'/`
+ jgs  `\ :/'/``
+`^^`^`^``^^`^^^`^^`^^^`^
     </pre>
 
     <script>
@@ -100,6 +119,34 @@
                 asciiArt.innerHTML = chars.join('');
             }, 100); // Ogni 100ms scompare un carattere
         }
+
+        // Funzione che fa apparire i caratteri in posizioni casuali
+        function showCharacterRandomly(char) {
+            let randomLeft = Math.random() * 100; // Posizione orizzontale casuale (in percentuale)
+            let randomTop = Math.random() * 100;  // Posizione verticale casuale (in percentuale)
+            
+            let newChar = document.createElement("span");
+            newChar.textContent = char;
+            newChar.classList.add("random-position");
+            newChar.style.left = randomLeft + "vw";  // Usa viewport width per la posizione
+            newChar.style.top = randomTop + "vh";   // Usa viewport height per la posizione
+            document.body.appendChild(newChar);
+        }
+
+        // Funzione che sposta i caratteri scomparsi in posizioni casuali
+        function handleRandomPosition() {
+            let asciiArt = document.getElementById("ascii-art");
+            let chars = asciiArt.innerText.split('');
+
+            chars.forEach((char) => {
+                if (char !== ' ' && char !== '\n') {
+                    showCharacterRandomly(char); // Mostra il carattere in una posizione casuale
+                }
+            });
+        }
+
+        // Avvia il movimento casuale quando i caratteri sono scomparsi
+        setTimeout(handleRandomPosition, 5000); // Dopo 5 secondi (quando i caratteri sono scomparsi)
     </script>
 </body>
 </html>
