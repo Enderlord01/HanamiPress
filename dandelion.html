@@ -41,8 +41,7 @@
     // Funzione per rilevare il suono tramite il microfono
     async function startListening() {
       const asciiElement = document.getElementById('asciiArt');
-      const asciiText = asciiElement.textContent;
-      let stream;
+      let asciiText = asciiElement.textContent;
       let textToRemove = `
       _.--'--._
     .'. ':. ' :'.
@@ -53,14 +52,14 @@
    : : .:\`' .:\`.':
     '.: . :\`. :.'
       \`'--,--'\`  
-      `;  // Questa è la parte da rimuovere gradualmente
+      `;  // La parte da rimuovere gradualmente
 
-      let currentIndex = 0; // Indice dei caratteri da rimuovere
-      let interval;
+      let currentIndex = 0; // Indice per i caratteri da rimuovere
+      let interval = null;
 
       try {
         // Richiedi l'accesso al microfono
-        stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
         const audioContext = new (window.AudioContext || window.webkitAudioContext)();
         const analyser = audioContext.createAnalyser();
         const microphone = audioContext.createMediaStreamSource(stream);
@@ -69,35 +68,37 @@
         const bufferLength = analyser.frequencyBinCount;
         const dataArray = new Uint8Array(bufferLength);
 
+        // Funzione per monitorare il suono e rimuovere i caratteri gradualmente
         function checkSound() {
           analyser.getByteFrequencyData(dataArray);
           let sum = 0;
-          
+
           // Calcola la "forza" del suono
           for (let i = 0; i < bufferLength; i++) {
             sum += dataArray[i];
           }
-          
+
           const average = sum / bufferLength;
 
-          // Se il suono supera una certa soglia, inizia a rimuovere i caratteri
-          if (average > 50 && !interval) { // Avvia il processo di rimozione
+          // Se il suono supera una certa soglia, avvia la rimozione graduale
+          if (average > 50 && !interval) {
             interval = setInterval(() => {
               if (currentIndex < textToRemove.length) {
-                // Rimuove uno o pochi caratteri alla volta
+                // Rimuovi un carattere alla volta
                 currentIndex += 1;
                 const newText = asciiText.replace(textToRemove.slice(0, currentIndex), '');
                 asciiElement.textContent = newText;
               } else {
-                clearInterval(interval); // Ferma la rimozione quando tutto è stato rimosso
+                clearInterval(interval); // Ferma quando tutto è stato rimosso
               }
             }, 100); // Ogni 100ms rimuove un carattere
           }
-          
-          requestAnimationFrame(checkSound); // Continuare a monitorare il suono
+
+          requestAnimationFrame(checkSound); // Continua a monitorare il suono
         }
 
-        checkSound(); // Avvia il controllo del suono
+        checkSound(); // Avvia il monitoraggio del suono
+
       } catch (err) {
         console.error('Errore nell\'accesso al microfono: ', err);
       }
