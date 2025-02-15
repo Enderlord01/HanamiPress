@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>dandelion</title>
+  <title>Microfono e ASCII Art</title>
   <style>
     pre {
       font-family: "Courier New", monospace;
@@ -23,6 +23,18 @@
    : : .:`' .:`.':
     '.: . :`. :.'
       `'--,--'`  
+          y
+         ( 
+          \       _
+           \    /`/
+     _      |__/:/_  
+     \`\    |\ :  /
+     _\:\_  /\ : /_
+     \ : /_/\  :  /
+     _\ : /_/ : /`
+     \  :  /.'/`
+ jgs  `\ :/'/``   
+`^^`^`^``^^`^^^`^^`^^^`^
   </pre>
 
   <script>
@@ -54,11 +66,11 @@
 
           // Se il suono supera una certa soglia, modifica l'arte ASCII
           if (average > 50) { // Soglia regolabile per il soffio
-            // Modifica l'arte ASCII per rimuovere la parte specificata
+            // Rimuove la parte specificata dell'arte ASCII
             const asciiText = asciiElement.textContent;
             const newText = asciiText.replace(
               /(_.--'--._\s+\.'. ':. ' :'.\s+`' : `. `: ':'\s+: : '.'. .'.':.`:\s+:' -`= `\+ .= - `:\s+:.' .'.' :.'.`:':\s+: : .:`' .:`.`:\s+'.: . :`. :.'\s+`'--,--'`)/g,
-              '' // Rimuove il blocco di arte ASCII
+              '' // Rimuove la parte dell'arte ASCII
             );
             asciiElement.textContent = newText;
           }
