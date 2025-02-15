@@ -12,52 +12,76 @@
             justify-content: center;
             align-items: center;
             background-color: #f0f0f0;
+            overflow: hidden;
         }
         #ball {
             font-size: 50px;
             position: absolute;
             user-select: none;
         }
+        #startButton {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 15px 30px;
+            font-size: 18px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
 
     <div id="ball">⦿</div>
+    <button id="startButton">Attiva Accelerometro</button>
 
     <script>
         const ball = document.getElementById('ball');
+        const button = document.getElementById('startButton');
 
-        // Inizializzare le coordinate della pallina
         let x = window.innerWidth / 2;
         let y = window.innerHeight / 2;
 
-        // Funzione per aggiornare la posizione della pallina
         function updatePosition(accelerationX, accelerationY) {
-            const ballSize = 50; // Dimensione della pallina
+            const ballSize = 50;
+            x += accelerationX * 5; // Moltiplicatore per amplificare il movimento
+            y -= accelerationY * 5;
 
-            // Calcolare le nuove posizioni basate sull'accelerometro
-            x += accelerationX * 10; // La moltiplicazione è per amplificare il movimento
-            y -= accelerationY * 10;
-
-            // Limiti per evitare che la pallina esca fuori dallo schermo
             x = Math.max(ballSize, Math.min(window.innerWidth - ballSize, x));
             y = Math.max(ballSize, Math.min(window.innerHeight - ballSize, y));
 
-            // Aggiornare la posizione della pallina
             ball.style.left = `${x - ballSize / 2}px`;
             ball.style.top = `${y - ballSize / 2}px`;
         }
 
-        // Ascoltare i cambiamenti dell'accelerometro
-        if (window.DeviceMotionEvent) {
-            window.addEventListener('devicemotion', function(event) {
-                const accelerationX = event.accelerationIncludingGravity.x;
-                const accelerationY = event.accelerationIncludingGravity.y;
-                updatePosition(accelerationX, accelerationY);
-            });
-        } else {
-            alert('Il dispositivo non supporta l\'accelerometro.');
+        function startMotionTracking() {
+            if (typeof DeviceMotionEvent.requestPermission === 'function') {
+                // iOS richiede il permesso esplicito
+                DeviceMotionEvent.requestPermission()
+                    .then(permissionState => {
+                        if (permissionState === 'granted') {
+                            window.addEventListener('devicemotion', (event) => {
+                                const accelerationX = event.accelerationIncludingGravity.x;
+                                const accelerationY = event.accelerationIncludingGravity.y;
+                                updatePosition(accelerationX, accelerationY);
+                            });
+                        } else {
+                            alert('Permesso negato.');
+                        }
+                    })
+                    .catch(console.error);
+            } else {
+                // Android non richiede il permesso, aggiungiamo direttamente l'evento
+                window.addEventListener('devicemotion', (event) => {
+                    const accelerationX = event.accelerationIncludingGravity.x;
+                    const accelerationY = event.accelerationIncludingGravity.y;
+                    updatePosition(accelerationX, accelerationY);
+                });
+            }
+            button.style.display = 'none'; // Nasconde il pulsante dopo aver ricevuto il permesso
         }
+
+        button.addEventListener('click', startMotionTracking);
     </script>
 
 </body>
