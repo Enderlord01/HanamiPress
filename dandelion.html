@@ -41,6 +41,8 @@
     </pre>
 
     <script>
+        let isBlown = false;
+
         // Funzione per attivare il microfono e ascoltare il suono
         async function startListening() {
             try {
@@ -54,6 +56,7 @@
                 const bufferLength = analyser.frequencyBinCount;
                 const dataArray = new Uint8Array(bufferLength);
 
+                // Funzione per monitorare il livello del suono
                 function checkSound() {
                     analyser.getByteFrequencyData(dataArray);
                     let total = 0;
@@ -62,8 +65,9 @@
                     }
                     let average = total / bufferLength;
 
-                    // Se il suono supera una certa soglia, cambia l'ASCII art
-                    if (average > 100) {
+                    // Se il volume medio supera una certa soglia, cambia l'ASCII art
+                    if (average > 50 && !isBlown) {
+                        isBlown = true;
                         document.getElementById('ascii-art').textContent = `
                           y
                          ( 
@@ -78,7 +82,8 @@
                      jgs  \\ :/'/
                      ^^^^^^^^^^^^^^^
                         `;
-                    } else {
+                    } else if (average <= 50 && isBlown) {
+                        isBlown = false;
                         document.getElementById('ascii-art').textContent = `
                           _.--'--._
                         .'. ':. ' :'.
@@ -109,7 +114,7 @@
 
                 checkSound();
             } catch (error) {
-                alert('Accesso al microfono fallito. Verifica che il microfono sia abilitato.');
+                alert('Errore nell\'accesso al microfono. Verifica le impostazioni.');
             }
         }
 
