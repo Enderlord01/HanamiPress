@@ -3,24 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASCII Art - Soffio</title>
+    <title>ASCII Art con Microfono</title>
     <style>
         body {
             font-family: monospace;
             white-space: pre;
-            background-color: #282c34;
+            background-color: #ffffff;
             color: white;
             text-align: center;
             padding: 20px;
         }
-        .ascii-art {
-            font-size: 18px;
-            transition: font-size 0.2s;
-        }
     </style>
 </head>
 <body>
-    <pre id="asciiArt" class="ascii-art">
+    <pre id="ascii-art">
       _.--'--._
     .'. ':. ' :'.
    '`' : `. `: ':' 
@@ -45,88 +41,74 @@
     </pre>
 
     <script>
-        const originalArt = `
-          _.--'--._
-        .'. ':. ' :'.
-       \`\`' : \`. \`: ':' 
-      : : '.'. .'.':.\`:
-      :' -\`= \`+ .= - \`:
-      :.' .'.' :.'.\`:':
-       : : .:\`' .:\`.':
-        '.: . :\`. :.':
-          \`'--,--'\`  
-              y
-             ( 
-              \\       _
-               \\    /\\//
-         _      |__/:/_  
-         \\\\    |\\ :  /
-         _\\:\\_  /\\ : /_
-         \\ : /_/\\  :  /
-         _\\ : /_/ : /
-         \\  :  /.'/\`
-       jgs  \\ :/'/\\`
-    ^^^^^^^^^^^^^^^^^^`;
+        // Funzione per attivare il microfono e ascoltare il suono
+        async function startListening() {
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const analyser = audioContext.createAnalyser();
+            const microphone = audioContext.createMediaStreamSource(stream);
+            microphone.connect(analyser);
 
-        const blowArt = `
-              y
-             ( 
-              \\       _
-               \\    // 
-         _      |__/:/_  
-         \\\\    |\\ :  /
-         _\\:\\_  /\\ : /_
-         \\ : /_/\\  :  /
-         _\\ : /_/ : /
-         \\  :  /.'/
-       jgs  \\ :/'/
-    ^^^^^^^^^^^^^^^^`;
+            const bufferLength = analyser.frequencyBinCount;
+            const dataArray = new Uint8Array(bufferLength);
 
-        let asciiArtElement = document.getElementById('asciiArt');
-        let audioContext = new (window.AudioContext || window.webkitAudioContext)();
-        let analyser = audioContext.createAnalyser();
-        let microphone;
-        let threshold = 100;  // Modifica questa soglia in base alla sensibilità che desideri
-
-        // Funzione per iniziare a registrare dal microfono
-        async function startMic() {
-            try {
-                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-                microphone = audioContext.createMediaStreamSource(stream);
-                microphone.connect(analyser);
-                analyser.fftSize = 256;
-                analyser.smoothingTimeConstant = 0.85;
-                listenToSound();
-            } catch (err) {
-                console.log('Errore nell\'accesso al microfono:', err);
-            }
-        }
-
-        // Funzione per ascoltare il suono e cambiare l'arte ASCII in base al soffio
-        function listenToSound() {
-            let bufferLength = analyser.frequencyBinCount;
-            let dataArray = new Uint8Array(bufferLength);
-
-            function update() {
+            function checkSound() {
                 analyser.getByteFrequencyData(dataArray);
-                let sum = 0;
-                dataArray.forEach(value => sum += value);
+                let total = 0;
+                for (let i = 0; i < bufferLength; i++) {
+                    total += dataArray[i];
+                }
+                let average = total / bufferLength;
 
-                let average = sum / bufferLength;
-                if (average > threshold) {
-                    asciiArtElement.textContent = blowArt;
+                // Se il suono supera una certa soglia, cambia l'ASCII art
+                if (average > 100) {
+                    document.getElementById('ascii-art').textContent = `
+                      y
+                     ( 
+                      \\       _
+                       \\    //
+                 _      |__/:/_  
+                 \\\\    |\\ :  /
+                 _\\:\\_  /\\ : /_
+                 \\ : /_/\\  :  /
+                 _\\ : /_/ : /
+                 \\  :  /.'/ 
+                 jgs  \\ :/'/
+                 ^^^^^^^^^^^^^^^
+                    `;
                 } else {
-                    asciiArtElement.textContent = originalArt;
+                    document.getElementById('ascii-art').textContent = `
+                      _.--'--._
+                    .'. ':. ' :'.
+                   \`\`' : \`. \`: ':' 
+                  : : '.'. .'.':.\`:
+                  :' -\`= \`+ .= - \`:
+                  :.' .'.' :.'.\`:':
+                   : : .:\`' .:\`.':
+                    '.: . :\`. :.'
+                      \`'--,--'\`  
+                          y
+                         ( 
+                          \\       _
+                           \\    /\`/
+                     _      |__/:/_  
+                     \\\`\\    |\\ :  /
+                     _\\:\\_  /\\ : /_
+                     \\ : /_/\\  :  /
+                     _\\ : /_/ : /
+                     \\  :  /.'/\`
+                   jgs  \`\\ :/'/\`\`
+                \`^^\`^ \`^^\` ^^ \`^^^\` ^^`^ \`^
+                    `;
                 }
 
-                requestAnimationFrame(update);
+                requestAnimationFrame(checkSound);
             }
 
-            update();
+            checkSound();
         }
 
-        // Inizia l'ascolto del microfono
-        startMic();
+        startListening();
     </script>
 </body>
 </html>
