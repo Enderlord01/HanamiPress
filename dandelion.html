@@ -1,122 +1,71 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Microfono e Testo Dinamico</title>
-    <style>
-        pre {
-            font-family: "Courier New", monospace;
-            font-size: 16px;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASCII Art con Volume Microfono</title>
+  <style>
+    body {
+      font-family: monospace;
+      text-align: center;
+      padding: 20px;
+    }
 
-        .highlight {
-            color: white;
-            background-color: black;
-        }
-    </style>
+    .ascii-art {
+      font-size: 24px;
+      transition: font-size 0.1s;
+    }
+  </style>
 </head>
 <body>
-    <pre id="ascii-art"></pre>
 
-    <script>
-        // ASCII Art iniziale
-        const asciiText = `
-      _.--'--._
-    .'. ':. ' :'.
-   \`\`' : \`. \`: ':' 
-  : : '.'. .'.':.\`:' 
-  :' -\`= \`+ .= - \`: 
-  :.' .'.' :.'.\`:': 
-   : : .:\`' .:\`.': 
-    '.: . :\`. :.' 
-      \`'--,--'\`  
-          y 
-         ( 
-          \\       _ 
-           \\    /'/\` 
-     _      |__/:/_  
-     \\\`\\    |\\ :  / 
-     _\\:\\_  /\\ : /_ 
-     \\ : /_/\\  :  / 
-     _\\ : /_/ : /\\` 
-     \\  :  /.'/\` 
- jgs  \`\\ :/'/`` 
-\`^^\`^ \`^ \`^^\`^^^ \`^^\`^^^ \`^
-        `;
-        
-        // Inizializza l'array per tenere traccia dei caratteri evidenziati
-        let highlightedIndexes = [];
+  <h1>ASCII Art che cambia con il volume del microfono</h1>
+  <div id="asciiArt" class="ascii-art">
+    .-""""""-.
+   /          \
+  |            |
+  |   (o)  (o) |
+  |     (_)    |
+  |    \___/   |
+   \          /
+    '-......-'
+  </div>
 
-        // Otteniamo l'elemento pre con il testo dell'ASCII art
-        const asciiArt = document.getElementById('ascii-art');
+  <script>
+    // Funzione per ottenere il volume del microfono
+    async function getMicrophoneVolume() {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      const analyser = audioContext.createAnalyser();
+      const source = audioContext.createMediaStreamSource(stream);
+      source.connect(analyser);
 
-        // Funzione per costruire l'HTML dell'ASCII art
-        function buildAsciiArt() {
-            asciiArt.innerHTML = asciiText.split('').map((char, index) => {
-                if (highlightedIndexes.includes(index)) {
-                    return `<span class="highlight">${char}</span>`;
-                }
-                return char;
-            }).join('');
-        }
+      const bufferLength = analyser.frequencyBinCount;
+      const dataArray = new Uint8Array(bufferLength);
 
-        // Soglia per il volume (soglia più alta)
-        const VOLUME_THRESHOLD = 0.1;
+      analyser.getByteFrequencyData(dataArray);
 
-        // Funzione per aggiornare il colore del carattere (permanente)
-        function highlightCharacter(index) {
-            if (!highlightedIndexes.includes(index)) {
-                highlightedIndexes.push(index);
-                buildAsciiArt(); // Rende permanenti i cambiamenti
-            }
-        }
+      let sum = 0;
+      for (let i = 0; i < bufferLength; i++) {
+        sum += dataArray[i];
+      }
 
-        // Accediamo al microfono
-        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-            navigator.mediaDevices.getUserMedia({ audio: true })
-                .then(function(stream) {
-                    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-                    const analyser = audioContext.createAnalyser();
-                    const microphone = audioContext.createMediaStreamSource(stream);
-                    microphone.connect(analyser);
+      return sum / bufferLength;
+    }
 
-                    analyser.fftSize = 256;
-                    const bufferLength = analyser.frequencyBinCount;
-                    const dataArray = new Uint8Array(bufferLength);
+    // Funzione per aggiornare la dimensione del font in base al volume
+    async function updateAsciiArt() {
+      const volume = await getMicrophoneVolume();
+      const size = Math.max(24, Math.min(100, volume / 2)); // Impostazione della dimensione in base al volume
+      document.getElementById('asciiArt').style.fontSize = `${size}px`;
 
-                    // Funzione per analizzare il volume
-                    function checkVolume() {
-                        analyser.getByteFrequencyData(dataArray);
+      // Riprova ogni 100ms per aggiornare continuamente
+      setTimeout(updateAsciiArt, 100);
+    }
 
-                        let maxVolume = 0;
-                        for (let i = 0; i < bufferLength; i++) {
-                            maxVolume = Math.max(maxVolume, dataArray[i]);
-                        }
+    // Avvio del rilevamento del volume
+    updateAsciiArt();
+  </script>
 
-                        // Se il volume supera la soglia, cambiamo il colore di un carattere
-                        if (maxVolume / 255 > VOLUME_THRESHOLD) {
-                            const index = Math.floor(Math.random() * asciiText.length); // Indice casuale
-                            highlightCharacter(index);
-                        }
-
-                        // Riprova a verificare il volume
-                        requestAnimationFrame(checkVolume);
-                    }
-
-                    checkVolume(); // Avvia il controllo del volume
-                })
-                .catch(function(err) {
-                    console.log('Errore nell\'accesso al microfono:', err);
-                });
-        } else {
-            alert('Il tuo browser non supporta l\'accesso al microfono.');
-        }
-
-        // Carica il testo ASCII iniziale
-        buildAsciiArt();
-    </script>
 </body>
 </html>
