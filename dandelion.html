@@ -1,6 +1,70 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pallina con Accelerometro</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+        #ball {
+            font-size: 50px;
+            position: absolute;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="ball">⦿</div>
+
+    <script>
+        const ball = document.getElementById('ball');
+
+        // Inizializzare le coordinate della pallina
+        let x = window.innerWidth / 2;
+        let y = window.innerHeight / 2;
+
+        // Funzione per aggiornare la posizione della pallina
+        function updatePosition(accelerationX, accelerationY) {
+            const ballSize = 50; // Dimensione della pallina
+
+            // Calcolare le nuove posizioni basate sull'accelerometro
+            x += accelerationX * 10; // La moltiplicazione è per amplificare il movimento
+            y -= accelerationY * 10;
+
+            // Limiti per evitare che la pallina esca fuori dallo schermo
+            x = Math.max(ballSize, Math.min(window.innerWidth - ballSize, x));
+            y = Math.max(ballSize, Math.min(window.innerHeight - ballSize, y));
+
+            // Aggiornare la posizione della pallina
+            ball.style.left = `${x - ballSize / 2}px`;
+            ball.style.top = `${y - ballSize / 2}px`;
+        }
+
+        // Ascoltare i cambiamenti dell'accelerometro
+        if (window.DeviceMotionEvent) {
+            window.addEventListener('devicemotion', function(event) {
+                const accelerationX = event.accelerationIncludingGravity.x;
+                const accelerationY = event.accelerationIncludingGravity.y;
+                updatePosition(accelerationX, accelerationY);
+            });
+        } else {
+            alert('Il dispositivo non supporta l\'accelerometro.');
+        }
+    </script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="it">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ASCII Art con Volume Microfono</title>
