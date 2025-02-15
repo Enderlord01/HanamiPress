@@ -9,10 +9,6 @@
       font-family: "Courier New", monospace;
       font-size: 16px;
       white-space: pre-wrap; /* Per gestire il testo su più righe */
-      transition: color 0.2s ease; /* Per il cambiamento di colore */
-    }
-    .listening {
-      color: red; /* Colore quando si rileva il suono */
     }
   </style>
 </head>
@@ -20,7 +16,7 @@
   <pre id="asciiArt">
       _.--'--._
     .'. ':. ' :'.
-   '`' : `. `: ':'  
+   '`' : `. `: ':'
   : : '.'. .'.':.`:
   :' -`= `+ .= - `:
   :.' .'.' :.'.`:':
@@ -37,17 +33,31 @@
      \ : /_/\  :  /
      _\ : /_/ : /`
      \  :  /.'/`
- jgs  `\ :/'/``   
-`^^`^`^``^^`^^^`^^`^^^`^
+      `\ :/'/``
+`^^`^`^``^^`^^^`^^`^^^`^  
   </pre>
-  <div id="status"></div>
 
   <script>
     // Funzione per rilevare il suono tramite il microfono
     async function startListening() {
       const asciiElement = document.getElementById('asciiArt');
-      const statusElement = document.getElementById('status');
+      const asciiText = asciiElement.textContent;
       let stream;
+      let textToRemove = `
+      _.--'--._
+    .'. ':. ' :'.
+   \`' : \` . \`: ':'  
+  : : '.'. .'.':.`:
+  :' -\`= \`+ .= - \`:
+  :.' .'.' :.'.\`:':
+   : : .:\`' .:\`.':
+    '.: . :\`. :.'
+      \`'--,--'\`  
+      `;  // Questa è la parte da rimuovere gradualmente
+
+      let currentIndex = 0; // Indice dei caratteri da rimuovere
+      let interval;
+
       try {
         // Richiedi l'accesso al microfono
         stream = await navigator.mediaDevices.getUserMedia({ audio: true });
@@ -70,23 +80,18 @@
           
           const average = sum / bufferLength;
 
-          // Se il suono supera una certa soglia, modifica l'arte ASCII
-          if (average > 50) { // Soglia regolabile per il soffio
-            // Aggiungi un feedback visivo (cambia colore dell'arte ASCII)
-            asciiElement.classList.add('listening');
-            statusElement.textContent = "Soffio rilevato!";
-            
-            // Rimuove la parte specificata dell'arte ASCII
-            const asciiText = asciiElement.textContent;
-            const newText = asciiText.replace(
-              /(_.--'--._\s+\.'. ':. ' :'.\s+`' : `. `: ':'\s+: : '.'. .'.':.`:\s+:' -`= `\+ .= - `:\s+:.' .'.' :.'.`:':\s+: : .:`' .:`.`:\s+'.: . :`. :.'\s+`'--,--'`)/g,
-              '' // Rimuove la parte dell'arte ASCII
-            );
-            asciiElement.textContent = newText;
-          } else {
-            // Se non viene rilevato soffio, resetta il feedback visivo
-            asciiElement.classList.remove('listening');
-            statusElement.textContent = "";
+          // Se il suono supera una certa soglia, inizia a rimuovere i caratteri
+          if (average > 50 && !interval) { // Avvia il processo di rimozione
+            interval = setInterval(() => {
+              if (currentIndex < textToRemove.length) {
+                // Rimuove uno o pochi caratteri alla volta
+                currentIndex += 1;
+                const newText = asciiText.replace(textToRemove.slice(0, currentIndex), '');
+                asciiElement.textContent = newText;
+              } else {
+                clearInterval(interval); // Ferma la rimozione quando tutto è stato rimosso
+              }
+            }, 100); // Ogni 100ms rimuove un carattere
           }
           
           requestAnimationFrame(checkSound); // Continuare a monitorare il suono
