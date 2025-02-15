@@ -14,22 +14,20 @@
             font-family: Arial, sans-serif;
             text-align: center;
         }
-        #startButton {
+        #text {
             font-size: 20px;
-            padding: 10px 20px;
-            cursor: pointer;
+            transition: font-size 0.1s ease;
         }
     </style>
 </head>
 <body>
     <div id="text">A</div>
-    <button id="startButton">Inizia a usare il microfono</button>
 
     <script>
-        document.getElementById('startButton').addEventListener('click', () => {
-            navigator.mediaDevices.getUserMedia({ audio: true })
-                .then(stream => {
-                    const audioContext = new AudioContext();
+        navigator.mediaDevices.getUserMedia({ audio: true })
+            .then(stream => {
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                audioContext.resume().then(() => {  // Resume l'AudioContext su dispositivi mobili
                     const analyser = audioContext.createAnalyser();
                     const microphone = audioContext.createMediaStreamSource(stream);
                     microphone.connect(analyser);
@@ -43,16 +41,16 @@
                         requestAnimationFrame(update);
                         analyser.getByteFrequencyData(dataArray);
                         const volume = dataArray.reduce((a, b) => a + b) / dataArray.length;
-                        const fontSize = Math.max(20, volume / 2) + "px";
+                        const fontSize = Math.max(40, volume * 1.5) + "px"; // Aumento maggiore
                         textElement.style.fontSize = fontSize;
                     }
                     
                     update();
-                })
-                .catch(error => {
-                    console.error("Errore nell'accesso al microfono:", error);
                 });
-        });
+            })
+            .catch(error => {
+                console.error("Errore nell'accesso al microfono:", error);
+            });
     </script>
 </body>
 </html>
