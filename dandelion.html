@@ -1,100 +1,108 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ASCII Art con Soffio</title>
-  <style>
-    pre {
-      font-family: monospace;
-      white-space: pre-wrap;
-      word-wrap: break-word;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microfono e Testo Dinamico</title>
+    <style>
+        pre {
+            font-family: "Courier New", monospace;
+            font-size: 16px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .highlight {
+            color: white;
+            background-color: black;
+        }
+    </style>
 </head>
 <body>
-  <pre id="ascii-art">
+    <pre id="ascii-art">
       _.--'--._
     .'. ':. ' :'.
-   '`' : `. `: ':'  
-  : : '.'. .'.':.`:
-  :' -`= `+ .= - `:
-  :.' .'.' :.'.`:':
-   : : .:`' .:`.':
-    '.: . :`. :.'
+   '`' : `. `: ':' 
+  : : '.'. .'.':.`: 
+  :' -`= `+ .= - `: 
+  :.' .'.' :.'.`:': 
+   : : .:`' .:`.': 
+    '.: . :`. :.' 
       `'--,--'`  
-  </pre>
-
-  <script>
-    // ASCII Art iniziale
-    let asciiArt = `      _.--'--._
-    .'. ':. ' :'.
-   \`' : \`. \`: ':'  
-  : : '.'. .'.':.\`:
-  :' -\`= \`+ .= - \`:
-  :.' .'.' :.'.\`:':
-   : : .:\`' .:\`.':
-    '.: . :\`. :.'
-      \`'--,--'\`  
-          y
+          y 
          ( 
-          \\       _
-           \\    /`/
+          \       _ 
+           \    /`/` 
      _      |__/:/_  
-     \\`\\    |\\ :  /
-     _\\:\\_  /\\ : /_
-     \\ : /_/\\  : /
-     _\\ : /_/ : /
-     \\  :  /.'/\`
- jgs  \`\\ :/'/`\``;
-    
-    let textElement = document.getElementById("ascii-art");
-    
-    // Funzione per rimuovere un carattere dalla fine
-    function removeChar() {
-      if (asciiArt.length > 0) {
-        asciiArt = asciiArt.slice(0, -1); // Rimuove l'ultimo carattere
-        textElement.textContent = asciiArt; // Aggiorna il contenuto
-      }
-    }
+     \`\    |\ :  / 
+     _\:\_  /\ : /_ 
+     \ : /_/\  :  / 
+     _\ : /_/ : /` 
+     \  :  /.'/` 
+ jgs  `\ :/'/`` 
+`^^`^`^``^^`^^^`^^`^^^`^
+    </pre>
 
-    // Funzione per rilevare il suono
-    function detectSound() {
-      navigator.mediaDevices.getUserMedia({ audio: true })
-        .then(function(stream) {
-          let audioContext = new (window.AudioContext || window.webkitAudioContext)();
-          let analyser = audioContext.createAnalyser();
-          let source = audioContext.createMediaStreamSource(stream);
-          source.connect(analyser);
-          
-          analyser.fftSize = 256;
-          let bufferLength = analyser.frequencyBinCount;
-          let dataArray = new Uint8Array(bufferLength);
+    <script>
+        // Soglia per il volume (puoi regolarla a piacere)
+        const VOLUME_THRESHOLD = 0.03;
 
-          function checkSound() {
-            analyser.getByteFrequencyData(dataArray);
-            let sum = 0;
-            for (let i = 0; i < bufferLength; i++) {
-              sum += dataArray[i];
-            }
+        // Otteniamo l'elemento pre con il testo dell'ASCII art
+        const asciiArt = document.getElementById('ascii-art');
+        
+        // Funzione per aggiornare il colore del carattere
+        function highlightCharacter(index) {
+            const text = asciiArt.textContent;
+            const newText = text.split('').map((char, i) => {
+                if (i === index) {
+                    return `<span class="highlight">${char}</span>`;
+                } else {
+                    return char;
+                }
+            }).join('');
+            asciiArt.innerHTML = newText;
+        }
 
-            // Se il suono è abbastanza forte (soglia di 1000)
-            if (sum > 1000) {
-              removeChar();
-            }
+        // Accediamo al microfono
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+            navigator.mediaDevices.getUserMedia({ audio: true })
+                .then(function(stream) {
+                    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    const analyser = audioContext.createAnalyser();
+                    const microphone = audioContext.createMediaStreamSource(stream);
+                    microphone.connect(analyser);
 
-            requestAnimationFrame(checkSound);
-          }
+                    analyser.fftSize = 256;
+                    const bufferLength = analyser.frequencyBinCount;
+                    const dataArray = new Uint8Array(bufferLength);
 
-          checkSound();
-        })
-        .catch(function(error) {
-          console.log("Errore nell'accesso al microfono", error);
-        });
-    }
+                    // Funzione per analizzare il volume
+                    function checkVolume() {
+                        analyser.getByteFrequencyData(dataArray);
 
-    // Inizia a rilevare il suono
-    detectSound();
-  </script>
+                        let maxVolume = 0;
+                        for (let i = 0; i < bufferLength; i++) {
+                            maxVolume = Math.max(maxVolume, dataArray[i]);
+                        }
+
+                        // Se il volume supera la soglia, cambiamo il colore di un carattere
+                        if (maxVolume / 255 > VOLUME_THRESHOLD) {
+                            const index = Math.floor(Math.random() * asciiArt.textContent.length); // Indice casuale
+                            highlightCharacter(index);
+                        }
+
+                        // Riprova a verificare il volume
+                        requestAnimationFrame(checkVolume);
+                    }
+
+                    checkVolume(); // Avvia il controllo del volume
+                })
+                .catch(function(err) {
+                    console.log('Errore nell\'accesso al microfono:', err);
+                });
+        } else {
+            alert('Il tuo browser non supporta l\'accesso al microfono.');
+        }
+    </script>
 </body>
 </html>
