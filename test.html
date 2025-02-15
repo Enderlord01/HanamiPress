@@ -41,7 +41,7 @@
                         requestAnimationFrame(update);
                         analyser.getByteFrequencyData(dataArray);
                         const volume = dataArray.reduce((a, b) => a + b) / dataArray.length;
-                        const fontSize = Math.max(40, volume * 1.5) + "px"; // Aumento maggiore
+                        const fontSize = Math.max(40, volume * 4) + "px"; // Aumento maggiore
                         textElement.style.fontSize = fontSize;
                     }
                     
