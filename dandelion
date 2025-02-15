@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dandelion</title>
+  <style>
+    pre {
+      font-family: "Courier New", monospace;
+      font-size: 16px;
+      white-space: pre-wrap; /* Per gestire il testo su più righe */
+    }
+  </style>
+</head>
+<body>
+  <pre id="asciiArt">
+      _.--'--._
+    .'. ':. ' :'.
+   '`' : `. `: ':'  
+  : : '.'. .'.':.`:
+  :' -`= `+ .= - `:
+  :.' .'.' :.'.`:':
+   : : .:`' .:`.':
+    '.: . :`. :.'
+      `'--,--'`  
+  </pre>
+
+  <script>
+    // Funzione per rilevare il suono tramite il microfono
+    async function startListening() {
+      const asciiElement = document.getElementById('asciiArt');
+      let stream;
+      try {
+        // Richiedi l'accesso al microfono
+        stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        const analyser = audioContext.createAnalyser();
+        const microphone = audioContext.createMediaStreamSource(stream);
+        microphone.connect(analyser);
+        
+        const bufferLength = analyser.frequencyBinCount;
+        const dataArray = new Uint8Array(bufferLength);
+
+        function checkSound() {
+          analyser.getByteFrequencyData(dataArray);
+          let sum = 0;
+          
+          // Calcola la "forza" del suono
+          for (let i = 0; i < bufferLength; i++) {
+            sum += dataArray[i];
+          }
+          
+          const average = sum / bufferLength;
+
+          // Se il suono supera una certa soglia, modifica l'arte ASCII
+          if (average > 50) { // Soglia regolabile per il soffio
+            // Modifica l'arte ASCII per rimuovere la parte specificata
+            const asciiText = asciiElement.textContent;
+            const newText = asciiText.replace(
+              /(_.--'--._\s+\.'. ':. ' :'.\s+`' : `. `: ':'\s+: : '.'. .'.':.`:\s+:' -`= `\+ .= - `:\s+:.' .'.' :.'.`:':\s+: : .:`' .:`.`:\s+'.: . :`. :.'\s+`'--,--'`)/g,
+              '' // Rimuove il blocco di arte ASCII
+            );
+            asciiElement.textContent = newText;
+          }
+          
+          requestAnimationFrame(checkSound); // Continuare a monitorare il suono
+        }
+
+        checkSound(); // Avvia il controllo del suono
+      } catch (err) {
+        console.error('Errore nell\'accesso al microfono: ', err);
+      }
+    }
+
+    // Avvia la funzione di ascolto del microfono
+    startListening();
+  </script>
+</body>
+</html>
