@@ -12,37 +12,47 @@
             height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #startButton {
+            font-size: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
     <div id="text">A</div>
+    <button id="startButton">Inizia a usare il microfono</button>
+
     <script>
-        navigator.mediaDevices.getUserMedia({ audio: true })
-            .then(stream => {
-                const audioContext = new AudioContext();
-                const analyser = audioContext.createAnalyser();
-                const microphone = audioContext.createMediaStreamSource(stream);
-                microphone.connect(analyser);
-                analyser.fftSize = 256;
-                
-                const dataArray = new Uint8Array(analyser.frequencyBinCount);
-                const textElement = document.getElementById('text');
-                textElement.style.fontSize = "20px";
-                
-                function update() {
-                    requestAnimationFrame(update);
-                    analyser.getByteFrequencyData(dataArray);
-                    const volume = dataArray.reduce((a, b) => a + b) / dataArray.length;
-                    const fontSize = Math.max(20, volume / 2) + "px";
-                    textElement.style.fontSize = fontSize;
-                }
-                
-                update();
-            })
-            .catch(error => {
-                console.error("Errore nell'accesso al microfono:", error);
-            });
+        document.getElementById('startButton').addEventListener('click', () => {
+            navigator.mediaDevices.getUserMedia({ audio: true })
+                .then(stream => {
+                    const audioContext = new AudioContext();
+                    const analyser = audioContext.createAnalyser();
+                    const microphone = audioContext.createMediaStreamSource(stream);
+                    microphone.connect(analyser);
+                    analyser.fftSize = 256;
+                    
+                    const dataArray = new Uint8Array(analyser.frequencyBinCount);
+                    const textElement = document.getElementById('text');
+                    textElement.style.fontSize = "20px";
+                    
+                    function update() {
+                        requestAnimationFrame(update);
+                        analyser.getByteFrequencyData(dataArray);
+                        const volume = dataArray.reduce((a, b) => a + b) / dataArray.length;
+                        const fontSize = Math.max(20, volume / 2) + "px";
+                        textElement.style.fontSize = fontSize;
+                    }
+                    
+                    update();
+                })
+                .catch(error => {
+                    console.error("Errore nell'accesso al microfono:", error);
+                });
+        });
     </script>
 </body>
 </html>
