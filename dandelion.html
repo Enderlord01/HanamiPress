@@ -3,40 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASCII Art Scomparente e Posizionata Casual</title>
+    <title>ASCII Art - Soffio</title>
     <style>
         body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
             font-family: monospace;
-            position: relative;
+            white-space: pre;
+            background-color: #282c34;
+            color: white;
+            text-align: center;
+            padding: 20px;
         }
-        pre {
-            white-space: pre-wrap;
-            word-wrap: break-word;
-            font-size: 16px;
-            overflow: hidden;
-        }
-        .hidden {
-            visibility: hidden;
-        }
-        .random-position {
-            position: absolute;
-            font-size: 16px;
-            color: black;
-            transition: top 1s, left 1s;
+        .ascii-art {
+            font-size: 18px;
+            transition: font-size 0.2s;
         }
     </style>
 </head>
 <body>
-    <pre id="ascii-art">
+    <pre id="asciiArt" class="ascii-art">
       _.--'--._
     .'. ':. ' :'.
-   '`' : `. `: ':'
+   '`' : `. `: ':' 
   : : '.'. .'.':.`:
   :' -`= `+ .= - `:
   :.' .'.' :.'.`:':
@@ -51,102 +38,95 @@
      \`\    |\ :  /
      _\:\_  /\ : /_
      \ : /_/\  :  /
-     _\ : /_/ : /`
+     _\ : /_/ : /
      \  :  /.'/`
  jgs  `\ :/'/``
 `^^`^`^``^^`^^^`^^`^^^`^
     </pre>
 
     <script>
-        // Variabili per l'API Web Audio
+        const originalArt = `
+          _.--'--._
+        .'. ':. ' :'.
+       \`\`' : \`. \`: ':' 
+      : : '.'. .'.':.\`:
+      :' -\`= \`+ .= - \`:
+      :.' .'.' :.'.\`:':
+       : : .:\`' .:\`.':
+        '.: . :\`. :.':
+          \`'--,--'\`  
+              y
+             ( 
+              \\       _
+               \\    /\\//
+         _      |__/:/_  
+         \\\\    |\\ :  /
+         _\\:\\_  /\\ : /_
+         \\ : /_/\\  :  /
+         _\\ : /_/ : /
+         \\  :  /.'/\`
+       jgs  \\ :/'/\\`
+    ^^^^^^^^^^^^^^^^^^`;
+
+        const blowArt = `
+              y
+             ( 
+              \\       _
+               \\    // 
+         _      |__/:/_  
+         \\\\    |\\ :  /
+         _\\:\\_  /\\ : /_
+         \\ : /_/\\  :  /
+         _\\ : /_/ : /
+         \\  :  /.'/
+       jgs  \\ :/'/
+    ^^^^^^^^^^^^^^^^`;
+
+        let asciiArtElement = document.getElementById('asciiArt');
         let audioContext = new (window.AudioContext || window.webkitAudioContext)();
         let analyser = audioContext.createAnalyser();
         let microphone;
-        let javascriptNode;
-        
-        // Inizializzare l'audio e ottenere il microfono
-        navigator.mediaDevices.getUserMedia({ audio: true }).then(function(stream) {
-            microphone = audioContext.createMediaStreamSource(stream);
-            javascriptNode = audioContext.createScriptProcessor(2048, 1, 1);
-            microphone.connect(analyser);
-            analyser.connect(javascriptNode);
-            javascriptNode.connect(audioContext.destination);
+        let threshold = 100;  // Modifica questa soglia in base alla sensibilità che desideri
 
-            javascriptNode.onaudioprocess = function() {
-                let bufferLength = analyser.frequencyBinCount;
-                let dataArray = new Uint8Array(bufferLength);
+        // Funzione per iniziare a registrare dal microfono
+        async function startMic() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                microphone = audioContext.createMediaStreamSource(stream);
+                microphone.connect(analyser);
+                analyser.fftSize = 256;
+                analyser.smoothingTimeConstant = 0.85;
+                listenToSound();
+            } catch (err) {
+                console.log('Errore nell\'accesso al microfono:', err);
+            }
+        }
+
+        // Funzione per ascoltare il suono e cambiare l'arte ASCII in base al soffio
+        function listenToSound() {
+            let bufferLength = analyser.frequencyBinCount;
+            let dataArray = new Uint8Array(bufferLength);
+
+            function update() {
                 analyser.getByteFrequencyData(dataArray);
-
-                // Calcolare il volume medio
                 let sum = 0;
-                for (let i = 0; i < bufferLength; i++) {
-                    sum += dataArray[i];
-                }
+                dataArray.forEach(value => sum += value);
+
                 let average = sum / bufferLength;
-
-                // Se il volume è abbastanza alto (soffio), avvia il processo di scomparsa
-                if (average > 50) { // Puoi regolare questa soglia a seconda della sensibilità
-                    fadeOut();
-                }
-            };
-        }).catch(function(err) {
-            console.log('Errore nell\'acquisizione del microfono: ' + err);
-        });
-
-        // Funzione che fa scomparire i caratteri dell'ASCII art gradualmente
-        function fadeOut() {
-            let asciiArt = document.getElementById("ascii-art");
-            let chars = asciiArt.innerText.split('');
-            let visibleChars = chars.map((char, index) => {
-                return { char: char, index: index, isHidden: false };
-            });
-
-            let interval = setInterval(function() {
-                if (visibleChars.every(char => char.isHidden)) {
-                    clearInterval(interval); // Se tutti i caratteri sono nascosti, ferma il processo
+                if (average > threshold) {
+                    asciiArtElement.textContent = blowArt;
+                } else {
+                    asciiArtElement.textContent = originalArt;
                 }
 
-                // Trova il prossimo carattere visibile e nascondilo
-                for (let i = 0; i < visibleChars.length; i++) {
-                    if (!visibleChars[i].isHidden) {
-                        visibleChars[i].isHidden = true;
-                        chars[visibleChars[i].index] = '<span class="hidden">' + visibleChars[i].char + '</span>';
-                        break;
-                    }
-                }
+                requestAnimationFrame(update);
+            }
 
-                // Ricostruisci il testo con i caratteri nascosti
-                asciiArt.innerHTML = chars.join('');
-            }, 100); // Ogni 100ms scompare un carattere
+            update();
         }
 
-        // Funzione che fa apparire i caratteri in posizioni casuali
-        function showCharacterRandomly(char) {
-            let randomLeft = Math.random() * 100; // Posizione orizzontale casuale (in percentuale)
-            let randomTop = Math.random() * 100;  // Posizione verticale casuale (in percentuale)
-            
-            let newChar = document.createElement("span");
-            newChar.textContent = char;
-            newChar.classList.add("random-position");
-            newChar.style.left = randomLeft + "vw";  // Usa viewport width per la posizione
-            newChar.style.top = randomTop + "vh";   // Usa viewport height per la posizione
-            document.body.appendChild(newChar);
-        }
-
-        // Funzione che sposta i caratteri scomparsi in posizioni casuali
-        function handleRandomPosition() {
-            let asciiArt = document.getElementById("ascii-art");
-            let chars = asciiArt.innerText.split('');
-
-            chars.forEach((char) => {
-                if (char !== ' ' && char !== '\n') {
-                    showCharacterRandomly(char); // Mostra il carattere in una posizione casuale
-                }
-            });
-        }
-
-        // Avvia il movimento casuale quando i caratteri sono scomparsi
-        setTimeout(handleRandomPosition, 5000); // Dopo 5 secondi (quando i caratteri sono scomparsi)
+        // Inizia l'ascolto del microfono
+        startMic();
     </script>
 </body>
 </html>
