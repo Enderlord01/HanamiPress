@@ -44,6 +44,12 @@ header {
     position: relative;
 }
 
+.logo {
+    background-image: url(logo_hanami.svg)
+    fill: #ffffff
+    width: 25%;
+}
+
 /* Logo */
 .brand {
     font-family: PicNic;
