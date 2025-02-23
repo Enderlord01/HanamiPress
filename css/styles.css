@@ -162,85 +162,9 @@ footer .instagram-icon:hover {
     padding: 20px; /* Padding interno */
 }
 
-/* Griglia generale */
-.container {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 5 colonne su desktop */
-    gap: 0; /* Nessuno spazio tra i quadrati su desktop */
-    justify-content: center; /* Centra la griglia */
-    padding: 0; /* Rimuove padding */
-    max-width: calc(5 * 360px); /* Larghezza massima della griglia su desktop */
-    margin: 0 auto; /* Centra la griglia */
-}
-
-/* Quadrato con immagine rotonda */
-.square {
-    width: 100%; /* Adatta al contenitore */
-    max-width: 360px; /* Mantieni una dimensione fissa */
-    height: 360px; /* Altezza fissa */
-    background: linear-gradient(180deg, #0000ff, #ff00ff); /* Sfondo blu e viola */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    border-radius: 0px;
-    padding: 10px;
-    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.0);
-}
-
-/* Cerchio */
-.circle {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%; /* Crea il cerchio */
-    overflow: hidden; /* Nasconde la parte dell'immagine che sborda */
-    margin-bottom: 10px;
-}
-
-.circle img {
-    width: 100%; /* Impedisce all'immagine di sbordare */
-    height: 100%; /* Impedisce all'immagine di sbordare */
-    object-fit: cover; /* Assicura che l'immagine si adatti senza distorsioni */
-}
-
 .brand {
     text-decoration: none; /* Rimuove la sottolineatura */
     color: white; /* Cambia il colore del testo, se necessario */
-}
-
-/* Stile per il rettangolo attorno al nome con angoli stondati */
-.name a {
-    text-decoration: none;
-    color: white; /* Colore bianco per il testo */
-    font-size: 16px; /* Impostiamo la dimensione del testo a 16px */
-    font-weight: normal; /* Impostiamo il peso del font a regular (normale) */
-    display: inline-block; /* Display inline-block per il rettangolo */
-    padding: 8px 12px; /* Aggiunge spazio attorno al testo */
-    background-color: rgba(0, 0, 0, 0.1); /* Nero con opacità al 10% */
-    border-radius: 12px; /* Angoli stondati */
-    transition: background-color 0.3s ease; /* Transizione per l'hover */
-}
-
-/* Hover: cambia il colore di sfondo su hover */
-.name a:hover {
-    background-color: rgba(0, 0, 0, 0.2); /* Opacità al 20% al passaggio del mouse */
-}
-
-/* Hover: Mantieni il colore bianco e rimuovi la sottolineatura */
-.name a:hover {
-    color: white;
-    text-decoration: none;
-}
-
-.name a:hover i {
-    color: white; /* Cambia il colore dell'icona al passaggio del mouse */
-}
-
-/* Icona Instagram */
-.name a i {
-    font-size: 20px; /* Imposta la dimensione dell'icona */
-    margin-right: 8px; /* Aggiunge distanza tra l'icona e il nome */
 }
 
 .info {
@@ -251,7 +175,6 @@ footer .instagram-icon:hover {
 .info p strong {
     font-weight: bold;
 }
-
 
 #particles-js {
     position: fixed;
@@ -264,58 +187,10 @@ footer .instagram-icon:hover {
     background: transparent;
 }
 
-::selection {
-    background-color: #0000ff; /* Giallo */
-    color: #000000; /* Nero */
-}
-
                                                                                                                         /*Media Query
-
-/* Media Query per dispositivi mobili (fino a 768px) */
-@media (max-width: 768px) {
-    .container {
-        grid-template-columns: 1fr; /* Una colonna su schermi piccoli */
-        gap: 20px; /* Spazio tra i quadrati */
-        padding: 0 20px; /* Aggiunge bordo di 20px ai lati */
-        width: 100%; /* Larghezza piena */
-        max-width: 100%; /* Limita la larghezza della griglia su mobile */
-    }
-
-    .square {
-        margin: 0 auto; /* Centra ogni quadrato orizzontalmente */
-    }
-
-    /* Riduzione delle dimensioni dei cerchi su mobile */
-    .circle {
-        width: 150px; /* Riduce la dimensione del cerchio su mobile */
-        height: 150px;
-    }
-}
-
-/* Media Query per dispositivi come iPad (769px - 1024px) */
-@media (min-width: 769px) and (max-width: 1024px) {
-    .container {
-        grid-template-columns: repeat(3, 1fr); /* 3 colonne su iPad */
-        gap: 20px; /* Spazio tra i quadrati */
-    }
-}
-
-/* Media Query per desktop (oltre 1024px) */
-@media (min-width: 1025px) {
-    .container {
-        grid-template-columns: repeat(5, 1fr); /* 5 colonne su desktop */
-        gap: 0; /* Nessuno spazio tra i quadrati su desktop */
-        justify-content: center; /* Centra la griglia */
-        padding: 0; /* Rimuove padding */
-        max-width: calc(5 * 330px); /* Larghezza massima della griglia su desktop */
-        margin: 0 auto; /* Centra la griglia */
-    }
-}
-
 /* Regole per schermi grandi (desktop) */
 @media (min-width: 1024px) {
     .coming-soon {
         font-size: 128px; /* Font più grande su desktop */
     }
 }
-
