@@ -12,6 +12,7 @@
     position: relative;
     text-align: left;
     background-color: white;
+    z-index: 1000000;
     /* Rimuovi larghezza e altezza fisse per rendere i box quadrati */
     aspect-ratio: 1; /* Mantiene i box quadrati */
 }
@@ -59,6 +60,7 @@
     top: 10px;
     right: 10px;
     background-color: #ff00ff; /* Colore di sfondo del tag */
+    border-radius: 32px;
     padding: 2px 16px;
 }
 
