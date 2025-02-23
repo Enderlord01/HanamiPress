@@ -46,11 +46,10 @@ header {
 
 /* Logo */
 .brand {
-    font-family: Helvetica bold;
-    font-size: 57px;
+    font-family: PicNic;
+    font-size: 48px;
     font-weight: normal;
     text-align: center; /* Centra il testo */
-    margin-bottom: 10px; /* Spazio tra il testo e il tasto hamburger */
 }
 
 /* Hamburger */
@@ -60,7 +59,7 @@ header {
     flex-direction: column;
     align-items: center; /* Centra il tasto */
     gap: 5px;
-    margin-top: 50px; /* Spazio sopra il tasto hamburger */
+    margin-top: 10px; /* Spazio sopra il tasto hamburger */
 }
 
 .hamburger div {
