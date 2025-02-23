@@ -9,6 +9,7 @@
 
 .product-box {
     border: 1px solid black;
+    border-bottom: none; /* Rimuove il bordo inferiore di default */
     position: relative;
     text-align: left;
     background-color: white;
@@ -74,16 +75,21 @@
     color: #ff00ff;
 }
 
-/* Media query per schermi piccoli */
-@media (max-width: 600px) {
-    .grid-container {
-        grid-template-columns: 1fr; /* 1 colonna per mobile */
-    }
-}
-
 /* Media query per tablet */
 @media (min-width: 601px) and (max-width: 900px) {
     .grid-container {
         grid-template-columns: repeat(2, 1fr); /* 2 colonne per tablet */
+    }
+}
+
+/* Media query per schermi piccoli (mobile) */
+@media (max-width: 600px) {
+    .grid-container {
+        grid-template-columns: 1fr; /* 1 colonna per mobile */
+    }
+
+    .product-box {
+        border: none; /* Rimuove tutti i bordi su mobile */
+        border-bottom: 1px solid black; /* Aggiunge solo il bordo inferiore */
     }
 }
