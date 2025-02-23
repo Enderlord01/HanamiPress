@@ -73,7 +73,7 @@ header {
 nav {
     background-image: linear-gradient(rgba(255,0,255,1), rgba(255,0,255,1) 55%, rgba(255,0,255,0));
     position: absolute;
-    z-index: 9999; /* Valore alto per sovrapporsi ad altri elementi */
+    z-index: 1000000000000000; /* Valore alto per sovrapporsi ad altri elementi */
     left: 0;
     width: 100%;
     height: 520px;
