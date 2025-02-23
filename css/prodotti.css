@@ -89,7 +89,6 @@
     }
 
     .product-box {
-        border: none; /* Rimuove tutti i bordi su mobile */
         border-bottom: 1px #ff00ff; /* Aggiunge solo il bordo inferiore */
     }
 }
