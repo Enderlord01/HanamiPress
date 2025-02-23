@@ -70,3 +70,10 @@
         grid-template-columns: 1fr; /* 1 colonna per mobile */
     }
 }
+
+/* Media query per tablet */
+@media (min-width: 601px) and (max-width: 900px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 colonne per tablet */
+    }
+}
