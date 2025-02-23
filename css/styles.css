@@ -22,6 +22,16 @@ html, body {
     color: white;
     font-size: 32px;
     overflow-x: hidden; /* Disabilita lo scorrimento orizzontale */
+    /* Nascondi la barra di scorrimento */
+}
+
+body::-webkit-scrollbar {
+    display: none; /* Nasconde la barra di scorrimento in Chrome, Safari e Opera */
+}
+
+body {
+    scrollbar-width: none; /* Nasconde la barra di scorrimento in Firefox */
+    -ms-overflow-style: none; /* Nasconde la barra di scorrimento in IE e Edge */
 }
 
 @font-face {
