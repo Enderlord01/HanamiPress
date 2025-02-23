@@ -1,8 +1,10 @@
 .grid-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 4 colonne per desktop */
-    gap: 1px;
-    padding: 10px;
+    gap: 0; /* Rimuove il gap tra i box */
+    padding: 0; /* Rimuove il padding della griglia */
+    width: 100vw; /* Larghezza della griglia */
+    height: auto; /* Altezza automatica in base ai contenuti */
 }
 
 .product-box {
@@ -10,21 +12,21 @@
     position: relative;
     text-align: left;
     background-color: white;
-    width: 200px; /* Larghezza del box */
-    height: 200px; /* Altezza del box */
-    overflow: hidden;
+    /* Rimuovi larghezza e altezza fisse per rendere i box quadrati */
+    aspect-ratio: 1; /* Mantiene i box quadrati */
 }
 
 .product-image {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100px; /* Altezza dell'immagine */
+    height: 100%; /* L'immagine riempie l'altezza del box */
 }
 
 .product-image img {
     max-width: 100%;
     max-height: 100%;
+    object-fit: cover; /* Mantiene le proporzioni dell'immagine */
 }
 
 .product-number {
