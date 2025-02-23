@@ -64,8 +64,15 @@
     color: #ff00ff;
 }
 
-.product-tag {
+.product-tags {
+    display: flex; /* Utilizza Flexbox per allineare i tag */
+    gap: 5px; /* Spaziatura tra i tag */
     position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.product-tag {
     top: 10px;
     right: 10px;
     background-color: #ff00ff; /* Colore di sfondo del tag */
