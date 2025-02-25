@@ -1,9 +1,9 @@
 .products-header {
-    border: 1px solid #ff00ff; /* Bordo di 1px fucsia */
+    border-bottom: 1px solid #ff00ff; /* Bordo di 1px fucsia */
     text-align: left; /* Testo centrato */
     font-family: Helvetica, sans-serif; /* Font Helvetica */
     font-size: 32px; /* Dimensione del testo */
-    padding: 10px 0; /* Spaziatura verticale per dare più respiro */
+    padding: 10px 20px; /* Spaziatura per dare più respiro */
     width: 100%; /* Occupa tutta la larghezza */
     box-sizing: border-box; /* Include il bordo nella larghezza */
     background-color: white;
@@ -20,8 +20,8 @@
 }
 
 .product-box {
-    border: 1px solid #ff00ff;
-    border-bottom: none; /* Rimuove il bordo inferiore di default */
+    border-right: 1px solid #ff00ff;
+    border-bottom: 1px solid #ff00ff;
     position: relative;
     text-align: left;
     background-color: white;
@@ -101,6 +101,7 @@
     }
 
     .product-box {
-        border-bottom: 1px #ff00ff; /* Aggiunge solo il bordo inferiore */
+        border-bottom: 1px solid #ff00ff;
+        border-right: 1px solid #ff00ff;
     }
 }
