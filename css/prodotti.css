@@ -1,3 +1,15 @@
+.products-header {
+    border: 1px solid #ff00ff; /* Bordo di 1px fucsia */
+    text-align: center; /* Testo centrato */
+    font-family: Helvetica, sans-serif; /* Font Helvetica */
+    font-size: 16px; /* Dimensione del testo */
+    padding: 10px 0; /* Spaziatura verticale per dare più respiro */
+    width: 100%; /* Occupa tutta la larghezza */
+    box-sizing: border-box; /* Include il bordo nella larghezza */
+    background-color: white;
+    color: #0000ff
+}
+
 .grid-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 4 colonne per desktop */
