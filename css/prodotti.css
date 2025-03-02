@@ -14,7 +14,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 4 colonne per desktop */
     gap: 0; /* Rimuove il gap tra i box */
-    padding: 0; /* Rimuove il padding della griglia */
+    padding-right: 15px; /* Rimuove il padding della griglia */
     width: 100vw; /* Larghezza della griglia */
     height: auto; /* Altezza automatica in base ai contenuti */
 }
@@ -90,6 +90,7 @@
 @media (min-width: 601px) and (max-width: 900px) {
     .grid-container {
         grid-template-columns: repeat(2, 1fr); /* 2 colonne per tablet */
+        padding-right: 0px;
     }
 }
 
@@ -97,6 +98,7 @@
 @media (max-width: 600px) {
     .grid-container {
         grid-template-columns: 1fr; /* 1 colonna per mobile */
+        padding-right: 0px;
     }
 
     .product-box {
