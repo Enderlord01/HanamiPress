@@ -101,23 +101,28 @@
         padding-right: 0px;
     }
 
+    .products-header {
+        font-size: 24px;
+    }
+    
     .product-box {
         border-bottom: 1px solid #ff00ff;
         border-right: 1px solid #ff00ff;
     }
+    
     .product-title {
-    position: absolute;
-    bottom: 12px;
-    left: 10px;
-    font-size: 24px;
-    color: #0000ff;
-}
+        position: absolute;
+        bottom: 12px;
+        left: 10px;
+        font-size: 24px;
+        color: #0000ff;
+    }
 
-.product-author {
-    position: absolute;
-    bottom: 42px;
-    left: 12px;
-    font-size: 16px;
-    color: #ff00ff;
-}
+    .product-author {
+        position: absolute;
+        bottom: 42px;
+        left: 12px;
+        font-size: 16px;
+        color: #ff00ff;
+    }
 }
