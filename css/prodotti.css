@@ -3,7 +3,7 @@
     text-align: left; /* Testo centrato */
     font-family: Helvetica bold, sans-serif; /* Font Helvetica */
     font-size: 32px; /* Dimensione del testo */
-    padding: 10px 20px; /* Spaziatura per dare più respiro */
+    padding: 10px 10px; /* Spaziatura per dare più respiro */
     width: 100%; /* Occupa tutta la larghezza */
     box-sizing: border-box; /* Include il bordo nella larghezza */
     background-color: white;
@@ -105,4 +105,19 @@
         border-bottom: 1px solid #ff00ff;
         border-right: 1px solid #ff00ff;
     }
+    .product-title {
+    position: absolute;
+    bottom: 12px;
+    left: 10px;
+    font-size: 24px;
+    color: #0000ff;
+}
+
+.product-author {
+    position: absolute;
+    bottom: 42px;
+    left: 12px;
+    font-size: 16px;
+    color: #ff00ff;
+}
 }
