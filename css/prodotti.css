@@ -92,6 +92,26 @@
         grid-template-columns: repeat(2, 1fr); /* 2 colonne per tablet */
         padding-right: 0px;
     }
+
+        .products-header {
+        font-size: 24px;
+    }
+    
+    .product-title {
+        position: absolute;
+        bottom: 12px;
+        left: 10px;
+        font-size: 24px;
+        color: #0000ff;
+    }
+
+    .product-author {
+        position: absolute;
+        bottom: 42px;
+        left: 12px;
+        font-size: 16px;
+        color: #ff00ff;
+    }
 }
 
 /* Media query per schermi piccoli (mobile) */
