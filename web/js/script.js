@@ -7,7 +7,7 @@
 "use strict";
 
 // User configurable.
-const ROM_FILENAME = "rom/game.gb";
+const ROM_FILENAME = "rom/game.gbc";
 const ENABLE_REWIND = true;
 const ENABLE_PAUSE = false;
 const ENABLE_SWITCH_PALETTES = true;
