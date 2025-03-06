@@ -49,6 +49,18 @@
     object-fit: cover; /* Mantiene le proporzioni dell'immagine */
 }
 
+.hover-img {
+    opacity: 0; /* L'immagine di hover è nascosta di default */
+}
+
+.product-box:hover .hover-img {
+    opacity: 1; /* Mostra l'immagine di hover */
+}
+
+.product-box:hover .default-img {
+    opacity: 0; /* Nasconde l'immagine di default */
+}
+
 .product-number {
     position: absolute;
     top: 12px;
