@@ -76,6 +76,7 @@
     font-size: 16px;
     color: #ff00ff;
     font-family: Helvetica bold, sans-serif; /* Font Helvetica */
+    z-index: 1;
 }
 
 .product-title {
