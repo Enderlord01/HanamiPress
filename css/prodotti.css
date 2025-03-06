@@ -5,7 +5,8 @@
 }
 
 .products-header {
-    border-bottom: 1px solid #ff00ff; /* Bordo di 1px fucsia */
+    border-bottom: 1px solid #0000ff;
+    border-top: 1px solid #0000ff;
     text-align: left; /* Testo centrato */
     font-family: Helvetica bold, sans-serif; /* Font Helvetica */
     font-size: 32px; /* Dimensione del testo */
@@ -26,8 +27,8 @@
 }
 
 .product-box {
-    border-right: 1px solid #ff00ff;
-    border-bottom: 1px solid #ff00ff;
+    border-right: 1px solid #0000ff;
+    border-bottom: 1px solid #0000ff;
     position: relative;
     text-align: left;
     background-color: white;
@@ -159,8 +160,8 @@
     }
     
     .product-box {
-        border-bottom: 1px solid #ff00ff;
-        border-right: 1px solid #ff00ff;
+        border-bottom: 1px solid #0000ff;
+        border-right: 1px solid #0000ff;
     }
     
     .product-title {
