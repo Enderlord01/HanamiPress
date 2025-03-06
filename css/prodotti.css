@@ -1,3 +1,9 @@
+.product-link {
+    text-decoration: none; /* Rimuove il sottolineato del link */
+    color: inherit; /* Mantiene il colore originale del testo */
+    display: block; /* Il link copre tutto il box */
+}
+
 .products-header {
     border-bottom: 1px solid #ff00ff; /* Bordo di 1px fucsia */
     text-align: left; /* Testo centrato */
