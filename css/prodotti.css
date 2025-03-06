@@ -63,6 +63,7 @@
 
 .product-box:hover .hover-img {
     opacity: 1; /* Mostra l'immagine di hover */
+    z-index: 1;
 }
 
 .product-box:hover .default-img {
