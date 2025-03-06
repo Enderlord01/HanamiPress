@@ -178,3 +178,14 @@
         color: #ff00ff;
     }
 }
+
+/* Effetto hover solo su desktop */
+@media (hover: hover) and (pointer: fine) {
+    .product-box:hover .hover-img {
+        opacity: 1; /* Mostra l'immagine di hover */
+    }
+
+    .product-box:hover .default-img {
+        opacity: 0; /* Nasconde l'immagine di default */
+    }
+}
