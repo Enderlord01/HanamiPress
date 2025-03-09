@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina Prodotto</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+        .left {
+            width: 50%;
+            overflow-y: auto;
+            background: #f0f0f0;
+            padding: 20px;
+        }
+        .right {
+            width: 50%;
+            background: #fff;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+        }
+        .image {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                height: auto;
+            }
+            .left {
+                width: 100%;
+                overflow: hidden;
+                display: flex;
+                gap: 10px;
+                padding: 10px;
+                white-space: nowrap;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+            }
+            .image {
+                width: 80%;
+                flex: 0 0 auto;
+                scroll-snap-align: center;
+            }
+            .right {
+                width: 100%;
+                height: auto;
+                position: relative;
+                padding: 20px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <img src="https://hanamipress.xyz/img/stampe/marbit/marbit_gatto_01.jpg" alt="Immagine 1" class="image">
+            <img src="https://hanamipress.xyz/img/stampe/marbit/marbit_gatto_02.jpg" class="image">
+            <img src="https://via.placeholder.com/500" alt="Immagine 3" class="image">
+            <img src="https://via.placeholder.com/500" alt="Immagine 4" class="image">
+        </div>
+        <div class="right">
+            <h1>Nome del Prodotto</h1>
+            <p>Descrizione dettagliata del prodotto con tutte le informazioni necessarie.</p>
+            <p>Prezzo: €XX,XX</p>
+            <button>Acquista Ora</button>
+        </div>
+    </div>
+</body>
+</html>
