@@ -174,3 +174,67 @@ h1 {
 p {
     font-size: 32px;
      }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Helvetica;
+        }
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+        .left {
+            width: 50%;
+            overflow-y: auto;
+            background: #f0f0f0;
+            padding: 0px;
+        }
+        .right {
+            width: 50%;
+            background: #fff;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+        }
+        .image {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                height: auto;
+            }
+            .left {
+                width: 100%;
+                overflow: hidden;
+                display: flex;
+                gap: 10px;
+                padding: 10px;
+                white-space: nowrap;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+            }
+            .image {
+                width: 80%;
+                flex: 0 0 auto;
+                scroll-snap-align: center;
+            }
+            .right {
+                width: 100%;
+                height: auto;
+                position: relative;
+                padding: 20px;
+                text-align: left;
+            }
+        }
