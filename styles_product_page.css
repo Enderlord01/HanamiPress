@@ -156,7 +156,12 @@ footer .instagram-icon:hover {
     pointer-events: none; /* Evita interferenze con i clic */
     background: transparent;
 }
-          
+
+h3 {
+    color: #ff00ff;
+    font-size: 32px;
+    }
+
 h2 {
     color: #ff00ff;
     font-size: 32px;
