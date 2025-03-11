@@ -160,6 +160,7 @@ footer .instagram-icon:hover {
 h3 {
     color: #ff00ff;
     font-size: 32px;
+    margin-bottom: 20px;
     }
 
 h2 {
@@ -206,7 +207,7 @@ p {
         }
         .image {
             width: 100%;
-            margin-bottom: 20px;
+            margin-bottom: 0px;
         }
         
         /* Mobile Styles */
@@ -219,8 +220,8 @@ p {
                 width: 100%;
                 overflow: hidden;
                 display: flex;
-                gap: 10px;
-                padding: 10px;
+                gap: 0px;
+                padding: 0px;
                 white-space: nowrap;
                 overflow-x: auto;
                 scroll-snap-type: x mandatory;
@@ -237,4 +238,22 @@ p {
                 padding: 20px;
                 text-align: left;
             }
+            h3 {
+    color: #ff00ff;
+    font-size: 32px;
+                margin-bottom: 10px;
+    }
+
+h2 {
+    color: #ff00ff;
+    font-size: 32px;
+    }
+
+h1 {
+    font-size: 48px;
+    }
+
+p {
+    font-size: 24px;
+     }
         }
