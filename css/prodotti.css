@@ -21,7 +21,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 4 colonne per desktop */
     gap: 0; /* Rimuove il gap tra i box */
-    padding-right: 15px; /* Rimuove il padding della griglia */
+    padding-right: 0px; /* Rimuove il padding della griglia */
     width: 100vw; /* Larghezza della griglia */
     height: auto; /* Altezza automatica in base ai contenuti */
 }
