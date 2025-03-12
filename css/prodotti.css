@@ -5,16 +5,17 @@
 }
 
 .products-header {
-    border-bottom: 1px solid #0000ff;
-    border-top: 1px solid #0000ff;
+    border-bottom: 1px solid #ff00ff;
+    border-top: 0px solid #ff00ff;
     text-align: left; /* Testo centrato */
-    font-family: Helvetica bold, sans-serif; /* Font Helvetica */
+    font-family: Helvetica regular, sans-serif; /* Font Helvetica */
     font-size: 32px; /* Dimensione del testo */
     padding: 10px 10px; /* Spaziatura per dare più respiro */
     width: 100%; /* Occupa tutta la larghezza */
     box-sizing: border-box; /* Include il bordo nella larghezza */
     background-color: white;
     color: #0000ff;
+    z-index: 100000;
 }
 
 .grid-container {
@@ -77,7 +78,7 @@
     left: 10px;
     font-size: 16px;
     color: #ff00ff;
-    font-family: Helvetica bold, sans-serif; /* Font Helvetica */
+    font-family: Helvetica regular, sans-serif; /* Font Helvetica */
     z-index: 1;
 }
 
@@ -87,7 +88,7 @@
     left: 10px;
     font-size: 32px;
     color: #0000ff;
-    font-family: Helvetica bold, sans-serif; /* Font Helvetica */
+    font-family: Helvetica regular, sans-serif; /* Font Helvetica */
 }
 
 .product-author {
@@ -96,7 +97,7 @@
     left: 12px;
     font-size: 16px;
     color: #ff00ff;
-    font-family: Helvetica bold, sans-serif; /* Font Helvetica */
+    font-family: Helvetica regular, sans-serif; /* Font Helvetica */
 }
 
 .product-price {
@@ -105,7 +106,7 @@
     right: 10px;
     font-size: 32px;
     color: #ff00ff;
-    font-family: Helvetica bold, sans-serif; /* Font Helvetica */
+    font-family: Helvetica regular, sans-serif; /* Font Helvetica */
 }
 
 .product-tag {
@@ -117,7 +118,7 @@
     padding: 2px 16px;
     font-size: 16px;
     color: #ffffff;
-    font-family: Helvetica bold, sans-serif; /* Font Helvetica */
+    font-family: Helvetica regular, sans-serif; /* Font Helvetica */
 }
 
 /* Media query per tablet */
