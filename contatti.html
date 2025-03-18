@@ -8,9 +8,10 @@
     <meta property="og:image" content="logo-hanami.png" />
     <meta property="og:url" content="https://hanamipress.xyz" />
     <meta property="og:type" content="website" />
-    <title>CONTATTI / Hanami Press</title>
-    <link rel="icon" type="image/x-icon" href="favicon.png">
-    <link rel="stylesheet" href="styles.css">
+    <title>Hanami Press</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/css/prodotti.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome -->
 </head>
 <body>
@@ -26,17 +27,19 @@
     <nav id="dropdown-menu" class="hidden">
         <ul>
             <li><a href="zine.html">Zine</a></li>
-            <li><a href="stampe.html">Stampe</a></li>
-            <li><a href="artisti.html">Artist*</a></li>
-            <li><a href="contatti.html">Contatti</a></li>
+            <li><a href="stampe.html">Stampe / <em>Prints</em></a></li>
+            <li><a href="artisti.html">Artist* / <em>Artists</em></a></li>
+            <li><a href="contatti.html">Contatti / <em>Contacts</em></a></li>
         </ul>
     </nav>
-
+    
+<div class="products-header">Contatti / <em>Contacts</em></div>
+      
     <!-- Sezione quadrata con "In arrivo" -->
     <section class="coming-soon">
-        <p>Contatti</p>
+        <p>Instagram: <a href:"https://www.instagram.com/hanami.press/"></a> / Mail: hanami.press.contact <em>at</em> gmail.com.</p>
     </section>
-
+      
     <footer>
         <span>Hanami Press, 2025</span>
         <a href="https://www.instagram.com/hanami.press/" class="instagram-icon" target="_blank" aria-label="Instagram">
@@ -50,6 +53,19 @@
             menu.classList.toggle('hidden'); // Nasconde o mostra il menu
         }
     </script>
+
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<div id="particles-js"></div>
+<script>
+particlesJS("particles-js", {
+  particles: {
+    number: { value: 100 },
+    size: { value: 3 },
+    move: { speed: 2 },
+    line_linked: { enable: true }
+  }
+});
+</script>
+    
 </body>
 </html>
-
