@@ -190,7 +190,7 @@ footer .instagram-icon:hover {
 /* Regole per schermi grandi (desktop) */
 @media (min-width: 1024px) {
     .coming-soon {
-        font-size: 128px; /* Font più grande su desktop */
+        font-size: 64px; /* Font più grande su desktop */
     }
 }
 
