@@ -193,3 +193,13 @@ footer .instagram-icon:hover {
         font-size: 128px; /* Font più grande su desktop */
     }
 }
+
+/* Nascondi la scrollbar per tutto il sito */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  -ms-overflow-style: none;  
+  scrollbar-width: none;  
+}
