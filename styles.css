@@ -18,7 +18,7 @@
 html, body {
     margin: 0;
     font-family: 'Helvetica', sans-serif;
-    background-color: #ff00ff;
+    background-color: #0000ff;
     color: white;
     font-size: 32px;
     overflow-x: hidden; /* Disabilita lo scorrimento orizzontale */
@@ -184,6 +184,7 @@ footer .instagram-icon:hover {
     z-index: 100; /* Mette le particelle sopra gli altri elementi */
     pointer-events: none; /* Evita interferenze con i clic */
     background: transparent;
+    opacity: 25%;
 }
 
                                                                                                                         /*Media Query
