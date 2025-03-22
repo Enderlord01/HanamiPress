@@ -105,6 +105,11 @@ nav:not(.hidden) {
     display: block; /* Mostra il menu */
 }
 
+a {
+    color: #ff00ff; /* Cambia il colore del link */
+    text-decoration: none; /* Rimuove la sottolineatura */
+}
+
 /* Sezione in costruzione */
 .construction-section {
     background-color: #0000ff;
