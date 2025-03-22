@@ -5,7 +5,7 @@
 }
 
 .products-header {
-    border-bottom: 1px solid #ff00ff;
+    border-bottom: 1px solid #0000ff;
     border-top: 0px solid #ff00ff;
     text-align: left; /* Testo centrato */
     font-family: Helvetica regular, sans-serif; /* Font Helvetica */
@@ -22,14 +22,14 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 4 colonne per desktop */
     gap: 0; /* Rimuove il gap tra i box */
-    padding-right: 0px; /* Rimuove il padding della griglia */
+    padding-right: px; /* Rimuove il padding della griglia */
     width: 100vw; /* Larghezza della griglia */
     height: auto; /* Altezza automatica in base ai contenuti */
 }
 
 .product-box {
-    border-right: 1px solid #ff00ff;
-    border-bottom: 1px solid #ff00ff;
+    border-right: 1px solid #0000ff;
+    border-bottom: 1px solid #0000ff;
     position: relative;
     text-align: left;
     background-color: white;
@@ -84,7 +84,7 @@
 
 .product-title {
     position: absolute;
-    bottom: 10px;
+    bottom: 20px;
     left: 20px;
     font-size: 32px;
     color: #0000ff;
@@ -102,7 +102,7 @@
 
 .product-price {
     position: absolute;
-    bottom: 10px;
+    bottom: 8px;
     right: 20px;
     font-size: 32px;
     color: #ff00ff;
@@ -112,7 +112,7 @@
 .product-tag {
     position: absolute;
     top: 10px;
-    right: 20px;
+    right: 10px;
     background-color: #ff00ff; /* Colore di sfondo del tag */
     border-radius: 32px;
     padding: 2px 16px;
@@ -167,7 +167,7 @@
     
     .product-title {
         position: absolute;
-        bottom: 12px;
+        bottom: 10px;
         left: 10px;
         font-size: 24px;
         color: #0000ff;
@@ -175,8 +175,8 @@
 
     .product-author {
         position: absolute;
-        bottom: 42px;
-        left: 12px;
+        bottom: 40px;
+        left: 11px;
         font-size: 16px;
         color: #ff00ff;
     }
