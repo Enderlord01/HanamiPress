@@ -158,10 +158,11 @@
 
     .products-header {
         font-size: 24px;
+        padding: 10px 10px;
     }
     
     .product-box {
-        border-bottom: 1px solid #0000ff;
+        border-bottom: 1px solid #ff00ff;
         border-right: 0px solid #ff00ff;
     }
     
@@ -179,6 +180,16 @@
         left: 11px;
         font-size: 16px;
         color: #ff00ff;
+    }
+
+    .product-price {
+        right: 10px;
+    
+    }
+
+    .product-number {
+        left: 10px;
+    
     }
 }
 
