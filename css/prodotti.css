@@ -13,8 +13,8 @@
     padding: 10px 20px; /* Spaziatura per dare più respiro */
     width: 100%; /* Occupa tutta la larghezza */
     box-sizing: border-box; /* Include il bordo nella larghezza */
-    background-color: white;
-    color: #0000ff;
+    background-image: linear-gradient(to right, #ff00ff, #0000ff);
+    color: #ffffff;
     z-index: 100000;
 }
 
