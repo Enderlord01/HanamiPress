@@ -5,7 +5,7 @@
 }
 
 .products-header {
-    border-bottom: 1px solid #0000ff;
+    border-bottom: 0px solid #0000ff;
     border-top: 0px solid #ff00ff;
     text-align: left; /* Testo centrato */
     font-family: Helvetica regular, sans-serif; /* Font Helvetica */
