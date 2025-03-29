@@ -137,7 +137,7 @@ footer {
     width: 100%; /* Occupa tutta la larghezza */
     bottom: 0; /* Ancorato in fondo */
     position: relative;
-    z-index: 101;
+    z-index: 1000;
 }
 
 footer .instagram-icon {
@@ -194,20 +194,21 @@ footer .instagram-icon:hover {
 
 #scrollToTop {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 60px;
+    right: 11px;
     display: none;
     background-color: #0000ff;
     color: white;
     border: none;
-    padding: 10px;
+    padding: 10px 15px;
     font-size: 16px;
-    border-radius: 5px;
+    border-radius: 128px;
     cursor: pointer;
+    z-index: 10000000
 }
 
 #scrollToTop:hover {
-    background-color: #ff00ff;
+    background-color: #0000ff;
 }
 
 /*Media Query
