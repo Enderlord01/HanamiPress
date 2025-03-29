@@ -192,7 +192,25 @@ footer .instagram-icon:hover {
     opacity: 25%;
 }
 
-                                                                                                                        /*Media Query
+#scrollToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    background-color: #0000ff;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#scrollToTop:hover {
+    background-color: #ff00ff;
+}
+
+/*Media Query
 /* Regole per schermi grandi (desktop) */
 @media (min-width: 1024px) {
     .coming-soon {
