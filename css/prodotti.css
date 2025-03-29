@@ -5,7 +5,7 @@
 }
 
 .products-header {
-    border-bottom: 0px solid #0000ff;
+    border-bottom: 1px solid #0000ff;
     border-top: 0px solid #ff00ff;
     text-align: left; /* Testo centrato */
     font-family: Helvetica regular, sans-serif; /* Font Helvetica */
@@ -13,8 +13,8 @@
     padding: 10px 20px; /* Spaziatura per dare più respiro */
     width: 100%; /* Occupa tutta la larghezza */
     box-sizing: border-box; /* Include il bordo nella larghezza */
-    background-image: linear-gradient(to right, #ff00ff, #0000ff);
-    color: #ffffff;
+    background-color: #ffffff;
+    color: #0000ff;
     z-index: 100000;
 }
 
