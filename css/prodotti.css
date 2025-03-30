@@ -91,6 +91,15 @@
     font-family: Helvetica regular, sans-serif; /* Font Helvetica */
 }
 
+.product-authorname {
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    font-size: 64px;
+    color: #ffffff;
+    font-family: Helvetica regular, sans-serif; /* Font Helvetica */
+}
+
 .product-author {
     position: absolute;
     bottom: 48px;
