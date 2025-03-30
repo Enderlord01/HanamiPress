@@ -28,8 +28,8 @@
 }
 
 .product-box {
-    border-right: 1px solid #0000ff;
-    border-bottom: 1px solid #0000ff;
+    border-right: 0px solid #0000ff;
+    border-bottom: 0px solid #0000ff;
     position: relative;
     text-align: left;
     background-color: white;
