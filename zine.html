@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="Hanami Press" />
+    <meta property="og:title" content="Zine - Hanami Press" />
     <meta property="og:description" content="Autoproduzioni." />
     <meta property="og:image" content="logo-hanami.png" />
     <meta property="og:url" content="https://hanamipress.xyz" />
     <meta property="og:type" content="website" />
-    <title>ZINE / Hanami Press</title>
-    <link rel="icon" type="image/x-icon" href="favicon.png">
-    <link rel="stylesheet" href="styles.css">
+    <title>Hanami Press</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/css/prodotti.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome -->
 </head>
 <body>
@@ -23,135 +24,89 @@
         </div>
     </header>
 
+<button id="scrollToTop">↑</button>
+    
     <nav id="dropdown-menu" class="hidden">
         <ul>
             <li><a href="zine.html">Zine</a></li>
-            <li><a href="stampe.html">Stampe</a></li>
-            <li><a href="artisti.html">Artist*</a></li>
-            <li><a href="contatti.html">Contatti</a></li>
+            <li><a href="stampe.html">Stampe / <em>Prints</em></a></li>
+            <li><a href="artisti.html">Autori / <em>Authors</em></a></li>
+            <li><a href="contatti.html">Contatti / <em>Contacts</em></a></li>
         </ul>
     </nav>
+<div class="products-header">Prodotti / <em>Products</em></div>
+    <div class="grid-container">
 
-    <!-- Sezione con carosello e informazioni -->
-<section class="carousel-section">                                                <!-- Flipnote -->
-    <div class="carousel-container">
-        <div class="carousel">
-            <img src="/img/zine/flipnote/flipnote_01.jpg" alt="Immagine 1">
-            <img src="/img/zine/flipnote/flipnote_02.jpg" alt="Immagine 2">
-            <img src="/img/zine/flipnote/flipnote_03.jpg" alt="Immagine 3">
+        <a href="/prodotti/stampe/013.html" class="product-link">
+        <div class="product-box">
+            <div class="product-number">#014</div>
+            <div class="product-image"><img src="/img/zine/rottingdam/rottingdam_01.jpg" alt="Rottingdam" class="product-img default-img"><img src="/img/zine/rottingdam/rottingdam_02.jpg" alt="Rottingdam" class="product-img hover-img"></div>
+            <div class="product-title">Rottingdam</div>
+            <div class="product-author">Iyaku</div>
+            <div class="product-price">SOON</div>
+            <div class="product-tag">zine</div>
         </div>
-        <div class="carousel-controls">
-            <button class="prev" aria-label="Precedente">❮</button>
-            <button class="next" aria-label="Successivo">❯</button>
+            
+        <a href="/prodotti/#011.html" class="product-link">
+        <div class="product-box">
+            <div class="product-number">#011</div>
+            <div class="product-image"><img src="/img/zine/flipnote/flipnote_01.jpg" alt="Flipnote" class="product-img default-img"><img src="/img/zine/flipnote/flipnote_02.jpg" alt="Flipnote" class="product-img hover-img"></div>
+            <div class="product-title">Flipnotes</div>
+            <div class="product-author">Svdpony</div>
+            <div class="product-price">€7</div>
+            <div class="product-tag">zine</div>
         </div>
-    </div>
-    <div class="info">
-        <p><strong>Autor*:</strong> Svdpony</p>
-        <p><strong>Pagine:</strong> 40</p>
-        <p><strong>Colore:</strong> B/N</p>
-        <p><strong>Carta:</strong> Acetato/120g</p>
-        <p><strong>Anno:</strong> Gennaio 2025</p>
-        <button class="cta-button">La voglio!/<em>I want it!</em></button>
-    </div>
-</section>
-
-<section class="carousel-section">                                                <!-- Shiro si è perso -->
-    <div class="carousel-container">
-        <div class="carousel">
-            <img src="image1.jpg" alt="Immagine 1">
-            <img src="image2.jpg" alt="Immagine 2">
-            <img src="image3.jpg" alt="Immagine 3">
+        </a>
+        
+        <div class="product-box">
+            <div class="product-number">#009</div>
+            <div class="product-image"><img src="/img/zine/pixelgore/pixelgore_01.jpg" alt="Pixelgore"></div>
+            <div class="product-title">Pixelgore</div>
+            <div class="product-author">???</div>
+            <div class="product-price">€5</div>
+            <div class="product-tag">zine</div>
         </div>
-        <div class="carousel-controls">
-            <button class="prev" aria-label="Precedente">❮</button>
-            <button class="next" aria-label="Successivo">❯</button>
+        
+        <div class="product-box">
+            <div class="product-number">#008</div>
+            <div class="product-image"><img src="/img/zine/nostalgia/nostalgia_01.jpg" alt="NostalgiaMiseria"></div>
+            <div class="product-title">Nostalgia Miseria</div>
+            <div class="product-author">Losergod</div>
+            <div class="product-price">€7</div>
+            <div class="product-tag">zine</div>
         </div>
-    </div>
-    <div class="info">
-        <p><strong>Autor*:</strong> Nome Autore</p>
-        <p><strong>Pagine:</strong> Numero Pagine</p>
-        <p><strong>Colore:</strong> Descrizione Colore</p>
-        <p><strong>Carta:</strong> Tipo di Carta</p>
-        <p><strong>Anno:</strong> Mese e anno</p>
-        <button class="cta-button">La voglio!/<em>I want it!</em></button>
-    </div>
-</section>
-
-<section class="carousel-section">                                                <!-- Pixelgore -->
-    <div class="carousel-container">
-        <div class="carousel">
-            <img src="image1.jpg" alt="Immagine 1">
-            <img src="image2.jpg" alt="Immagine 2">
-            <img src="image3.jpg" alt="Immagine 3">
+             
+        <div class="product-box">
+            <div class="product-number">#006</div>
+            <div class="product-image"><img src="/img/zine/darkmagicbros/darkmagicbros_01.jpg" alt="Dark Magic Bros" class="product-img default-img"><img src="/img/zine/darkmagicbros/darkmagicbros_02.jpg" alt="Dark Magic Bros" class="product-img hover-img"></div>
+            <div class="product-title">Dark Magic Bros</div>
+            <div class="product-author">Deth P. Sun</div>
+            <div class="product-price">€5</div>
+            <div class="product-tag">zine</div>
         </div>
-        <div class="carousel-controls">
-            <button class="prev" aria-label="Precedente">❮</button>
-            <button class="next" aria-label="Successivo">❯</button>
+        
+        <div class="product-box">
+            <div class="product-number">#004</div>
+            <div class="product-image"><img src="/img/zine/emma/emma_01.jpg" alt="Emma"></div>
+            <div class="product-title">Emma</div>
+            <div class="product-author">Pulcerossa</div>
+            <div class="product-price">Sold Out</div>
+            <div class="product-tag">zine</div>
         </div>
-    </div>
-    <div class="info">
-        <p><strong>Autor*:</strong> Nome Autore</p>
-        <p><strong>Pagine:</strong> Numero Pagine</p>
-        <p><strong>Colore:</strong> Descrizione Colore</p>
-        <p><strong>Carta:</strong> Tipo di Carta</p>
-        <p><strong>Anno:</strong> Mese e anno</p>
-        <button class="cta-button">La voglio!/<em>I want it!</em></button>
-    </div>
-</section>
-
-<section class="carousel-section">                                                <!-- Nostalgia Miseria -->
-    <div class="carousel-container">
-        <div class="carousel">
-            <img src="image1.jpg" alt="Immagine 1">
-            <img src="image2.jpg" alt="Immagine 2">
-            <img src="image3.jpg" alt="Immagine 3">
-        </div>
-        <div class="carousel-controls">
-            <button class="prev" aria-label="Precedente">❮</button>
-            <button class="next" aria-label="Successivo">❯</button>
-        </div>
-    </div>
-    <div class="info">
-        <p><strong>Autor*:</strong> Nome Autore</p>
-        <p><strong>Pagine:</strong> Numero Pagine</p>
-        <p><strong>Colore:</strong> Descrizione Colore</p>
-        <p><strong>Carta:</strong> Tipo di Carta</p>
-        <p><strong>Anno:</strong> Mese e anno</p>
-        <button class="cta-button">La voglio!/<em>I want it!</em></button>
-    </div>
-</section>
-
+        
+    </div>  
+    
+    <!-- Sezione quadrata con "In arrivo" -->
+    <section class="coming-soon">
+        <p>Hanami Press è una micro casa editrice nata nel 2023 che produce zine, stampe risograph e piccoli oggetti, selezionando con cura carte e materiali ed è alla costante ricerca di nuovi talenti con cui collaborare. / <em>Hanami Press is a micro publishing house founded in 2023 that produces zines, risograph prints, and small objects, carefully selecting papers and materials. It is constantly on the lookout for new talents to collaborate with.</em></p>
+    </section>
+      
     <footer>
         <span>Hanami Press, 2025</span>
         <a href="https://www.instagram.com/hanami.press/" class="instagram-icon" target="_blank" aria-label="Instagram">
-            <i class="fab fa-instagram"></i>
-        </a>
+        <i class="fab fa-instagram"></i>
+      </a>
     </footer>
-
-    <!-- Script JavaScript -->
-    <script>
-        const carousel = document.querySelector('.carousel');
-        const images = document.querySelectorAll('.carousel img');
-        const prevBtn = document.querySelector('.prev');
-        const nextBtn = document.querySelector('.next');
-
-        let currentIndex = 0;
-
-        function showImage(index) {
-            const imageWidth = images[0].clientWidth;
-            carousel.style.transform = `translateX(${-index * imageWidth}px)`;
-        }
-
-        prevBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
-            showImage(currentIndex);
-        });
-
-        nextBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
-            showImage(currentIndex);
-        });
-    </script>
 
     <script>
         function toggleMenu() {
@@ -159,6 +114,38 @@
             menu.classList.toggle('hidden'); // Nasconde o mostra il menu
         }
     </script>
+
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<div id="particles-js"></div>
+<script>
+particlesJS("particles-js", {
+  particles: {
+    number: { value: 100 },
+    size: { value: 3 },
+    move: { speed: 2 },
+    line_linked: { enable: true }
+  }
+});
+</script>
+
+<script>
+    const scrollToTopBtn = document.getElementById("scrollToTop");
+
+    window.onscroll = function () {
+        if (document.documentElement.scrollTop > 200) {
+            scrollToTopBtn.style.display = "block";
+        } else {
+            scrollToTopBtn.style.display = "none";
+        }
+    };
+
+    scrollToTopBtn.addEventListener("click", function () {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+</script>
     
 </body>
 </html>
