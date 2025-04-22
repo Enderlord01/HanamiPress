@@ -47,7 +47,7 @@ header {
 /* Logo */
 .brand {
     font-family: PicNic, Helvetica;
-    font-size: 48px;
+    font-size: 180px;
     font-weight: normal;
     text-align: center; /* Centra il testo */
 }
@@ -227,4 +227,14 @@ body::-webkit-scrollbar {
 body {
   -ms-overflow-style: none;  
   scrollbar-width: none;  
+}
+
+/* Media query per schermi piccoli (mobile) */
+@media (max-width: 600px) {
+.brand {
+    font-family: PicNic, Helvetica;
+    font-size: 54px;
+    font-weight: normal;
+    text-align: center; /* Centra il testo */
+}
 }
