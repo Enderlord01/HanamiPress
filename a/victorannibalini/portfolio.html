@@ -3,25 +3,58 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>PDF Embed</title>
+  <title>PDF Viewer con PDF.js</title>
   <style>
     html, body {
       margin: 0;
       padding: 0;
-      overflow-x: hidden; /* Disabilita lo scroll orizzontale */
       height: 100%;
-      background: #000;
+      overflow: hidden;
+      touch-action: none;
+      background-color: #f0f0f0;
     }
 
-    iframe {
-      width: 100vw;
-      height: 100vh;
-      border: none;
-      overflow: hidden;
+    #pdf-canvas {
+      display: block;
+      margin: auto;
+      max-width: 100vw;
+      max-height: 100vh;
+      width: 100%;
+      height: auto;
     }
   </style>
 </head>
 <body>
-  <iframe src="prova.pdf"></iframe>
+  <canvas id="pdf-canvas"></canvas>
+
+  <!-- PDF.js da CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script>
+    const url = 'prova.pdf'; // Sostituisci con il tuo file
+
+    // Configurazione PDF.js
+    const loadingTask = pdfjsLib.getDocument(url);
+    loadingTask.promise.then(function(pdf) {
+      // Carica la prima pagina
+      return pdf.getPage(1);
+    }).then(function(page) {
+      const scale = 1.5;
+      const viewport = page.getViewport({ scale });
+
+      const canvas = document.getElementById('pdf-canvas');
+      const context = canvas.getContext('2d');
+
+      // Adatta il canvas alla dimensione della viewport
+      canvas.width = viewport.width;
+      canvas.height = viewport.height;
+
+      const renderContext = {
+        canvasContext: context,
+        viewport: viewport
+      };
+
+      page.render(renderContext);
+    });
+  </script>
 </body>
 </html>
