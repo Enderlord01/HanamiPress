@@ -3,58 +3,76 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>PDF Viewer con PDF.js</title>
+  <title>PDF Viewer Responsive</title>
   <style>
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
       overflow: hidden;
+      background-color: #eee;
       touch-action: none;
-      background-color: #f0f0f0;
     }
 
-    #pdf-canvas {
-      display: block;
-      margin: auto;
-      max-width: 100vw;
-      max-height: 100vh;
-      width: 100%;
+    #pdf-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    canvas {
+      max-width: 100%;
       height: auto;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     }
   </style>
 </head>
 <body>
-  <canvas id="pdf-canvas"></canvas>
+  <div id="pdf-container">
+    <canvas id="pdf-canvas"></canvas>
+  </div>
 
   <!-- PDF.js da CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
   <script>
-    const url = 'prova.pdf'; // Sostituisci con il tuo file
+    const url = 'prova.pdf'; // Percorso al tuo PDF
 
-    // Configurazione PDF.js
-    const loadingTask = pdfjsLib.getDocument(url);
-    loadingTask.promise.then(function(pdf) {
-      // Carica la prima pagina
-      return pdf.getPage(1);
-    }).then(function(page) {
-      const scale = 1.5;
-      const viewport = page.getViewport({ scale });
+    const canvas = document.getElementById('pdf-canvas');
+    const context = canvas.getContext('2d');
 
-      const canvas = document.getElementById('pdf-canvas');
-      const context = canvas.getContext('2d');
+    const renderPDF = async () => {
+      const loadingTask = pdfjsLib.getDocument(url);
+      const pdf = await loadingTask.promise;
+      const page = await pdf.getPage(1);
 
-      // Adatta il canvas alla dimensione della viewport
-      canvas.width = viewport.width;
-      canvas.height = viewport.height;
+      // Calcolo scala per adattare alla larghezza del viewport
+      const viewport = page.getViewport({ scale: 1 });
+      const scale = window.innerWidth / viewport.width;
+      const scaledViewport = page.getViewport({ scale });
+
+      canvas.width = scaledViewport.width;
+      canvas.height = scaledViewport.height;
 
       const renderContext = {
         canvasContext: context,
-        viewport: viewport
+        viewport: scaledViewport
       };
 
-      page.render(renderContext);
+      await page.render(renderContext);
+    };
+
+    renderPDF();
+
+    // Rirenderizza su resize (evita distorsioni)
+    window.addEventListener('resize', () => {
+      renderPDF();
     });
+
+    // Disabilita gesture zoom su iOS
+    document.addEventListener('gesturestart', (e) => e.preventDefault());
   </script>
 </body>
 </html>
