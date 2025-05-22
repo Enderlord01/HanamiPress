@@ -1,19 +1,19 @@
 .product-link {
-    text-decoration: none; /* Rimuove il sottolineato del link */
-    color: inherit; /* Mantiene il colore originale del testo */
-    display: block; /* Il link copre tutto il box */
+    text-decoration: none;
+    color: inherit;
+    display: block;
 }
 
 .products-header {
     border-radius: 8px;
     border-bottom: 1px solid #0000ff;
     border-top: 0px solid #ff00ff;
-    text-align: left; /* Testo centrato */
-    font-family: Helvetica regular, sans-serif; /* Font Helvetica */
-    font-size: 32px; /* Dimensione del testo */
-    padding: 10px 20px; /* Spaziatura per dare più respiro */
-    width: 100%; /* Occupa tutta la larghezza */
-    box-sizing: border-box; /* Include il bordo nella larghezza */
+    text-align: left;
+    font-family: Helvetica Neue, sans-serif;
+    font-size: 32px;
+    padding: 10px 20px;
+    width: 100%;
+    box-sizing: border-box;
     background-color: #ffffff;
     color: #0000ff;
     z-index: 100000;
@@ -21,11 +21,11 @@
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 colonne per desktop */
-    gap: 0; /* Rimuove il gap tra i box */
-    padding-right: px; /* Rimuove il padding della griglia */
-    width: 100vw; /* Larghezza della griglia */
-    height: auto; /* Altezza automatica in base ai contenuti */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    padding-right: 0px;
+    width: 100vw;
+    height: auto;
 }
 
 .product-box {
@@ -36,8 +36,7 @@
     text-align: left;
     background-color: white;
     z-index: 1000000;
-    /* Rimuovi larghezza e altezza fisse per rendere i box quadrati */
-    aspect-ratio: 1; /* Mantiene i box quadrati */
+    aspect-ratio: 1;
 }
 
 .product-image {
@@ -53,7 +52,7 @@
     border-radius: 8px;
     max-width: 100%;
     max-height: 100%;
-    object-fit: cover; /* Mantiene le proporzioni dell'immagine */
+    object-fit: cover;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -81,7 +80,7 @@
     left: 20px;
     font-size: 16px;
     color: #ff00ff;
-    font-family: Helvetica regular, sans-serif; /* Font Helvetica */
+    font-family: Helvetica Neue, sans-serif;
     z-index: 1;
 }
 
@@ -91,7 +90,7 @@
     left: 20px;
     font-size: 32px;
     color: #0000ff;
-    font-family: Helvetica regular, sans-serif; /* Font Helvetica */
+    font-family: Helvetica Neue, sans-serif;
 }
 
 .product-authorname {
@@ -100,7 +99,7 @@
     left: 20px;
     font-size: 32px;
     color: #ffffff;
-    font-family: Helvetica regular, sans-serif; /* Font Helvetica */
+    font-family: Helvetica Neue, sans-serif;
 }
 
 .product-author {
@@ -109,7 +108,7 @@
     left: 22px;
     font-size: 16px;
     color: #ff00ff;
-    font-family: Helvetica regular, sans-serif; /* Font Helvetica */
+    font-family: Helvetica Neue, sans-serif;
 }
 
 .product-price {
@@ -118,7 +117,7 @@
     right: 20px;
     font-size: 32px;
     color: #ff00ff;
-    font-family: Helvetica regular, sans-serif; /* Font Helvetica */
+    font-family: Helvetica Neue, sans-serif;
 }
 
 .product-tag {
@@ -130,7 +129,7 @@
     padding: 2px 16px;
     font-size: 16px;
     color: #ffffff;
-    font-family: Helvetica regular, sans-serif; /* Font Helvetica */
+    font-family: Helvetica Neue, sans-serif;
 }
 
 /* Media query per tablet */
