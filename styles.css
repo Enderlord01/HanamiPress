@@ -233,7 +233,7 @@ body {
 @media (max-width: 600px) {
 .brand {
     font-family: PicNic, Helvetica;
-    font-size: 54px;
+    font-size: 48px;
     font-weight: normal;
     text-align: center; /* Centra il testo */
 }
