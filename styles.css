@@ -47,7 +47,7 @@ header {
 /* Logo */
 .brand {
     font-family: PicNic, Helvetica;
-    font-size: 180px;
+    font-size: 15vw;
     font-weight: normal;
     text-align: center; /* Centra il testo */
 }
