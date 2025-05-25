@@ -261,6 +261,7 @@ p {
                 height: auto;
             }
             .left {
+                border-down: 1px #0000ff;
                 border-radius: 8px;
                 width: 100%;
                 overflow: hidden;
