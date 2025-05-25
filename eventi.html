@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Hanami Press" />
+    <meta property="og:description" content="Autoproduzioni." />
+    <meta property="og:image" content="logo-hanami.png" />
+    <meta property="og:url" content="https://hanamipress.xyz" />
+    <meta property="og:type" content="website" />
+    <title>Eventi</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/css/prodotti.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome -->
+    <link href="https://fonts.cdnfonts.com/css/helvetica-neue-55" rel="stylesheet">             
+</head>
+<body>
+    <header>
+        <a href="https://hanamipress.xyz" class="brand">Hanami Press</a>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+
+<button id="scrollToTop">↑</button>
+    
+    <nav id="dropdown-menu" class="hidden">
+        <ul>
+            <li><a href="zine.html">Zine</a></li>
+            <li><a href="stampe.html">Stampe / <em>Prints</em></a></li>
+            <li><a href="a.html">Autor* / <em>Authors</em></a></li>
+            <li><a href="eventi.html">Eventi / <em>Events</em></a></li>
+            <li><a href="contatti.html">Contatti / <em>Contacts</em></a></li>
+        </ul>
+    </nav>
+<div class="products-header">Prodotti / <em>Products</em></div>
+    <div class="grid-container">
+      
+        <div class="product-box">
+            <div class="product-number">#004</div>
+            <div class="product-image"><img src="/img/eventi/.jpg" alt="Evento"></div>
+            <div class="product-title">PrPr Fest</div>
+            <div class="product-author">Bologna</div>
+            <div class="product-tag">18/5/25</div>
+        </div>
+        
+        <div class="product-box">
+            <div class="product-number">#003</div>
+            <div class="product-image"><img src="/img/eventi/.jpg" alt="Evento"></div>
+            <div class="product-title">Spervengul Fest</div>
+            <div class="product-author">Fano</div>
+            <div class="product-tag">5/4/25</div>
+        </div>
+        
+        <div class="product-box">
+            <div class="product-number">#002</div>
+            <div class="product-image"><img src="/img/eventi/.jpg" alt="Evento"></div>
+            <div class="product-title">Bada Festival 2024</div>
+            <div class="product-author">Roma</div>
+            <div class="product-tag">4-6/10/24</div>
+        </div>
+        
+        <div class="product-box">
+            <div class="product-number">#001</div>
+            <div class="product-image"><img src="/img/eventi/.jpg" alt="Evento"></div>
+            <div class="product-title">Festa delle strade strette</div>
+            <div class="product-author">Bologna</div>
+            <div class="product-tag">21/9/24</div>
+        </div>
+        
+    </div>  
+    
+    <!-- Sezione quadrata con "In arrivo" -->
+    <section class="coming-soon">
+        <p>Hanami Press è una micro casa editrice nata nel 2023 che produce zine, stampe risograph e piccoli oggetti, selezionando con cura carte e materiali ed è alla costante ricerca di nuovi talenti con cui collaborare. / <em>Hanami Press is a micro publishing house founded in 2023 that produces zines, risograph prints, and small objects, carefully selecting papers and materials. It is constantly on the lookout for new talents to collaborate with.</em></p>
+    </section>
+      
+    <footer>
+        <span>Hanami Press, 2025</span>
+        <a href="https://www.instagram.com/hanami.press/" class="instagram-icon" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('dropdown-menu');
+            menu.classList.toggle('hidden'); // Nasconde o mostra il menu
+        }
+    </script>
+
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<div id="particles-js"></div>
+<script>
+particlesJS("particles-js", {
+  particles: {
+    number: { value: 100 },
+    size: { value: 3 },
+    move: { speed: 2 },
+    line_linked: { enable: true }
+  }
+});
+</script>
+
+<script>
+    const scrollToTopBtn = document.getElementById("scrollToTop");
+
+    window.onscroll = function () {
+        if (document.documentElement.scrollTop > 200) {
+            scrollToTopBtn.style.display = "block";
+        } else {
+            scrollToTopBtn.style.display = "none";
+        }
+    };
+
+    scrollToTopBtn.addEventListener("click", function () {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+</script>
+    
+</body>
+</html>
