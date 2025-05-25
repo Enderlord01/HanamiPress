@@ -35,6 +35,309 @@ html, body {
 .pp-3UXKLPXWMWBTS {
   text-align: center;
   border: none;
+  border-radius: 8px;
+  width: 140%;  
+  padding: 0 20px; /* padding laterale di 20px */
+  height: 64px;;
+  font-weight: regular;
+  background-color: #FF00ff;
+  color: #ffffff;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 32px;;
+  line-height: 1.25rem;
+  cursor: pointer;
+}
+
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.pp-form {
+  display: inline-grid;
+  justify-items: center;
+  align-content: start;
+  gap: 0.5rem;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.pp-small-text {
+  font-size: 24px;
+}
+.pp-small-text img {
+  height: 0.875rem;
+  vertical-align: middle;
+}
+
+
+/* Header */
+header {
+    background: #0000ff;
+    color: white;
+    display: flex;
+    flex-direction: column; /* Cambia il layout in colonna */
+    align-items: center; /* Allinea gli elementi al centro */
+    padding: 20px; /* Aggiunge spazio interno */
+    height: auto; /* Adatta l'altezza al contenuto */
+    position: relative;
+}
+
+/* Logo */
+.brand {
+    font-family: PicNic, Helvetica;
+    font-size: 48px;
+    font-weight: normal;
+    text-align: center; /* Centra il testo */
+}
+
+/* Hamburger */
+.hamburger {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra il tasto */
+    gap: 5px;
+    margin-top: 10px; /* Spazio sopra il tasto hamburger */
+}
+
+.hamburger div {
+    width: 40px;
+    height: 2px;
+    background-color: white;
+}
+
+/* Menu */
+nav {
+    background-image: linear-gradient(rgba(255,0,255,1), rgba(255,0,255,1) 55%, rgba(255,0,255,0));
+    position: absolute;
+    z-index: 1000000000000000; /* Valore alto per sovrapporsi ad altri elementi */
+    left: 0;
+    width: 100%;
+    height: 520px;
+    display: none; /* Menu nascosto di default */
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    padding: 15px 0;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+/* Menu visibile */
+nav.hidden {
+    display: none; /* Nasconde il menu */
+}
+
+nav:not(.hidden) {
+    display: block; /* Mostra il menu */
+}
+
+/* Footer */
+footer {
+    display: flex; /* Imposta il layout Flexbox */
+    justify-content: space-between; /* Spaziatura tra gli elementi */
+    align-items: center; /* Allinea verticalmente */
+    background-color: #ff00ff;
+    color: white; /* Colore del testo */
+    padding: 10px 20px; /* Spazio interno */
+    font-size: 16px; /* Dimensione del testo */
+    height: 60px; /* Altezza fissa */
+    width: 100%; /* Occupa tutta la larghezza */
+    bottom: 0; /* Ancorato in fondo */
+    position: relative;
+    z-index: 101;
+}
+
+footer .instagram-icon {
+    font-size: 24px; /* Dimensione dell'icona */
+    color: white; /* Colore dell'icona */
+    text-decoration: none; /* Rimuove la sottolineatura */
+    transition: color 0.3s ease; /* Animazione su hover */
+}
+
+footer .instagram-icon:hover {
+    color: #cd00cd; /* Cambia il colore dell'icona su hover */
+}
+
+.brand {
+    text-decoration: none; /* Rimuove la sottolineatura */
+    color: white; /* Cambia il colore del testo, se necessario */
+}
+
+.info {
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.info p strong {
+    font-weight: bold;
+}
+
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 100; /* Mette le particelle sopra gli altri elementi */
+    pointer-events: none; /* Evita interferenze con i clic */
+    background: transparent;
+    opacity: 25%;
+}
+
+h3 {
+    color: #ff00ff;
+    font-size: 32px;
+    margin-bottom: 20px;
+    }
+
+h2 {
+    color: #ff00ff;
+    font-size: 32px;
+    padding: 0px 3px;
+    }
+
+h1 {
+    font-size: 64px;
+    }
+
+p {
+    font-size: 32px;
+    padding: 0px 2px;
+     }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Helvetica;
+        }
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+        .left {
+            width: 50%;
+            overflow-y: auto;
+            background: #f0f0f0;
+            padding: 0px;
+            z-index: 10000;
+        }
+        .right {
+            width: 50%;
+            background: #fff;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            z-index: 10000;
+        }
+        .image {
+            width: 100%;
+            margin-bottom: 0px;
+        }
+        
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                height: auto;
+            }
+            .left {
+                width: 100%;
+                overflow: hidden;
+                display: flex;
+                gap: 0px;
+                padding: 0px;
+                white-space: nowrap;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+            }
+            .image {
+                width: 80%;
+                flex: 0 0 auto;
+                scroll-snap-align: center;
+            }
+            .right {
+                width: 100%;
+                height: auto;
+                position: relative;
+                padding: 20px;
+                text-align: left;
+            }
+            h3 {
+    color: #ff00ff;
+    font-size: 32px;
+                margin-bottom: 10px;
+    }
+
+h2 {
+    color: #ff00ff;
+    font-size: 16px;
+    }
+
+h1 {
+    font-size: 32px;
+    }
+
+p {
+    font-size: 24px;
+     }
+        }
+/*    .---.  .---.    ____    ,---.   .--.   ____    ,---.    ,---..-./`)        .-------. .-------.        .-''-.     .-'''-.    .-'''-. 
+    |   |  |_ _|  .'  __ `. |    \  |  | .'  __ `. |    \  /    |\ .-.')       \  _(`)_ \|  _ _   \     .'_ _   \   / _     \  / _     \
+    |   |  ( ' ) /   '  \  \|  ,  \ |  |/   '  \  \|  ,  \/  ,  |/ `-' \       | (_ o._)|| ( ' )  |    / ( ` )   ' (`' )/`--' (`' )/`--'
+    |   '-(_{;}_)|___|  /  ||  |\_ \|  ||___|  /  ||  |\_   /|  | `-'`"`       |  (_,_) /|(_ o _) /   . (_ o _)  |(_ o _).   (_ o _).   
+    |      (_,_)    _.-`   ||  _( )_\  |   _.-`   ||  _( )_/ |  | .---.        |   '-.-' | (_,_).' __ |  (_,_)___| (_,_). '.  (_,_). '. 
+    | _ _--.   | .'   _    || (_ o _)  |.'   _    || (_ o _) |  | |   |        |   |     |  |\ \  |  |'  \   .---..---.  \  :.---.  \  :
+    |( ' ) |   | |  _( )_  ||  (_,_)\  ||  _( )_  ||  (_,_)  |  | |   |        |   |     |  | \ `'   / \  `-'    /\    `-'  |\    `-'  |
+    (_{;}_)|   | \ (_ o _) /|  |    |  |\ (_ o _) /|  |      |  | |   |        /   )     |  |  \    /   \       /  \       /  \       / 
+    '(_,_) '---'  '.(_,_).' '--'    '--' '.(_,_).' '--'      '--' '---'        `---'     ''-'   `'-'     `'-..-'    `-...-'    `-...-'  */
+
+/* Reset base */
+*,
+*::before,
+*::after {
+    box-sizing: border-box; /* Garantisce che padding e bordi non influenzino la larghezza totale */
+}
+
+html, body {
+    margin: 0;
+    font-family: 'Helvetica', sans-serif;
+    background-color: #0000ff;
+    color: #0000ff;
+    font-size: 32px;
+    overflow-x: hidden; /* Disabilita lo scorrimento orizzontale */
+}
+
+@font-face {
+    font-family: 'PicNic';
+    src: url('/fonts/PicNic.woff2') format('woff2'),
+         url('/fonts/PicNic.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+.pp-3UXKLPXWMWBTS {
+  text-align: center;
+  border: none;
   border-radius: 0.25rem;
   min-width: 11.625rem;
   padding: 0 20px; /* padding laterale di 20px */
