@@ -18,7 +18,7 @@
 html, body {
     margin: 0;
     font-family: 'Helvetica', sans-serif;
-    background-color: #0000ff;
+    background-color: #ff00ff;
     color: #0000ff;
     font-size: 32px;
     overflow-x: hidden; /* Disabilita lo scorrimento orizzontale */
@@ -251,11 +251,11 @@ p {
 
 h2 {
     color: #ff00ff;
-    font-size: 32px;
+    font-size: 16px;
     }
 
 h1 {
-    font-size: 48px;
+    font-size: 32px;
     }
 
 p {
