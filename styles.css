@@ -237,4 +237,8 @@ body {
     font-weight: normal;
     text-align: center; /* Centra il testo */
 }
+.coming-soon {
+    padding: 10px;
+    font-size: 24px;
+}
 }
