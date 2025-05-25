@@ -36,7 +36,7 @@ html, body {
   text-align: center;
   border: none;
   border-radius: 8px;
-  width: 140%;  
+  width: 190%;  
   padding: 0 20px; /* padding laterale di 20px */
   height: 64px;;
   font-weight: regular;
@@ -261,6 +261,7 @@ p {
                 height: auto;
             }
             .left {
+                border-radius: 8px;
                 width: 100%;
                 overflow: hidden;
                 display: flex;
@@ -271,11 +272,12 @@ p {
                 scroll-snap-type: x mandatory;
             }
             .image {
-                width: 80%;
+                width: 50%;
                 flex: 0 0 auto;
                 scroll-snap-align: center;
             }
             .right {
+                border-radius: 8px;
                 width: 100%;
                 height: auto;
                 position: relative;
