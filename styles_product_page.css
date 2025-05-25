@@ -18,7 +18,7 @@
 html, body {
     margin: 0;
     font-family: 'Helvetica', sans-serif;
-    background-color: #ff00ff;
+    background-color: #0000ff;
     color: #0000ff;
     font-size: 32px;
     overflow-x: hidden; /* Disabilita lo scorrimento orizzontale */
