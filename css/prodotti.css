@@ -6,8 +6,7 @@
 
 .products-header {
     border-radius: 8px;
-    border-bottom: 1px solid #0000ff;
-    border-top: 1px solid #0000ff;
+    border: 1px solid #0000ff;
     text-align: left;
     font-family: Helvetica Neue, sans-serif;
     font-size: 32px;
