@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spazio C7 - Sottosopra</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', serif;
+      overflow-x: hidden;
+      background: black;
+    }
+
+    .panel {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      color: white;
+      text-align: center;
+    }
+
+    .panel.bg {
+      background: url('IMG_2558.jpeg') no-repeat center center;
+      background-size: cover;
+    }
+
+    .overlay {
+      position: absolute;
+      z-index: 2;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+    }
+
+    .rotated-text {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) rotate(180deg);
+      font-size: 2.5rem;
+      font-weight: bold;
+      opacity: 0.3;
+    }
+
+    .content {
+      padding: 4rem 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    footer {
+      background: #111;
+      color: #aaa;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .authors-scroll {
+      white-space: nowrap;
+      overflow-x: auto;
+      padding: 2rem 1rem;
+      background: #000;
+      font-size: 1.2rem;
+    }
+
+    .authors-scroll::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .authors-scroll::-webkit-scrollbar-thumb {
+      background: #555;
+      border-radius: 4px;
+    }
+
+    .authors-scroll span {
+      display: inline-block;
+      margin-right: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Panel 1: Hero con Parallax -->
+  <section class="panel bg" id="hero">
+    <div class="overlay">
+      <h1 style="font-size: 4rem; transform: rotate(-2deg);">Spazio C7</h1>
+      <h2 style="font-style: italic;">sottosopra</h2>
+    </div>
+    <div class="rotated-text">Spazio C7 – sottosopra</div>
+  </section>
+
+  <!-- Panel 2: Informazioni (PINNATA) -->
+  <section class="panel" id="info" style="background: #111;">
+    <div class="content">
+      <p><strong>Mostra degli studenti</strong> dei corsi "tecnologia dei materiali per la grafica" e "tecniche calcografiche sperimentali"<br>
+      della prof.ssa Chiara Giorgetti</p>
+      <p><strong>Dal 24 al 29 giugno 2025</strong><br>
+      Dalle 9 alle 19 - Domenica chiuso</p>
+    </div>
+  </section>
+
+  <!-- Panel 3: Scroll Orizzontale Artisti -->
+  <section class="panel" style="background: black; height: auto; padding: 4rem 0;">
+    <div class="content">
+      <h3>Opere di:</h3>
+      <div class="authors-scroll">
+        <span>Agnese Baroni</span>
+        <span>Alessia Abbenante</span>
+        <span>Alice Savini</span>
+        <span>Anna Pascucci</span>
+        <span>Elena Marinozzi</span>
+        <span>Emma Marchesan</span>
+        <span>Francesca Di Calbo</span>
+        <span>Giuseppe Balestra</span>
+        <span>Ilenia Orlando</span>
+        <span>Joey Koka</span>
+        <span>Keyao Li</span>
+        <span>Maddalena Luison</span>
+        <span>Martina Garzia</span>
+        <span>Paola Bresciani</span>
+        <span>Rita Trombini</span>
+        <span>Saskia Battistoni</span>
+        <span>Victor Annibalini</span>
+        <span>Xin Wan</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Accademia di Belle Arti Bologna – Open Tour
+  </footer>
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Effetto parallax immagine di fondo
+    gsap.to("#hero", {
+      backgroundPosition: "50% 100%",
+      ease: "none",
+      scrollTrigger: {
+        trigger: "#hero",
+        start: "top top",
+        end: "bottom top",
+        scrub: true
+      }
+    });
+
+    // Fade-in e slide delle sezioni
+    gsap.utils.toArray(".panel").forEach((panel, i) => {
+      if (i === 0) return; // Salta il primo
+      gsap.from(panel.querySelector(".content"), {
+        opacity: 0,
+        y: 100,
+        duration: 1,
+        scrollTrigger: {
+          trigger: panel,
+          start: "top 80%",
+          toggleActions: "play none none reverse"
+        }
+      });
+    });
+
+    // Pinning della sezione info
+    ScrollTrigger.create({
+      trigger: "#info",
+      start: "top top",
+      end: "+=100%",
+      pin: true,
+      pinSpacing: true,
+      scrub: true
+    });
+  </script>
+</body>
+</html>
