@@ -4,11 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Spazio C7 - Sottosopra</title>
+
   <style>
+    /* FONT LOCALE */
+    @font-face {
+      font-family: 'Avara';
+      src: url('fonts/Avara.woff') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
     html, body {
       margin: 0;
       padding: 0;
-      font-family: 'Georgia', serif;
+      font-family: 'Avara', serif;
       overflow-x: hidden;
       background: black;
     }
@@ -24,14 +33,36 @@
     }
 
     .panel.bg {
-      background: url('Bg-spazio-c7.jpg') no-repeat center center;
-      background-size: cover;
+      background: black;
+    }
+
+    .full-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: contain;
+      z-index: 0;
     }
 
     .overlay {
       position: absolute;
       z-index: 2;
       text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+    }
+
+    .overlay h1 {
+      font-size: 4rem;
+      margin: 0;
+      transform: none;
+    }
+
+    .overlay h2 {
+      font-style: italic;
+      transform: rotate(-10deg);
+      margin: 0.5rem 0 0 0;
+      font-size: 2rem;
     }
 
     .rotated-text {
@@ -82,16 +113,17 @@
 </head>
 <body>
 
-  <!-- Panel 1: Hero con Parallax -->
+  <!-- Hero Panel -->
   <section class="panel bg" id="hero">
+    <img src="Bg-spazio-c7.jpg" alt="Manifesto" class="full-image" />
     <div class="overlay">
-      <h1 style="font-size: 4rem; transform: rotate(-2deg);">Spazio C7</h1>
-      <h2 style="font-style: italic;">sottosopra</h2>
+      <h1>Spazio C7</h1>
+      <h2>sottosopra</h2>
     </div>
     <div class="rotated-text">Spazio C7 – sottosopra</div>
   </section>
 
-  <!-- Panel 2: Informazioni (PINNATA) -->
+  <!-- Info Panel -->
   <section class="panel" id="info" style="background: #111;">
     <div class="content">
       <p><strong>Mostra degli studenti</strong> dei corsi "tecnologia dei materiali per la grafica" e "tecniche calcografiche sperimentali"<br>
@@ -101,7 +133,7 @@
     </div>
   </section>
 
-  <!-- Panel 3: Scroll Orizzontale Artisti -->
+  <!-- Artisti Panel -->
   <section class="panel" style="background: black; height: auto; padding: 4rem 0;">
     <div class="content">
       <h3>Opere di:</h3>
@@ -138,10 +170,10 @@
   <script>
     gsap.registerPlugin(ScrollTrigger);
 
-    // Effetto parallax immagine di fondo
-    gsap.to("#hero", {
-      backgroundPosition: "50% 100%",
-      ease: "none",
+    // Effetto parallax leggero sull'immagine
+    gsap.to(".full-image", {
+      scale: 1.05,
+      y: -50,
       scrollTrigger: {
         trigger: "#hero",
         start: "top top",
@@ -150,9 +182,9 @@
       }
     });
 
-    // Fade-in e slide delle sezioni
+    // Fade-in delle sezioni
     gsap.utils.toArray(".panel").forEach((panel, i) => {
-      if (i === 0) return; // Salta il primo
+      if (i === 0) return;
       gsap.from(panel.querySelector(".content"), {
         opacity: 0,
         y: 100,
@@ -165,7 +197,7 @@
       });
     });
 
-    // Pinning della sezione info
+    // Pin della sezione info
     ScrollTrigger.create({
       trigger: "#info",
       start: "top top",
