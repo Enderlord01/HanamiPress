@@ -1,87 +1,235 @@
-<!DOCTYPE html> 
-<html lang="it">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cia(n)o! - Presentazione</title>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-    }
-
-    body {
-      display: flex;
-      flex-direction: column;
-      scroll-snap-type: y mandatory;
-      overflow-y: scroll;
-    }
-
-    .slide {
-      width: 100vw;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      scroll-snap-align: start;
-      background-color: black;
-    }
-
-    .slide img {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
-    }
-
-    button {
-      position: fixed;
-      top: 10px;
-      left: 10px;
-      padding: 10px 16px;
-      font-size: 16px;
-      z-index: 1000;
-      background-color: rgba(0, 0, 0, 0.6);
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: rgba(0, 0, 0, 0.8);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Hanami Press" />
+    <meta property="og:description" content="Autoproduzioni." />
+    <meta property="og:image" content="logo-hanami.png" />
+    <meta property="og:url" content="https://hanamipress.xyz" />
+    <meta property="og:type" content="website" />
+    <title>Hanami Press</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/css/prodotti.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome -->
+    <link href="https://fonts.cdnfonts.com/css/helvetica-neue-55" rel="stylesheet">
+    <script 
+  src="https://www.paypal.com/sdk/js?client-id=BAA6UnH8ywFELX1Ks7UcBnuvLhh7DVC3iO47zXxwJIOZNlSzpipIDd_dyJveCe-25SzPxhPkGEG-duwRrY&components=hosted-buttons&disable-funding=venmo&currency=EUR">
+</script>
 </head>
 <body>
+    <header>
+        <a href="https://hanamipress.xyz" class="brand">Hanami Press</a>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
 
-  <div class="slide"><img src="img/slide1.jpg" alt="Slide 1"></div>
-  <div class="slide"><img src="img/slide1.5.jpg" alt="Slide 1.5"></div>
-  <div class="slide"><img src="img/slide2.jpg" alt="Slide 2"></div>
-  <div class="slide"><img src="img/slide3.jpg" alt="Slide 3"></div>
-  <div class="slide"><img src="img/slide4.jpg" alt="Slide 4"></div>
-  <div class="slide"><img src="img/slide5.jpg" alt="Slide 5"></div>
-  <div class="slide"><img src="img/slide6.jpg" alt="Slide 6"></div>
-  <div class="slide"><img src="img/slide7.jpg" alt="Slide 7"></div>
-  <div class="slide"><img src="img/slide8.jpg" alt="Slide 8"></div>
-  <div class="slide"><img src="img/slide9.jpg" alt="Slide 9"></div>
-  <div class="slide"><img src="img/slide10.jpg" alt="Slide 10"></div>
-  <div class="slide"><img src="img/slide11.jpg" alt="Slide 11"></div>
-  <div class="slide"><img src="img/slide12.jpg" alt="Slide 12"></div>
+<button id="scrollToTop">↑</button>
+    
+    <nav id="dropdown-menu" class="hidden">
+        <ul>
+            <li><a href="coming.html">Zine</a></li>
+            <li><a href="coming.html">Stampe</a></li>
+            <li><a href="coming.html">Autor*</a></li>
+            <li><a href="eventi.html">Eventi</a></li>
+            <li><a href="contatti.html">Contatti</a></li>
+        </ul>
+    </nav>
+<div class="products-header">Catalogo</div>
+    <div class="grid-container">
+        
+        <div class="product-box">
+            <div class="product-number">#015</div>
+            <div class="product-image"><img src="/img/zine/pappa/pappa_01.jpg" alt="Pappa"></div>
+            <div class="product-title">E' l'ora della pappa!</div>
+            <div class="product-author">Deth P. Sun</div>
+            <div class="product-price">€5</div>
+            <div class="product-tag">zine</div>
+        </div>
+        
+        <div class="product-box">
+            <div class="product-number">#014</div>
+            <div class="product-image"><img src="/img/zine/ilpostodellevipere/ilpostodellevipere_01.jpg" alt="ilpostodellevipere"></div> 
+            <div class="product-title">Il posto delle vipere</div>
+            <div class="product-author">Alice Savini</div>
+            <div class="product-price">€10</div>
+            <div class="product-tag">zine</div>
+        </div>
 
-  <button onclick="entraInFullscreen()">Vai in Fullscreen</button>
+        <div class="product-box">
+            <div class="product-number">#013</div>
+            <div class="product-image"><img src="/img/stampe/victor/primavera_01.jpg" alt="Primavera"></div>
+            <div class="product-title">RSGRPH A4 - Primavera!</div>
+            <div class="product-author">Vic</div>
+            <div class="product-price">€5+</div>
+            <div class="product-tag">stampe</div>
+        </div>
+        
+        <div class="product-box">
+            <div class="product-number">#012</div>
+            <div class="product-image"><img src="/img/stampe/marbit/marbit_gatto_01.jpg" alt="Marbit Gatto"></div>
+            <div class="product-title">RSGRPH A4 - Miaorgh!</div>
+            <div class="product-author">Marbit</div>
+            <div class="product-price">€25</div>
+            <div class="product-tag">stampe</div>
+        </div>
+        
+        <div class="product-box">
+            <div class="product-number">#011</div>
+            <div class="product-image"><img src="/img/zine/flipnote/flipnote_01.jpg" alt="Flipnote"></div>
+            <div class="product-title">Flipnotes</div>
+            <div class="product-author">Svdpony</div>
+            <div class="product-price">€7</div>
+            <div class="product-tag">zine</div>
+        </div>
+        </a>
 
-  <script>
-    function entraInFullscreen() {
-      const el = document.documentElement;
-      if (el.requestFullscreen) {
-        el.requestFullscreen();
-      } else if (el.webkitRequestFullscreen) {
-        el.webkitRequestFullscreen(); // Safari
-      } else if (el.msRequestFullscreen) {
-        el.msRequestFullscreen(); // IE11
-      }
-    }
-  </script>
+        <div class="product-box">
+            <div class="product-number">#010</div>
+            <div class="product-image"><img src="/img/zine/shiro/shiro_01.jpg" alt="Shiro"></div>
+            <div class="product-title">Shiro</div>
+            <div class="product-author">Martina Lupo </div>
+            <div class="product-price">€10</div>
+            <div class="product-tag">zine</div>
+        </div>
+        
+        <div class="product-box">
+            <div class="product-number">#009</div>
+            <div class="product-image"><img src="/img/zine/pixelgore/pixelgore_01.jpg" alt="Pixelgore"></div>
+            <div class="product-title">Pixelgore</div>
+            <div class="product-author">???</div>
+            <div class="product-price">€5</div>
+            <div class="product-tag">zine</div>
+        </div>
+        
+        <div class="product-box">
+            <div class="product-number">#008</div>
+            <div class="product-image"><img src="/img/zine/nostalgia/nostalgia_01.jpg" alt="NostalgiaMiseria"></div>
+            <div class="product-title">Nostalgia Miseria</div>
+            <div class="product-author">Losergod</div>
+            <div class="product-price">€7</div>
+            <div class="product-tag">zine</div>
+        </div>
+        
+        <div class="product-box">
+            <div class="product-number">#007</div>
+            <div class="product-image"><img src="/img/stampe/blobblob/blobblob_01.jpg" alt="Blob Blob"></div>
+            <div class="product-title">RSGRPH A6 - Blob Blob</div>
+            <div class="product-author">Chiara Simoni</div>
+            <div class="product-price">€7</div>
+            <div class="product-tag">stampe</div>
+        </div>
+        
+        <div class="product-box">
+            <div class="product-number">#006</div>
+            <div class="product-image"><img src="/img/zine/darkmagicbros/darkmagicbros_01.jpg" alt="Dark Magic Bros"></div>
+            <div class="product-title">Dark Magic Bros</div>
+            <div class="product-author">Deth P. Sun</div>
+            <div class="product-price">€5</div>
+            <div class="product-tag">zine</div>
+        </div>
+        
+        <div class="product-box">
+            <div class="product-number">#005</div>
+            <div class="product-image"><img src="/img/stampe/poster/2024/poster_01.jpg" alt="Poster 2024"></div>
+            <div class="product-title">RSGRPH A3 - Hanami24</div>
+            <div class="product-author">A.A V.V</div>
+            <div class="product-price">€10</div>
+            <div class="product-tag">stampe</div>
+        </div>
+        
+        <div class="product-box">
+            <div class="product-number">#004</div>
+            <div class="product-image"><img src="/img/zine/emma/emma_01.jpg" alt="Emma"></div>
+            <div class="product-title">Emma</div>
+            <div class="product-author">Pulcerossa</div>
+            <div class="product-price">Sold Out</div>
+            <div class="product-tag">zine</div>
+        </div>
+
+        <div class="product-box">
+            <div class="product-number">#003</div>
+            <div class="product-image"><img src="/img/zine/emotions/emotions_01.jpg" alt="Emotion Potions"></div>
+            <div class="product-title">Emotions Potions</div>
+            <div class="product-author">Goccia</div>
+            <div class="product-price">€5</div>
+            <div class="product-tag">zine</div>
+        </div>
+
+        <div class="product-box">
+            <div class="product-number">#002</div>
+            <div class="product-image"><img src="/img/zine/japan/japan_01.jpg" alt="Isometric Japan"></div>
+            <div class="product-title">Isometric Japan</div>
+            <div class="product-author">Vic</div>
+            <div class="product-price">€5</div>
+            <div class="product-tag">zine</div>
+        </div>
+
+        <div class="product-box">
+            <div class="product-number">#001</div>
+            <div class="product-image"><img src="/img/zine/laniakea/laniakea_01.jpg" alt="laniakea"></div>
+            <div class="product-title">Laniakea</div>
+            <div class="product-author">drudefox</div>
+            <div class="product-price">€3</div>
+            <div class="product-tag">zine</div>
+        </div>
+        
+    </div>  
+    
+    <!-- Sezione quadrata con "In arrivo" -->
+    <section class="coming-soon">
+        <p>Hanami Press è una micro casa editrice nata nel 2023 che produce zine, stampe risograph e piccoli oggetti, selezionando con cura carte e materiali ed è alla costante ricerca di nuovi talenti con cui collaborare.</p>
+    </section>
+      
+    <footer>
+        <span>Hanami Press, 2025</span>
+        <a href="https://www.instagram.com/hanami.press/" class="instagram-icon" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('dropdown-menu');
+            menu.classList.toggle('hidden'); // Nasconde o mostra il menu
+        }
+    </script>
+
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<div id="particles-js"></div>
+<script>
+particlesJS("particles-js", {
+  particles: {
+    number: { value: 100 },
+    size: { value: 3 },
+    move: { speed: 2 },
+    line_linked: { enable: true }
+  }
+});
+</script>
+
+<script>
+    const scrollToTopBtn = document.getElementById("scrollToTop");
+
+    window.onscroll = function () {
+        if (document.documentElement.scrollTop > 200) {
+            scrollToTopBtn.style.display = "block";
+        } else {
+            scrollToTopBtn.style.display = "none";
+        }
+    };
+
+    scrollToTopBtn.addEventListener("click", function () {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+</script>
+    
 </body>
 </html>
