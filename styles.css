@@ -138,6 +138,7 @@ footer {
     bottom: 0; /* Ancorato in fondo */
     position: relative;
     z-index: 1000;
+    border-radius: 8px;
 }
 
 footer .instagram-icon {
