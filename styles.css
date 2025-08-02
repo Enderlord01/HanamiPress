@@ -276,3 +276,12 @@ a, button {
   height: 60px;
 }
 </style>
+
+@media (max-width: 1024px) { /* puoi regolare la larghezza */
+  body {
+    cursor: auto; /* cursore standard */
+  }
+  .cursor {
+    display: none; /* nasconde il cursore personalizzato */
+  }
+}
