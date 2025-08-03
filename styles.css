@@ -265,7 +265,8 @@ body {
   background: white;
   mix-blend-mode: difference;
   z-index: 100000000000000;
-  transition: transform 0.15s ease, width 0.2s ease, height 0.2s ease;
+  transition: opacity 0.3s ease, transform 0.15s ease, width 0.2s ease, height 0.2s ease;
+  opacity: 0;
 }
 
 a, button {
@@ -275,6 +276,7 @@ a, button {
 .cursor.active {
   width: 20px;
   height: 20px;
+  opacity: 1;
 }
 </style>
 
