@@ -234,24 +234,27 @@ particlesJS("particles-js", {
 
     <script>
 if (window.innerWidth > 1024) {
-
   let cursorTimeout;
+  let isMoving = false;
 
   // Crea il cursore
   const cursor = document.createElement('div');
   cursor.classList.add('cursor');
   document.body.appendChild(cursor);
 
-  // Movimento e visibilità cursore
-  document.addEventListener('mousemove', e => {
+  // Funzione per mostrare cursore
+  function showCursor() {
     cursor.classList.add('visible');
-    cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-
-    // Reset timer per nasconderlo dopo inattività
     clearTimeout(cursorTimeout);
     cursorTimeout = setTimeout(() => {
       cursor.classList.remove('visible');
-    }, 2000); // tempo in ms (2 secondi)
+    }, 2000);
+  }
+
+  // Movimento cursore su tutta la pagina
+  document.addEventListener('mousemove', e => {
+    cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+    showCursor();
   });
 
   // Ingrandisce il cursore su link e bottoni
@@ -265,6 +268,7 @@ if (window.innerWidth > 1024) {
     
 </body>
 </html>
+
 
 
 
