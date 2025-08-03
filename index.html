@@ -233,23 +233,38 @@ particlesJS("particles-js", {
 </script>
 
     <script>
-// --- JavaScript cursore ---
-const cursor = document.createElement('div');
-cursor.classList.add('cursor');
-document.body.appendChild(cursor);
+if (window.innerWidth > 1024) {
 
-document.addEventListener('mousemove', e => {
-  cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-});
+  let cursorTimeout;
 
-document.querySelectorAll('a, button').forEach(el => {
-  el.addEventListener('mouseenter', () => cursor.classList.add('active'));
-  el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
-});
+  // Crea il cursore
+  const cursor = document.createElement('div');
+  cursor.classList.add('cursor');
+  document.body.appendChild(cursor);
+
+  // Movimento e visibilità cursore
+  document.addEventListener('mousemove', e => {
+    cursor.classList.add('visible');
+    cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+
+    // Reset timer per nasconderlo dopo inattività
+    clearTimeout(cursorTimeout);
+    cursorTimeout = setTimeout(() => {
+      cursor.classList.remove('visible');
+    }, 2000); // tempo in ms (2 secondi)
+  });
+
+  // Ingrandisce il cursore su link e bottoni
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => cursor.classList.add('active'));
+    el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
+  });
+}
 </script>
 
     
 </body>
 </html>
+
 
 
