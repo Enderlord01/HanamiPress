@@ -266,10 +266,10 @@ body {
   mix-blend-mode: difference;
   z-index: 100000000000000;
   transition: opacity 0.3s ease, transform 0.15s ease, width 0.2s ease, height 0.2s ease;
-  opacity: 0;
+  opacity: 1;
 }
 
-a, button {
+a, button, nav, hamburger {
   cursor: none !important;
 }
 
