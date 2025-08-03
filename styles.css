@@ -264,7 +264,7 @@ body {
   transform: translate(-50%, -50%);
   background: white;
   mix-blend-mode: difference;
-  z-index: 1000000000;
+  z-index: 100000000000000;
 }
 
 a, button {
