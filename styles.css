@@ -283,5 +283,6 @@ a, button {
   }
   .cursor {
     display: none; /* nasconde il cursore personalizzato */
+    opacity: 0;
   }
 }
