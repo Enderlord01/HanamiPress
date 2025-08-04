@@ -293,3 +293,13 @@ a, button, nav, hamburger {
     opacity: 0;
   }
 }
+
+.brand {
+  font-size: 15vw;
+  display: block;
+  width: 100vw;
+  text-align: center;
+  margin: 0;
+  padding: 2vh 2vw; /* spazio minimo dai bordi */
+  box-sizing: border-box;
+}
