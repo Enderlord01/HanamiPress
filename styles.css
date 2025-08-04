@@ -173,6 +173,10 @@ footer .instagram-icon:hover {
     color: white; /* Cambia il colore del testo, se necessario */
 }
 
+.brand .letter {
+  display: inline-block; /* 🔑 Necessario per animare singole lettere */
+}
+
 .info {
     margin-top: 20px;
     font-size: 16px;
