@@ -269,10 +269,6 @@ body {
   opacity: 1;
 }
 
-a, button, nav, hamburger {
-  cursor: none !important;
-}
-
 .cursor.active {
   width: 60px;
   height: 60px;
