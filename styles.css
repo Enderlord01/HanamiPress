@@ -22,7 +22,7 @@ html, body {
     color: white;
     font-size: 32px;
     overflow-x: hidden;
-    cursor: none;
+    cursor: auto;
 }
 
 @font-face {
