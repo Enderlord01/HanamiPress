@@ -232,38 +232,7 @@ particlesJS("particles-js", {
     });
 </script>
 
-    <script>
-if (window.innerWidth > 1024) {
-  let cursorTimeout;
-  let isMoving = false;
 
-  // Crea il cursore
-  const cursor = document.createElement('div');
-  cursor.classList.add('cursor');
-  document.body.appendChild(cursor);
-
-  // Funzione per mostrare cursore
-  function showCursor() {
-    cursor.classList.add('visible');
-    clearTimeout(cursorTimeout);
-    cursorTimeout = setTimeout(() => {
-      cursor.classList.remove('visible');
-    }, 2000);
-  }
-
-  // Movimento cursore su tutta la pagina
-  document.addEventListener('mousemove', e => {
-    cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-    showCursor();
-  });
-
-  // Ingrandisce il cursore su link e bottoni
-  document.querySelectorAll('a, button').forEach(el => {
-    el.addEventListener('mouseenter', () => cursor.classList.add('active'));
-    el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
-  });
-}
-</script>
 
     <!-- GSAP + Effetto Wiggly -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -294,5 +263,6 @@ if (window.innerWidth > 1024) {
     </script>
 </body>
 </html>
+
 
 
