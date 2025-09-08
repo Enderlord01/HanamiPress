@@ -134,22 +134,6 @@ particlesJS("particles-js", {
         });
     });
 </script>
-
-        <script>
-// --- JavaScript cursore ---
-const cursor = document.createElement('div');
-cursor.classList.add('cursor');
-document.body.appendChild(cursor);
-
-document.addEventListener('mousemove', e => {
-  cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-});
-
-document.querySelectorAll('a, button').forEach(el => {
-  el.addEventListener('mouseenter', () => cursor.classList.add('active'));
-  el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
-});
-</script>
     
 </body>
 </html>
