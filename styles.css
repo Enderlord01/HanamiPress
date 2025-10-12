@@ -140,6 +140,7 @@ footer {
     position: relative;
     z-index: 1000;
     border-radius: 8px;
+    border: 1px solid #0000ff;
 }
 
 footer .instagram-icon {
