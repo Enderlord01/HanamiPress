@@ -167,6 +167,7 @@ footer .instagram-icon:hover {
     align-items: center; /* Centra il contenuto verticalmente */
     margin: 0; /* Rimuove margini esterni */
     padding: 20px; /* Padding interno */
+    border-radius: 8px;
 }
 
 .brand {
