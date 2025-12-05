@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vic's Portfolio</title>
+    <title>Victor Annibalini</title>
     <style>
         * {
             margin: 0;
@@ -26,7 +26,7 @@
         }
 
         .logo {
-            font-size: 1.3em;
+            font-size: 16px;
             font-weight: 400;
             letter-spacing: 0.5px;
         }
@@ -34,6 +34,46 @@
         nav {
             display: flex;
             gap: 50px;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            width: 24px;
+            height: 18px;
+            position: relative;
+            z-index: 101;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 1px;
+            background: #ffffff;
+            transition: all 0.3s;
+        }
+
+        .hamburger.active {
+            gap: 0;
+            height: 24px;
+            justify-content: center;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translateY(0);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translateY(0);
+        }
+
+        .close-menu {
+            display: none;
         }
 
         nav a {
@@ -112,7 +152,7 @@
         .footer-links a {
             color: #888;
             text-decoration: none;
-            font-size: 0.95em;
+            font-size: 16px;
             transition: color 0.3s;
         }
 
@@ -124,8 +164,46 @@
         @media (max-width: 900px) {
             header {
                 flex-direction: column;
-                gap: 30px;
+                justify-content: center;
+                align-items: center;
+                gap: 20px;
                 padding: 30px;
+            }
+
+            .logo {
+                text-align: center;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .close-menu.active {
+                display: none;
+            }
+
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                background: #000000;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                padding-left: 60px;
+                gap: 40px;
+                transition: right 0.3s;
+                z-index: 100;
+            }
+
+            nav.active {
+                right: 0;
+            }
+
+            nav a {
+                font-size: 24px;
             }
 
             nav {
@@ -156,22 +234,22 @@
             footer {
                 padding: 30px;
             }
-
-            .footer-links {
-                flex-direction: column;
-                gap: 15px;
-            }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo">Vic's portfolio</div>
-        <nav>
-            <a href="#biography">Biography</a>
-            <a href="#education">Education</a>
-            <a href="#works">Works</a>
-            <a href="#contacts">Contacts</a>
+        <div class="logo">Victor Annibalini</div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav id="nav">
+            <a href="#biography" onclick="closeMenu()">Biography</a>
+            <a href="#education" onclick="closeMenu()">Education</a>
+            <a href="#works" onclick="closeMenu()">Works</a>
+            <a href="#contacts" onclick="closeMenu()">Contacts</a>
         </nav>
     </header>
 
@@ -198,8 +276,20 @@
         </div>
     </div>
 
-    <footer>
-        <p>2025<br>Powered by Hanami Press</p>
-    </footer>
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById('nav');
+            const hamburger = document.querySelector('.hamburger');
+            nav.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            const nav = document.getElementById('nav');
+            const hamburger = document.querySelector('.hamburger');
+            nav.classList.remove('active');
+            hamburger.classList.remove('active');
+        }
+    </script>
 </body>
 </html>
