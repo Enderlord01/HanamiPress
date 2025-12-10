@@ -119,7 +119,7 @@
             color: #ff00ff;
         }
 
-        /* Hero Section */
+        /* Hero Section con Animazioni Split Text */
         .hero {
             height: 100vh;
             display: flex;
@@ -133,10 +133,59 @@
 
         .hero-content {
             max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: 5em;
+            font-weight: 300;
+            letter-spacing: -2px;
+            margin-bottom: 30px;
+            line-height: 1.1;
+            overflow: hidden;
+        }
+
+        /* Animazione split text per il titolo */
+        .hero h1 .word {
+            display: inline-block;
+            overflow: hidden;
+            vertical-align: bottom;
+        }
+
+        .hero h1 .char {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(100%);
+            animation: slideUpChar 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes slideUpChar {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Animazione per subtitle con effetto reveal */
+        .hero .subtitle {
+            font-size: 1.5em;
+            color: #888;
+            font-weight: 300;
+            margin-bottom: 50px;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .subtitle-wrapper {
+            display: inline-block;
+        }
+
+        .subtitle-text {
+            display: inline-block;
             opacity: 0;
             transform: translateY(30px);
-            animation: fadeInUp 1s ease forwards;
-            animation-delay: 0.2s;
+            animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation-delay: 0.8s;
         }
 
         @keyframes fadeInUp {
@@ -146,27 +195,18 @@
             }
         }
 
-        .hero h1 {
-            font-size: 5em;
-            font-weight: 300;
-            letter-spacing: -2px;
-            margin-bottom: 30px;
-            line-height: 1.1;
-        }
-
-        .hero .subtitle {
-            font-size: 1.5em;
-            color: #888;
-            font-weight: 300;
-            margin-bottom: 50px;
-            letter-spacing: 0.5px;
-        }
-
         .cta-buttons {
             display: flex;
             gap: 25px;
             justify-content: center;
             flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+            animation-delay: 1.2s;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
         }
 
         .btn {
@@ -207,11 +247,11 @@
             left: 50%;
             transform: translateX(-50%);
             opacity: 0;
-            animation: fadeIn 1s ease forwards, bounce 2s ease infinite;
+            animation: fadeInIndicator 1s ease forwards, bounce 2s ease infinite;
             animation-delay: 1.5s, 2.5s;
         }
 
-        @keyframes fadeIn {
+        @keyframes fadeInIndicator {
             to { opacity: 0.5; }
         }
 
@@ -226,7 +266,7 @@
             color: #888;
         }
 
-        /* Featured Work Section */
+        /* Featured Work Section con Split Text */
         .featured {
             max-width: 1400px;
             margin: 0 auto;
@@ -239,6 +279,24 @@
             margin-bottom: 80px;
             letter-spacing: -1px;
             text-align: center;
+            overflow: hidden;
+        }
+
+        /* Animazione split per section title */
+        .section-title .word {
+            display: inline-block;
+            overflow: hidden;
+            margin-right: 0.3em;
+        }
+
+        .section-title .char {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(100%);
+        }
+
+        .section-title.animate .char {
+            animation: slideUpChar 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
         .featured-grid {
@@ -254,8 +312,18 @@
             cursor: pointer;
             border-radius: 4px;
             opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.6s ease forwards;
+            transform: translateY(50px);
+        }
+
+        .featured-item.animate {
+            animation: fadeInUpItem 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes fadeInUpItem {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .featured-item:nth-child(1) { animation-delay: 0.1s; }
@@ -299,7 +367,7 @@
             color: #aaa;
         }
 
-        /* About Section */
+        /* About Section con animazioni */
         .about {
             background: #0a0a0a;
             padding: 120px 60px;
@@ -319,6 +387,23 @@
             font-weight: 300;
             margin-bottom: 30px;
             letter-spacing: -1px;
+            overflow: hidden;
+        }
+
+        /* Split text per about title */
+        .about-text h2 .word {
+            display: inline-block;
+            overflow: hidden;
+        }
+
+        .about-text h2 .char {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(100%);
+        }
+
+        .about-text h2.animate .char {
+            animation: slideUpChar 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
         .about-text p {
@@ -326,16 +411,39 @@
             line-height: 1.8;
             color: #ccc;
             margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(30px);
         }
+
+        .about-text p.animate {
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .about-text p:nth-of-type(1) { animation-delay: 0.2s; }
+        .about-text p:nth-of-type(2) { animation-delay: 0.3s; }
 
         .about-image {
             width: 100%;
             aspect-ratio: 1 / 1;
             background: #1a1a1a;
             border-radius: 4px;
+            opacity: 0;
+            transform: translateX(50px);
         }
 
-        /* Contact Section */
+        .about-image.animate {
+            animation: fadeInRight 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation-delay: 0.3s;
+        }
+
+        @keyframes fadeInRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Contact Section con animazioni */
         .contact {
             max-width: 800px;
             margin: 0 auto;
@@ -348,12 +456,36 @@
             font-weight: 300;
             margin-bottom: 30px;
             letter-spacing: -1px;
+            overflow: hidden;
+        }
+
+        .contact h2 .word {
+            display: inline-block;
+            overflow: hidden;
+            margin-right: 0.3em;
+        }
+
+        .contact h2 .char {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(100%);
+        }
+
+        .contact h2.animate .char {
+            animation: slideUpChar 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
         .contact p {
             font-size: 1.2em;
             color: #888;
             margin-bottom: 50px;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .contact p.animate {
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation-delay: 0.3s;
         }
 
         .contact-links {
@@ -369,7 +501,18 @@
             font-size: 1.2em;
             transition: all 0.3s ease;
             position: relative;
+            opacity: 0;
+            transform: translateY(20px);
         }
+
+        .contact-link.animate {
+            animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .contact-link:nth-child(1) { animation-delay: 0.5s; }
+        .contact-link:nth-child(2) { animation-delay: 0.6s; }
+        .contact-link:nth-child(3) { animation-delay: 0.7s; }
+        .contact-link:nth-child(4) { animation-delay: 0.8s; }
 
         .contact-link::after {
             content: '';
@@ -603,8 +746,8 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>Hello! I'm Vic</h1>
-            <p class="subtitle">An illustrator and graphic designer</p>
+            <h1 id="heroTitle">Hello! I'm Vic</h1>
+            <p class="subtitle"><span class="subtitle-text">An illustrator and graphic designer</span></p>
             <div class="cta-buttons">
                 <a href="portfolio_works.html" class="btn btn-primary">See my works</a>
                 <a href="#contact" class="btn btn-secondary">Contact me!</a>
@@ -615,7 +758,7 @@
 
     <!-- Featured Work -->
     <section class="featured" id="works">
-        <h2 class="section-title">What can you have</h2>
+        <h2 class="section-title" id="featuredTitle">What can you have</h2>
         <div class="featured-grid">
             <div class="featured-item">
                 <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='440' height='440'%3E%3Crect fill='%231a1a1a' width='440' height='440'/%3E%3C/svg%3E" alt="The Dream">
@@ -645,7 +788,7 @@
     <section class="about" id="about">
         <div class="about-content">
             <div class="about-text">
-                <h2>Chi Sono</h2>
+                <h2 id="aboutTitle">Chi Sono</h2>
                 <p>Fotografo e artista visivo con una passione per l'esplorazione dei confini tra realtà e immaginazione. Il mio lavoro si concentra sulla cattura di momenti effimeri e sulla creazione di narrazioni visive che sfidano la percezione convenzionale.</p>
                 <p>Attraverso l'uso di tecniche sperimentali e un approccio minimalista, cerco di rivelare la bellezza nascosta negli spazi quotidiani e nelle esperienze umane.</p>
             </div>
@@ -657,10 +800,10 @@
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
-        <h2>Do you want me? 👉👈</h2>
+        <h2 id="contactTitle">Do you want me? 👉👈</h2>
         <p>I'm open to collaborate on your project!</p>
         <div class="contact-links">
-            <a href="mailto:info@vicannibalini.com" class="contact-link">Email</a>
+            <a href="mailto:vic@example.com" class="contact-link">Email</a>
             <a href="#instagram" class="contact-link">Instagram</a>
             <a href="#behance" class="contact-link">Behance</a>
             <a href="#linkedin" class="contact-link">LinkedIn</a>
@@ -672,6 +815,89 @@
     </footer>
 
     <script>
+        // Split text function
+        function splitText(element) {
+            const text = element.textContent;
+            const words = text.split(' ');
+            element.innerHTML = '';
+            
+            words.forEach((word, wordIndex) => {
+                const wordSpan = document.createElement('span');
+                wordSpan.className = 'word';
+                
+                word.split('').forEach((char, charIndex) => {
+                    const charSpan = document.createElement('span');
+                    charSpan.className = 'char';
+                    charSpan.textContent = char;
+                    charSpan.style.animationDelay = `${(wordIndex * 0.05) + (charIndex * 0.03)}s`;
+                    wordSpan.appendChild(charSpan);
+                });
+                
+                element.appendChild(wordSpan);
+                if (wordIndex < words.length - 1) {
+                    element.appendChild(document.createTextNode(' '));
+                }
+            });
+        }
+
+        // Initialize split text on hero title
+        window.addEventListener('DOMContentLoaded', () => {
+            splitText(document.getElementById('heroTitle'));
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = entry.target;
+                    
+                    if (target.classList.contains('section-title')) {
+                        splitText(target);
+                        target.classList.add('animate');
+                    } else if (target.classList.contains('about-text')) {
+                        const h2 = target.querySelector('h2');
+                        if (h2) {
+                            splitText(h2);
+                            h2.classList.add('animate');
+                        }
+                        target.querySelectorAll('p').forEach(p => {
+                            p.classList.add('animate');
+                        });
+                    } else if (target.classList.contains('contact')) {
+                        const h2 = target.querySelector('h2');
+                        if (h2) {
+                            splitText(h2);
+                            h2.classList.add('animate');
+                        }
+                        target.querySelector('p').classList.add('animate');
+                        target.querySelectorAll('.contact-link').forEach(link => {
+                            link.classList.add('animate');
+                        });
+                    } else if (target.classList.contains('featured-item')) {
+                        target.classList.add('animate');
+                    } else if (target.classList.contains('about-image')) {
+                        target.classList.add('animate');
+                    }
+                    
+                    observer.unobserve(target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements
+        document.addEventListener('DOMContentLoaded', () => {
+            observer.observe(document.getElementById('featuredTitle'));
+            document.querySelectorAll('.featured-item').forEach(item => observer.observe(item));
+            observer.observe(document.querySelector('.about-text'));
+            observer.observe(document.querySelector('.about-image'));
+            observer.observe(document.querySelector('.contact'));
+        });
+
         function toggleMenu() {
             const nav = document.getElementById('nav');
             const hamburger = document.querySelector('.hamburger');
