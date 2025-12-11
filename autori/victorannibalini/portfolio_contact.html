@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contatta Vic Annibalini - Get in touch">
+    <title>Contact - Vic Annibalini</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background: #000000;
+            color: #ffffff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+            position: sticky;
+            top: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo {
+            font-size: 1.3em;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            transition: opacity 0.3s;
+        }
+
+        .logo:hover {
+            opacity: 0.7;
+        }
+
+        nav {
+            display: flex;
+            gap: 50px;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            width: 24px;
+            height: 18px;
+            position: relative;
+            z-index: 101;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background: #ffffff;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .hamburger.active {
+            gap: 0;
+            height: 24px;
+            justify-content: center;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translateY(0);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translateY(0);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 1.1em;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #ff00ff;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: #ff00ff;
+        }
+
+        nav a.active {
+            color: #ff00ff;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 100px 60px;
+            min-height: calc(100vh - 400px);
+        }
+
+        .page-title {
+            font-size: 3.5em;
+            font-weight: 300;
+            margin-bottom: 30px;
+            letter-spacing: -1px;
+            text-align: center;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            color: #888;
+            text-align: center;
+            margin-bottom: 80px;
+            font-weight: 300;
+        }
+
+        .contact-grid {
+            max-width: 600px;
+            margin: 0 auto 80px;
+        }
+
+        .contact-section {
+            background: #0a0a0a;
+            padding: 40px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .contact-section:hover {
+            border-color: rgba(255, 0, 255, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .contact-section h2 {
+            font-size: 1.5em;
+            font-weight: 400;
+            margin-bottom: 25px;
+            color: #ffffff;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-label {
+            font-size: 0.9em;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-value {
+            font-size: 1.1em;
+            color: #ffffff;
+        }
+
+        .contact-value a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .contact-value a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #ff00ff;
+            transition: width 0.3s ease;
+        }
+
+        .contact-value a:hover {
+            color: #ff00ff;
+        }
+
+        .contact-value a:hover::after {
+            width: 100%;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 60px;
+            padding-top: 60px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #888;
+            transition: all 0.3s ease;
+            padding: 20px;
+            border-radius: 8px;
+            background: #0a0a0a;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .social-link:hover {
+            color: #ff00ff;
+            border-color: rgba(255, 0, 255, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            fill: currentColor;
+        }
+
+        .social-name {
+            font-size: 0.95em;
+            font-weight: 400;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 60px 40px;
+            background: #0a0a0a;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 80px;
+        }
+
+        .cta-section h2 {
+            font-size: 2em;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.1em;
+            color: #888;
+            margin-bottom: 35px;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 18px 45px;
+            background: #ffffff;
+            color: #000000;
+            text-decoration: none;
+            border-radius: 2px;
+            font-size: 1.1em;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+            border: 2px solid #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: #ffffff;
+        }
+
+        /* Footer */
+        footer {
+            background: #000000;
+            padding: 60px 60px 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.1em;
+            font-weight: 400;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .footer-section p {
+            font-size: 0.95em;
+            color: #888;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            color: #888;
+            text-decoration: none;
+            font-size: 0.95em;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #ff00ff;
+        }
+
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-bottom p {
+            font-size: 0.9em;
+            color: #666;
+            margin: 0;
+        }
+
+        .footer-legal-links {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .footer-legal-links a {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: color 0.3s ease;
+        }
+
+        .footer-legal-links a:hover {
+            color: #ff00ff;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #000000;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            header {
+                padding: 25px 30px;
+            }
+
+            .hamburger {
+                display: flex;
+                position: absolute;
+                top: 30px;
+                right: 30px;
+            }
+
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                background: rgba(0, 0, 0, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                padding-left: 60px;
+                gap: 35px;
+                transition: right 0.4s ease;
+                z-index: 100;
+            }
+
+            nav.active {
+                right: 0;
+            }
+
+            nav a {
+                font-size: 28px;
+                opacity: 0;
+                transform: translateX(20px);
+            }
+
+            nav.active a {
+                animation: slideInRight 0.4s ease forwards;
+            }
+
+            nav.active a:nth-child(1) { animation-delay: 0.1s; }
+            nav.active a:nth-child(2) { animation-delay: 0.2s; }
+            nav.active a:nth-child(3) { animation-delay: 0.3s; }
+            nav.active a:nth-child(4) { animation-delay: 0.4s; }
+
+            @keyframes slideInRight {
+                to {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+
+            .container {
+                padding: 60px 30px;
+            }
+
+            .page-title {
+                font-size: 2.5em;
+            }
+
+            .subtitle {
+                font-size: 1.1em;
+                margin-bottom: 50px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .social-links {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-legal-links {
+                justify-content: center;
+            }
+
+            footer {
+                padding: 40px 30px 20px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 20px 20px;
+            }
+
+            .logo {
+                font-size: 1.1em;
+            }
+
+            .hamburger {
+                right: 20px;
+                top: 25px;
+            }
+
+            .container {
+                padding: 50px 20px;
+            }
+
+            .page-title {
+                font-size: 2em;
+            }
+
+            .subtitle {
+                font-size: 1em;
+            }
+
+            .contact-grid {
+                max-width: 100%;
+            }
+
+            .contact-section {
+                padding: 30px 25px;
+            }
+
+            .cta-section {
+                padding: 40px 25px;
+            }
+
+            nav {
+                padding-left: 40px;
+            }
+
+            nav a {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">Vic Annibalini</a>
+        <div class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav id="nav" role="navigation">
+            <a href="portfolio_biography.html" onclick="closeMenu()">Biography</a>
+            <a href="portfolio_education.html" onclick="closeMenu()">Education</a>
+            <a href="portfolio_works.html" onclick="closeMenu()">Works</a>
+            <a href="portfolio_contact.html" onclick="closeMenu()" class="active">Contact</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1 class="page-title">Let's work together! 👋</h1>
+        <p class="subtitle">I'm always open to discussing new projects, creative ideas or opportunities.</p>
+
+        <div class="contact-grid">
+            <div class="contact-section">
+                <h2>Get in Touch</h2>
+                <div class="contact-item">
+                    <span class="contact-label">Email</span>
+                    <div class="contact-value">
+                        <a href="mailto:vic@vicannibalini.com">vic@vicannibalini.com</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">Phone</span>
+                    <div class="contact-value">
+                        <a href="tel:+393401234567">+39 340 123 4567</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">Location</span>
+                    <div class="contact-value">Rome, Italy 🇮🇹</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="social-links">
+            <a href="https://instagram.com/vicannibalini" class="social-link" target="_blank" rel="noopener">
+                <svg class="social-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+                <span class="social-name">Instagram</span>
+            </a>
+            <a href="https://behance.net/vicannibalini" class="social-link" target="_blank" rel="noopener">
+                <svg class="social-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14h-8.027c.13 3.211 3.483 3.312 4.588 2.029h3.168zm-7.686-4h4.965c-.105-1.547-1.136-2.219-2.477-2.219-1.466 0-2.277.768-2.488 2.219zm-9.574 6.988h-6.466v-14.967h6.953c5.476.081 5.58 5.444 2.72 6.906 3.461 1.26 3.577 8.061-3.207 8.061zm-3.466-8.988h3.584c2.508 0 2.906-3-.312-3h-3.272v3zm3.391 3h-3.391v3.016h3.341c3.055 0 2.868-3.016.05-3.016z"/>
+                </svg>
+                <span class="social-name">Behance</span>
+            </a>
+            <a href="https://linkedin.com/in/vicannibalini" class="social-link" target="_blank" rel="noopener">
+                <svg class="social-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+                <span class="social-name">LinkedIn</span>
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Vic Annibalini</h3>
+                <p>Illustrator and graphic designer specializing in experimental photography and visual storytelling.</p>
+                <p>Based in Italy 🇮🇹</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <div class="footer-links">
+                    <a href="portfolio_biography.html">Biography</a>
+                    <a href="portfolio_education.html">Education</a>
+                    <a href="portfolio_works.html">Works</a>
+                    <a href="portfolio_contact.html">Contact</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <div class="footer-links">
+                    <a href="#privacy">Privacy Policy</a>
+                    <a href="#terms">Terms of Service</a>
+                    <a href="#cookies">Cookie Policy</a>
+                    <a href="#copyright">Copyright Notice</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Vic Annibalini. All rights reserved. | P.IVA: IT00000000000</p>
+            <div class="footer-legal-links">
+                <a href="#privacy">Privacy</a>
+                <a href="#terms">Terms</a>
+                <a href="#cookies">Cookies</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById('nav');
+            const hamburger = document.querySelector('.hamburger');
+            nav.classList.toggle('active');
+            hamburger.classList.toggle('active');
+            document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
+        }
+
+        function closeMenu() {
+            const nav = document.getElementById('nav');
+            const hamburger = document.querySelector('.hamburger');
+            nav.classList.remove('active');
+            hamburger.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close menu on click outside
+        document.addEventListener('click', function(e) {
+            const nav = document.getElementById('nav');
+            const hamburger = document.querySelector('.hamburger');
+            if (nav.classList.contains('active') && !nav.contains(e.target) && !hamburger.contains(e.target)) {
+                closeMenu();
+            }
+        });
+    </script>
+</body>
+</html>
