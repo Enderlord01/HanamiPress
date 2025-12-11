@@ -235,52 +235,84 @@
             color: #ff00ff;
         }
 
+        /* Footer - Updated */
         footer {
             background: #000000;
-            padding: 60px 60px 40px;
-            text-align: center;
-            margin-top: 80px;
+            padding: 60px 60px 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        footer p {
-            font-size: 14px;
-            color: #666;
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.1em;
+            font-weight: 400;
             margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .footer-section p {
+            font-size: 0.95em;
+            color: #888;
+            line-height: 1.6;
+            margin-bottom: 15px;
         }
 
         .footer-links {
             display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 25px;
+            flex-direction: column;
+            gap: 12px;
         }
 
         .footer-links a {
             color: #888;
             text-decoration: none;
             font-size: 0.95em;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .footer-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: #ffffff;
-            transition: width 0.3s ease;
-        }
-
-        .footer-links a:hover::after {
-            width: 100%;
+            transition: color 0.3s ease;
         }
 
         .footer-links a:hover {
-            color: #ffffff;
+            color: #ff00ff;
+        }
+
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-bottom p {
+            font-size: 0.9em;
+            color: #666;
+            margin: 0;
+        }
+
+        .footer-legal-links {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .footer-legal-links a {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: color 0.3s ease;
+        }
+
+        .footer-legal-links a:hover {
+            color: #ff00ff;
         }
 
         /* Scrollbar personalizzata */
@@ -374,13 +406,22 @@
                 font-size: 16px;
             }
 
-            footer {
-                padding: 40px 30px 30px;
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
 
-            .footer-links {
+            .footer-bottom {
                 flex-direction: column;
-                gap: 20px;
+                text-align: center;
+            }
+
+            .footer-legal-links {
+                justify-content: center;
+            }
+
+            footer {
+                padding: 40px 30px 20px;
             }
         }
 
@@ -418,7 +459,7 @@
 </head>
 <body>
     <header>
-        <div class="logo">Vic Annibalini</div>
+        <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">Vic Annibalini</a>
         <div class="hamburger" onclick="toggleMenu()" aria-label="Menu">
             <span></span>
             <span></span>
@@ -427,7 +468,7 @@
         <nav id="nav" role="navigation">
             <a href="portfolio_biography.html" onclick="closeMenu()">Biography</a>
             <a href="portfolio_education.html" onclick="closeMenu()">Education</a>
-            <a href="portfolio_works.html" onclick="closeMenu()">Works</a>
+            <a href="portfolio_works.html" onclick="closeMenu()" class="active">Works</a>
             <a href="portfolio_contact.html" onclick="closeMenu()">Contact</a>
         </nav>
     </header>
@@ -539,12 +580,41 @@
     </div>
 
     <footer>
-        <p>&copy; 2024 Vic Annibalini. Tutti i diritti riservati.</p>
-        <div class="footer-links">
-            <a href="#privacy">Privacy Policy</a>
-            <a href="#instagram">Instagram</a>
-            <a href="#behance">Behance</a>
-            <a href="#email">Email</a>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Vic Annibalini</h3>
+                <p>Illustrator and graphic designer specializing in experimental photography and visual storytelling.</p>
+                <p>Based in Italy 🇮🇹</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <div class="footer-links">
+                    <a href="portfolio_biography.html">Biography</a>
+                    <a href="portfolio_education.html">Education</a>
+                    <a href="portfolio_works.html">Works</a>
+                    <a href="portfolio_contact.html">Contact</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <div class="footer-links">
+                    <a href="#privacy">Privacy Policy</a>
+                    <a href="#terms">Terms of Service</a>
+                    <a href="#cookies">Cookie Policy</a>
+                    <a href="#copyright">Copyright Notice</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Vic Annibalini. All rights reserved. | P.IVA: IT00000000000</p>
+            <div class="footer-legal-links">
+                <a href="#privacy">Privacy</a>
+                <a href="#terms">Terms</a>
+                <a href="#cookies">Cookies</a>
+            </div>
         </div>
     </footer>
 
