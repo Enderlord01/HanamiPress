@@ -129,10 +129,62 @@
             text-align: center;
             padding: 0 60px;
             position: relative;
+            overflow: hidden;
+        }
+
+        /* Carousel Background */
+        .hero-carousel {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .carousel-track {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+        }
+
+        .carousel-slide.active {
+            opacity: 0.3;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carousel-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.7) 70%, #000000 100%);
+            z-index: 1;
         }
 
         .hero-content {
             max-width: 900px;
+            position: relative;
+            z-index: 2;
         }
 
         .hero h1 {
@@ -155,7 +207,7 @@
             display: inline-block;
             opacity: 0;
             transform: translateY(100%);
-            animation: slideUpChar 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation: slideUpChar 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
         @keyframes slideUpChar {
@@ -184,8 +236,8 @@
             display: inline-block;
             opacity: 0;
             transform: translateY(30px);
-            animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-            animation-delay: 0.8s;
+            animation: fadeInUp 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation-delay: 1.2s;
         }
 
         @keyframes fadeInUp {
@@ -201,8 +253,8 @@
             justify-content: center;
             flex-wrap: wrap;
             opacity: 0;
-            animation: fadeIn 0.8s ease forwards;
-            animation-delay: 1.2s;
+            animation: fadeIn 1s ease forwards;
+            animation-delay: 1.8s;
         }
 
         @keyframes fadeIn {
@@ -249,6 +301,7 @@
             opacity: 0;
             animation: fadeInIndicator 1s ease forwards, bounce 2s ease infinite;
             animation-delay: 1.5s, 2.5s;
+            z-index: 2;
         }
 
         @keyframes fadeInIndicator {
@@ -296,7 +349,7 @@
         }
 
         .section-title.animate .char {
-            animation: slideUpChar 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation: slideUpChar 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
         .featured-grid {
@@ -316,7 +369,7 @@
         }
 
         .featured-item.animate {
-            animation: fadeInUpItem 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation: fadeInUpItem 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
         @keyframes fadeInUpItem {
@@ -326,9 +379,9 @@
             }
         }
 
-        .featured-item:nth-child(1) { animation-delay: 0.1s; }
-        .featured-item:nth-child(2) { animation-delay: 0.2s; }
-        .featured-item:nth-child(3) { animation-delay: 0.3s; }
+        .featured-item:nth-child(1) { animation-delay: 0.15s; }
+        .featured-item:nth-child(2) { animation-delay: 0.3s; }
+        .featured-item:nth-child(3) { animation-delay: 0.45s; }
 
         .featured-item img {
             width: 100%;
@@ -403,7 +456,7 @@
         }
 
         .about-text h2.animate .char {
-            animation: slideUpChar 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation: slideUpChar 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
         .about-text p {
@@ -416,11 +469,11 @@
         }
 
         .about-text p.animate {
-            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        .about-text p:nth-of-type(1) { animation-delay: 0.2s; }
-        .about-text p:nth-of-type(2) { animation-delay: 0.3s; }
+        .about-text p:nth-of-type(1) { animation-delay: 0.3s; }
+        .about-text p:nth-of-type(2) { animation-delay: 0.5s; }
 
         .about-image {
             width: 100%;
@@ -432,8 +485,8 @@
         }
 
         .about-image.animate {
-            animation: fadeInRight 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-            animation-delay: 0.3s;
+            animation: fadeInRight 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation-delay: 0.4s;
         }
 
         @keyframes fadeInRight {
@@ -472,7 +525,7 @@
         }
 
         .contact h2.animate .char {
-            animation: slideUpChar 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation: slideUpChar 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
         .contact p {
@@ -484,8 +537,8 @@
         }
 
         .contact p.animate {
-            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-            animation-delay: 0.3s;
+            animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation-delay: 0.4s;
         }
 
         .contact-links {
@@ -506,13 +559,13 @@
         }
 
         .contact-link.animate {
-            animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        .contact-link:nth-child(1) { animation-delay: 0.5s; }
-        .contact-link:nth-child(2) { animation-delay: 0.6s; }
-        .contact-link:nth-child(3) { animation-delay: 0.7s; }
-        .contact-link:nth-child(4) { animation-delay: 0.8s; }
+        .contact-link:nth-child(1) { animation-delay: 0.6s; }
+        .contact-link:nth-child(2) { animation-delay: 0.75s; }
+        .contact-link:nth-child(3) { animation-delay: 0.9s; }
+        .contact-link:nth-child(4) { animation-delay: 1.05s; }
 
         .contact-link::after {
             content: '';
@@ -536,14 +589,81 @@
         /* Footer */
         footer {
             background: #000000;
-            padding: 40px 60px;
-            text-align: center;
+            padding: 60px 60px 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        footer p {
-            font-size: 14px;
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.1em;
+            font-weight: 400;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .footer-section p {
+            font-size: 0.95em;
+            color: #888;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            color: #888;
+            text-decoration: none;
+            font-size: 0.95em;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #ff00ff;
+        }
+
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-bottom p {
+            font-size: 0.9em;
             color: #666;
+            margin: 0;
+        }
+
+        .footer-legal-links {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .footer-legal-links a {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: color 0.3s ease;
+        }
+
+        .footer-legal-links a:hover {
+            color: #ff00ff;
         }
 
         /* Scrollbar */
@@ -689,8 +809,22 @@
                 gap: 25px;
             }
 
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-legal-links {
+                justify-content: center;
+            }
+
             footer {
-                padding: 30px;
+                padding: 40px 30px 20px;
             }
         }
 
@@ -729,7 +863,7 @@
 </head>
 <body>
     <header>
-        <div class="logo">Vic Annibalini</div>
+        <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">Vic Annibalini</a>
         <div class="hamburger" onclick="toggleMenu()" aria-label="Menu">
             <span></span>
             <span></span>
@@ -745,6 +879,25 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
+        <!-- Carousel Background -->
+        <div class="hero-carousel">
+            <div class="carousel-track">
+                <div class="carousel-slide active">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='1080'%3E%3Cdefs%3E%3ClinearGradient id='g1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23667eea;stop-opacity:1'/%3E%3Cstop offset='100%25' style='stop-color:%23764ba2;stop-opacity:1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g1)' width='1920' height='1080'/%3E%3C/svg%3E" alt="Slide 1">
+                </div>
+                <div class="carousel-slide">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='1080'%3E%3Cdefs%3E%3ClinearGradient id='g2' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23f093fb;stop-opacity:1'/%3E%3Cstop offset='100%25' style='stop-color:%234facfe;stop-opacity:1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g2)' width='1920' height='1080'/%3E%3C/svg%3E" alt="Slide 2">
+                </div>
+                <div class="carousel-slide">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='1080'%3E%3Cdefs%3E%3ClinearGradient id='g3' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23fa709a;stop-opacity:1'/%3E%3Cstop offset='100%25' style='stop-color:%23fee140;stop-opacity:1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g3)' width='1920' height='1080'/%3E%3C/svg%3E" alt="Slide 3">
+                </div>
+                <div class="carousel-slide">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='1080'%3E%3Cdefs%3E%3ClinearGradient id='g4' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2330cfd0;stop-opacity:1'/%3E%3Cstop offset='100%25' style='stop-color:%23330867;stop-opacity:1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g4)' width='1920' height='1080'/%3E%3C/svg%3E" alt="Slide 4">
+                </div>
+            </div>
+            <div class="carousel-overlay"></div>
+        </div>
+
         <div class="hero-content">
             <h1 id="heroTitle">Hello! I'm Vic</h1>
             <p class="subtitle"><span class="subtitle-text">An illustrator and graphic designer</span></p>
@@ -811,10 +964,66 @@
     </section>
 
     <footer>
-        <p>&copy; 2024 Vic Annibalini. Tutti i diritti riservati.</p>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Vic Annibalini</h3>
+                <p>Illustrator and graphic designer specializing in experimental photography and visual storytelling.</p>
+                <p>Based in Italy 🇮🇹</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <div class="footer-links">
+                    <a href="portfolio_biography.html">Biography</a>
+                    <a href="portfolio_education.html">Education</a>
+                    <a href="portfolio_works.html">Works</a>
+                    <a href="portfolio_contact.html">Contact</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <div class="footer-links">
+                    <a href="#privacy">Privacy Policy</a>
+                    <a href="#terms">Terms of Service</a>
+                    <a href="#cookies">Cookie Policy</a>
+                    <a href="#copyright">Copyright Notice</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Vic Annibalini. All rights reserved. | P.IVA: IT00000000000</p>
+            <div class="footer-legal-links">
+                <a href="#privacy">Privacy</a>
+                <a href="#terms">Terms</a>
+                <a href="#cookies">Cookies</a>
+            </div>
+        </div>
     </footer>
 
     <script>
+        // Carousel functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const totalSlides = slides.length;
+
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % totalSlides;
+            slides[currentSlide].classList.add('active');
+        }
+
+        // Start carousel after page load
+        window.addEventListener('DOMContentLoaded', () => {
+            // Ensure first slide is active
+            if (slides.length > 0) {
+                slides[0].classList.add('active');
+            }
+            // Change slide every 5 seconds
+            setInterval(nextSlide, 5000);
+        });
+
         // Split text function
         function splitText(element) {
             const text = element.textContent;
@@ -829,7 +1038,7 @@
                     const charSpan = document.createElement('span');
                     charSpan.className = 'char';
                     charSpan.textContent = char;
-                    charSpan.style.animationDelay = `${(wordIndex * 0.05) + (charIndex * 0.03)}s`;
+                    charSpan.style.animationDelay = `${(wordIndex * 0.08) + (charIndex * 0.05)}s`;
                     wordSpan.appendChild(charSpan);
                 });
                 
