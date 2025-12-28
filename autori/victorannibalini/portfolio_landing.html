@@ -512,15 +512,29 @@
             flex-wrap: wrap;
         }
 
-        .contact-link {
-            color: #0000ff;
-            text-decoration: none;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            position: relative;
-            opacity: 0;
-            transform: translateY(20px);
-        }
+.contact-link {
+    color: #0000ff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    position: relative;
+    opacity: 0;
+    transform: translateY(20px);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact-link svg {
+    width: 24px;
+    height: 24px;
+    fill: #0000ff;
+    transition: fill 0.3s ease;
+}
+
+.contact-link:hover svg {
+    fill: #ff00ff;
+}
 
         .contact-link.animate {
             animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -915,12 +929,32 @@
     <section class="contact" id="contact">
         <h2 id="contactTitle">Do you want me?</h2>
         <p>Let's collaborate on your next project!</p>
-        <div class="contact-links">
-            <a href="mailto:victorannibalini01@gmail.com" class="contact-link">Email</a>
-            <a href="https://instagram.com/victor_annibalini" class="contact-link">Instagram</a>
-            <a href="https://www.behance.net/victorannibalini" class="contact-link">Behance</a>
-            <a href="https://it.linkedin.com/in/victor-annibalini-a09061167" class="contact-link">LinkedIn</a>
-        </div>
+<div class="contact-links">
+    <a href="mailto:victorannibalini01@gmail.com" class="contact-link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+        </svg>
+        Email
+    </a>
+    <a href="https://instagram.com/victor_annibalini" class="contact-link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4c0 3.2-2.6 5.8-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8C2 4.6 4.6 2 7.8 2m-.2 2C5.6 4 4 5.6 4 7.6v8.8C4 18.4 5.6 20 7.6 20h8.8c2 0 3.6-1.6 3.6-3.6V7.6C20 5.6 18.4 4 16.4 4H7.6m9.65 1.5c.69 0 1.25.56 1.25 1.25s-.56 1.25-1.25 1.25-1.25-.56-1.25-1.25.56-1.25 1.25-1.25M12 7c2.76 0 5 2.24 5 5s-2.24 5-5 5-5-2.24-5-5 2.24-5 5-5m0 2c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+        </svg>
+        Instagram
+    </a>
+    <a href="https://www.behance.net/victorannibalini" class="contact-link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M6.5 4.5c1.16 0 2.14.36 2.95 1.08.81.73 1.22 1.74 1.22 3.03 0 .93-.23 1.75-.69 2.45-.22.33-.57.68-1.06 1.05.72.27 1.27.67 1.66 1.2.39.54.58 1.2.58 2 0 .87-.2 1.63-.61 2.28-.41.66-.97 1.15-1.67 1.48-.71.33-1.49.5-2.35.5H0V4.5h6.5zm-.15 5.5c.54 0 .98-.14 1.32-.43.34-.28.51-.7.51-1.25 0-.58-.17-1-.51-1.27-.34-.26-.78-.39-1.32-.39H3.5v3.34h2.85zm.25 6c.59 0 1.08-.16 1.47-.49.39-.32.59-.82.59-1.48 0-.67-.2-1.16-.59-1.48-.39-.32-.88-.48-1.47-.48H3.5V16h3.1zM15.3 4.5h8.2v1.9h-8.2v-1.9zm-.8 10.1c.39.78 1.04 1.17 1.96 1.17.61 0 1.12-.16 1.54-.49.42-.33.65-.68.7-1.06h2.95c-.18 1.05-.68 1.94-1.52 2.68-.83.73-1.89 1.1-3.18 1.1-1.03 0-1.94-.22-2.73-.67-.79-.44-1.41-1.08-1.85-1.9-.44-.83-.66-1.78-.66-2.86 0-1.07.22-2.02.67-2.85.44-.83 1.06-1.47 1.85-1.91.79-.44 1.69-.67 2.72-.67 1.05 0 1.96.23 2.75.68.78.45 1.38 1.09 1.8 1.91.41.82.62 1.76.62 2.83 0 .27-.02.57-.05.9h-8.73c.05.91.36 1.62.75 2.14zm5.39-3.59c-.34-.73-.94-1.1-1.81-1.1-.53 0-.98.13-1.35.39-.37.26-.62.6-.74 1.01-.06.2-.1.46-.11.78h4.43c-.05-.69-.26-1.23-.42-1.58z"/>
+        </svg>
+        Behance
+    </a>
+    <a href="https://it.linkedin.com/in/victor-annibalini-a09061167" class="contact-link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+        </svg>
+        LinkedIn
+    </a>
+</div>
     </section>
 
     <footer>
