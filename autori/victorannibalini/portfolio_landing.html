@@ -1114,6 +1114,18 @@
                 closeMenu();
             }
         });
+
+function adjustHeroHeight() {
+    const header = document.querySelector('header');
+    const hero = document.querySelector('.hero');
+    const headerHeight = header.offsetHeight;
+    hero.style.height = `calc(100vh - ${headerHeight}px)`;
+}
+
+// Esegui al caricamento e al resize
+window.addEventListener('DOMContentLoaded', adjustHeroHeight);
+window.addEventListener('resize', adjustHeroHeight);
+        
     </script>
 </body>
 </html>
