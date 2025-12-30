@@ -188,36 +188,6 @@
             font-kerning: auto;
         }
 
-        /* Animazione split text per il titolo */
-        .hero h1 .word {
-            display: inline-block;
-            overflow: hidden;
-            vertical-align: bottom;
-        }
-
-        .hero h1 .char {
-            display: inline-block;
-            opacity: 0;
-            transform: translateY(100%);
-            animation: slideUpChar 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-
-        @keyframes slideUpChar {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Animazione per subtitle con effetto reveal */
-        .hero .subtitle {
-            font-size: 32px;
-            color: #0000ff;
-            margin-bottom: 50px;
-            position: relative;
-            overflow: hidden;
-        }
-
         .subtitle-wrapper {
             display: inline-block;
         }
