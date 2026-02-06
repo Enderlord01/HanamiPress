@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frame Studio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            transition: background-color 0.4s ease;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url('https://images.unsplash.com/photo-1604871000636-074fa5117945?w=400&q=80');
+            background-size: 400px 400px;
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 60px;
+            align-items: start;
+            position: relative;
+            z-index: 1;
+        }
+
+        .controls {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+            position: sticky;
+            top: 20px;
+        }
+
+        .controls h1 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+        }
+
+        .controls p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 32px;
+        }
+
+        .control-group {
+            margin-bottom: 32px;
+        }
+
+        .control-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .control-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 500;
+            color: #444;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .upload-area {
+            border: 2px dashed #ddd;
+            border-radius: 12px;
+            padding: 32px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: #fafafa;
+        }
+
+        .upload-area:hover {
+            border-color: #999;
+            background: #f5f5f5;
+        }
+
+        .upload-area.has-image {
+            border-style: solid;
+            border-color: #4CAF50;
+            background: #f0f9f0;
+        }
+
+        .upload-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+            opacity: 0.5;
+        }
+
+        .upload-text {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .upload-hint {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .toggle-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 48px;
+            height: 26px;
+            background: #ddd;
+            border-radius: 13px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .toggle-switch.active {
+            background: #4CAF50;
+        }
+
+        .toggle-switch::after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .toggle-switch.active::after {
+            transform: translateX(22px);
+        }
+
+        .toggle-label {
+            font-size: 14px;
+            color: #444;
+        }
+
+        .color-picker-row {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            margin-top: 12px;
+        }
+
+        .color-input-wrapper {
+            position: relative;
+            flex: 1;
+        }
+
+        .color-input {
+            width: 100%;
+            padding: 8px 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 13px;
+            font-family: 'Courier New', monospace;
+            transition: border-color 0.2s ease;
+        }
+
+        .color-input:focus {
+            outline: none;
+            border-color: #666;
+        }
+
+        .color-preview {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            border: 2px solid #e0e0e0;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .color-preview:hover {
+            transform: scale(1.05);
+        }
+
+        input[type="color"] {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .color-swatches {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .color-swatch {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 3px solid transparent;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .color-swatch:hover {
+            transform: scale(1.05);
+        }
+
+        .color-swatch.active {
+            border-color: #1a1a1a;
+            box-shadow: 0 0 0 1px white, 0 0 0 3px #1a1a1a;
+        }
+
+        .color-swatch::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .preview-area {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 600px;
+        }
+
+        .frame-container {
+            position: relative;
+            display: inline-block;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .frame-outer {
+            padding: 20px;
+            position: relative;
+            transition: background 0.3s ease;
+            background-image: url('https://images.unsplash.com/photo-1615971677499-5467cbab01c0?w=200&q=80');
+            background-size: 100px 100px;
+        }
+
+        .frame-outer::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(0,0,0,0.15) 100%);
+            pointer-events: none;
+            mix-blend-mode: overlay;
+        }
+
+        .frame-inner {
+            position: relative;
+            background: white;
+            padding: 0;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.15);
+            transition: padding 0.3s ease;
+        }
+
+        .frame-inner.with-passepartout {
+            padding: 30px;
+        }
+
+        .image-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+        }
+
+        .image-wrapper img {
+            display: block;
+            max-width: 600px;
+            max-height: 600px;
+            width: auto;
+            height: auto;
+        }
+
+        .placeholder {
+            width: 500px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f5f5f5;
+            color: #999;
+            font-size: 16px;
+        }
+
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .controls {
+                position: static;
+            }
+
+            .preview-area {
+                min-height: 400px;
+            }
+
+            .frame-outer {
+                padding: 15px;
+            }
+
+            .image-wrapper img {
+                max-width: 100%;
+                max-height: 400px;
+            }
+
+            .placeholder {
+                width: 100%;
+                max-width: 400px;
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 0;
+            }
+
+            .controls {
+                border-radius: 0;
+                padding: 24px;
+            }
+
+            .control-group {
+                margin-bottom: 24px;
+            }
+
+            .color-swatches {
+                gap: 8px;
+            }
+
+            .color-swatch {
+                width: 32px;
+                height: 32px;
+            }
+
+            .frame-outer {
+                padding: 12px;
+            }
+
+            .frame-inner.with-passepartout {
+                padding: 20px;
+            }
+
+            .image-wrapper img {
+                max-height: 300px;
+            }
+
+            .placeholder {
+                height: 250px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="controls">
+            <h1>Frame Studio</h1>
+            <p>Visualizza le tue immagini incorniciate</p>
+
+            <div class="control-group">
+                <label>Carica Immagine</label>
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon">🖼️</div>
+                    <div class="upload-text">Clicca per caricare</div>
+                    <div class="upload-hint">JPG, PNG o WEBP</div>
+                </div>
+                <input type="file" id="fileInput" accept="image/*">
+            </div>
+
+            <div class="control-group">
+                <label>Colore Cornice</label>
+                <div class="color-swatches" id="frameColors">
+                    <div class="color-swatch active" data-color="#8B4513" style="background: linear-gradient(135deg, #8B4513 0%, #6B3410 100%)" title="Quercia"></div>
+                    <div class="color-swatch" data-color="#DEB887" style="background: linear-gradient(135deg, #DEB887 0%, #D2A679 100%)" title="Acero"></div>
+                    <div class="color-swatch" data-color="#654321" style="background: linear-gradient(135deg, #654321 0%, #4E3218 100%)" title="Noce"></div>
+                    <div class="color-swatch" data-color="#3E2723" style="background: linear-gradient(135deg, #3E2723 0%, #2E1C19 100%)" title="Mogano"></div>
+                    <div class="color-swatch" data-color="#BC8F8F" style="background: linear-gradient(135deg, #BC8F8F 0%, #A67C7C 100%)" title="Ciliegio"></div>
+                    <div class="color-swatch" data-color="#D2691E" style="background: linear-gradient(135deg, #D2691E 0%, #B8591A 100%)" title="Teak"></div>
+                    <div class="color-swatch" data-color="#8B7355" style="background: linear-gradient(135deg, #8B7355 0%, #75614A 100%)" title="Frassino"></div>
+                    <div class="color-swatch" data-color="#4A3728" style="background: linear-gradient(135deg, #4A3728 0%, #3A2A1E 100%)" title="Wengè"></div>
+                    <div class="color-swatch" data-color="#F5DEB3" style="background: linear-gradient(135deg, #F5DEB3 0%, #E5CEA3 100%)" title="Pino"></div>
+                    <div class="color-swatch" data-color="#A0522D" style="background: linear-gradient(135deg, #A0522D 0%, #8B4726 100%)" title="Sequoia"></div>
+                </div>
+                <div class="color-picker-row">
+                    <div class="color-input-wrapper">
+                        <input type="text" class="color-input" id="frameColorInput" placeholder="#8B4513" maxlength="7">
+                    </div>
+                    <input type="color" id="frameColorPicker" value="#8B4513">
+                    <div class="color-preview" id="frameColorPreview" style="background: #8B4513"></div>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label>Passepartout</label>
+                <div class="toggle-container">
+                    <span class="toggle-label">Aggiungi bordo bianco</span>
+                    <div class="toggle-switch" id="passepartoutToggle"></div>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label>Colore Muro</label>
+                <div class="color-swatches" id="wallColors">
+                    <div class="color-swatch active" data-color="#F5F5F5" style="background: #F5F5F5" title="Bianco Ghiaccio"></div>
+                    <div class="color-swatch" data-color="#FAF0E6" style="background: #FAF0E6" title="Lino"></div>
+                    <div class="color-swatch" data-color="#E8E4D9" style="background: #E8E4D9" title="Sabbia"></div>
+                    <div class="color-swatch" data-color="#D3D3D3" style="background: #D3D3D3" title="Grigio Chiaro"></div>
+                    <div class="color-swatch" data-color="#A9A9A9" style="background: #A9A9A9" title="Grigio"></div>
+                    <div class="color-swatch" data-color="#708090" style="background: #708090" title="Ardesia"></div>
+                    <div class="color-swatch" data-color="#C4B5A0" style="background: #C4B5A0" title="Taupe"></div>
+                    <div class="color-swatch" data-color="#E6D5C3" style="background: #E6D5C3" title="Crema"></div>
+                    <div class="color-swatch" data-color="#4A5759" style="background: #4A5759" title="Grigio Scuro"></div>
+                    <div class="color-swatch" data-color="#2F4F4F" style="background: #2F4F4F" title="Antracite"></div>
+                </div>
+                <div class="color-picker-row">
+                    <div class="color-input-wrapper">
+                        <input type="text" class="color-input" id="wallColorInput" placeholder="#F5F5F5" maxlength="7">
+                    </div>
+                    <input type="color" id="wallColorPicker" value="#F5F5F5">
+                    <div class="color-preview" id="wallColorPreview" style="background: #F5F5F5"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="preview-area">
+            <div class="frame-container">
+                <div class="frame-outer" id="frameOuter">
+                    <div class="frame-inner">
+                        <div class="image-wrapper" id="imageWrapper">
+                            <div class="placeholder">Nessuna immagine caricata</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const imageWrapper = document.getElementById('imageWrapper');
+        const frameOuter = document.getElementById('frameOuter');
+        const frameInner = document.querySelector('.frame-inner');
+        const passepartoutToggle = document.getElementById('passepartoutToggle');
+        const body = document.body;
+
+        // Color picker elements
+        const frameColorInput = document.getElementById('frameColorInput');
+        const frameColorPicker = document.getElementById('frameColorPicker');
+        const frameColorPreview = document.getElementById('frameColorPreview');
+        const wallColorInput = document.getElementById('wallColorInput');
+        const wallColorPicker = document.getElementById('wallColorPicker');
+        const wallColorPreview = document.getElementById('wallColorPreview');
+
+        let currentImage = null;
+        let currentFrameColor = '#8B4513';
+        let currentWallColor = '#F5F5F5';
+
+        // Upload handlers
+        uploadArea.addEventListener('click', () => fileInput.click());
+
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.style.borderColor = '#999';
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.style.borderColor = '#ddd';
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.style.borderColor = '#ddd';
+            const file = e.dataTransfer.files[0];
+            if (file && file.type.startsWith('image/')) {
+                loadImage(file);
+            }
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                loadImage(file);
+            }
+        });
+
+        function loadImage(file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                if (currentImage) {
+                    currentImage.remove();
+                }
+                
+                const img = document.createElement('img');
+                img.src = e.target.result;
+                img.alt = 'Immagine caricata';
+                
+                const placeholder = imageWrapper.querySelector('.placeholder');
+                if (placeholder) {
+                    placeholder.remove();
+                }
+                
+                imageWrapper.appendChild(img);
+                currentImage = img;
+                uploadArea.classList.add('has-image');
+                
+                const uploadText = uploadArea.querySelector('.upload-text');
+                uploadText.textContent = 'Immagine caricata ✓';
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // Frame color selection
+        document.getElementById('frameColors').addEventListener('click', (e) => {
+            const swatch = e.target.closest('.color-swatch');
+            if (!swatch) return;
+
+            document.querySelectorAll('#frameColors .color-swatch').forEach(s => 
+                s.classList.remove('active')
+            );
+            swatch.classList.add('active');
+
+            const color = swatch.dataset.color;
+            currentFrameColor = color;
+            updateFrameColor(color);
+        });
+
+        // Frame color picker
+        frameColorPreview.addEventListener('click', () => {
+            frameColorPicker.click();
+        });
+
+        frameColorPicker.addEventListener('input', (e) => {
+            const color = e.target.value;
+            currentFrameColor = color;
+            updateFrameColor(color);
+            frameColorInput.value = color.toUpperCase();
+            document.querySelectorAll('#frameColors .color-swatch').forEach(s => 
+                s.classList.remove('active')
+            );
+        });
+
+        frameColorInput.addEventListener('input', (e) => {
+            let value = e.target.value.trim();
+            if (!value.startsWith('#')) {
+                value = '#' + value;
+            }
+            
+            if (/^#[0-9A-Fa-f]{6}$/.test(value)) {
+                currentFrameColor = value.toUpperCase();
+                updateFrameColor(value);
+                frameColorPicker.value = value;
+                document.querySelectorAll('#frameColors .color-swatch').forEach(s => 
+                    s.classList.remove('active')
+                );
+            }
+        });
+
+        function updateFrameColor(color) {
+            const darkerColor = adjustColor(color, -30);
+            frameOuter.style.backgroundColor = color;
+            frameColorPreview.style.background = color;
+            frameColorInput.value = color.toUpperCase();
+        }
+
+        // Wall color selection
+        document.getElementById('wallColors').addEventListener('click', (e) => {
+            const swatch = e.target.closest('.color-swatch');
+            if (!swatch) return;
+
+            document.querySelectorAll('#wallColors .color-swatch').forEach(s => 
+                s.classList.remove('active')
+            );
+            swatch.classList.add('active');
+
+            const color = swatch.dataset.color;
+            currentWallColor = color;
+            updateWallColor(color);
+        });
+
+        // Wall color picker
+        wallColorPreview.addEventListener('click', () => {
+            wallColorPicker.click();
+        });
+
+        wallColorPicker.addEventListener('input', (e) => {
+            const color = e.target.value;
+            currentWallColor = color;
+            updateWallColor(color);
+            wallColorInput.value = color.toUpperCase();
+            document.querySelectorAll('#wallColors .color-swatch').forEach(s => 
+                s.classList.remove('active')
+            );
+        });
+
+        wallColorInput.addEventListener('input', (e) => {
+            let value = e.target.value.trim();
+            if (!value.startsWith('#')) {
+                value = '#' + value;
+            }
+            
+            if (/^#[0-9A-Fa-f]{6}$/.test(value)) {
+                currentWallColor = value.toUpperCase();
+                updateWallColor(value);
+                wallColorPicker.value = value;
+                document.querySelectorAll('#wallColors .color-swatch').forEach(s => 
+                    s.classList.remove('active')
+                );
+            }
+        });
+
+        function updateWallColor(color) {
+            body.style.backgroundColor = color;
+            wallColorPreview.style.background = color;
+            wallColorInput.value = color.toUpperCase();
+        }
+
+        // Passepartout toggle
+        passepartoutToggle.addEventListener('click', () => {
+            passepartoutToggle.classList.toggle('active');
+            frameInner.classList.toggle('with-passepartout');
+        });
+
+        // Helper function to darken colors
+        function adjustColor(color, amount) {
+            const num = parseInt(color.replace('#', ''), 16);
+            const r = Math.max(0, Math.min(255, (num >> 16) + amount));
+            const g = Math.max(0, Math.min(255, ((num >> 8) & 0x00FF) + amount));
+            const b = Math.max(0, Math.min(255, (num & 0x0000FF) + amount));
+            return '#' + ((r << 16) | (g << 8) | b).toString(16).padStart(6, '0');
+        }
+
+        // Initialize default colors
+        updateFrameColor('#8B4513');
+        updateWallColor('#F5F5F5');
+    </script>
+</body>
+</html>
