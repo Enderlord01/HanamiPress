@@ -26,6 +26,7 @@
             content: '';
             position: fixed;
             inset: 0;
+            background-image: url('https://images.unsplash.com/photo-1533035353720-f1c6a75cd8ab?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
             background-size: 400px 400px;
             opacity: 0.15;
             pointer-events: none;
@@ -59,7 +60,7 @@
             position: relative;
             z-index: 1;
             flex: 1;
-            padding: 0 20px 20px;
+            padding: 0 20px 40px;
         }
 
         .preview-area {
@@ -310,11 +311,55 @@
         .footer {
             width: 100%;
             text-align: center;
-            padding: 20px;
-            font-size: 11px;
+            padding: 12px;
+            font-size: 10px;
             color: #999;
-            position: relative;
+            position: fixed;
+            bottom: 0;
+            left: 0;
             z-index: 1;
+            background: transparent;
+        }
+
+        .zoom-controls {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .zoom-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 2px solid #e0e0e0;
+            background: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 600;
+            color: #444;
+            transition: all 0.2s ease;
+            user-select: none;
+        }
+
+        .zoom-btn:hover {
+            border-color: #999;
+            background: #fafafa;
+        }
+
+        .zoom-btn:active {
+            transform: scale(0.95);
+        }
+
+        .zoom-level {
+            font-size: 13px;
+            color: #666;
+            min-width: 50px;
+            text-align: center;
+            font-weight: 500;
         }
 
         input[type="file"] {
@@ -360,12 +405,15 @@
             display: inline-block;
             box-shadow: 15px 15px 40px rgba(0, 0, 0, 0.25), 
                         8px 8px 20px rgba(0, 0, 0, 0.15);
+            transform-origin: center center;
+            transition: transform 0.3s ease;
         }
 
         .frame-outer {
             padding: 20px;
             position: relative;
             transition: background 0.3s ease;
+            background-image: url('https://plus.unsplash.com/premium_photo-1671612828903-dc019accc402?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
             background-size: 100px 100px;
         }
 
@@ -534,7 +582,7 @@
 
         <div class="controls" id="controlsPanel">
             <div class="controls-header" id="controlsToggle">
-                <h2>Opzioni</h2>
+                <h2>Impostazioni</h2>
                 <span class="collapse-icon">▼</span>
             </div>
             <div class="controls-body">
@@ -596,6 +644,20 @@
 
                 <div class="control-group">
                     <div class="control-group-header">
+                        <label>Zoom</label>
+                        <span class="control-group-icon">▼</span>
+                    </div>
+                    <div class="control-group-content">
+                        <div class="zoom-controls">
+                            <div class="zoom-btn" id="zoomOut">−</div>
+                            <div class="zoom-level" id="zoomLevel">100%</div>
+                            <div class="zoom-btn" id="zoomIn">+</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <div class="control-group-header">
                         <label>Colore Muro</label>
                         <span class="control-group-icon">▼</span>
                     </div>
@@ -635,8 +697,15 @@
         const imageWrapper = document.getElementById('imageWrapper');
         const frameOuter = document.getElementById('frameOuter');
         const frameInner = document.getElementById('frameInner');
+        const frameContainer = document.querySelector('.frame-container');
         const passepartoutToggle = document.getElementById('passepartoutToggle');
         const body = document.body;
+
+        // Zoom controls
+        const zoomIn = document.getElementById('zoomIn');
+        const zoomOut = document.getElementById('zoomOut');
+        const zoomLevel = document.getElementById('zoomLevel');
+        let currentZoom = 1;
 
         // Collapsible controls
         const controlsPanel = document.getElementById('controlsPanel');
@@ -653,6 +722,26 @@
         let currentImage = null;
         let currentFrameColor = '#8B4513';
         let currentWallColor = '#F5F5F5';
+
+        // Zoom functionality
+        zoomIn.addEventListener('click', () => {
+            if (currentZoom < 2) {
+                currentZoom += 0.1;
+                updateZoom();
+            }
+        });
+
+        zoomOut.addEventListener('click', () => {
+            if (currentZoom > 0.5) {
+                currentZoom -= 0.1;
+                updateZoom();
+            }
+        });
+
+        function updateZoom() {
+            frameContainer.style.transform = `scale(${currentZoom})`;
+            zoomLevel.textContent = `${Math.round(currentZoom * 100)}%`;
+        }
 
         // Toggle main controls panel
         controlsToggle.addEventListener('click', () => {
