@@ -80,7 +80,7 @@
     left: 20px;
     font-size: 16px;
     color: #ff00ff;
-    font-family: Helvetica Neue, sans-serif;
+    font-family: Dela Gothic One, sans-serif;
     z-index: 1;
 }
 
@@ -90,7 +90,7 @@
     left: 20px;
     font-size: 24px;
     color: #0000ff;
-    font-family: Helvetica Neue, sans-serif;
+    font-family: Dela Gothic One, sans-serif;
 }
 
 .product-authorname {
@@ -99,7 +99,7 @@
     left: 20px;
     font-size: 32px;
     color: #ffffff;
-    font-family: Helvetica Neue, sans-serif;
+    font-family: Dela Gothic One, sans-serif;
 }
 
 .product-author {
@@ -108,7 +108,7 @@
     left: 22px;
     font-size: 16px;
     color: #ff00ff;
-    font-family: Helvetica Neue, sans-serif;
+    font-family: Dela Gothic One, sans-serif;
 }
 
 .product-price {
@@ -117,7 +117,7 @@
     right: 20px;
     font-size: 32px;
     color: #ff00ff;
-    font-family: Helvetica Neue, sans-serif;
+    font-family: Dela Gothic One, sans-serif;
 }
 
 .product-tag {
@@ -129,7 +129,7 @@
     padding: 2px 16px;
     font-size: 16px;
     color: #ffffff;
-    font-family: Helvetica Neue, sans-serif;
+    font-family: Dela Gothic One, sans-serif;
 }
 
 /* Media query per tablet */
