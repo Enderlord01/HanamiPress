@@ -240,10 +240,9 @@ body {
 /* Media query per schermi piccoli (mobile) */
 @media (max-width: 600px) {
 .brand {
-    font-family: Dela Gothic, Helvetica;
-    font-size: 48px;
+    font-family: Dela Gothic One, Helvetica;
+    font-size: 32px;
     font-weight: normal;
-    text-align: center; /* Centra il testo */
 }
 .coming-soon {
     padding: 10px;
@@ -289,9 +288,7 @@ body {
 }
 
 .brand {
-  font-size: 12vw;
   display: block;
-  width: 100vw;
   text-align: center;
   margin: 0;
   padding: 2vh 2vw; /* spazio minimo dai bordi */
