@@ -18,8 +18,8 @@
 html, body {
     margin: 0;
     font-family: 'Dela Gothic One', sans-serif;
-    background-color: #0000ff;
-    color: white;
+    background-color: #ffffff;
+    color: #000000;
     font-size: 32px;
     overflow-x: hidden;
     cursor: auto;
@@ -35,8 +35,8 @@ html, body {
 
 /* Header */
 header {
-    background: #0000ff;
-    color: white;
+    background: #ffffff;
+    color: #ffffff;
     display: flex;
     flex-direction: column; /* Cambia il layout in colonna */
     align-items: center; /* Allinea gli elementi al centro */
@@ -49,6 +49,8 @@ header {
 .brand {
     font-family: Dela Gothic One;
     font-size: 48px;
+    color: #ffffff;
+    background-color: #000000;
     font-weight: normal;
     text-align: center; /* Centra il testo */
 }
@@ -71,7 +73,7 @@ header {
 
 /* Menu */
 nav {
-    background-image: linear-gradient(rgba(0,0,255,1), rgba(0,0,255,1) 55%, rgba(255,0,255,0));
+    background-image: linear-gradient(rgb(255 255 255), rgb(255 255 255) 55%, rgba(255,0,255,0));
     position: absolute;
     z-index: 1000000000000000; /* Valore alto per sovrapporsi ad altri elementi */
     left: 0;
@@ -92,7 +94,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white;
+    color: #0000ff;
     text-decoration: none;
     font-size: 16px;
 }
@@ -113,7 +115,7 @@ a {
 
 /* Sezione in costruzione */
 .construction-section {
-    background-color: #0000ff;
+    background-color: #ffffff;
     color: white;
     text-align: space-between;
     font-size: 32px;
@@ -130,7 +132,7 @@ footer {
     display: flex; /* Imposta il layout Flexbox */
     justify-content: space-between; /* Spaziatura tra gli elementi */
     align-items: center; /* Allinea verticalmente */
-    background-color: #ff00ff;
+    background-color: #0000ff;
     color: white; /* Colore del testo */
     padding: 10px 20px; /* Spazio interno */
     font-size: 16px; /* Dimensione del testo */
@@ -139,7 +141,6 @@ footer {
     bottom: 0; /* Ancorato in fondo */
     position: relative;
     z-index: 1000;
-    border-radius: 8px;
     border: 1px solid #0000ff;
 }
 
@@ -156,9 +157,9 @@ footer .instagram-icon:hover {
 
 /* Sezione "In arrivo" */
 .coming-soon {
-    background-image: linear-gradient(#0000ff, #ff00ff);
-    color: white; /* Colore del testo */
-    text-align: justify; /* Testo giustificato */
+    background-image: linear-gradient(#ffffff, #ffffff);
+    color: #0000ff; /* Colore del testo */
+    text-align: left; /* Testo giustificato */
     font-size: 32px; /* Dimensione del testo per default */
     width: 100%; /* Larghezza completa */
     height: 100%; /* Altezza fissa per ottenere un quadrato */
@@ -217,15 +218,6 @@ footer .instagram-icon:hover {
 
 #scrollToTop:hover {
     background-color: #0000ff;
-}
-
-.brand .letter {
-  display: inline-block;
-  will-change: transform;
-}
-
-.brand .space {
-  width: 0.4em; /* controlli quanto spazio vuoi */
 }
 
 /*Media Query
