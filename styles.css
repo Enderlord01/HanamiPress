@@ -50,7 +50,7 @@ header {
     font-family: Dela Gothic One;
     font-size: 48px;
     color: #ffffff;
-    background-color: #000000;
+    background-color: #ffffff;
     font-weight: normal;
     text-align: center; /* Centra il testo */
 }
@@ -178,6 +178,7 @@ footer .instagram-icon:hover {
 
 .brand .letter {
   display: inline-block; /* 🔑 Necessario per animare singole lettere */
+   color: #0000ff 
 }
 
 .info {
