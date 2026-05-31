@@ -12,7 +12,7 @@
 *,
 *::before,
 *::after {
-    box-sizing: border-box; /* Garantisce che padding e bordi non influenzino la larghezza totale */
+    box-sizing: border-box;
 }
 
 html, body {
@@ -38,10 +38,10 @@ header {
     background: #ffffff;
     color: #ffffff;
     display: flex;
-    flex-direction: column; /* Cambia il layout in colonna */
-    align-items: center; /* Allinea gli elementi al centro */
-    padding: 20px; /* Aggiunge spazio interno */
-    height: auto; /* Adatta l'altezza al contenuto */
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    height: auto;
     position: relative;
 }
 
@@ -52,7 +52,7 @@ header {
     color: #ffffff;
     background-color: #ffffff;
     font-weight: normal;
-    text-align: center; /* Centra il testo */
+    text-align: center;
 }
 
 /* Hamburger */
@@ -60,9 +60,9 @@ header {
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centra il tasto */
+    align-items: center;
     gap: 5px;
-    margin-top: 10px; /* Spazio sopra il tasto hamburger */
+    margin-top: 10px;
 }
 
 .hamburger div {
@@ -75,11 +75,11 @@ header {
 nav {
     background-image: linear-gradient(rgb(255 255 255), rgb(255 255 255) 55%, rgba(255,0,255,0));
     position: absolute;
-    z-index: 1000000000000000; /* Valore alto per sovrapporsi ad altri elementi */
+    z-index: 1000000000000000;
     left: 0;
     width: 100%;
     height: 520px;
-    display: none; /* Menu nascosto di default */
+    display: none;
 }
 
 nav ul {
@@ -101,16 +101,16 @@ nav ul li a {
 
 /* Menu visibile */
 nav.hidden {
-    display: none; /* Nasconde il menu */
+    display: none;
 }
 
 nav:not(.hidden) {
-    display: block; /* Mostra il menu */
+    display: block;
 }
 
 a {
-    color: #ff00ff; /* Cambia il colore del link */
-    text-decoration: none; /* Rimuove la sottolineatura */
+    color: #ff00ff;
+    text-decoration: none;
 }
 
 /* Sezione in costruzione */
@@ -129,56 +129,56 @@ a {
 
 /* Footer */
 footer {
-    display: flex; /* Imposta il layout Flexbox */
-    justify-content: space-between; /* Spaziatura tra gli elementi */
-    align-items: center; /* Allinea verticalmente */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: #0000ff;
-    color: white; /* Colore del testo */
-    padding: 10px 20px; /* Spazio interno */
-    font-size: 16px; /* Dimensione del testo */
-    height: 60px; /* Altezza fissa */
-    width: 100%; /* Occupa tutta la larghezza */
-    bottom: 0; /* Ancorato in fondo */
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    height: 60px;
+    width: 100%;
+    bottom: 0;
     position: relative;
     z-index: 1000;
     border: 1px solid #0000ff;
 }
 
 footer .instagram-icon {
-    font-size: 24px; /* Dimensione dell'icona */
-    color: white; /* Colore dell'icona */
-    text-decoration: none; /* Rimuove la sottolineatura */
-    transition: color 0.3s ease; /* Animazione su hover */
+    font-size: 24px;
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 footer .instagram-icon:hover {
-    color: #cd00cd; /* Cambia il colore dell'icona su hover */
+    color: #cd00cd;
 }
 
 /* Sezione "In arrivo" */
 .coming-soon {
     background-image: linear-gradient(#ffffff, #ffffff);
-    color: #0000ff; /* Colore del testo */
-    text-align: left; /* Testo giustificato */
-    font-size: 32px; /* Dimensione del testo per default */
-    width: 100%; /* Larghezza completa */
-    height: 100%; /* Altezza fissa per ottenere un quadrato */
-    display: flex; /* Abilita il Flexbox */
-    justify-content: space-between; /* Centra il contenuto orizzontalmente */
-    align-items: center; /* Centra il contenuto verticalmente */
-    margin: 0; /* Rimuove margini esterni */
-    padding: 20px; /* Padding interno */
+    color: #0000ff;
+    text-align: left;
+    font-size: 32px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
     border-radius: 8px;
 }
 
 .brand {
-    text-decoration: none; /* Rimuove la sottolineatura */
-    color: white; /* Cambia il colore del testo, se necessario */
+    text-decoration: none;
+    color: white;
 }
 
 .brand .letter {
-  display: inline-block; /* 🔑 Necessario per animare singole lettere */
-   color: #0000ff 
+    display: inline-block;
+    color: #0000ff;
 }
 
 .info {
@@ -196,8 +196,8 @@ footer .instagram-icon:hover {
     height: 100vh;
     top: 0;
     left: 0;
-    z-index: 100; /* Mette le particelle sopra gli altri elementi */
-    pointer-events: none; /* Evita interferenze con i clic */
+    z-index: 100;
+    pointer-events: none;
     background: transparent;
     opacity: 25%;
 }
@@ -214,85 +214,83 @@ footer .instagram-icon:hover {
     font-size: 16px;
     border-radius: 128px;
     cursor: pointer;
-    z-index: 10000000
+    z-index: 10000000;
 }
 
 #scrollToTop:hover {
     background-color: #0000ff;
 }
 
-/*Media Query
-/* Regole per schermi grandi (desktop) */
+/* Media Query */
 @media (min-width: 1024px) {
     .coming-soon {
-        font-size: 64px; /* Font più grande su desktop */
+        font-size: 64px;
     }
 }
 
 /* Nascondi la scrollbar per tutto il sito */
 body::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
 body {
-  -ms-overflow-style: none;  
-  scrollbar-width: none;  
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 /* Media query per schermi piccoli (mobile) */
 @media (max-width: 600px) {
-.brand {
-    font-family: Dela Gothic One, Helvetica;
-    font-size: 32px;
-    font-weight: normal;
-}
-.coming-soon {
-    padding: 10px;
-    font-size: 24px;
-}
-.footer {
-    padding: 10px 10px;
-}
+    .brand {
+        font-family: Dela Gothic One, Helvetica;
+        font-size: 32px;
+        font-weight: normal;
+    }
+    .coming-soon {
+        padding: 10px;
+        font-size: 24px;
+    }
+    .footer {
+        padding: 10px 10px;
+    }
 }
 
 
 .cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  background: white;
-  mix-blend-mode: difference;
-  z-index: 100000000000000;
-  transition: opacity 0.3s ease, width 0.2s ease, height 0.2s ease;
-  opacity: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    background: white;
+    mix-blend-mode: difference;
+    z-index: 100000000000000;
+    transition: opacity 0.3s ease, width 0.2s ease, height 0.2s ease;
+    opacity: 1;
 }
 
 .cursor.active {
-  width: 60px;
-  height: 60px;
-  opacity: 1;
+    width: 60px;
+    height: 60px;
+    opacity: 1;
 }
-</style>
 
-@media (max-width: 1024px) { /* puoi regolare la larghezza */
-  body {
-    cursor: auto; /* cursore standard */
-  }
-  .cursor {
-    display: none; /* nasconde il cursore personalizzato */
-    opacity: 0;
-  }
+@media (max-width: 1024px) {
+    body {
+        cursor: auto;
+    }
+    .cursor {
+        display: none;
+        opacity: 0;
+    }
 }
 
 .brand {
-  display: block;
-  text-align: center;
-  margin: 0;
-  padding: 2vh 2vw; /* spazio minimo dai bordi */
-  box-sizing: border-box;
+    display: block;
+    text-align: center;
+    margin: 0;
+    padding: 2vh 2vw;
+    box-sizing: border-box;
 }
