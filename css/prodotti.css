@@ -37,42 +37,158 @@
     background-color: white;
     z-index: 1000000;
     aspect-ratio: 1;
+    overflow: hidden;
 }
 
-.product-image {
+/* ── Slider immagini ── */
+
+.product-slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.product-slides {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.35s ease;
+}
+
+.product-slides img {
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
+
+/* ── Overlay pulsanti (visibile su hover desktop, sempre visibile su touch) ── */
+
+.product-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 3;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.product-box:hover .product-overlay {
+    opacity: 1;
+}
+
+/* Su dispositivi touch l'overlay è sempre visibile */
+@media (hover: none) {
+    .product-overlay {
+        opacity: 1;
+    }
+}
+
+/* ── Riga 1: carrello + pagina prodotto ── */
+
+.product-action-btns {
+    display: flex;
+    width: 100%;
+}
+
+.product-btn-cart,
+.product-btn-page {
+    flex: 1;
+    padding: 8px 0;
+    font-size: 12px;
+    font-family: 'Dela Gothic One', sans-serif;
+    cursor: pointer;
+    border: none;
+    color: #fff;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+}
+
+.product-btn-cart {
+    background: #0000ff;
+    border-top: 1px solid #0000ff;
+}
+
+.product-btn-cart:hover {
+    background: #0000cc;
+}
+
+.product-btn-page {
+    background: #ff00ff;
+    border-top: 1px solid #ff00ff;
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-btn-page:hover {
+    background: #cc00cc;
+    color: #fff;
+}
+
+/* ── Riga 2: frecce navigazione immagini ── */
+
+.product-nav-btns {
+    display: flex;
+    width: 100%;
+    border-top: 1px solid rgba(0, 0, 255, 0.2);
+}
+
+.product-nav-btn {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.92);
+    border: none;
+    border-top: none;
+    color: #0000ff;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 6px 0;
+    font-family: sans-serif;
+    line-height: 1;
+    transition: background 0.15s, color 0.15s;
+}
+
+.product-nav-btn:first-child {
+    border-right: 1px solid rgba(0, 0, 255, 0.15);
+}
+
+.product-nav-btn:hover {
+    background: #0000ff;
+    color: #fff;
+}
+
+/* Indicatore punti (opzionale, mostra quante immagini ci sono) */
+.product-dots {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
-    width: 100%;
-    position: relative;
+    gap: 5px;
+    padding: 4px 0;
+    background: rgba(255, 255, 255, 0.92);
 }
 
-.product-image img {
-    border-radius: 8px;
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
+.product-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #0000ff;
+    opacity: 0.25;
+    transition: opacity 0.2s;
 }
 
-.hover-img {
-    opacity: 0; /* L'immagine di hover è nascosta di default */
+.product-dot.active {
+    opacity: 1;
 }
 
-.product-box:hover .hover-img {
-    opacity: 1; /* Mostra l'immagine di hover */
-    z-index: 1;
-}
-
-.product-box:hover .default-img {
-    opacity: 0; /* Nasconde l'immagine di default */
-}
+/* ── Etichette testo ── */
 
 .product-number {
     position: absolute;
@@ -81,16 +197,18 @@
     font-size: 8px;
     color: #ff00ff;
     font-family: sans-serif, sans-serif;
-    z-index: 1;
+    z-index: 4;
 }
 
 .product-title {
     position: absolute;
-    bottom: 10px;
+    bottom: 88px; /* alzato per fare spazio all'overlay */
     left: 20px;
     font-size: 16px;
     color: #0000ff;
     font-family: Dela Gothic One, sans-serif;
+    z-index: 4;
+    pointer-events: none;
 }
 
 .product-authorname {
@@ -100,70 +218,72 @@
     font-size: 32px;
     color: #ffffff;
     font-family: Dela Gothic One, sans-serif;
+    z-index: 4;
 }
 
 .product-author {
     position: absolute;
-    bottom: 32px;
+    bottom: 110px;
     left: 20px;
     font-size: 8px;
     color: #ff00ff;
     font-family: Dela Gothic One, sans-serif;
+    z-index: 4;
+    pointer-events: none;
 }
 
 .product-price {
     position: absolute;
-    bottom: 8px;
+    bottom: 85px;
     right: 20px;
     font-size: 32px;
     color: #ff00ff;
     font-family: Dela Gothic One, sans-serif;
+    z-index: 4;
+    pointer-events: none;
 }
 
 .product-tag {
     position: absolute;
     top: 10px;
     right: 20px;
-    background-color: #ff00ff; /* Colore di sfondo del tag */
+    background-color: #ff00ff;
     border-radius: 32px;
     padding: 2px 16px;
     font-size: 16px;
     color: #ffffff;
     font-family: Dela Gothic One, sans-serif;
+    z-index: 4;
 }
 
-/* Media query per tablet */
+/* ── Media query tablet ── */
 @media (min-width: 601px) and (max-width: 900px) {
     .grid-container {
-        grid-template-columns: repeat(2, 1fr); /* 2 colonne per tablet */
+        grid-template-columns: repeat(2, 1fr);
         padding-right: 0px;
     }
 
-        .products-header {
+    .products-header {
         font-size: 24px;
     }
-    
+
     .product-title {
-        position: absolute;
-        bottom: 12px;
+        bottom: 88px;
         left: 10px;
         font-size: 24px;
-        color: #0000ff;
     }
 
     .product-author {
-        position: absolute;
-        bottom: 42px;
+        bottom: 110px;
         left: 12px;
         font-size: 16px;
-        color: #ff00ff;
     }
 }
 
-/* Media query per schermi piccoli (mobile) */
+/* ── Media query mobile ── */
 @media (max-width: 600px) {
     .grid-container {
-        grid-template-columns: 1fr; /* 1 colonna per mobile */
+        grid-template-columns: 1fr;
         padding-right: 0px;
     }
 
@@ -171,31 +291,27 @@
         font-size: 24px;
         padding: 10px 10px;
     }
-    
+
     .product-box {
         border-bottom: 1px solid #0000ff;
         border-right: 0px solid #ff00ff;
     }
-    
+
     .product-title {
-        position: absolute;
-        bottom: 10px;
+        bottom: 88px;
         left: 10px;
         font-size: 16px;
-        color: #0000ff;
     }
 
     .product-author {
-        position: absolute;
-        bottom: 40px;
+        bottom: 110px;
         left: 11px;
         font-size: 16px;
-        color: #ff00ff;
     }
 
     .product-price {
         right: 10px;
-    
+        bottom: 85px;
     }
 
     .product-number {
@@ -204,22 +320,22 @@
 
     .product-tag {
         right: 10px;
-    
     }
 
     .product-authorname {
         left: 10px;
         font-size: 24px;
     }
-}
 
-/* Effetto hover solo su desktop */
-@media (hover: hover) and (pointer: fine) {
-    .product-box:hover .hover-img {
-        opacity: 1; /* Mostra l'immagine di hover */
+    /* Su mobile i pulsanti nav sono leggermente più alti per il touch */
+    .product-nav-btn {
+        padding: 10px 0;
+        font-size: 22px;
     }
 
-    .product-box:hover .default-img {
-        opacity: 0; /* Nasconde l'immagine di default */
+    .product-btn-cart,
+    .product-btn-page {
+        padding: 10px 0;
+        font-size: 13px;
     }
 }
