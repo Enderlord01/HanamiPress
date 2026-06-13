@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hanami Press</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="mobile.css" />
 </head>
 <body>
 
@@ -19,7 +20,21 @@
       <a href="#">Autori</a>
       <a href="#">Contatti</a>
     </nav>
+    <button class="nav-hamburger" aria-label="Menu" onclick="this.classList.toggle('is-open'); document.getElementById('nav-mobile').classList.toggle('is-open')">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
   </header>
+
+  <nav id="nav-mobile" class="nav-mobile">
+  <a href="#">Catalogo</a>
+  <a href="#">Zine</a>
+  <a href="#">Stampe</a>
+  <a href="#">Eventi</a>
+  <a href="#">Autori</a>
+  <a href="#">Contatti</a>
+</nav>
 
   <!-- CAROUSEL -->
   <section class="carousel-section">
