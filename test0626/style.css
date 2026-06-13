@@ -405,3 +405,25 @@ img {
 .ticker-dot {
   opacity: 0.35;
 }
+
+
+
+/* ===========================
+   WORDMARK
+   =========================== */
+.wordmark-section {
+  padding: 2rem;
+  border-bottom: var(--border);
+  overflow: hidden;
+}
+
+.wordmark-text {
+  display: block;
+  font-size: clamp(3rem, 13.5vw, 13.5vw);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  line-height: 1;
+  color: var(--blue);
+  white-space: nowrap;
+}
