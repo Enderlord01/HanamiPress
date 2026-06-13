@@ -418,6 +418,7 @@ img {
 }
 
 .wordmark-text {
+  font-family: Dela Gothic One, Helvetica Neue, Helvetica, Arial, sans-serif; 
   display: block;
   font-size: clamp(3rem, 13.5vw, 13.5vw);
   font-weight: 700;
