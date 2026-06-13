@@ -60,7 +60,6 @@ img {
    font-size: 1rem;
    font-weight: 100;
    letter-spacing: 0.01em;
-   text-transform: uppercase;
    color: var(--blue);
 }
 
