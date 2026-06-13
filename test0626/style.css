@@ -58,7 +58,7 @@ img {
 .site-logo {
    font-family: Dela Gothic One, "Helvetica Neue", Helvetica, Arial, sans-serif;
    font-size: 1rem;
-   font-weight: 700;
+   font-weight: 100;
    letter-spacing: 0.01em;
    text-transform: uppercase;
    color: var(--blue);
