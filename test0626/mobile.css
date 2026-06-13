@@ -1,0 +1,149 @@
+/* ===========================
+   HANAMI PRESS — Mobile
+   Aggiungere in fondo a style.css
+   oppure linkare come foglio
+   separato con media="(max-width:768px)"
+   =========================== */
+
+@media (max-width: 768px) {
+
+  /* -------------------------
+     HEADER — hamburger
+     ------------------------- */
+
+  .site-header {
+    padding: 0 1.25rem;
+  }
+
+  /* Nasconde i link desktop */
+  .site-nav {
+    display: none;
+  }
+
+  /* Mostra il bottone hamburger */
+  .nav-hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    flex-shrink: 0;
+  }
+
+  .nav-hamburger span {
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: var(--blue);
+    transition: transform 0.2s, opacity 0.2s;
+  }
+
+  /* Stato aperto: trasforma in X */
+  .nav-hamburger.is-open span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+  .nav-hamburger.is-open span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-hamburger.is-open span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  /* Menu mobile a tendina */
+  .nav-mobile {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 56px;
+    left: 0;
+    right: 0;
+    background-color: var(--white);
+    border-bottom: var(--border);
+    z-index: 99;
+  }
+
+  .nav-mobile.is-open {
+    display: flex;
+  }
+
+  .nav-mobile a {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--blue);
+    padding: 1rem 1.25rem;
+    border-bottom: var(--border);
+  }
+
+  .nav-mobile a:last-child {
+    border-bottom: none;
+  }
+
+  /* -------------------------
+     CAROUSEL — più veloce
+     ------------------------- */
+
+  .carousel-track {
+    animation-duration: 14s;
+  }
+
+  .carousel-item {
+    width: 260px;
+    height: 180px;
+  }
+
+  /* -------------------------
+     PRODUCTS — 1 colonna
+     ------------------------- */
+
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Ripristina i bordi per colonna singola */
+  .product-card {
+    border-right: none;
+    border-bottom: var(--border);
+  }
+
+  /* Annulla le nth-child rule del desktop */
+  .product-card:nth-child(4n) {
+    border-right: none;
+  }
+
+  .product-card:nth-child(n+5) {
+    border-bottom: var(--border);
+  }
+
+  /* Ultima card: nessun bordo inferiore */
+  .product-card:last-child {
+    border-bottom: none;
+  }
+
+  /* -------------------------
+     ABOUT
+     ------------------------- */
+
+  .about-section {
+    padding: 3rem 1.25rem;
+  }
+
+  .about-text {
+    font-size: 1rem;
+  }
+
+  /* -------------------------
+     FOOTER
+     ------------------------- */
+
+  .site-footer {
+    padding: 0 1.25rem;
+  }
+
+}
