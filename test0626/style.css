@@ -286,7 +286,7 @@ img {
 
 .about-section {
   padding: 5rem 2rem;
-  border-bottom: var(--border);
+  border-bottom: none;
 }
 
 .about-inner {
