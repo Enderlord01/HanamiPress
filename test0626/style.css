@@ -56,11 +56,12 @@ img {
 }
 
 .site-logo {
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  text-transform: uppercase;
-  color: var(--blue);
+   font-family: Dela Gothic One, "Helvetica Neue", Helvetica, Arial, sans-serif;
+   font-size: 1rem;
+   font-weight: 700;
+   letter-spacing: 0.01em;
+   text-transform: uppercase;
+   color: var(--blue);
 }
 
 .site-nav {
