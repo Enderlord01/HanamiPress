@@ -343,6 +343,8 @@ img {
   letter-spacing: 0.01em;
 }
 
+
+
 /* ===========================
    FOOTER
    =========================== */
@@ -372,4 +374,34 @@ img {
 
 .footer-instagram:hover {
   opacity: 0.45;
+}
+
+/* ===========================
+   TICKER
+   =========================== */
+
+.ticker-section {
+  overflow: hidden;
+  border-bottom: var(--border);
+  border-top: var(--border);
+  padding: 1.25rem 0;
+  white-space: nowrap;
+}
+
+.ticker-track {
+  display: inline-flex;
+  gap: 2rem;
+  animation: scroll-left 18s linear infinite;
+}
+
+.ticker-track span {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
+.ticker-dot {
+  opacity: 0.35;
 }
