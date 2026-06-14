@@ -121,12 +121,15 @@ img {
    =========================== */
 
 .products-header {
-  padding: 1.25rem 1.25rem;
+  padding: 1rem 1.25rem;
   border-bottom: var(--border);
+  font-family: Dela Gothic One;
   font-size: 2rem;
-  font-weight: 400;
+  font-weight: 100;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  background-color: #eb5e55;
+  color: var(--white)
 }
 
 .products-section {
