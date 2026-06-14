@@ -126,7 +126,6 @@ img {
   font-family: Dela Gothic One;
   font-size: 2rem;
   font-weight: 100;
-  letter-spacing: 0.1em;
   text-transform: uppercase;
   background-color: #eb5e55;
   color: var(--white)
@@ -341,7 +340,6 @@ img {
   font-family: Dela Gothic One;
   font-size: 2rem;
   font-weight: 400;
-  letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--blue);
   margin-bottom: 1.5rem;
