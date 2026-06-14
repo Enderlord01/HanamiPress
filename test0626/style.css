@@ -298,8 +298,8 @@ img {
    =========================== */
 
 .about-section {
-  padding: 5rem 2rem;
-  border-bottom: none;
+  padding: rem 2rem;
+  border-bottom: 1px solid;
 }
 
 .about-inner {
@@ -310,11 +310,11 @@ img {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0;
-  border: var(--border);
+  border: none;
 }
 
 .about-text-col {
-  padding: 3rem;
+  padding: 1rem;
   border-right: var(--border);
 }
 
@@ -330,21 +330,23 @@ img {
 }
 
 .about-label {
-  font-size: 1rem;
-  font-weight: 700;
+  font-family: Dela Gothic One;
+  font-size: 2rem;
+  font-weight: 400;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--blue);
   margin-bottom: 1.5rem;
-  opacity: 0.5;
+  opacity: 1;
 }
 
 .about-text {
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 400;
   line-height: 1.65;
   color: var(--blue);
   letter-spacing: 0.01em;
+  text-align: justify;
 }
 
 
