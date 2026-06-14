@@ -356,7 +356,7 @@ img {
   justify-content: space-between;
   padding: 0 2rem;
   height: 56px;
-  border-top: var(--border);
+  border-top: none;
 }
 
 .footer-copy {
