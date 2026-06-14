@@ -392,21 +392,21 @@ img {
 .ticker-track {
   display: inline-flex;
   gap: 2rem;
-  animation: scroll-left 15s linear infinite;
+  animation: scroll-left 30s linear infinite;
 }
 
 .ticker-track span {
-  font-family: Instrument Serif, Helvetica Neue, Helvetica, arial, sans-serif;
+  font-family: Dela Gothic One, Helvetica Neue, Helvetica, arial, sans-serif;
   text-transform: uppercase;
    
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 100;
   letter-spacing: 0.1em;
   color: var(--blue);
 }
 
 .ticker-dot {
-  opacity: 0.35;
+  opacity: 1;
 }
 
 
