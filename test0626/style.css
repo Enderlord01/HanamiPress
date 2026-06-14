@@ -10,9 +10,9 @@
 }
 
 :root {
-  --blue: #0000ff;
-  --white: #ffffff;
-  --border: 1px solid #0000ff;
+  --blue: #ff00ff;
+  --white: #3b2f10;
+  --border: 1px solid #ff00ff;
 }
 
 html {
@@ -121,10 +121,10 @@ img {
    =========================== */
 
 .products-header {
-  padding: 1.25rem 2rem;
+  padding: 1.25rem 1.25rem;
   border-bottom: var(--border);
-  font-size: 0.75rem;
-  font-weight: 700;
+  font-size: 2rem;
+  font-weight: 400;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
@@ -205,7 +205,7 @@ img {
 }
 
 .product-name {
-  font-size: 0.85rem;
+  font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.01em;
   text-transform: uppercase;
@@ -214,7 +214,7 @@ img {
 }
 
 .product-tag {
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   font-weight: 400;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -226,8 +226,8 @@ img {
 }
 
 .product-author {
-  font-size: 0.75rem;
-  font-weight: 400;
+  font-size: 1rem;
+  font-weight: 800;
   color: var(--blue);
   opacity: 0.55;
   letter-spacing: 0.02em;
@@ -242,7 +242,7 @@ img {
 }
 
 .product-price {
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.02em;
   color: var(--blue);
@@ -250,7 +250,7 @@ img {
 
 .product-buy {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -276,7 +276,7 @@ img {
 }
 
 .view-all {
-  font-size: 0.75rem;
+  font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -327,7 +327,7 @@ img {
 }
 
 .about-label {
-  font-size: 0.65rem;
+  font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -337,7 +337,7 @@ img {
 }
 
 .about-text {
-  font-size: 1.15rem;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 1.65;
   color: var(--blue);
@@ -392,11 +392,11 @@ img {
 .ticker-track {
   display: inline-flex;
   gap: 2rem;
-  animation: scroll-left 18s linear infinite;
+  animation: scroll-left 5s linear infinite;
 }
 
 .ticker-track span {
-  font-size: 0.75rem;
+  font-size: 2rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
