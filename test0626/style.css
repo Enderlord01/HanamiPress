@@ -272,6 +272,7 @@ img {
 .products-footer {
   padding: 1.25rem 2rem;
   border-top: var(--border);
+  text-align: center;
 }
 
 .view-all {
