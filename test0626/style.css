@@ -121,7 +121,7 @@ img {
    =========================== */
 
 .products-header {
-  padding: 1rem 1.25rem;
+  padding: 1.25rem 1.25rem;
   border-bottom: var(--border);
   font-family: Dela Gothic One;
   font-size: 2rem;
@@ -455,16 +455,16 @@ img {
 }
 
 .newsletter-header {
-  padding: 1.25rem 2rem;
-  border-bottom: var(--border);
-  font-size: 0.75rem;
-  font-weight: 700;
+  padding: 1.25rem 1.25rem;
+  border-bottom: none;
+  font-size: 2rem;
+  font-family: Dela Gothic One;
+  font-weight: 100;
   letter-spacing: 0.1em;
-  text-transform: uppercase;
 }
 
 .newsletter-body {
-  padding: 3rem 2rem;
+  padding: 2rem 1.25rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -472,12 +472,29 @@ img {
 }
 
 .newsletter-text {
-  font-size: 0.75rem;
+  font-size: 1rem;
   font-weight: 400;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--blue);
   max-width: 400px;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 0;
+}
+
+.newsletter-input {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  color: var(--blue);
+  background: var(--white);
+  border: var(--border);
+  padding: 0.65rem 1rem;
+  width: 280px;
+  outline: none;
 }
 
 .newsletter-input::placeholder {
@@ -487,15 +504,16 @@ img {
 
 .newsletter-button {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--white);
   background-color: var(--blue);
   border: var(--border);
-  padding: 0.65rem 1.25rem;
+  padding: 0.45rem 0.85rem;
   cursor: pointer;
+  border-radius: 8px;
   transition: background-color 0.15s, color 0.15s;
 }
 
