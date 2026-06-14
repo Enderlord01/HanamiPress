@@ -480,23 +480,6 @@ img {
   max-width: 400px;
 }
 
-.newsletter-form {
-  display: flex;
-  gap: 0;
-}
-
-.newsletter-input {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  color: var(--blue);
-  background: var(--white);
-  border: var(--border);
-  padding: 0.65rem 1rem;
-  width: 280px;
-  outline: none;
-}
-
 .newsletter-input::placeholder {
   color: var(--blue);
   opacity: 0.4;
