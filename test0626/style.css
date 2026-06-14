@@ -329,6 +329,14 @@ img {
   display: block;
 }
 
+.about-section--reversed .about-content {
+  direction: rtl;
+}
+
+.about-section--reversed .about-text-col {
+  direction: ltr;
+}
+
 .about-label {
   font-family: Dela Gothic One;
   font-size: 2rem;
