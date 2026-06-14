@@ -431,6 +431,6 @@ img {
   letter-spacing: -0.02em;
   text-transform: uppercase;
   line-height: 1;
-  color: var(--blue);
+  color: #eb5e55;
   white-space: nowrap;
 }
