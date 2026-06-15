@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contatti — Hanami Press</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="mobile.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <a href="index.html" class="site-logo">Hanami Press</a>
+    <nav class="site-nav">
+      <a href="#">Catalogo</a>
+      <a href="#">Zine</a>
+      <a href="#">Stampe</a>
+      <a href="#">Eventi</a>
+      <a href="#">Autori</a>
+      <a href="contatti.html">Contatti</a>
+    </nav>
+    <button class="nav-hamburger" aria-label="Menu" onclick="this.classList.toggle('is-open'); document.getElementById('nav-mobile').classList.toggle('is-open')">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <nav id="nav-mobile" class="nav-mobile">
+    <a href="#">Catalogo</a>
+    <a href="#">Zine</a>
+    <a href="#">Stampe</a>
+    <a href="#">Eventi</a>
+    <a href="#">Autori</a>
+    <a href="contatti.html">Contatti</a>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="products-header">
+    <span>Contatti</span>
+  </div>
+
+  <!-- CONTACT GRID -->
+  <section class="contact-section">
+    <div class="contact-grid">
+
+      <!-- Colonna sinistra: info -->
+      <div class="contact-info">
+
+        <div class="contact-block">
+          <p class="contact-label">Email</p>
+          <a href="mailto:hanamipress@gmail.com" class="contact-value">hanamipress@gmail.com</a>
+        </div>
+
+        <div class="contact-block">
+          <p class="contact-label">Instagram</p>
+          <a href="https://www.instagram.com/hanamipress" target="_blank" class="contact-value">@hanamipress 🡥</a>
+        </div>
+
+        <div class="contact-block">
+          <p class="contact-label">Substack</p>
+          <a href="https://hanamipress.substack.com" target="_blank" class="contact-value">hanamipress.substack.com 🡥</a>
+        </div>
+
+        <div class="contact-block">
+          <p class="contact-label">Ordini e spedizioni</p>
+          <p class="contact-value contact-value--muted">Spediamo in tutta Europa. Per ordini multipli o spedizioni fuori Europa scrivici via email.</p>
+        </div>
+
+      </div>
+
+      <!-- Colonna destra: form -->
+      <div class="contact-form-col">
+        <p class="contact-label">Scrivici</p>
+
+        <div class="contact-form">
+
+          <div class="form-row">
+            <div class="form-field">
+              <label class="form-label" for="nome">Nome</label>
+              <input class="form-input" type="text" id="nome" name="nome" placeholder="Il tuo nome" />
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="email">Email</label>
+              <input class="form-input" type="email" id="email" name="email" placeholder="La tua email" />
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="oggetto">Oggetto</label>
+            <input class="form-input" type="text" id="oggetto" name="oggetto" placeholder="Di cosa si tratta?" />
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="messaggio">Messaggio</label>
+            <textarea class="form-input form-textarea" id="messaggio" name="messaggio" placeholder="Scrivi qui il tuo messaggio..."></textarea>
+          </div>
+
+          <div class="form-bottom">
+            <button class="form-submit">Invia</button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WORDMARK -->
+  <section class="wordmark-section">
+    <span class="wordmark-text">Hanami Press</span>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <span class="footer-copy">Hanami Press, 2026</span>
+    <a href="https://www.instagram.com/hanamipress" target="_blank" rel="noopener" class="footer-instagram" aria-label="Instagram">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+        <circle cx="12" cy="12" r="4"/>
+        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+      </svg>
+    </a>
+  </footer>
+
+</body>
+</html>
