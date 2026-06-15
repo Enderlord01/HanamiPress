@@ -404,7 +404,7 @@ img {
 .ticker-section {
   overflow: hidden;
   border-bottom: var(--border);
-  border-top: var(--border);
+  border-top: none;
   padding: 1.25rem 0;
   white-space: nowrap;
 }
