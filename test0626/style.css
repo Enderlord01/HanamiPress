@@ -46,21 +46,22 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 2rem;
-  height: 56px;
+  padding: 0 1.25rem;
+  height: auto;
+  min-height: 56px;
   border-bottom: var(--border);
   position: sticky;
   top: 0;
-  background-color: var(--white);
+  background-color: #eb5e55;
   z-index: 100;
 }
 
 .site-logo {
-   font-family: Dela Gothic One, "Helvetica Neue", Helvetica, Arial, sans-serif;
-   font-size: 1rem;
-   font-weight: 100;
-   letter-spacing: 0.01em;
-   color: var(--blue);
+  font-family: Dela Gothic One, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 2rem;
+  font-weight: 100;
+  letter-spacing: 0.01em;
+  color: var(--white);
 }
 
 .site-nav {
@@ -73,7 +74,7 @@ img {
   font-weight: 400;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--blue);
+  color: var(--white);
   transition: opacity 0.15s;
 }
 
