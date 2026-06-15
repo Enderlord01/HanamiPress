@@ -1,8 +1,5 @@
 /* ===========================
    HANAMI PRESS — Mobile
-   Aggiungere in fondo a style.css
-   oppure linkare come foglio
-   separato con media="(max-width:768px)"
    =========================== */
 
 @media (max-width: 768px) {
@@ -15,12 +12,10 @@
     padding: 0 1.25rem;
   }
 
-  /* Nasconde i link desktop */
   .site-nav {
     display: none;
   }
 
-  /* Mostra il bottone hamburger */
   .nav-hamburger {
     display: flex;
     flex-direction: column;
@@ -43,18 +38,18 @@
     transition: transform 0.2s, opacity 0.2s;
   }
 
-  /* Stato aperto: trasforma in X */
   .nav-hamburger.is-open span:nth-child(1) {
     transform: translateY(6px) rotate(45deg);
   }
+
   .nav-hamburger.is-open span:nth-child(2) {
     opacity: 0;
   }
+
   .nav-hamburger.is-open span:nth-child(3) {
     transform: translateY(-6px) rotate(-45deg);
   }
 
-  /* Menu mobile a tendina */
   .nav-mobile {
     display: none;
     flex-direction: column;
@@ -72,9 +67,10 @@
   }
 
   .nav-mobile a {
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
+    font-family: Dela Gothic One, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 100;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
     color: var(--blue);
     padding: 1rem 1.25rem;
@@ -86,7 +82,19 @@
   }
 
   /* -------------------------
-     CAROUSEL — più veloce
+     TICKER
+     ------------------------- */
+
+  .ticker-track {
+    animation-duration: 15s;
+  }
+
+  .ticker-track span {
+    font-size: 1.25rem;
+  }
+
+  /* -------------------------
+     CAROUSEL
      ------------------------- */
 
   .carousel-track {
@@ -99,6 +107,15 @@
   }
 
   /* -------------------------
+     PRODUCTS HEADER
+     ------------------------- */
+
+  .products-header {
+    font-size: 1.25rem;
+    padding: 1rem 1.25rem;
+  }
+
+  /* -------------------------
      PRODUCTS — 1 colonna
      ------------------------- */
 
@@ -106,13 +123,11 @@
     grid-template-columns: 1fr;
   }
 
-  /* Ripristina i bordi per colonna singola */
   .product-card {
     border-right: none;
     border-bottom: var(--border);
   }
 
-  /* Annulla le nth-child rule del desktop */
   .product-card:nth-child(4n) {
     border-right: none;
   }
@@ -121,7 +136,6 @@
     border-bottom: var(--border);
   }
 
-  /* Ultima card: nessun bordo inferiore */
   .product-card:last-child {
     border-bottom: none;
   }
@@ -131,26 +145,92 @@
      ------------------------- */
 
   .about-section {
-    padding: 3rem 1.25rem;
+    padding: 0;
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+    min-height: unset;
+  }
+
+  .about-text-col {
+    padding: 1.5rem 1.25rem;
+    border-right: none;
+    border-bottom: var(--border);
+  }
+
+  .about-label {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
   }
 
   .about-text {
     font-size: 1rem;
   }
 
-.about-content {
-  grid-template-columns: 1fr;
-}
+  .about-image-col {
+    height: 260px;
+  }
 
-.about-text-col {
-  padding: 2rem 0;
-  border-right: none;
-  border-bottom: var(--border);
-}
+  /* Annulla direction: rtl su mobile */
+  .about-section--reversed .about-content {
+    direction: ltr;
+  }
 
-.about-image-col {
-  height: 260px;
-}
+  /* -------------------------
+     NEWSLETTER
+     ------------------------- */
+
+  .newsletter-header {
+    font-size: 1.25rem;
+    padding: 1rem 1.25rem;
+  }
+
+  .newsletter-body {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem 1.25rem;
+    gap: 1.25rem;
+  }
+
+  .newsletter-text {
+    font-size: 0.9rem;
+  }
+
+  /* -------------------------
+     CONTATTI
+     ------------------------- */
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-info {
+    border-right: none;
+    border-bottom: var(--border);
+    padding: 1.5rem 1.25rem;
+    gap: 2rem;
+  }
+
+  .contact-form-col {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  /* -------------------------
+     WORDMARK
+     ------------------------- */
+
+  .wordmark-section {
+    padding: 1.25rem;
+  }
+
+  .wordmark-text {
+    font-size: calc((100vw - 2.5rem) / 10);
+  }
 
   /* -------------------------
      FOOTER
