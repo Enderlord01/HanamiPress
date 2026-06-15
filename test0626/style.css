@@ -81,6 +81,14 @@ img {
   opacity: 0.45;
 }
 
+.nav-hamburger {
+  display: none;
+}
+
+.nav-mobile {
+  display: none;
+}
+
 /* ===========================
    CAROUSEL
    =========================== */
