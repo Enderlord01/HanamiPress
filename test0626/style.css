@@ -282,7 +282,7 @@ img {
 .product-buy:hover {
   background-color: var(--white);
   color: var(--blue);
-  outline: var(--border);
+  outline: 2px solid #ff00ff;
 }
 
 /* View All Link */
