@@ -46,13 +46,11 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 1.25rem;
-  height: auto;
-  min-height: 56px;
+  padding: 1.25rem 1.25rem;
   border-bottom: var(--border);
   position: sticky;
   top: 0;
-  background-color: #eb5e55;
+  background-color: var(--blue);
   z-index: 100;
 }
 
@@ -70,9 +68,9 @@ img {
 }
 
 .site-nav a {
-  font-size: 0.75rem;
-  font-weight: 400;
-  letter-spacing: 0.08em;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
   text-transform: uppercase;
   color: var(--white);
   transition: opacity 0.15s;
