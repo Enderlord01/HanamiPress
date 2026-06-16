@@ -68,6 +68,10 @@ img {
   color: var(--white);
 }
 
+.site-logo:hover {
+  transform: rotate(-5deg);
+}
+
 .site-nav {
   display: flex;
   gap: 2rem;
@@ -85,6 +89,7 @@ img {
 
 .site-nav a:hover {
   opacity: 0.45;
+  transform: rotate(-5deg);
 }
 
 .nav-hamburger {
