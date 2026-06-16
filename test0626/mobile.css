@@ -56,12 +56,12 @@
     display: none;
     flex-direction: column;
     position: fixed;
-    top: 56px;
+    top: 128px;
     left: 0;
     right: 0;
     background-color: var(--white);
     border-bottom: var(--border);
-    z-index: 99;
+    z-index: 10000;
   }
 
   .nav-mobile.is-open {
