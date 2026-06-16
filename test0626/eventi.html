@@ -130,13 +130,13 @@
     }).addTo(map);
 
     const markers = L.markerClusterGroup({
+                disableClusteringAtZoom: 6,
       iconCreateFunction: function(cluster) {
         return L.divIcon({
           className: '',
           html: `<div class="map-marker">${cluster.getChildCount()}</div>`,
           iconSize: [28, 28],
           iconAnchor: [14, 14]
-          disableClusteringAtZoom: 6,
         });
       }
     });
