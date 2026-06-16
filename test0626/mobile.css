@@ -172,7 +172,6 @@
     height: 260px;
   }
 
-  /* Annulla direction: rtl su mobile */
   .about-section--reversed .about-content {
     direction: ltr;
   }
@@ -201,23 +200,9 @@
      CONTATTI
      ------------------------- */
 
-  .contact-grid {
-    grid-template-columns: 1fr;
-  }
-
   .contact-info {
-    border-right: none;
-    border-bottom: var(--border);
     padding: 1.5rem 1.25rem;
     gap: 2rem;
-  }
-
-  .contact-form-col {
-    padding: 1.5rem 1.25rem;
-  }
-
-  .form-row {
-    grid-template-columns: 1fr;
   }
 
   /* -------------------------
