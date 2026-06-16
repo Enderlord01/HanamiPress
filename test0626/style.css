@@ -361,9 +361,9 @@ img {
 }
 
 .about-text {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 400;
-  line-height: 1.65;
+  line-height: 1.2;
   color: var(--blue);
   letter-spacing: 0.01em;
   text-align: justify;
@@ -379,7 +379,7 @@ img {
   justify-content: space-between;
   padding: 0 1.25rem;
   height: 56px;
-  border-top: var(--border);
+  border-top: none;
 }
 
 .footer-copy {
@@ -480,8 +480,9 @@ img {
 
 .newsletter-text {
   font-size: 1rem;
+  line-height: 1.2;
   font-weight: 400;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.01em;
   text-transform: uppercase;
   color: var(--blue);
   max-width: 400px;
