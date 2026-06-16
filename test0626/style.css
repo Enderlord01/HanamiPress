@@ -24,6 +24,12 @@ body {
   background-color: var(--white);
   color: var(--blue);
   -webkit-font-smoothing: antialiased;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 a {
@@ -44,7 +50,7 @@ img {
 
 .site-header {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: space-between;
   padding: 1.25rem 1.25rem;
   border-bottom: var(--border);
@@ -135,7 +141,7 @@ img {
   font-weight: 100;
   text-transform: uppercase;
   background-color: #eb5e55;
-  color: var(--white)
+  color: var(--white);
 }
 
 .products-section {
@@ -160,7 +166,6 @@ img {
   border-right: none;
 }
 
-/* Remove bottom border from last row */
 .product-card:nth-child(n+5) {
   border-bottom: none;
 }
@@ -270,7 +275,7 @@ img {
   padding: 0.45rem 0.85rem;
   cursor: pointer;
   transition: background-color 0.15s, color 0.15s;
-  border-radius: 8px; 
+  border-radius: 8px;
 }
 
 .product-buy:hover {
@@ -306,8 +311,7 @@ img {
    =========================== */
 
 .about-section {
-  padding: rem 2rem;
-  border-bottom: 1px solid;
+  border-bottom: var(--border);
 }
 
 .about-inner {
@@ -319,6 +323,7 @@ img {
   grid-template-columns: 1fr 1fr;
   gap: 0;
   border: none;
+  min-height: 400px;
 }
 
 .about-text-col {
@@ -363,8 +368,6 @@ img {
   text-align: justify;
 }
 
-
-
 /* ===========================
    FOOTER
    =========================== */
@@ -373,9 +376,9 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 2rem;
+  padding: 0 1.25rem;
   height: 56px;
-  border-top: none;
+  border-top: var(--border);
 }
 
 .footer-copy {
@@ -417,7 +420,6 @@ img {
 .ticker-track span {
   font-family: Dela Gothic One, Helvetica Neue, Helvetica, arial, sans-serif;
   text-transform: uppercase;
-   
   font-size: 2rem;
   font-weight: 100;
   letter-spacing: 0.1em;
@@ -428,11 +430,10 @@ img {
   opacity: 1;
 }
 
-
-
 /* ===========================
    WORDMARK
    =========================== */
+
 .wordmark-section {
   padding: 2rem;
   border-bottom: var(--border);
@@ -440,7 +441,7 @@ img {
 }
 
 .wordmark-text {
-  font-family: Dela Gothic One, Helvetica Neue, Helvetica, Arial, sans-serif; 
+  font-family: Dela Gothic One, Helvetica Neue, Helvetica, Arial, sans-serif;
   display: block;
   font-size: calc((100vw - 4rem) / 10);
   font-weight: 700;
@@ -451,13 +452,11 @@ img {
   white-space: nowrap;
 }
 
-
-
 /* ===========================
    NEWSLETTER
    =========================== */
+
 .newsletter-section {
-   
   border-bottom: var(--border);
 }
 
@@ -487,28 +486,6 @@ img {
   max-width: 400px;
 }
 
-.newsletter-form {
-  display: flex;
-  gap: 0;
-}
-
-.newsletter-input {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 1rem;
-  letter-spacing: 0.08em;
-  color: var(--blue);
-  background: var(--white);
-  border: var(--border);
-  padding: 0.65rem 1rem;
-  width: 280px;
-  outline: none;
-}
-
-.newsletter-input::placeholder {
-  color: var(--blue);
-  opacity: 0.4;
-}
-
 .newsletter-button {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 0.75rem;
@@ -522,6 +499,8 @@ img {
   cursor: pointer;
   border-radius: 8px;
   transition: background-color 0.15s, color 0.15s;
+  text-decoration: none;
+  white-space: nowrap;
 }
 
 .newsletter-button:hover {
@@ -537,17 +516,12 @@ img {
   border-bottom: var(--border);
 }
 
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
 .contact-info {
   padding: 2.5rem 1.25rem;
-  border-right: var(--border);
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
+  max-width: 600px;
 }
 
 .contact-block {
@@ -577,85 +551,4 @@ img {
   font-size: 0.85rem;
   line-height: 1.6;
   opacity: 0.7;
-}
-
-.contact-form-col {
-  padding: 2.5rem 1.25rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.25rem;
-}
-
-.form-field {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
-.form-label {
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  opacity: 0.5;
-}
-
-.form-input {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 0.9rem;
-  color: var(--blue);
-  background: transparent;
-  border: none;
-  border-bottom: var(--border);
-  padding: 0.5rem 0;
-  outline: none;
-  width: 100%;
-  letter-spacing: 0.02em;
-}
-
-.form-input::placeholder {
-  color: var(--blue);
-  opacity: 0.35;
-}
-
-.form-textarea {
-  resize: none;
-  height: 140px;
-}
-
-.form-bottom {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.form-submit {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--white);
-  background-color: var(--blue);
-  border: var(--border);
-  padding: 0.65rem 1.5rem;
-  cursor: pointer;
-  border-radius: 8px;
-  transition: background-color 0.15s, color 0.15s;
-}
-
-.form-submit:hover {
-  background-color: var(--white);
-  color: var(--blue);
 }
