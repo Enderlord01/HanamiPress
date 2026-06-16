@@ -252,8 +252,8 @@ img {
 }
 
 .product-price {
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 2rem;
+  font-weight: 300;
   letter-spacing: 0.02em;
   color: var(--blue);
 }
@@ -265,7 +265,7 @@ img {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--white);
-  background-color: var(--blue);
+  background-color: #eb5e55;
   border: none;
   padding: 0.45rem 0.85rem;
   cursor: pointer;
@@ -281,8 +281,8 @@ img {
 
 /* View All Link */
 .products-footer {
-  padding: 1.25rem 2rem;
-  border-top: var(--border);
+  padding: 1rem 1rem;
+  border-top: none;
   text-align: center;
 }
 
@@ -323,7 +323,7 @@ img {
 
 .about-text-col {
   padding: 1rem;
-  border-right: var(--border);
+  border-right: none;
 }
 
 .about-image-col {
