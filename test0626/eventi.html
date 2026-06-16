@@ -61,12 +61,12 @@
     center: [42.5, 12.5],
     zoom: 6,
     zoomControl: true,
-    scrollWheelZoom: false
+    scrollWheelZoom: true
   });
 
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap'
-  }).addTo(map);
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+  attribution: '© CartoDB'
+}).addTo(map);
 
   const markerStyle = {
     radius: 8,
