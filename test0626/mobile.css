@@ -28,6 +28,8 @@
     cursor: pointer;
     padding: 0;
     flex-shrink: 0;
+    position: relative;
+    top: -14px; 
   }
 
   .nav-hamburger span {
