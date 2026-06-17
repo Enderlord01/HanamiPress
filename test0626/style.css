@@ -141,7 +141,7 @@ img {
 
 .products-header {
   padding: 1.25rem 1.25rem;
-  border-bottom: var(--border);
+  border-bottom: none;
   font-family: Dela Gothic One;
   font-size: 2rem;
   font-weight: 100;
@@ -152,7 +152,7 @@ img {
 
 .products-section {
   padding: 0;
-  border-bottom: var(--border);
+  border-bottom: none;
 }
 
 .products-grid {
@@ -317,7 +317,7 @@ img {
    =========================== */
 
 .about-section {
-  border-bottom: var(--border);
+  border-bottom: none;
 }
 
 .about-inner {
@@ -346,6 +346,8 @@ img {
   height: 100%;
   object-fit: cover;
   display: block;
+  border-radius: 32px;
+  border: 1rem solid var(--white)
 }
 
 .about-section--reversed .about-content {
@@ -411,7 +413,7 @@ img {
 
 .ticker-section {
   overflow: hidden;
-  border-bottom: var(--border);
+  border-bottom: none;
   border-top: none;
   padding: 1.25rem 0;
   white-space: nowrap;
