@@ -88,7 +88,6 @@ img {
 }
 
 .site-nav a:hover {
-  opacity: 0.45;
   transform: rotate(-5deg);
 }
 
