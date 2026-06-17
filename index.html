@@ -1,691 +1,345 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="Hanami Press" />
-    <meta property="og:description" content="Autoproduzioni." />
-    <meta name="description" content="Hanami Press - Autoproduzioni effimere">
-    <meta property="og:image" content="logo-hanami.png" />
-    <meta property="og:url" content="https://hanamipress.xyz" />
-    <meta property="og:type" content="website" />
-    
-    <title>Hanami Press</title>
-    
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="stylesheet" href="/styles.css">
-    <link rel="stylesheet" href="/css/prodotti.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Modak&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.cdnfonts.com/css/helvetica-neue-55" rel="stylesheet">
-    
-    <script
-        src="https://www.paypal.com/sdk/js?client-id=BAA6UnH8ywFELX1Ks7UcBnuvLhh7DVC3iO47zXxwJIOZNlSzpipIDd_dyJveCe-25SzPxhPkGEG-duwRrY&components=hosted-buttons&disable-funding=venmo&currency=EUR">
-    </script>
-    
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hanami Press</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="mobile.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
 </head>
-    
 <body>
-    <header>
-        <a href="https://hanamipress.xyz" class="brand">Hanami   Press</a>
-        <div class="hamburger" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </header>
 
-    <button id="scrollToTop">↑</button>
-    
-    <nav id="dropdown-menu" class="hidden">
-        <ul>
-            <li><a href="coming.html">Zine</a></li>
-            <li><a href="coming.html">Stampe</a></li>
-            <li><a href="autori.html">Autori</a></li>
-            <li><a href="eventi.html">Eventi</a></li>
-            <li><a href="contatti.html">Contatti</a></li>
-        </ul>
+  <!-- HEADER -->
+  <header class="site-header">
+    <a href="#" class="site-logo">Hanami Press</a>
+    <nav class="site-nav">
+      <a href="#">Catalogo</a>
+      <a href="#">Zine</a>
+      <a href="#">Stampe</a>
+      <a href="/eventi.html">Eventi</a>
+      <a href="#">Autori</a>
+      <a href="/contatti.html">Contatti</a>
     </nav>
+    <button class="nav-hamburger" aria-label="Menu" onclick="this.classList.toggle('is-open'); document.getElementById('nav-mobile').classList.toggle('is-open')">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+  </header>
+
+  <nav id="nav-mobile" class="nav-mobile">
+  <a href="#">Catalogo</a>
+  <a href="#">Zine</a>
+  <a href="#">Stampe</a>
+  <a href="/eventi.html">Eventi</a>
+  <a href="#">Autori</a>
+  <a href="/contatti.html">Contatti</a>
+</nav>
+
+    <!-- TICKER -->
+<div class="ticker-section">
+  <div class="ticker-track">
+    <span>Zine</span>
+    <span class="ticker-dot">·</span>
+    <span>Stampe</span>
+    <span class="ticker-dot">·</span>
+    <span>Uncinetto</span>
+    <span class="ticker-dot">·</span>
+    <span>Spillette</span>
+    <span class="ticker-dot">·</span>
+    <span>Zine</span>
+    <span class="ticker-dot">·</span>
+    <span>Stampe</span>
+    <span class="ticker-dot">·</span>
+    <span>Uncinetto</span>
+    <span class="ticker-dot">·</span>
+    <span>Spillette</span>
+    <span class="ticker-dot">·</span>
+    <span>Zine</span>
+    <span class="ticker-dot">·</span>
+    <span>Stampe</span>
+    <span class="ticker-dot">·</span>
+    <span>Uncinetto</span>
+    <span class="ticker-dot">·</span>
+    <span>Spillette</span>
+    <span class="ticker-dot">·</span>
+    <span>Zine</span>
+    <span class="ticker-dot">·</span>
+    <span>Stampe</span>
+    <span class="ticker-dot">·</span>
+    <span>Uncinetto</span>
+    <span class="ticker-dot">·</span>
+    <span>Spillette</span>
+    <span class="ticker-dot">·</span>
+    <span>Zine</span>
+    <span class="ticker-dot">·</span>
+    <span>Stampe</span>
+    <span class="ticker-dot">·</span>
+    <span>Uncinetto</span>
+    <span class="ticker-dot">·</span>
+    <span>Spillette</span>
+    <span class="ticker-dot">·</span>
+  </div>
+</div>
+  
+  <!-- PRODUCTS GRID -->
+  <section class="products-section">
+
+<div class="products-header">
+  <span>Le nostre autoproduzioni</span>
+</div>
     
-    <div class="products-header">Catalogo</div>
-    <div class="grid-container">
+    <div class="products-grid">
 
-        <!-- #020 -->
-        <div class="product-box">
-            <div class="product-number">#020</div>
-            <div class="product-slider" data-index="0">
-                <div class="product-slides">
-                    <img src="/img/zine/tagliatofuori/tagliatofuori_01.jpg" alt="Tagliato Fuori">
-                    <!-- Aggiungi altre img qui per lo slider -->
-                </div>
-                <div class="product-dots"><div class="product-dot active"></div></div>
-            </div>
-            <div class="product-title">Tagliato Fuori - Vol.1</div>
-            <div class="product-author">Irene Bella</div>
-            <div class="product-price">€5</div>
-            <div class="product-tag">zine</div>
-            <div class="product-overlay">
-                <div class="product-action-btns">
-                    <button class="product-btn-cart">Compra ora!</button>
-                    <a href="/prodotti/tagliatofuori.html" class="product-btn-page">→ Prodotto</a>
-                </div>
-                <div class="product-nav-btns">
-                    <button class="product-nav-btn" onclick="slideNav(this, -1)">‹</button>
-                    <button class="product-nav-btn" onclick="slideNav(this, 1)">›</button>
-                </div>
-            </div>
+      <!-- Product 1 -->
+      <article class="product-card">
+        <div class="product-image-wrap">
+          <img class="img-default" src="/img/tagliatofuori_01.png" alt="Tagliato Fuori" />
+          <img class="img-hover" src="/img/zine/tagliatofuori/tagliato_fuori_02.jpg" alt="Tagliato Fuori" />
         </div>
+        <div class="product-info">
+          <div class="product-meta">
+            <span class="product-name">Tagliato Fuori</span>
+            <span class="product-tag">Zine</span>
+          </div>
+          <span class="product-author">Irene Bella</span>
+          <div class="product-bottom">
+            <span class="product-price">€5</span>
+            <button class="product-buy">Acquista</button>
+          </div>
+        </div>
+      </article>
 
-        <!-- #019 -->
-        <div class="product-box">
-            <div class="product-number">#019</div>
-            <div class="product-slider" data-index="0">
-                <div class="product-slides">
-                    <img src="/img/stampe/pony_01.jpg" alt="Anno del cavallo">
-                </div>
-                <div class="product-dots"><div class="product-dot active"></div></div>
-            </div>
-            <div class="product-title">RSGRPH A3 - Anno del Cavallo 2026</div>
-            <div class="product-author">Shuai Ma</div>
-            <div class="product-price">€15</div>
-            <div class="product-tag">Stampe</div>
-            <div class="product-overlay">
-                <div class="product-action-btns">
-                    <button class="product-btn-cart">Compra ora!</button>
-                    <a href="/prodotti/annodelvacallo.html" class="product-btn-page">→ Prodotto</a>
-                </div>
-                <div class="product-nav-btns">
-                    <button class="product-nav-btn" onclick="slideNav(this, -1)">‹</button>
-                    <button class="product-nav-btn" onclick="slideNav(this, 1)">›</button>
-                </div>
-            </div>
+      <!-- Product 2 -->
+      <article class="product-card">
+        <div class="product-image-wrap">
+          <img class="img-default" src="/img/pony_01.png" alt="Pony" />
+          <img class="img-hover" src="/img/stampe/pony/pony_02.JPG" alt="Pony" />
         </div>
+        <div class="product-info">
+          <div class="product-meta">
+            <span class="product-name">Anno del Cavallo 2026</span>
+            <span class="product-tag">Stampa</span>
+          </div>
+          <span class="product-author">Shuai Ma</span>
+          <div class="product-bottom">
+            <span class="product-price">€15</span>
+            <button class="product-buy">Acquista</button>
+          </div>
+        </div>
+      </article>
 
-        <!-- #018 -->
-        <div class="product-box">
-            <div class="product-number">#018</div>
-            <div class="product-slider" data-index="0">
-                <div class="product-slides">
-                    <img src="/img/zine/capumon/capumon_01.jpg" alt="Capsule Monsters">
-                    <!-- Aggiungi altre img per lo slider -->
-                </div>
-                <div class="product-dots"><div class="product-dot active"></div></div>
-            </div>
-            <div class="product-title">Capsule Monsters</div>
-            <div class="product-author">Gamefreak</div>
-            <div class="product-price">€8</div>
-            <div class="product-tag">zine</div>
-            <div class="product-overlay">
-                <div class="product-action-btns">
-                    <button class="product-btn-cart">Compra ora!</button>
-                    <a href="/prodotti/capumon.html" class="product-btn-page">→ Prodotto</a>
-                </div>
-                <div class="product-nav-btns">
-                    <button class="product-nav-btn" onclick="slideNav(this, -1)">‹</button>
-                    <button class="product-nav-btn" onclick="slideNav(this, 1)">›</button>
-                </div>
-            </div>
+      <!-- Product 3 -->
+      <article class="product-card">
+        <div class="product-image-wrap">
+          <img class="img-default" src="/img/capumon_01.png" alt="Capsule Monsters" />
+          <img class="img-hover" src="/img/zine/capumon/capumon_01.jpg" alt="Capsule Monsters" />
         </div>
+        <div class="product-info">
+          <div class="product-meta">
+            <span class="product-name">Capsule Monsters (MINI ARTBOOK)</span>
+            <span class="product-tag">Zine</span>
+          </div>
+          <span class="product-author">Game Freak</span>
+          <div class="product-bottom">
+            <span class="product-price">€7</span>
+            <button class="product-buy">Acquista</button>
+          </div>
+        </div>
+      </article>
 
-        <!-- #017 -->
-        <div class="product-box">
-            <div class="product-number">#017</div>
-            <div class="product-slider" data-index="0">
-                <div class="product-slides">
-                    <img src="/img/zine/rosacea/rosacea_01.jpg" alt="Rosacea">
-                </div>
-                <div class="product-dots"><div class="product-dot active"></div></div>
-            </div>
-            <div class="product-title">Rosacea</div>
-            <div class="product-author">Martina Lupo</div>
-            <div class="product-price">€4</div>
-            <div class="product-tag">zine</div>
-            <div class="product-overlay">
-                <div class="product-action-btns">
-                    <button class="product-btn-cart">Compra ora!</button>
-                    <a href="/prodotti/rosacea.html" class="product-btn-page">→ Prodotto</a>
-                </div>
-                <div class="product-nav-btns">
-                    <button class="product-nav-btn" onclick="slideNav(this, -1)">‹</button>
-                    <button class="product-nav-btn" onclick="slideNav(this, 1)">›</button>
-                </div>
-            </div>
+      <!-- Product 4 -->
+      <article class="product-card">
+        <div class="product-image-wrap">
+          <img class="img-default" src="/img/rosacea_01.png" alt="Rosacea" />
+          <img class="img-hover" src="/img/zine/rosacea/rosacea_01.jpg" alt="Rosacea" />
         </div>
+        <div class="product-info">
+          <div class="product-meta">
+            <span class="product-name">Rosacea</span>
+            <span class="product-tag">Zine</span>
+          </div>
+          <span class="product-author">Martina Lupo</span>
+          <div class="product-bottom">
+            <span class="product-price">€4</span>
+            <button class="product-buy">Acquista</button>
+          </div>
+        </div>
+      </article>
 
-        <!-- #016 -->
-        <div class="product-box">
-            <div class="product-number">#016</div>
-            <div class="product-slider" data-index="0">
-                <div class="product-slides">
-                    <img src="/img/zine/mylittlezine/mylittlezine_01.jpg" alt="My Little Zine">
-                </div>
-                <div class="product-dots"><div class="product-dot active"></div></div>
-            </div>
-            <div class="product-title">My Little Zine</div>
-            <div class="product-author">Vic + Chiara</div>
-            <div class="product-price">€3</div>
-            <div class="product-tag">zine</div>
-            <div class="product-overlay">
-                <div class="product-action-btns">
-                    <button class="product-btn-cart">Compra ora!</button>
-                    <a href="/prodotti/mylittlezine.html" class="product-btn-page">→ Prodotto</a>
-                </div>
-                <div class="product-nav-btns">
-                    <button class="product-nav-btn" onclick="slideNav(this, -1)">‹</button>
-                    <button class="product-nav-btn" onclick="slideNav(this, 1)">›</button>
-                </div>
-            </div>
+      <!-- Product 5 -->
+      <article class="product-card">
+        <div class="product-image-wrap">
+          <img class="img-default" src="/img/zine/mylittlezine/mylittlezine_01.jpg" alt="My Little Zine" />
+          <img class="img-hover" src="/img/zine/mylittlezine/mylittlezine_01.jpg" alt="My Little Zine" />
         </div>
+        <div class="product-info">
+          <div class="product-meta">
+            <span class="product-name">My Little Zine</span>
+            <span class="product-tag">Zine</span>
+          </div>
+          <span class="product-author">Vic + Chiara</span>
+          <div class="product-bottom">
+            <span class="product-price">€3</span>
+            <button class="product-buy">Acquista</button>
+          </div>
+        </div>
+      </article>
 
-        <!-- #015 -->
-        <div class="product-box">
-            <div class="product-number">#015</div>
-            <div class="product-slider" data-index="0">
-                <div class="product-slides">
-                    <img src="/img/zine/pappa/pappa_01.jpg" alt="Pappa">
-                </div>
-                <div class="product-dots"><div class="product-dot active"></div></div>
-            </div>
-            <div class="product-title">E' l'ora della pappa!</div>
-            <div class="product-author">Deth P. Sun</div>
-            <div class="product-price">€5</div>
-            <div class="product-tag">zine</div>
-            <div class="product-overlay">
-                <div class="product-action-btns">
-                    <button class="product-btn-cart">Compra ora!</button>
-                    <a href="/prodotti/pappa.html" class="product-btn-page">→ Prodotto</a>
-                </div>
-                <div class="product-nav-btns">
-                    <button class="product-nav-btn" onclick="slideNav(this, -1)">‹</button>
-                    <button class="product-nav-btn" onclick="slideNav(this, 1)">›</button>
-                </div>
-            </div>
+      <!-- Product 6 -->
+      <article class="product-card">
+        <div class="product-image-wrap">
+          <img class="img-default" src="/img/zine/pappa/pappa_01.jpg" alt="è l'ora della pappa" />
+          <img class="img-hover" src="/img/zine/pappa/pappa_01.jpg" alt="è l'ora della pappa" />
         </div>
+        <div class="product-info">
+          <div class="product-meta">
+            <span class="product-name">E' l'ora della pappa</span>
+            <span class="product-tag">Zine</span>
+          </div>
+          <span class="product-author">Deth P. Sun</span>
+          <div class="product-bottom">
+            <span class="product-price">€5</span>
+            <button class="product-buy">Acquista</button>
+          </div>
+        </div>
+      </article>
 
-        <!-- #014 -->
-        <div class="product-box">
-            <div class="product-number">#014</div>
-            <div class="product-slider" data-index="0">
-                <div class="product-slides">
-                    <img src="/img/zine/ilpostodellevipere/ilpostodellevipere_01.jpg" alt="Il posto delle vipere">
-                </div>
-                <div class="product-dots"><div class="product-dot active"></div></div>
-            </div>
-            <div class="product-title">Il posto delle vipere</div>
-            <div class="product-author">Alice Savini</div>
-            <div class="product-price">€5</div>
-            <div class="product-tag">zine</div>
-            <div class="product-overlay">
-                <div class="product-action-btns">
-                    <button class="product-btn-cart">Compra ora!</button>
-                    <a href="/prodotti/ilpostodellevipere.html" class="product-btn-page">→ Prodotto</a>
-                </div>
-                <div class="product-nav-btns">
-                    <button class="product-nav-btn" onclick="slideNav(this, -1)">‹</button>
-                    <button class="product-nav-btn" onclick="slideNav(this, 1)">›</button>
-                </div>
-            </div>
+      <!-- Product 7 -->
+      <article class="product-card">
+        <div class="product-image-wrap">
+          <img class="img-default" src="/img/stampe/victor/primavera_01.jpg" alt="Primavera 2025" />
+          <img class="img-hover" src="/img/stampe/victor/primavera_01.jpg" alt="Primavera 2025" />
         </div>
+        <div class="product-info">
+          <div class="product-meta">
+            <span class="product-name">Primavera 2025</span>
+            <span class="product-tag">Stampe</span>
+          </div>
+          <span class="product-author">Vic Annibalini</span>
+          <div class="product-bottom">
+            <span class="product-price">€10</span>
+            <button class="product-buy">Acquista</button>
+          </div>
+        </div>
+      </article>
 
-        <!-- #013 -->
-        <div class="product-box">
-            <div class="product-number">#013</div>
-            <div class="product-slider" data-index="0">
-                <div class="product-slides">
-                    <img src="/img/stampe/victor/primavera_01.jpg" alt="Primavera">
-                </div>
-                <div class="product-dots"><div class="product-dot active"></div></div>
-            </div>
-            <div class="product-title">RSGRPH A4 - Primavera!</div>
-            <div class="product-author">Vic</div>
-            <div class="product-price">€5+</div>
-            <div class="product-tag">stampe</div>
-            <div class="product-overlay">
-                <div class="product-action-btns">
-                    <button class="product-btn-cart">Compra ora!</button>
-                    <a href="/prodotti/primavera.html" class="product-btn-page">→ Prodotto</a>
-                </div>
-                <div class="product-nav-btns">
-                    <button class="product-nav-btn" onclick="slideNav(this, -1)">‹</button>
-                    <button class="product-nav-btn" onclick="slideNav(this, 1)">›</button>
-                </div>
-            </div>
+      <!-- Product 8 -->
+      <article class="product-card">
+        <div class="product-image-wrap">
+          <img class="img-default" src="/img/zine/ilpostodellevipere/ilpostodellevipere_01.jpg" alt="Il posto delle vipere" />
+          <img class="img-hover" src="/img/zine/ilpostodellevipere/ilpostodellevipere_01.jpg" alt="Il posto delle vipere" />
         </div>
-
-        <!-- #012 -->
-        <div class="product-box">
-            <div class="product-number">#012</div>
-            <div class="product-slider" data-index="0">
-                <div class="product-slides">
-                    <img src="/img/stampe/marbit/marbit_gatto_01.jpg" alt="Marbit Stampa Gatto">
-                </div>
-                <div class="product-dots"><div class="product-dot active"></div></div>
-            </div>
-            <div class="product-title">RSGRPH A4 - Miaorgh!</div>
-            <div class="product-author">Marbit</div>
-            <div class="product-price">€25</div>
-            <div class="product-tag">stampe</div>
-            <div class="product-overlay">
-                <div class="product-action-btns">
-                    <button class="product-btn-cart">Compra ora!</button>
-                    <a href="/prodotti/miaorgh.html" class="product-btn-page">→ Prodotto</a>
-                </div>
-                <div class="product-nav-btns">
-                    <button class="product-nav-btn" onclick="slideNav(this, -1)">‹</button>
-                    <button class="product-nav-btn" onclick="slideNav(this, 1)">›</button>
-                </div>
-            </div>
+        <div class="product-info">
+          <div class="product-meta">
+            <span class="product-name">Il posto delle vipere</span>
+            <span class="product-tag">Zine</span>
+          </div>
+          <span class="product-author">Alice Savini</span>
+          <div class="product-bottom">
+            <span class="product-price">€7</span>
+            <button class="product-buy">Acquista</button>
+          </div>
         </div>
-
-        <!-- #011 -->
-        <div class="product-box">
-            <div class="product-number">#011</div>
-            <div class="product-slider" data-index="0">
-                <div class="product-slides">
-                    <img src="/img/zine/flipnote/flipnote_01.jpg" alt="Flipnote Svdpony">
-                </div>
-                <div class="product-dots"><div class="product-dot active"></div></div>
-            </div>
-            <div class="product-title">Flipnotes</div>
-            <div class="product-author">Svdpony</div>
-            <div class="product-price">€7</div>
-            <div class="product-tag">zine</div>
-            <div class="product-overlay">
-                <div class="product-action-btns">
-                    <button class="product-btn-cart">Compra ora!</button>
-                    <a href="/prodotti/flipnotes.html" class="product-btn-page">→ Prodotto</a>
-                </div>
-                <div class="product-nav-btns">
-                    <button class="product-nav-btn" onclick="slideNav(this, -1)">‹</button>
-                    <button class="product-nav-btn" onclick="slideNav(this, 1)">›</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- #010 -->
-        <div class="product-box">
-            <div class="product-number">#010</div>
-            <div class="product-slider" data-index="0">
-                <div class="product-slides">
-                    <img src="/img/zine/shiro/shiro_01.jpg" alt="Shiro">
-                </div>
-                <div class="product-dots"><div class="product-dot active"></div></div>
-            </div>
-            <div class="product-title">Shiro</div>
-            <div class="product-author">Martina Lupo</div>
-            <div class="product-price">SOLD OUT</div>
-            <div class="product-tag">zine</div>
-            <div class="product-overlay">
-                <div class="product-action-btns">
-                    <button class="product-btn-cart" disabled style="opacity:0.45; cursor:not-allowed;">Sold Out</button>
-                    <a href="/prodotti/shiro.html" class="product-btn-page">→ Prodotto</a>
-                </div>
-                <div class="product-nav-btns">
-                    <button class="product-nav-btn" onclick="slideNav(this, -1)">‹</button>
-                    <button class="product-nav-btn" onclick="slideNav(this, 1)">›</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- #009 -->
-        <div class="product-box">
-            <div class="product-number">#009</div>
-            <div class="product-slider" data-index="0">
-                <div class="product-slides">
-                    <img src="/img/zine/pixelgore/pixelgore_01.jpg" alt="Pixelgore">
-                </div>
-                <div class="product-dots"><div class="product-dot active"></div></div>
-            </div>
-            <div class="product-title">Pixelgore</div>
-            <div class="product-author">???</div>
-            <div class="product-price">€5</div>
-            <div class="product-tag">zine</div>
-            <div class="product-overlay">
-                <div class="product-action-btns">
-                    <button class="product-btn-cart">Compra ora!</button>
-                    <a href="/prodotti/pixelgore.html" class="product-btn-page">→ Prodotto</a>
-                </div>
-                <div class="product-nav-btns">
-                    <button class="product-nav-btn" onclick="slideNav(this, -1)">‹</button>
-                    <button class="product-nav-btn" onclick="slideNav(this, 1)">›</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- #008 -->
-        <div class="product-box">
-            <div class="product-number">#008</div>
-            <div class="product-slider" data-index="0">
-                <div class="product-slides">
-                    <img src="/img/zine/nostalgia/nostalgia_01.jpg" alt="Nostalgia Miseria">
-                </div>
-                <div class="product-dots"><div class="product-dot active"></div></div>
-            </div>
-            <div class="product-title">Nostalgia Miseria</div>
-            <div class="product-author">Losergod</div>
-            <div class="product-price">€7</div>
-            <div class="product-tag">zine</div>
-            <div class="product-overlay">
-                <div class="product-action-btns">
-                    <button class="product-btn-cart">Compra ora!</button>
-                    <a href="/prodotti/nostalgiamiseria.html" class="product-btn-page">→ Prodotto</a>
-                </div>
-                <div class="product-nav-btns">
-                    <button class="product-nav-btn" onclick="slideNav(this, -1)">‹</button>
-                    <button class="product-nav-btn" onclick="slideNav(this, 1)">›</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- #007 -->
-        <div class="product-box">
-            <div class="product-number">#007</div>
-            <div class="product-slider" data-index="0">
-                <div class="product-slides">
-                    <img src="/img/stampe/blobblob/blobblob_01.jpg" alt="Blob Blob">
-                </div>
-                <div class="product-dots"><div class="product-dot active"></div></div>
-            </div>
-            <div class="product-title">RSGRPH A6 - Blob Blob</div>
-            <div class="product-author">Chiara Simoni</div>
-            <div class="product-price">€7</div>
-            <div class="product-tag">stampe</div>
-            <div class="product-overlay">
-                <div class="product-action-btns">
-                    <button class="product-btn-cart">Compra ora!</button>
-                    <a href="/prodotti/blobblob.html" class="product-btn-page">→ Prodotto</a>
-                </div>
-                <div class="product-nav-btns">
-                    <button class="product-nav-btn" onclick="slideNav(this, -1)">‹</button>
-                    <button class="product-nav-btn" onclick="slideNav(this, 1)">›</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- #006 -->
-        <div class="product-box">
-            <div class="product-number">#006</div>
-            <div class="product-slider" data-index="0">
-                <div class="product-slides">
-                    <img src="/img/zine/darkmagicbros/darkmagicbros_01.jpg" alt="Dark Magic Bros">
-                </div>
-                <div class="product-dots"><div class="product-dot active"></div></div>
-            </div>
-            <div class="product-title">Dark Magic Bros</div>
-            <div class="product-author">Deth P. Sun</div>
-            <div class="product-price">€5</div>
-            <div class="product-tag">zine</div>
-            <div class="product-overlay">
-                <div class="product-action-btns">
-                    <button class="product-btn-cart">Compra ora!</button>
-                    <a href="/prodotti/darkmagicbros.html" class="product-btn-page">→ Prodotto</a>
-                </div>
-                <div class="product-nav-btns">
-                    <button class="product-nav-btn" onclick="slideNav(this, -1)">‹</button>
-                    <button class="product-nav-btn" onclick="slideNav(this, 1)">›</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- #005 -->
-        <div class="product-box">
-            <div class="product-number">#005</div>
-            <div class="product-slider" data-index="0">
-                <div class="product-slides">
-                    <img src="/img/stampe/poster/2024/poster_01.jpg" alt="Poster 2024">
-                </div>
-                <div class="product-dots"><div class="product-dot active"></div></div>
-            </div>
-            <div class="product-title">RSGRPH A3 - Hanami24</div>
-            <div class="product-author">A.A V.V</div>
-            <div class="product-price">€10</div>
-            <div class="product-tag">stampe</div>
-            <div class="product-overlay">
-                <div class="product-action-btns">
-                    <button class="product-btn-cart">Compra ora!</button>
-                    <a href="/prodotti/hanami24.html" class="product-btn-page">→ Prodotto</a>
-                </div>
-                <div class="product-nav-btns">
-                    <button class="product-nav-btn" onclick="slideNav(this, -1)">‹</button>
-                    <button class="product-nav-btn" onclick="slideNav(this, 1)">›</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- #004 -->
-        <div class="product-box">
-            <div class="product-number">#004</div>
-            <div class="product-slider" data-index="0">
-                <div class="product-slides">
-                    <img src="/img/zine/emma/emma_01.jpg" alt="Emma">
-                </div>
-                <div class="product-dots"><div class="product-dot active"></div></div>
-            </div>
-            <div class="product-title">Emma</div>
-            <div class="product-author">Pulcerossa</div>
-            <div class="product-price">SOLD OUT</div>
-            <div class="product-tag">zine</div>
-            <div class="product-overlay">
-                <div class="product-action-btns">
-                    <button class="product-btn-cart" disabled style="opacity:0.45; cursor:not-allowed;">Sold Out</button>
-                    <a href="/prodotti/emma.html" class="product-btn-page">→ Prodotto</a>
-                </div>
-                <div class="product-nav-btns">
-                    <button class="product-nav-btn" onclick="slideNav(this, -1)">‹</button>
-                    <button class="product-nav-btn" onclick="slideNav(this, 1)">›</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- #003 -->
-        <div class="product-box">
-            <div class="product-number">#003</div>
-            <div class="product-slider" data-index="0">
-                <div class="product-slides">
-                    <img src="/img/zine/emotions/emotions_01.jpg" alt="Emotion Potions">
-                </div>
-                <div class="product-dots"><div class="product-dot active"></div></div>
-            </div>
-            <div class="product-title">Emoticons Potions</div>
-            <div class="product-author">Goccia</div>
-            <div class="product-price">€5</div>
-            <div class="product-tag">zine</div>
-            <div class="product-overlay">
-                <div class="product-action-btns">
-                    <button class="product-btn-cart">Compra ora!</button>
-                    <a href="/prodotti/emotionpotions.html" class="product-btn-page">→ Prodotto</a>
-                </div>
-                <div class="product-nav-btns">
-                    <button class="product-nav-btn" onclick="slideNav(this, -1)">‹</button>
-                    <button class="product-nav-btn" onclick="slideNav(this, 1)">›</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- #002 -->
-        <div class="product-box">
-            <div class="product-number">#002</div>
-            <div class="product-slider" data-index="0">
-                <div class="product-slides">
-                    <img src="/img/zine/japan/japan_01.jpg" alt="Isometric Japan">
-                </div>
-                <div class="product-dots"><div class="product-dot active"></div></div>
-            </div>
-            <div class="product-title">Isometric Japan</div>
-            <div class="product-author">Vic</div>
-            <div class="product-price">€5</div>
-            <div class="product-tag">zine</div>
-            <div class="product-overlay">
-                <div class="product-action-btns">
-                    <button class="product-btn-cart">Compra ora!</button>
-                    <a href="/prodotti/isometricjapan.html" class="product-btn-page">→ Prodotto</a>
-                </div>
-                <div class="product-nav-btns">
-                    <button class="product-nav-btn" onclick="slideNav(this, -1)">‹</button>
-                    <button class="product-nav-btn" onclick="slideNav(this, 1)">›</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- #001 -->
-        <div class="product-box">
-            <div class="product-number">#001</div>
-            <div class="product-slider" data-index="0">
-                <div class="product-slides">
-                    <img src="/img/zine/laniakea/laniakea_01.jpg" alt="laniakea">
-                </div>
-                <div class="product-dots"><div class="product-dot active"></div></div>
-            </div>
-            <div class="product-title">Laniakea</div>
-            <div class="product-author">drudefox</div>
-            <div class="product-price">SOLD OUT</div>
-            <div class="product-tag">zine</div>
-            <div class="product-overlay">
-                <div class="product-action-btns">
-                    <button class="product-btn-cart" disabled style="opacity:0.45; cursor:not-allowed;">Sold Out</button>
-                    <a href="/prodotti/laniakea.html" class="product-btn-page">→ Prodotto</a>
-                </div>
-                <div class="product-nav-btns">
-                    <button class="product-nav-btn" onclick="slideNav(this, -1)">‹</button>
-                    <button class="product-nav-btn" onclick="slideNav(this, 1)">›</button>
-                </div>
-            </div>
-        </div>
+      </article>
 
     </div>
+
+    <div class="products-footer">
+      <a href="#" class="view-all">Vedi tutto &rarr;</a>
+    </div>
     
-    <section class="coming-soon">
-        <p>Hanami Press è un progetto di micro editoria indipendente nato nel 2023. Realizza zine, stampe, lavori all'uncinetto e spillette.</p>
-    </section>
-      
-    <footer>
-        <span>Hanami Press, 2026</span>
-        <a href="https://www.instagram.com/hanami.press/" class="instagram-icon" target="_blank" aria-label="Instagram">
-            <i class="fab fa-instagram"></i>
-        </a>
-    </footer>
+  </section>
 
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById('dropdown-menu');
-            menu.classList.toggle('hidden');
-        }
-    </script>
+        <!-- AUTHOR HIGHLIGHT -->
+  
+  <div class="products-header">
+  <span>Autore in evidenza</span>
+</div>
+  
+  <section class="about-section">
+  <div class="about-inner">
+    <div class="about-content">
+      <div class="about-text-col">
+        <p class="about-label">Irene Bella <a href="https://www.instagram.com/piadinaformaggio" target="_blank">🡥</a></p>
+        <p class="about-text">Irene Bella, sui social “piadinaformaggio”, è una fumettista e illustratrice emergente nata ad Acireale (CT) nel 2001. Si laurea all’Accademia di Belle Arti di Catania e partecipa a diverse mostre collettive e mercatini d’autoproduzione della realtà underground catanese.
+        </p>
+      </div>
+      <div class="about-image-col">
+        <img src="/img/autori/irenebella/irenebella_02.jpg" alt="Irene Bella" />
+      </div>
+    </div>
+  </div>
 
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <div id="particles-js"></div>
-    <script>
-        particlesJS("particles-js", {
-            particles: {
-                number: { value: 100 },
-                size: { value: 3 },
-                move: { speed: 2 },
-                line_linked: { enable: true }
-            }
-        });
-    </script>
+    <div class="products-footer">
+      <a href="#" class="view-all">Scopri altri autori &rarr;</a>
+    </div>
+    
+</section>
 
-    <script>
-        const scrollToTopBtn = document.getElementById("scrollToTop");
+  <!-- ABOUT / PRESENTATION -->
 
-        window.onscroll = function () {
-            if (document.documentElement.scrollTop > 200) {
-                scrollToTopBtn.style.display = "block";
-            } else {
-                scrollToTopBtn.style.display = "none";
-            }
-        };
+  <div class="products-header">
+  <span>CHI SIAMO</span>
+</div>
+  
+<section class="about-section">
+  <section class="about-section about-section--reversed">
+  <div class="about-inner">
+    <div class="about-content">
+      <div class="about-text-col">
+        <p class="about-label">Hanami Press</p>
+        <p class="about-text">
+          Hanami Press è un progetto di micro editoria indipendente nato nel 2023. Realizza zine, stampe, lavori all'uncinetto e spillette.
+        </p>
+      </div>
+      <div class="about-image-col">
+        <img src="/img/hanami_01.jpg" alt="Hanami Press" />
+      </div>
+    </div>
+  </div>
 
-        scrollToTopBtn.addEventListener("click", function () {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        });
-    </script>
+    <div class="products-footer">
+      <a href="/test0626/contatti.html" class="view-all">Vai ai contatti &rarr;</a>
+    </div>
+    
+</section>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const brand = document.querySelector(".brand");
-            if (!brand) return;
-            const text = brand.textContent;
-            brand.innerHTML = text.split("").map(letter => {
-                if (letter === " ") return `<span class="letter space">&nbsp;</span>`;
-                return `<span class="letter">${letter}</span>`;
-            }).join("");
-
-            const letters = document.querySelectorAll(".letter");
-            letters.forEach((el, i) => {
-                const delay = i * 0.05;
-                gsap.to(el, {
-                    y: "random(-4, 4)",
-                    rotation: "random(-6, 6)",
-                    duration: "random(1.5, 2.5)",
-                    ease: "sine.inOut",
-                    repeat: -1,
-                    yoyo: true,
-                    delay: delay
-                });
-            });
-        });
-    </script>
-
-    <!-- ── Slider logic (frecce + touch swipe) ── -->
-    <script>
-        /* Aggiorna la posizione dello slider e i pallini */
-        function applySlide(slider) {
-            const slides = slider.querySelector('.product-slides');
-            const dots   = slider.querySelectorAll('.product-dot');
-            const idx    = parseInt(slider.dataset.index, 10);
-            slides.style.transform = `translateX(-${idx * 100}%)`;
-            dots.forEach((d, i) => d.classList.toggle('active', i === idx));
-        }
-
-        /* Chiamata dai pulsanti freccia */
-        function slideNav(btn, dir) {
-            const slider = btn.closest('.product-box').querySelector('.product-slider');
-            const total  = slider.querySelectorAll('.product-slides img').length;
-            let idx = parseInt(slider.dataset.index, 10);
-            idx = (idx + dir + total) % total;
-            slider.dataset.index = idx;
-            applySlide(slider);
-        }
-
-        /* Touch swipe su mobile */
-        document.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('.product-slider').forEach(slider => {
-                let startX = 0;
-
-                slider.addEventListener('touchstart', e => {
-                    startX = e.touches[0].clientX;
-                }, { passive: true });
-
-                slider.addEventListener('touchend', e => {
-                    const diff = startX - e.changedTouches[0].clientX;
-                    if (Math.abs(diff) < 30) return; /* ignora tap */
-                    const total = slider.querySelectorAll('.product-slides img').length;
-                    let idx = parseInt(slider.dataset.index, 10);
-                    idx = (idx + (diff > 0 ? 1 : -1) + total) % total;
-                    slider.dataset.index = idx;
-                    applySlide(slider);
-                }, { passive: true });
-
-                /* Inizializza i punti in base al numero di immagini */
-                const imgs  = slider.querySelectorAll('.product-slides img');
-                const dotsC = slider.querySelector('.product-dots');
-                dotsC.innerHTML = '';
-                imgs.forEach((_, i) => {
-                    const d = document.createElement('div');
-                    d.className = 'product-dot' + (i === 0 ? ' active' : '');
-                    dotsC.appendChild(d);
-                });
-                /* Nasconde la riga dots se c'è solo 1 immagine */
-                if (imgs.length <= 1) dotsC.style.display = 'none';
-            });
-        });
-    </script>
+  <!-- NEWSLETTER -->
+<section class="newsletter-section">
+    <div class="products-header">
+  <span>RIMANI AGGIORNATO</span>
+</div>
+  <div class="newsletter-header">
+    <span>Substack</span>
+  </div>
+  <div class="newsletter-body">
+    <p class="newsletter-text">Nuove uscite, eventi e aggiornamenti direttamente nella tua inbox.</p>
+    <a href="https://hanamipress.substack.com" target="_blank" class="newsletter-button">Iscriviti</a>
+  </div>
+</section>
+  
+  <!-- WORDMARK -->
+<section class="wordmark-section">
+  <span class="wordmark-text">Hanami Press</span>
+</section>
+  
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <span class="footer-copy">Hanami Press, 2026</span>
+    <a href="https://www.instagram.com/hanami.press" target="_blank" rel="noopener" class="footer-instagram" aria-label="Instagram">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+        <circle cx="12" cy="12" r="4"/>
+        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+      </svg>
+    </a>
+  </footer>
 
 </body>
 </html>
