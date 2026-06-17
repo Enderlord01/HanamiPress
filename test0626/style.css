@@ -11,7 +11,7 @@
 
 :root {
   --blue: #ff00ff;
-  --white: #3b2f10;
+  --white: #10391b;
   --border: 1px solid #ff00ff;
 }
 
@@ -53,10 +53,10 @@ img {
   align-items: baseline;
   justify-content: space-between;
   padding: 1.25rem 1.25rem;
-  border-bottom: var(--border);
+  border-bottom: none;
   position: sticky;
   top: 0;
-  background-color: var(--blue);
+  background-image: linear-gradient(to bottom, var(--blue) 10%, transparent);
   z-index: 100;
 }
 
@@ -65,7 +65,7 @@ img {
   font-size: 2rem;
   font-weight: 100;
   letter-spacing: 0.01em;
-  color: var(--white);
+  color: #00ffa1;
 }
 
 .site-logo:hover {
@@ -83,7 +83,7 @@ img {
   font-weight: 500;
   letter-spacing: 0.01em;
   text-transform: uppercase;
-  color: var(--white);
+  color: #00ffa1;
   transition: opacity 0.15s;
 }
 
