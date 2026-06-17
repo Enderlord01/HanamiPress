@@ -174,6 +174,30 @@
     });
 
     map.addLayer(markers);
+
+    
+
+const greenOverlay = L.rectangle([[90, -180], [-90, 180]], {
+  color: null,
+  fillColor: '#092310',
+  fillOpacity: 1,
+  interactive: false
+}).addTo(map);
+
+greenOverlay.getElement().classList.add('duotone-green');
+
+
+const magentaOverlay = L.rectangle([[90, -180], [-90, 180]], {
+  color: null,
+  fillColor: '#ff00ff',
+  fillOpacity: 1,
+  interactive: false
+}).addTo(map);
+
+magentaOverlay.getElement().classList.add('duotone-magenta');
+
+    
+    
   </script>
 
 </body>
