@@ -176,13 +176,19 @@ img {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, auto);
+  grid-auto-rows: 1fr;
+  gap: 1px;
+  background-color: #ff00ff;
 }
 
 .product-card {
-  border-right: var(--border);
-  border-bottom: var(--border);
+  border-right: none;
+  border-bottom: none;
   display: flex;
   flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+  background-color: var(--white);
 }
 
 .product-card:nth-child(4n) {
