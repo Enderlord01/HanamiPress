@@ -56,7 +56,7 @@ img {
   border-bottom: none;
   position: sticky;
   top: 0;
-  background-color: var (--blue);
+  background-color: var(--blue);
   z-index: 100;
 }
 
