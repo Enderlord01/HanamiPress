@@ -663,7 +663,7 @@ img {
   justify-content: center;
   background: none;
   border: none;
-  color: #00ffa1;
+  color: var(--white);
   cursor: pointer;
   padding: 0.25rem;
   margin-left: 1.5rem;
@@ -677,7 +677,7 @@ img {
   position: absolute;
   top: -6px;
   right: -8px;
-  background-color: var(--blue);
+  background-color: #00ffa1;
   color: var(--white);
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 0.65rem;
