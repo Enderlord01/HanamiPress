@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grazie! — Hanami Press</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="mobile.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <a href="/" class="site-logo">Hanami Press</a>
+    <nav class="site-nav">
+      <a href="#">Catalogo</a>
+      <a href="#">Zine</a>
+      <a href="#">Stampe</a>
+      <a href="/eventi.html">Eventi</a>
+      <a href="#">Autori</a>
+      <a href="/contatti.html">Contatti</a>
+    </nav>
+    <button class="nav-hamburger" aria-label="Menu" onclick="this.classList.toggle('is-open'); document.getElementById('nav-mobile').classList.toggle('is-open')">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <nav id="nav-mobile" class="nav-mobile">
+    <a href="#">Catalogo</a>
+    <a href="#">Zine</a>
+    <a href="#">Stampe</a>
+    <a href="/eventi.html">Eventi</a>
+    <a href="#">Autori</a>
+    <a href="/contatti.html">Contatti</a>
+  </nav>
+
+  <!-- MESSAGGIO DI SUCCESSO -->
+  <section class="success-section">
+    <p class="success-text">Grazie per l'acquisto!</p>
+    <a href="/" class="success-button">Torna alla home</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <span class="footer-copy">Hanami Press, 2026</span>
+    <a href="https://www.instagram.com/hanami.press" target="_blank" rel="noopener" class="footer-instagram" aria-label="Instagram">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+        <circle cx="12" cy="12" r="4"/>
+        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+      </svg>
+    </a>
+  </footer>
+
+</body>
+</html>
