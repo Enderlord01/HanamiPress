@@ -136,7 +136,7 @@
 
   .product-card {
     border-right: none;
-    border-bottom: var(--border);
+    border-bottom: none;
   }
 
   .product-card:nth-child(4n) {
@@ -167,7 +167,7 @@
   .about-text-col {
     padding: 1.5rem 1.25rem;
     border-right: none;
-    border-bottom: var(--border);
+    border-bottom: none;
   }
 
   .about-label {
