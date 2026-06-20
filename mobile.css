@@ -65,7 +65,7 @@
     display: none;
     flex-direction: column;
     position: fixed;
-    top: 128px;
+    top: 75px;
     left: 0;
     right: 0;
     background-color: var(--white);
