@@ -994,3 +994,143 @@ img {
   vertical-align: middle;
   color: inherit;
 }
+
+/* ===========================
+   PAGINA PRODOTTO
+   =========================== */
+
+.product-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+}
+
+/* Colonna sinistra — galleria scorrevole */
+.product-page-gallery {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-page-gallery img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-bottom: var(--border);
+}
+
+.product-page-gallery img:last-child {
+  border-bottom: none;
+}
+
+/* Colonna destra — fissa */
+.product-page-info {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  border-left: var(--border);
+  display: flex;
+  align-items: center;
+  overflow-y: auto;
+}
+
+.product-page-info-inner {
+  padding: 3rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+.product-page-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue);
+  border: var(--border);
+  padding: 0.2rem 0.6rem;
+  border-radius: 8px;
+  width: fit-content;
+}
+
+.product-page-title {
+  font-family: Dela Gothic One;
+  font-size: 2.5rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #00ffa1;
+  line-height: 1.1;
+}
+
+.product-page-author {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--blue);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  width: fit-content;
+}
+
+.product-page-author:hover {
+  opacity: 0.6;
+}
+
+.product-page-description {
+  font-family: Bricolage Grotesque;
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--blue);
+  opacity: 0.85;
+}
+
+.product-page-specs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  border-top: var(--border);
+  border-bottom: var(--border);
+  padding: 1.25rem 0;
+}
+
+.product-page-spec {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.product-page-spec dt {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue);
+  opacity: 0.5;
+  flex-shrink: 0;
+}
+
+.product-page-spec dd {
+  font-size: 0.9rem;
+  color: var(--blue);
+  text-align: right;
+}
+
+.product-page-purchase {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.product-page-price {
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--blue);
+}
+
+.product-page-purchase .product-buy {
+  flex: 1;
+  padding: 0.85rem 1.5rem;
+  font-size: 0.85rem;
+}
