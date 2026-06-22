@@ -245,3 +245,36 @@
   }
 
 }
+
+/* -------------------------
+     PAGINA PRODOTTO
+     ------------------------- */
+
+  .product-page {
+    grid-template-columns: 1fr;
+  }
+
+  .product-page-info {
+    position: relative;
+    height: auto;
+    border-left: none;
+    border-top: var(--border);
+  }
+
+  .product-page-info-inner {
+    padding: 2rem 1.25rem;
+  }
+
+  .product-page-title {
+    font-size: 1.75rem;
+  }
+
+  .product-page-description {
+    font-size: 1rem;
+  }
+
+  .product-page-purchase {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
