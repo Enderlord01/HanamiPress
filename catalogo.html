@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hanami Press</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="mobile.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <a href="#" class="site-logo">Hanami Press</a>
+    <nav class="site-nav">
+      <a href="#">Catalogo</a>
+      <a href="#">Zine</a>
+      <a href="#">Stampe</a>
+      <a href="/eventi.html">Eventi</a>
+      <a href="#">Autori</a>
+      <a href="/contatti.html">Contatti</a>
+    </nav>
+
+    <!-- CARRELLO -->
+    <button id="cart-trigger" class="cart-trigger" aria-label="Apri carrello">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="9" cy="21" r="1"/>
+        <circle cx="20" cy="21" r="1"/>
+        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+      </svg>
+      <span id="cart-count" class="cart-count">0</span>
+    </button>
+
+    <button class="nav-hamburger" aria-label="Menu" onclick="this.classList.toggle('is-open'); document.getElementById('nav-mobile').classList.toggle('is-open')">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <nav id="nav-mobile" class="nav-mobile">
+    <a href="#">Catalogo</a>
+    <a href="#">Zine</a>
+    <a href="#">Stampe</a>
+    <a href="/eventi.html">Eventi</a>
+    <a href="#">Autori</a>
+    <a href="/contatti.html">Contatti</a>
+  </nav>
+
+  <!-- PANNELLO CARRELLO -->
+  <div id="cart-overlay" class="cart-overlay"></div>
+  <aside id="cart-panel" class="cart-panel">
+    <div class="cart-panel-header">
+      <span class="cart-panel-title">Carrello</span>
+      <button id="cart-close" class="cart-close" aria-label="Chiudi carrello">×</button>
+    </div>
+
+    <div id="cart-empty" class="cart-empty">
+      <span>Il tuo carrello è vuoto</span>
+    </div>
+
+    <div id="cart-items" class="cart-items"></div>
+
+    <div id="cart-footer" class="cart-footer" style="display: none;">
+      <div class="cart-zone-select">
+        <label for="cart-zone" class="cart-zone-label">Spedizione</label>
+        <select id="cart-zone" class="cart-zone-dropdown">
+          <option value="italy">Italia</option>
+          <option value="eu">Unione Europea</option>
+          <option value="world">Resto del mondo</option>
+        </select>
+      </div>
+
+      <div class="cart-totals">
+        <div class="cart-totals-row">
+          <span>Subtotale</span>
+          <span id="cart-subtotal">€0.00</span>
+        </div>
+        <div class="cart-totals-row">
+          <span>Spedizione</span>
+          <span id="cart-shipping">€0.00</span>
+        </div>
+        <div class="cart-totals-row cart-totals-row--total">
+          <span>Totale</span>
+          <span id="cart-total">€0.00</span>
+        </div>
+      </div>
+
+      <button id="cart-checkout-btn" class="cart-checkout-btn">Vai al pagamento</button>
+    </div>
+  </aside>
+
+  <!-- TICKER -->
+  <div class="ticker-section">
+    <div class="ticker-track">
+      <span>Zine</span>
+      <span class="ticker-dot">·</span>
+      <span>Stampe</span>
+      <span class="ticker-dot">·</span>
+      <span>Uncinetto</span>
+      <span class="ticker-dot">·</span>
+      <span>Spillette</span>
+      <span class="ticker-dot">·</span>
+      <span>Zine</span>
+      <span class="ticker-dot">·</span>
+      <span>Stampe</span>
+      <span class="ticker-dot">·</span>
+      <span>Uncinetto</span>
+      <span class="ticker-dot">·</span>
+      <span>Spillette</span>
+      <span class="ticker-dot">·</span>
+      <span>Zine</span>
+      <span class="ticker-dot">·</span>
+      <span>Stampe</span>
+      <span class="ticker-dot">·</span>
+      <span>Uncinetto</span>
+      <span class="ticker-dot">·</span>
+      <span>Spillette</span>
+      <span class="ticker-dot">·</span>
+      <span>Zine</span>
+      <span class="ticker-dot">·</span>
+      <span>Stampe</span>
+      <span class="ticker-dot">·</span>
+      <span>Uncinetto</span>
+      <span class="ticker-dot">·</span>
+      <span>Spillette</span>
+      <span class="ticker-dot">·</span>
+      <span>Zine</span>
+      <span class="ticker-dot">·</span>
+      <span>Stampe</span>
+      <span class="ticker-dot">·</span>
+      <span>Uncinetto</span>
+      <span class="ticker-dot">·</span>
+      <span>Spillette</span>
+      <span class="ticker-dot">·</span>
+    </div>
+  </div>
+
+  <!-- PRODUCTS GRID -->
+  <section class="products-section">
+
+    <div class="products-header">
+      <span>Le nostre autoproduzioni</span>
+    </div>
+
+    <div class="products-grid">
+
+      <!-- Product 1 -->
+      <article class="product-card">
+        <div class="product-image-wrap">
+          <img class="img-default" src="/img/tagliatofuori_01.png" alt="Tagliato Fuori" />
+          <img class="img-hover" src="/img/tagliato_fuori_02.jpg" alt="Tagliato Fuori" />
+        </div>
+        <div class="product-info">
+          <div class="product-meta">
+            <span class="product-name">Tagliato Fuori</span>
+            <span class="product-tag">Zine</span>
+          </div>
+          <span class="product-author">Irene Bella</span>
+          <div class="product-bottom">
+            <span class="product-price">€5</span>
+            <button class="product-buy"
+              data-name="Tagliato Fuori"
+              data-price="5"
+              data-category="zine"
+              data-image="/img/tagliatofuori_01.png">Acquista</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Product 2 -->
+      <article class="product-card">
+        <div class="product-image-wrap">
+          <img class="img-default" src="/img/pony_01.png" alt="Pony - Risograph A3" />
+          <img class="img-hover" src="/img/stampe/pony/pony_02.JPG" alt="Pony - Risograph A3" />
+        </div>
+        <div class="product-info">
+          <div class="product-meta">
+            <span class="product-name">Pony - Risograph A3</span>
+            <span class="product-tag">Stampa</span>
+          </div>
+          <span class="product-author">Shuai Ma</span>
+          <div class="product-bottom">
+            <span class="product-price">€15</span>
+            <button class="product-buy"
+              data-name="Pony - Risograph A3"
+              data-price="15"
+              data-category="stampa"
+              data-image="/img/pony_01.png">Acquista</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Product 3 -->
+      <article class="product-card">
+        <div class="product-image-wrap">
+          <img class="img-default" src="/img/capumon_01.png" alt="Capsule Monsters" />
+          <img class="img-hover" src="/img/capumon_02.jpg" alt="Capsule Monsters" />
+        </div>
+        <div class="product-info">
+          <div class="product-meta">
+            <span class="product-name">Capsule Monsters (MINI ARTBOOK)</span>
+            <span class="product-tag">Zine</span>
+          </div>
+          <span class="product-author">Game Freak</span>
+          <div class="product-bottom">
+            <span class="product-price">€7</span>
+            <button class="product-buy"
+              data-name="Capsule Monsters (MINI ARTBOOK)"
+              data-price="7"
+              data-category="zine"
+              data-image="/img/capumon_01.png">Acquista</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Product 4 -->
+      <article class="product-card">
+        <div class="product-image-wrap">
+          <img class="img-default" src="/img/rosacea_01.png" alt="Rosacea" />
+          <img class="img-hover" src="/img/rosacea_02.jpg" alt="Rosacea" />
+        </div>
+        <div class="product-info">
+          <div class="product-meta">
+            <span class="product-name">Rosacea</span>
+            <span class="product-tag">Zine</span>
+          </div>
+          <span class="product-author">Martina Lupo</span>
+          <div class="product-bottom">
+            <span class="product-price">€4</span>
+            <button class="product-buy"
+              data-name="Rosacea"
+              data-price="4"
+              data-category="zine"
+              data-image="/img/rosacea_01.png">Acquista</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Product 5 -->
+      <article class="product-card">
+        <div class="product-image-wrap">
+          <img class="img-default" src="/img/mylittlezine_01.png" alt="My Little Zine" />
+          <img class="img-hover" src="/img/mylittlezine_02.jpg" alt="My Little Zine" />
+        </div>
+        <div class="product-info">
+          <div class="product-meta">
+            <span class="product-name">My Little Zine</span>
+            <span class="product-tag">Zine</span>
+          </div>
+          <span class="product-author">Vic + Chiara</span>
+          <div class="product-bottom">
+            <span class="product-price">€3</span>
+            <button class="product-buy"
+              data-name="My Little Zine"
+              data-price="3"
+              data-category="zine"
+              data-image="/img/mylittlezine_01.png">Acquista</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Product 6 -->
+      <article class="product-card">
+        <div class="product-image-wrap">
+          <img class="img-default" src="/img/pappa_01.png" alt="è l'ora della pappa" />
+          <img class="img-hover" src="/img/pappa_02.jpg" alt="è l'ora della pappa" />
+        </div>
+        <div class="product-info">
+          <div class="product-meta">
+            <span class="product-name">E' l'ora della pappa</span>
+            <span class="product-tag">Zine</span>
+          </div>
+          <span class="product-author">Deth P. Sun</span>
+          <div class="product-bottom">
+            <span class="product-price">€5</span>
+            <button class="product-buy"
+              data-name="E' l'ora della pappa"
+              data-price="5"
+              data-category="zine"
+              data-image="/img/pappa_01.png">Acquista</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Product 7 -->
+      <article class="product-card">
+        <div class="product-image-wrap">
+          <img class="img-default" src="/img/primavera_01.png" alt="Primavera 2025 - Risograph A4" />
+          <img class="img-hover" src="/img/primavera_02.jpg" alt="Primavera 2025 - Risograph A4" />
+        </div>
+        <div class="product-info">
+          <div class="product-meta">
+            <span class="product-name">Primavera 2025 - Risograph A4</span>
+            <span class="product-tag">Stampe</span>
+          </div>
+          <span class="product-author">Vic Annibalini</span>
+          <div class="product-bottom">
+            <span class="product-price">€10</span>
+            <button class="product-buy"
+              data-name="Primavera 2025 - Risograph A4"
+              data-price="10"
+              data-category="stampa"
+              data-image="/img/stampe/victor/primavera_01.jpg">Acquista</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Product 8 -->
+      <article class="product-card">
+        <div class="product-image-wrap">
+          <img class="img-default" src="/img/ilpostodellevipere_01.png" alt="Il posto delle vipere" />
+          <img class="img-hover" src="/img/ilpostodellevipere_02.jpg" alt="Il posto delle vipere" />
+        </div>
+        <div class="product-info">
+          <div class="product-meta">
+            <span class="product-name">Il posto delle vipere</span>
+            <span class="product-tag">Zine</span>
+          </div>
+          <span class="product-author">Alice Savini</span>
+          <div class="product-bottom">
+            <span class="product-price">€7</span>
+            <button class="product-buy"
+              data-name="Il posto delle vipere"
+              data-price="7"
+              data-category="zine"
+              data-image="/img/ilpostodellevipere_01.jpg">Acquista</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Product 9 -->
+      <article class="product-card">
+        <div class="product-image-wrap">
+          <img class="img-default" src="/img/nostalgia_01.png" alt="Nostalgia Miseria" />
+          <img class="img-hover" src="/img/nostalgia_02.jpg" alt="Nostalgia Miseria" />
+        </div>
+        <div class="product-info">
+          <div class="product-meta">
+            <span class="product-name">Nostalgia Miseria</span>
+            <span class="product-tag">Zine</span>
+          </div>
+          <span class="product-author">L0sergod</span>
+          <div class="product-bottom">
+            <span class="product-price">€7</span>
+            <button class="product-buy"
+              data-name="Nostalgia Miseria"
+              data-price="7"
+              data-category="zine"
+              data-image="/img/nostalgia_01.jpg">Acquista</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Product 10 -->
+      <article class="product-card">
+        <div class="product-image-wrap">
+          <img class="img-default" src="/img/darkmagicbros_01.png" alt="Dark Magic Bros" />
+          <img class="img-hover" src="/img/darkmagicbros_02.jpg" alt="Dark Magic Bros" />
+        </div>
+        <div class="product-info">
+          <div class="product-meta">
+            <span class="product-name">Dark Magic Bros</span>
+            <span class="product-tag">Zine</span>
+          </div>
+          <span class="product-author">Deth P. Sun</span>
+          <div class="product-bottom">
+            <span class="product-price">€5</span>
+            <button class="product-buy"
+              data-name="Dark Magic Bros"
+              data-price="5"
+              data-category="zine"
+              data-image="/img/darkmagicbros_01.png">Acquista</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Product 11 -->
+      <article class="product-card">
+        <div class="product-image-wrap">
+          <img class="img-default" src="/img/pixelgore_01.png" alt="Pixelgore" />
+          <img class="img-hover" src="/img/pixelgore_02.jpg" alt="Pixelgore" />
+        </div>
+        <div class="product-info">
+          <div class="product-meta">
+            <span class="product-name">Pixelgore</span>
+            <span class="product-tag">Zine</span>
+          </div>
+          <span class="product-author">???</span>
+          <div class="product-bottom">
+            <span class="product-price">€5</span>
+            <button class="product-buy"
+              data-name="Pixelgore"
+              data-price="5"
+              data-category="zine"
+              data-image="/img/pixelgore_01.jpg">Acquista</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Product 12 -->
+      <article class="product-card">
+        <div class="product-image-wrap">
+          <img class="img-default" src="/img/blobblob_01.png" alt="Blob Blob - Risograph 10x15" />
+          <img class="img-hover" src="/img/blobblob_02.png" alt="Blob Blob - Risograph 10x15" />
+        </div>
+        <div class="product-info">
+          <div class="product-meta">
+            <span class="product-name">Blob Blob - Risograph 10x15</span>
+            <span class="product-tag">Stampa</span>
+          </div>
+          <span class="product-author">L0sergod</span>
+          <div class="product-bottom">
+            <span class="product-price">€7</span>
+            <button class="product-buy"
+              data-name="Blob Blob - Risograph 10x15"
+              data-price="7"
+              data-category="stampa"
+              data-image="/img/blobblob_01.png">Acquista</button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="products-footer">
+      <a href="#" class="view-all">Vedi tutto &rarr;</a>
+    </div>
+
+  </section>
+
+  <!-- WORDMARK -->
+  <section class="wordmark-section">
+    <span class="wordmark-text">Hanami Press</span>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <span class="footer-copy">Hanami Press, 2026</span>
+    <a href="https://www.instagram.com/hanami.press" target="_blank" rel="noopener" class="footer-instagram" aria-label="Instagram">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+        <circle cx="12" cy="12" r="4"/>
+        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+      </svg>
+    </a>
+  </footer>
+
+  <script src="cart.js"></script>
+
+</body>
+</html>
