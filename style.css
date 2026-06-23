@@ -583,7 +583,7 @@ img {
 .contact-value--muted {
   font-size: 0.85rem;
   line-height: 1.6;
-  opacity: 0.7;
+  opacity: 1;
 }
 
 /* ===========================
