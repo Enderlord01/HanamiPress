@@ -254,6 +254,11 @@
     grid-template-columns: 1fr;
   }
 
+  .product-page-gallery {
+    position: relative;
+    height: 70vh;
+  }
+
   .product-page-info {
     position: relative;
     height: auto;
