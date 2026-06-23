@@ -250,8 +250,15 @@
 
   .product-page {
     grid-template-columns: 1fr;
+    height: auto; 
   }
 
+  .product-page-gallery {
+    position: relative;
+    height: 70vh;
+    overflow: hidden;
+  }
+   
   .product-page-info {
     position: relative;
     height: auto;
