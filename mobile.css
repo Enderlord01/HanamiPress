@@ -244,19 +244,12 @@
     font-size: 1.75rem;
   }
 
-}
-
-/* -------------------------
+  /* -------------------------
      PAGINA PRODOTTO
      ------------------------- */
 
   .product-page {
     grid-template-columns: 1fr;
-  }
-
-  .product-page-gallery {
-    position: relative;
-    height: 70vh;
   }
 
   .product-page-info {
@@ -283,3 +276,5 @@
     align-items: stretch;
     gap: 1rem;
   }
+
+}
