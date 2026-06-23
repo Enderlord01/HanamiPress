@@ -1003,13 +1003,14 @@ img {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: start;
+  height: calc(100vh - 150px);
 }
 
 /* Colonna sinistra — carosello fisso */
 .product-page-gallery {
-  position: sticky;
+  position: relative;
   top: 0;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
 }
 
@@ -1090,9 +1091,9 @@ img {
 
 /* Colonna destra — fissa */
 .product-page-info {
-  position: sticky;
+  position: relative;
   top: 0;
-  height: 100vh;
+  height: 100%;
   border-left: var(--border);
   display: flex;
   align-items: center;
