@@ -97,12 +97,27 @@
   <!-- PRODOTTO -->
   <section class="product-page">
 
-    <!-- COLONNA SINISTRA — scorrevole -->
+    <!-- COLONNA SINISTRA — carosello fisso -->
     <div class="product-page-gallery">
-      <img src="/img/tagliatofuori_01.png" alt="Tagliato Fuori — copertina" />
-      <img src="/img/tagliatofuori_02.jpg" alt="Tagliato Fuori — pagina interna 1" />
-      <img src="/img/tagliatofuori_02.jpg" alt="Tagliato Fuori — pagina interna 2" />
-      <!-- Aggiungi o rimuovi <img> per cambiare il numero di foto -->
+      <div class="product-gallery-track">
+        <img src="/img/tagliatofuori_01.png" alt="Tagliato Fuori — copertina" class="gallery-slide is-active" />
+        <img src="/img/tagliatofuori_02.jpg" alt="Tagliato Fuori — pagina interna 1" class="gallery-slide" />
+        <img src="/img/tagliatofuori_03.jpg" alt="Tagliato Fuori — pagina interna 2" class="gallery-slide" />
+        <!-- Aggiungi o rimuovi <img class="gallery-slide"> per cambiare il numero di foto -->
+      </div>
+
+      <button class="gallery-arrow gallery-arrow--prev" aria-label="Foto precedente">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+      </button>
+      <button class="gallery-arrow gallery-arrow--next" aria-label="Foto successiva">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"/>
+        </svg>
+      </button>
+
+      <div class="gallery-dots"></div>
     </div>
 
     <!-- COLONNA DESTRA — fissa -->
@@ -171,6 +186,51 @@
   </footer>
 
   <script src="cart.js"></script>
+
+  <!-- CAROSELLO PRODOTTO -->
+  <script>
+    (function () {
+      const galleries = document.querySelectorAll('.product-page-gallery');
+
+      galleries.forEach(gallery => {
+        const slides = gallery.querySelectorAll('.gallery-slide');
+        const dotsContainer = gallery.querySelector('.gallery-dots');
+        const prevBtn = gallery.querySelector('.gallery-arrow--prev');
+        const nextBtn = gallery.querySelector('.gallery-arrow--next');
+        let current = 0;
+
+        // Crea i pallini dinamicamente in base al numero di immagini
+        slides.forEach((_, i) => {
+          const dot = document.createElement('button');
+          dot.classList.add('gallery-dot');
+          dot.setAttribute('aria-label', `Vai alla foto ${i + 1}`);
+          if (i === 0) dot.classList.add('is-active');
+          dot.addEventListener('click', () => goTo(i));
+          dotsContainer.appendChild(dot);
+        });
+
+        const dots = gallery.querySelectorAll('.gallery-dot');
+
+        function goTo(index) {
+          slides[current].classList.remove('is-active');
+          dots[current].classList.remove('is-active');
+          current = (index + slides.length) % slides.length;
+          slides[current].classList.add('is-active');
+          dots[current].classList.add('is-active');
+        }
+
+        prevBtn.addEventListener('click', () => goTo(current - 1));
+        nextBtn.addEventListener('click', () => goTo(current + 1));
+
+        // Nasconde le freccette se c'è una sola immagine
+        if (slides.length <= 1) {
+          prevBtn.style.display = 'none';
+          nextBtn.style.display = 'none';
+          dotsContainer.style.display = 'none';
+        }
+      });
+    })();
+  </script>
 
 </body>
 </html>
