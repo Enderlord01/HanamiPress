@@ -159,6 +159,7 @@
   .about-section {
     padding: 0;
     border-bottom: 1px solid #ff00ff;
+    hyphens: auto
   }
 
   .about-content {
