@@ -221,6 +221,8 @@ img {
 
 .product-image-wrap .img-hover {
   opacity: 0;
+  border-radius: 32px;
+  border: 16px solid var(--white) 
 }
 
 .product-card:hover .img-default {
