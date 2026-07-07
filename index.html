@@ -432,5 +432,28 @@
 
   <script src="/cart.js"></script>
 
+  <button id="back-to-top" class="back-to-top" aria-label="Torna in cima">
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="12" y1="19" x2="12" y2="5"/>
+    <polyline points="5 12 12 5 19 12"/>
+  </svg>
+</button>
+
+<script>
+  const backToTopBtn = document.getElementById('back-to-top');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) {
+      backToTopBtn.classList.add('is-visible');
+    } else {
+      backToTopBtn.classList.remove('is-visible');
+    }
+  });
+
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+
 </body>
 </html>
