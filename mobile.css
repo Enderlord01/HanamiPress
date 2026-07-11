@@ -291,4 +291,8 @@
     gap: 1rem;
   }
 
+  .film-grain {
+    display: none
+  }
+   
 }
