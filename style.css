@@ -141,7 +141,6 @@ img {
 .products-header {
   position: relative;
   padding: 1.25rem;
-  border-bottom: 2rem solid var(--white);
   font-family: Dela Gothic One;
   font-size: 2rem;
   font-weight: 100;
