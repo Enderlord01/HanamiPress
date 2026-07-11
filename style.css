@@ -67,10 +67,11 @@ img {
   letter-spacing: 0.01em;
   color: var(--white);
   justify-self: start;
+  transform: rotate(-5deg); 
 }
 
 .site-logo:hover {
-  transform: rotate(-5deg);
+  transform: rotate(-0deg);
 }
 
 .site-nav {
@@ -81,7 +82,7 @@ img {
 
 .site-nav a {
   font-family: Dela Gothic One;
-  font-size: 2rem;
+  font-size: 1rem;
   font-weight: 500;
   letter-spacing: 0.01em;
   text-transform: uppercase;
