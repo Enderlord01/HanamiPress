@@ -67,7 +67,7 @@ img {
   letter-spacing: 0.01em;
   color: var(--white);
   justify-self: start;
-  transform: rotate(-5deg); 
+  transform: rotate(-3deg); 
 }
 
 .site-logo:hover {
