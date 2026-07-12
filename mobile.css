@@ -128,7 +128,7 @@
   .products-header {
     font-size: 1.25rem;
     padding: 1rem 1.25rem;
-    text-align: center 
+    text-align: left 
   }
 
   /* -------------------------
@@ -294,5 +294,9 @@
   .film-grain {
     display: none
   }
-   
+
+  .products-footer {
+    padding: 1.25rem;
+  }
+  
 }
