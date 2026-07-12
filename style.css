@@ -307,17 +307,18 @@ img {
 
 /* View All Link */
 .products-footer {
-  padding: 1rem 1rem;
+  padding: 2rem;
   border-top: none;
   text-align: center;
+  background-color: var(--blue);
 }
 
 .view-all {
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--blue);
+  color: var(--white);
   text-underline-offset: 3px;
   transition: opacity 0.15s;
 }
