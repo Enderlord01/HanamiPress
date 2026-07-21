@@ -51,6 +51,95 @@
     <a href="/contatti.html">Contatti</a>
   </nav>
 
+  <!-- PANNELLO CARRELLO -->
+  <div id="cart-overlay" class="cart-overlay"></div>
+  <aside id="cart-panel" class="cart-panel">
+    <div class="cart-panel-header">
+      <span class="cart-panel-title">Carrello</span>
+      <button id="cart-close" class="cart-close" aria-label="Chiudi carrello">×</button>
+    </div>
+
+    <div id="cart-empty" class="cart-empty">
+      <span>Il tuo carrello è vuoto</span>
+    </div>
+
+    <div id="cart-items" class="cart-items"></div>
+
+    <div id="cart-footer" class="cart-footer" style="display: none;">
+      <div class="cart-zone-select">
+        <label for="cart-zone" class="cart-zone-label">Spedizione</label>
+        <select id="cart-zone" class="cart-zone-dropdown">
+          <option value="italy">Italia</option>
+          <option value="eu">Unione Europea</option>
+          <option value="world">Resto del mondo</option>
+        </select>
+      </div>
+
+      <div class="cart-totals">
+        <div class="cart-totals-row">
+          <span>Subtotale</span>
+          <span id="cart-subtotal">€0.00</span>
+        </div>
+        <div class="cart-totals-row">
+          <span>Spedizione</span>
+          <span id="cart-shipping">€0.00</span>
+        </div>
+        <div class="cart-totals-row cart-totals-row--total">
+          <span>Totale</span>
+          <span id="cart-total">€0.00</span>
+        </div>
+      </div>
+
+      <button id="cart-checkout-btn" class="cart-checkout-btn">Vai al pagamento</button>
+    </div>
+  </aside>
+  
+  <!-- TICKER -->
+  <div class="ticker-section">
+    <div class="ticker-track">
+      <span>Zine</span>
+      <span class="ticker-dot">·</span>
+      <span>Stampe</span>
+      <span class="ticker-dot">·</span>
+      <span>Uncinetto</span>
+      <span class="ticker-dot">·</span>
+      <span>Spillette</span>
+      <span class="ticker-dot">·</span>
+      <span>Zine</span>
+      <span class="ticker-dot">·</span>
+      <span>Stampe</span>
+      <span class="ticker-dot">·</span>
+      <span>Uncinetto</span>
+      <span class="ticker-dot">·</span>
+      <span>Spillette</span>
+      <span class="ticker-dot">·</span>
+      <span>Zine</span>
+      <span class="ticker-dot">·</span>
+      <span>Stampe</span>
+      <span class="ticker-dot">·</span>
+      <span>Uncinetto</span>
+      <span class="ticker-dot">·</span>
+      <span>Spillette</span>
+      <span class="ticker-dot">·</span>
+      <span>Zine</span>
+      <span class="ticker-dot">·</span>
+      <span>Stampe</span>
+      <span class="ticker-dot">·</span>
+      <span>Uncinetto</span>
+      <span class="ticker-dot">·</span>
+      <span>Spillette</span>
+      <span class="ticker-dot">·</span>
+      <span>Zine</span>
+      <span class="ticker-dot">·</span>
+      <span>Stampe</span>
+      <span class="ticker-dot">·</span>
+      <span>Uncinetto</span>
+      <span class="ticker-dot">·</span>
+      <span>Spillette</span>
+      <span class="ticker-dot">·</span>
+    </div>
+  </div>
+  
   <!-- PAGE HEADER -->
   <div class="products-header">
     <span>Contatti</span>
@@ -101,6 +190,15 @@
   </footer>
 
 <script src="/cart.js"></script>
+
+<video
+  class="grain"
+  autoplay
+  muted
+  loop
+  playsinline>
+  <source src="/grain.webm" type="video/webm">
+</video>  
 
 </body>
 </html>
