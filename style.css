@@ -195,7 +195,7 @@ img {
   padding-top: 100%;
   overflow: hidden;
   border-bottom: var(--border);
-  background-color: var(--blue); 
+  background-color: var(--white); 
 }
 
 .product-image-wrap .img-default,
