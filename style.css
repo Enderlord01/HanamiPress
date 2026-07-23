@@ -195,7 +195,7 @@ img {
   padding-top: 100%;
   overflow: hidden;
   border-bottom: var(--border);
-  background-image: linear-gradient(to bottom, var(--white) 50%, var(--blue)); 
+  background-color: var(--blue); 
 }
 
 .product-image-wrap .img-default,
