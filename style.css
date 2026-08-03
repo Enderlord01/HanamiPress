@@ -71,7 +71,7 @@ img {
 }
 
 .site-logo:hover {
-  transform: rotate(-0deg);
+  transform: rotate(2deg);
 }
 
 .site-nav {
