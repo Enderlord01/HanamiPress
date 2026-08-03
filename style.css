@@ -303,6 +303,7 @@ img {
   background-color: var(--white);
   color: var(--blue);
   outline: 2px solid #ff00ff;
+  transform: rotate(-3deg);
 }
 
 /* View All Link */
