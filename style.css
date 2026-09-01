@@ -958,6 +958,14 @@ img {
   line-height: 1.2;
 }
 
+.success-subtitle {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--blue);
+  opacity: 1;
+  margin-top: -1rem;
+}
+
 .success-button {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 0.85rem;
