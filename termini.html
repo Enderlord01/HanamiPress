@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Termini e Condizioni di Vendita — Hanami Press</title>
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="/mobile.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <a href="/" class="site-logo">Hanami Press</a>
+    <nav class="site-nav">
+      <a href="/catalogo.html">Catalogo</a>
+      <a href="#">Zine</a>
+      <a href="#">Stampe</a>
+      <a href="/eventi.html">Eventi</a>
+      <a href="/autori.html">Autori</a>
+      <a href="/contatti.html">Contatti</a>
+    </nav>
+    <div class="site-header-right">
+      <button id="cart-trigger" class="cart-trigger" aria-label="Apri carrello">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="9" cy="21" r="1"/>
+          <circle cx="20" cy="21" r="1"/>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+        </svg>
+        <span id="cart-count" class="cart-count">0</span>
+      </button>
+      <button class="nav-hamburger" aria-label="Menu" onclick="this.classList.toggle('is-open'); document.getElementById('nav-mobile').classList.toggle('is-open')">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav id="nav-mobile" class="nav-mobile">
+    <a href="/catalogo.html">Catalogo</a>
+    <a href="#">Zine</a>
+    <a href="#">Stampe</a>
+    <a href="/eventi.html">Eventi</a>
+    <a href="/autori.html">Autori</a>
+    <a href="/contatti.html">Contatti</a>
+  </nav>
+
+  <div id="cart-overlay" class="cart-overlay"></div>
+  <aside id="cart-panel" class="cart-panel">
+    <div class="cart-panel-header">
+      <span class="cart-panel-title">Carrello</span>
+      <button id="cart-close" class="cart-close" aria-label="Chiudi carrello">×</button>
+    </div>
+    <div id="cart-empty" class="cart-empty"><span>Il tuo carrello è vuoto</span></div>
+    <div id="cart-items" class="cart-items"></div>
+    <div id="cart-footer" class="cart-footer" style="display: none;">
+      <div class="cart-zone-select">
+        <label for="cart-zone" class="cart-zone-label">Spedizione</label>
+        <select id="cart-zone" class="cart-zone-dropdown">
+          <option value="italy">Italia</option>
+          <option value="eu">Unione Europea</option>
+          <option value="world">Resto del mondo</option>
+        </select>
+      </div>
+      <div class="cart-totals">
+        <div class="cart-totals-row"><span>Subtotale</span><span id="cart-subtotal">€0.00</span></div>
+        <div class="cart-totals-row"><span>Spedizione</span><span id="cart-shipping">€0.00</span></div>
+        <div class="cart-totals-row cart-totals-row--total"><span>Totale</span><span id="cart-total">€0.00</span></div>
+      </div>
+      <button id="cart-checkout-btn" class="cart-checkout-btn">Vai al pagamento</button>
+    </div>
+  </aside>
+
+  <div class="products-header">
+    <span>Termini e Condizioni</span>
+  </div>
+
+  <section class="legal-section">
+
+    <!-- INDICE LATERALE -->
+    <nav class="legal-index">
+      <span class="legal-index-label">Indice</span>
+      <a href="#chi-siamo" class="legal-index-link"><span class="legal-index-num">01</span>Chi siamo</a>
+      <a href="#prodotti" class="legal-index-link"><span class="legal-index-num">02</span>Prodotti e prezzi</a>
+      <a href="#pagamenti" class="legal-index-link"><span class="legal-index-num">03</span>Pagamenti</a>
+      <a href="#spedizioni" class="legal-index-link"><span class="legal-index-num">04</span>Spedizioni</a>
+      <a href="#recesso" class="legal-index-link"><span class="legal-index-num">05</span>Diritto di recesso</a>
+      <a href="#danneggiati" class="legal-index-link"><span class="legal-index-num">06</span>Prodotti danneggiati</a>
+      <a href="#proprieta" class="legal-index-link"><span class="legal-index-num">07</span>Proprietà intellettuale</a>
+      <a href="#legge" class="legal-index-link"><span class="legal-index-num">08</span>Legge applicabile</a>
+    </nav>
+
+    <div class="legal-content">
+
+      <p class="legal-updated">Ultimo aggiornamento: [inserisci data]</p>
+
+      <article class="legal-block" id="chi-siamo">
+        <span class="legal-block-num">01</span>
+        <h2 class="legal-heading">Chi siamo</h2>
+        <p class="legal-text">Hanami Press è un progetto di micro editoria indipendente. Vendite gestite da [inserisci ragione sociale / nome e cognome], [inserisci indirizzo], [inserisci P.IVA/CF se applicabile]. Contatti: <a href="mailto:hanami.press.contact@gmail.com" class="legal-link">hanami.press.contact@gmail.com</a>.</p>
+      </article>
+
+      <article class="legal-block" id="prodotti">
+        <span class="legal-block-num">02</span>
+        <h2 class="legal-heading">Prodotti e prezzi</h2>
+        <p class="legal-text">I prezzi indicati sul sito sono espressi in Euro (€) e si intendono comprensivi di IVA dove applicabile, esclusi i costi di spedizione che vengono mostrati separatamente prima della conferma dell'ordine. Ci riserviamo il diritto di modificare i prezzi in qualsiasi momento; il prezzo applicato è sempre quello indicato al momento dell'ordine.</p>
+      </article>
+
+      <article class="legal-block" id="pagamenti">
+        <span class="legal-block-num">03</span>
+        <h2 class="legal-heading">Pagamenti</h2>
+        <p class="legal-text">Accettiamo pagamenti tramite carta di credito/debito e PayPal, elaborati in modo sicuro da Stripe. Non conserviamo mai i dati della tua carta di pagamento.</p>
+      </article>
+
+      <article class="legal-block" id="spedizioni">
+        <span class="legal-block-num">04</span>
+        <h2 class="legal-heading">Spedizioni</h2>
+        <p class="legal-text">Spediamo in Italia, nell'Unione Europea e nel resto del mondo. I costi di spedizione variano in base alla destinazione e al contenuto dell'ordine, e sono mostrati chiaramente nel carrello prima del pagamento. I tempi di spedizione indicativi sono di [inserisci tempistica, es. 3-5 giorni lavorativi per l'Italia]. Non siamo responsabili per ritardi imputabili al corriere o a eventi fuori dal nostro controllo.</p>
+      </article>
+
+      <article class="legal-block" id="recesso">
+        <span class="legal-block-num">05</span>
+        <h2 class="legal-heading">Diritto di recesso</h2>
+        <p class="legal-text">Se sei un consumatore residente nell'Unione Europea, hai diritto di recedere dal contratto entro 14 giorni dalla ricezione del prodotto, senza necessità di fornire motivazione, ai sensi del Codice del Consumo (D.Lgs. 206/2005) e della Direttiva 2011/83/UE. Per esercitare il diritto di recesso, scrivi a <a href="mailto:hanami.press.contact@gmail.com" class="legal-link">hanami.press.contact@gmail.com</a> entro il termine indicato. Le spese di reso sono a carico del cliente, salvo diversamente specificato. Il rimborso avverrà entro 14 giorni dalla ricezione del prodotto reso, tramite lo stesso metodo di pagamento utilizzato per l'acquisto.</p>
+        <p class="legal-text">Il diritto di recesso non si applica a prodotti realizzati su misura o personalizzati, se applicabile al tuo catalogo.</p>
+      </article>
+
+      <article class="legal-block" id="danneggiati">
+        <span class="legal-block-num">06</span>
+        <h2 class="legal-heading">Prodotti danneggiati o difettosi</h2>
+        <p class="legal-text">Se ricevi un prodotto danneggiato durante il trasporto o difettoso, contattaci entro [inserisci termine, es. 7 giorni] dalla ricezione scrivendo a <a href="mailto:hanami.press.contact@gmail.com" class="legal-link">hanami.press.contact@gmail.com</a> con foto del danno. Provvederemo alla sostituzione o al rimborso.</p>
+      </article>
+
+      <article class="legal-block" id="proprieta">
+        <span class="legal-block-num">07</span>
+        <h2 class="legal-heading">Proprietà intellettuale</h2>
+        <p class="legal-text">Tutte le zine, stampe e opere vendute su questo sito sono protette da diritto d'autore. L'acquisto di un prodotto non trasferisce alcun diritto di riproduzione, distribuzione o sfruttamento commerciale dell'opera, che restano in capo all'autore/autrice.</p>
+      </article>
+
+      <article class="legal-block" id="legge">
+        <span class="legal-block-num">08</span>
+        <h2 class="legal-heading">Legge applicabile</h2>
+        <p class="legal-text">Le presenti condizioni sono regolate dalla legge italiana. Per qualsiasi controversia sarà competente il foro del consumatore, ove applicabile.</p>
+      </article>
+
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <span class="footer-copy">Hanami Press, 2026</span>
+    <a href="https://www.instagram.com/hanami.press" target="_blank" rel="noopener" class="footer-instagram" aria-label="Instagram">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+        <circle cx="12" cy="12" r="4"/>
+        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+      </svg>
+    </a>
+  </footer>
+
+  <script src="/cart.js"></script>
+  <script src="/cookie-consent.js"></script>
+
+</body>
+</html>
