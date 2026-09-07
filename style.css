@@ -398,11 +398,36 @@ img {
 
 .site-footer {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
-  padding: 0 1.25rem;
-  height: 56px;
+  padding: 1.25rem;
+  height: auto;
   border-top: none;
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-legal {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.footer-legal a {
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: var(--blue);
+  opacity: 0.6;
+  transition: opacity 0.15s;
+}
+
+.footer-legal a:hover {
+  opacity: 1;
 }
 
 .footer-copy {
