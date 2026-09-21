@@ -10,8 +10,8 @@
 }
 
 :root {
-  --blue: #ff00ff;
-  --white: #0b2c34;
+  --blue: #ff87ff;
+  --white: #0a2d15;
   --border: 1px solid #ff00ff;
 }
 
@@ -151,7 +151,7 @@ img {
   font-size: 2rem;
   font-weight: 100;
   text-transform: uppercase;
-  background-color: #00ffa1;
+  background-color: #fffeea;
   color: var(--white);
 }
 
@@ -290,7 +290,7 @@ img {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--white);
-  background-color: #00ffa1;
+  background-color: #fffeea;
   border: none;
   padding: 0.45rem 0.85rem;
   cursor: pointer;
@@ -385,11 +385,11 @@ img {
 .about-text {
   font-family: Bricolage Grotesque;
   font-size: 2rem;
-  font-weight: 400;
+  font-weight: 800;
   line-height: 1.2;
-  color: #00ffa1;
+  color: #fffeea;
   letter-spacing: 0.01em;
-  text-align: justify;
+  text-align: left;
 }
 
 /* ===========================
@@ -497,7 +497,7 @@ img {
   letter-spacing: -0.02em;
   text-transform: uppercase;
   line-height: 1;
-  color: #00ffa1;
+  color: #fffeea;
   white-space: nowrap;
 }
 
