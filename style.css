@@ -292,7 +292,7 @@ img {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--green);
-  background-color: #fffeea;
+  background-color: #ffffeb;
   border: none;
   padding: 0.45rem 0.85rem;
   cursor: pointer;
@@ -312,7 +312,7 @@ img {
   padding: 2rem;
   border-top: none;
   text-align: center;
-  background-color: #fffeea;
+  background-color: #ffffeb;
 }
 
 .view-all {
@@ -389,7 +389,7 @@ img {
   font-size: 2rem;
   font-weight: 800;
   line-height: 1.2;
-  color: #fffeea;
+  color: #ffffeb;
   letter-spacing: 0.01em;
   text-align: left;
 }
@@ -499,7 +499,7 @@ img {
   letter-spacing: -0.02em;
   text-transform: uppercase;
   line-height: 1;
-  color: #fffeea;
+  color: #ffffeb;
   green-space: nowrap;
 }
 
