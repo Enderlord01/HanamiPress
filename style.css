@@ -303,7 +303,7 @@ img {
 .product-buy:hover {
   background-color: var(--white);
   color: var(--blue);
-  outline: 2px solid #ff00ff;
+  outline: 2px solid #ff87ff;
   transform: rotate(-3deg);
 }
 
@@ -639,7 +639,7 @@ img {
 .map-marker {
   width: 28px;
   height: 28px;
-  background-color: #ff00ff;
+  background-color: #ff87ff;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -662,7 +662,7 @@ img {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 0.8rem;
   padding: 0.4rem 0;
-  border-top: 1px solid #ff00ff;
+  border-top: 1px solid #ff87ff;
 }
 
 .popup-event span {
