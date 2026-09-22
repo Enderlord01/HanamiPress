@@ -44,7 +44,7 @@
     display: block;
     width: 100%;
     height: 2px;
-    background-color: var(--white);
+    background-color: var(--green);
     transition: transform 0.2s, opacity 0.2s;
   }
 
@@ -72,7 +72,7 @@
     top: 75px;
     left: 0;
     right: 0;
-    background-color: var(--white);
+    background-color: var(--green);
     border-bottom: var(--border);
     z-index: 10000;
   }
