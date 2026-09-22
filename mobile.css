@@ -162,7 +162,7 @@
 
   .about-section {
     padding: 0;
-    border-bottom: 1px solid #ff00ff;
+    border-bottom: 1px solid #ff87ff;
     hyphens: auto
   }
 
@@ -183,7 +183,7 @@
   }
 
   .about-text {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 
   .about-image-col {
