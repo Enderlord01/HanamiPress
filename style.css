@@ -166,7 +166,7 @@ img {
   grid-template-rows: repeat(2, auto);
   grid-auto-rows: 1fr;
   gap: 1px;
-  background-color: var(--blu);
+  background-color: var(--blue);
 }
 
 .product-card {
