@@ -1023,213 +1023,6 @@ img {
 }
 
 /* ===========================
-   PAGINA PRODOTTO
-   =========================== */
-
-.product-page {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: start;
-  height: calc(100vh - 150px);
-}
-
-/* Colonna sinistra — carosello fisso */
-.product-page-gallery {
-  position: relative;
-  top: 0;
-  height: 100%;
-  overflow: hidden;
-}
-
-.product-gallery-track {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.gallery-slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.gallery-slide.is-active {
-  opacity: 1;
-}
-
-.gallery-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  color: var(--pink);
-  cursor: pointer;
-  z-index: 5;
-  padding: 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.15s;
-}
-
-.gallery-arrow:hover {
-  opacity: 0.6;
-}
-
-.gallery-arrow--prev {
-  left: 1rem;
-}
-
-.gallery-arrow--next {
-  right: 1rem;
-}
-
-.gallery-dots {
-  position: absolute;
-  bottom: 1.5rem;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  z-index: 5;
-}
-
-.gallery-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: none;
-  border: 1px solid var(--pink);
-  cursor: pointer;
-  padding: 0;
-  transition: background-color 0.15s;
-}
-
-.gallery-dot.is-active {
-  background-color: var(--pink);
-}
-
-/* Colonna destra — fissa */
-.product-page-info {
-  position: relative;
-  top: 0;
-  height: 100%;
-  border-left: var(--border);
-  display: flex;
-  align-items: center;
-  overflow-y: auto;
-}
-
-.product-page-info-inner {
-  padding: 3rem 2.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-  width: 100%;
-}
-
-.product-page-tag {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--pink);
-  border: var(--border);
-  padding: 0.2rem 0.6rem;
-  border-radius: 8px;
-  width: fit-content;
-}
-
-.product-page-title {
-  font-family: Dela Gothic One;
-  font-size: 2.5rem;
-  font-weight: 400;
-  text-transform: uppercase;
-  color: #00ffa1;
-  line-height: 1.1;
-}
-
-.product-page-author {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--pink);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  width: fit-content;
-}
-
-.product-page-author:hover {
-  opacity: 0.6;
-}
-
-.product-page-description {
-  font-family: Bricolage Grotesque;
-  font-size: 1.1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: var(--pink);
-  opacity: 0.85;
-}
-
-.product-page-specs {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  border-top: var(--border);
-  border-bottom: var(--border);
-  padding: 1.25rem 0;
-}
-
-.product-page-spec {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.product-page-spec dt {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--pink);
-  opacity: 0.5;
-  flex-shrink: 0;
-}
-
-.product-page-spec dd {
-  font-size: 0.9rem;
-  color: var(--pink);
-  text-align: right;
-}
-
-.product-page-purchase {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  margin-top: 0.5rem;
-}
-
-.product-page-price {
-  font-size: 2rem;
-  font-weight: 300;
-  color: var(--pink);
-}
-
-.product-page-purchase .product-buy {
-  flex: 1;
-  padding: 0.85rem 1.5rem;
-  font-size: 0.85rem;
-}
-
-/* ===========================
    TORNA IN CIMA
    =========================== */
 
@@ -1526,4 +1319,175 @@ img {
 
 .cookie-banner-btn:hover {
   opacity: 0.75;
+}
+
+/* ===========================
+   PAGINA PRODOTTO — MODELLO (.pp)
+   Sostituisce i vecchi blocchi .product-page-* e .gallery-*
+   =========================== */
+
+.pp {
+  /* altezza dell'header sticky: regola se serve */
+  --header-h: 80px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+}
+
+/* ---------- GALLERIA (desktop: colonna che scorre) ---------- */
+
+.pp-gallery {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.pp-gallery-track {
+  display: flex;
+  flex-direction: column;
+}
+
+.pp-gallery-slide {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-bottom: var(--border);
+}
+
+.pp-gallery-slide:last-child {
+  border-bottom: none;
+}
+
+.pp-dots {
+  display: none;
+}
+
+/* ---------- SCHEDA (desktop: colonna fissa) ---------- */
+
+.pp-side {
+  grid-column: 2;
+  grid-row: 1;
+  position: sticky;
+  top: var(--header-h);
+  height: calc(100vh - var(--header-h));
+  border-left: var(--border);
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+  overflow-y: auto;
+}
+
+.pp-head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.pp-title {
+  font-family: Dela Gothic One;
+  font-size: 2.5rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #00ffa1;
+  line-height: 1.1;
+}
+
+.pp-author {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--blue);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  width: fit-content;
+}
+
+.pp-author:hover {
+  opacity: 0.6;
+}
+
+.pp-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.pp-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue);
+  border: var(--border);
+  padding: 0.2rem 0.6rem;
+  border-radius: 8px;
+  width: fit-content;
+}
+
+.pp-description {
+  font-family: Bricolage Grotesque;
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--blue);
+  opacity: 0.85;
+}
+
+/* Specifiche: griglia a due colonne, tutte le etichette allineate */
+.pp-specs {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.75rem 1.5rem;
+  border-top: var(--border);
+  border-bottom: var(--border);
+  padding: 1.25rem 0;
+}
+
+.pp-spec {
+  display: contents;
+}
+
+.pp-spec dt {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue);
+  opacity: 0.5;
+  white-space: nowrap;
+}
+
+.pp-spec dd {
+  font-size: 0.9rem;
+  color: var(--blue);
+  text-align: right;
+}
+
+.pp-purchase {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.pp-price {
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--blue);
+}
+
+.pp-purchase .product-buy {
+  flex: 1;
+  padding: 0.85rem 1.5rem;
+  font-size: 0.85rem;
+}
+
+/* ---------- TI POTREBBE PIACERE PURE ----------
+   Usa le classi della home (.products-section, .products-grid,
+   .product-card...). Serve solo posizionarla sotto le due colonne. */
+
+.pp-related {
+  grid-column: 1 / -1;
+  grid-row: 2;
 }
