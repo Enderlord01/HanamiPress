@@ -1377,6 +1377,7 @@ img {
   justify-content: center;
   gap: 1.5rem;
   overflow-y: auto;
+  background-color: #ffffeb;
 }
 
 .pp-head {
@@ -1390,7 +1391,7 @@ img {
   font-size: 2.5rem;
   font-weight: 400;
   text-transform: uppercase;
-  color: #00ffa1;
+  color: var(--pink);
   line-height: 1.1;
 }
 
@@ -1418,7 +1419,7 @@ img {
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--blue);
+  color: var(--pink);
   border: var(--border);
   padding: 0.2rem 0.6rem;
   border-radius: 8px;
@@ -1427,11 +1428,11 @@ img {
 
 .pp-description {
   font-family: Bricolage Grotesque;
-  font-size: 1.1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: var(--blue);
-  opacity: 0.85;
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--green);
+  opacity: 1;
 }
 
 /* Specifiche: griglia a due colonne, tutte le etichette allineate */
@@ -1449,19 +1450,21 @@ img {
 }
 
 .pp-spec dt {
-  font-size: 0.75rem;
+  font-family: Bricolage Grotesque;
+  font-size: 1rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  letter-spacing: 0.01em;
   color: var(--blue);
-  opacity: 0.5;
+  opacity: 1;
   white-space: nowrap;
 }
 
 .pp-spec dd {
-  font-size: 0.9rem;
-  color: var(--blue);
+  font-family: Bricolage Grotesque;
+  font-size: 1rem;
+  color: var(--green);
   text-align: right;
+  font-weight: 800;
 }
 
 .pp-purchase {
@@ -1469,12 +1472,14 @@ img {
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
+  background-color: var(--pink);
 }
 
 .pp-price {
+  font-family: Bricolage Grotesque;
   font-size: 2rem;
-  font-weight: 300;
-  color: var(--blue);
+  font-weight: 800;
+  color: var(--pink);
 }
 
 .pp-purchase .product-buy {
