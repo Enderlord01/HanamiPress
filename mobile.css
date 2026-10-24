@@ -87,7 +87,7 @@
     font-weight: 100;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    color: var(--blue);
+    color: var(--pink);
     padding: 1rem 1.25rem;
     border-bottom: var(--border);
   }
@@ -311,7 +311,7 @@
              Ti potrebbe piacere pure > Footer
      ------------------------- */
 
-  .pp {
+  .pp-main {
     grid-template-columns: 1fr;
   }
 
@@ -344,12 +344,7 @@
     grid-column: 1;
     padding: 1.5rem 1.25rem;
     border-top: var(--border);
-  }
-
-  .pp-related {
-    order: 4;
-    grid-column: 1;
-    grid-row: auto;
+    background-color: #ffffeb; /* come la scheda desktop: senza, testo verde su verde */
   }
 
   /* Carosello orizzontale con scroll-snap */
@@ -387,13 +382,13 @@
     height: 8px;
     border-radius: 50%;
     background: none;
-    border: 1px solid var(--blue);
+    border: 1px solid var(--pink);
     padding: 0;
     cursor: pointer;
   }
 
   .pp-dot.is-active {
-    background-color: var(--blue);
+    background-color: var(--pink);
   }
 
   .pp-description {
@@ -405,3 +400,228 @@
     align-items: stretch;
     gap: 1rem;
   }
+
+}
+
+/* ===========================
+   iPad / tablet in VERTICALE (600–1100px)
+   In orizzontale non cambia nulla.
+   =========================== */
+
+@media (min-width: 600px) and (max-width: 1100px) and (orientation: portrait) {
+
+  /* HEADER — hamburger al posto del menu a 6 voci */
+  .site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .site-nav {
+    display: none;
+  }
+
+  .site-logo {
+    font-size: 1.5rem;
+    justify-self: unset;
+  }
+
+  .nav-hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    flex-shrink: 0;
+    align-self: center;
+    transform: translateY(2px);
+  }
+
+  .nav-hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--green);
+    transition: transform 0.2s, opacity 0.2s;
+  }
+
+  .nav-hamburger.is-open span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  .nav-hamburger.is-open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-hamburger.is-open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .cart-trigger {
+    align-self: center;
+    justify-self: unset;
+  }
+
+  .nav-mobile {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 75px;
+    left: 0;
+    right: 0;
+    background-color: var(--green);
+    border-bottom: var(--border);
+    z-index: 10000;
+  }
+
+  .nav-mobile.is-open {
+    display: flex;
+  }
+
+  .nav-mobile a {
+    font-family: Dela Gothic One, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 100;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--pink);
+    padding: 1rem 1.25rem;
+    border-bottom: var(--border);
+  }
+
+  .nav-mobile a:last-child {
+    border-bottom: none;
+  }
+
+  /* CAROSELLO E TICKER */
+  .carousel-item {
+    width: 340px;
+    height: 230px;
+  }
+
+  .ticker-track span {
+    font-size: 1.5rem;
+  }
+
+  /* PRODOTTI — 2 colonne (anche nei correlati) */
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: none;
+  }
+
+  .products-header {
+    font-size: 1.5rem;
+  }
+
+  /* CHI SIAMO / AUTORI / NEWSLETTER */
+  .about-content {
+    min-height: 320px;
+  }
+
+  .about-label {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .about-text {
+    font-size: 1.5rem;
+  }
+
+  .newsletter-header {
+    font-size: 1.5rem;
+  }
+
+  /* PAGINE LEGALI */
+  .legal-section {
+    grid-template-columns: 220px 1fr;
+  }
+
+  /* PAGINA PRODOTTO — come su mobile:
+     Titolo > Autore > Carosello > Informazioni > Ti potrebbe piacere */
+  .pp-main {
+    grid-template-columns: 1fr;
+  }
+
+  .pp-side {
+    display: contents;
+  }
+
+  .pp-head {
+    order: 1;
+    grid-column: 1;
+    padding: 2rem 1.25rem 1.5rem;
+    gap: 0.5rem;
+    border-bottom: var(--border);
+  }
+
+  .pp-title {
+    font-size: 2rem;
+  }
+
+  .pp-gallery {
+    order: 2;
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .pp-details {
+    order: 3;
+    grid-column: 1;
+    padding: 2rem 1.25rem;
+    border-top: var(--border);
+    background-color: #ffffeb;
+  }
+
+  .pp-gallery-track {
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .pp-gallery-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .pp-gallery-slide {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 70vw;
+    max-height: 60vh;
+    object-fit: cover;
+    border-bottom: none;
+    scroll-snap-align: start;
+  }
+
+  .pp-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.9rem 0;
+  }
+
+  .pp-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: none;
+    border: 1px solid var(--pink);
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .pp-dot.is-active {
+    background-color: var(--pink);
+  }
+
+  .pp-purchase {
+    gap: 1rem;
+  }
+
+}
