@@ -251,7 +251,7 @@ img {
   font-weight: 700;
   letter-spacing: 0.01em;
   text-transform: uppercas;
-  color: var(--pink);
+  color: var(--green);
   line-height: 1.2;
 }
 
@@ -260,10 +260,10 @@ img {
   font-weight: 400;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--pink);
-  border: var(--border);
+  color: var(--green);
+  border: 1px solid var(--green);
   padding: 0.1rem 0.4rem;
-  green-space: nowrap;
+  white-space: nowrap;
   flex-shrink: 0;
   border-radius: 8px;
 }
@@ -271,8 +271,8 @@ img {
 .product-author {
   font-size: 1rem;
   font-weight: 800;
-  color: var(--pink);
-  opacity: 0.55;
+  color: var(--green);
+  opacity: 0.7;
   letter-spacing: 0.02em;
 }
 
@@ -289,7 +289,7 @@ img {
   font-size: 2rem;
   font-weight: 800;
   letter-spacing: 0.02em;
-  color: var(--pink);
+  color: var(--green);
 }
 
 .product-buy {
@@ -1618,20 +1618,4 @@ img {
   .cart-trigger {
     margin-left: 1rem;
   }
-}
-
-/* Card su sfondo crema: testi in verde per restare leggibili */
-.product-card .product-name,
-.product-card .product-author,
-.product-card .product-price,
-.product-card .product-tag {
-  color: var(--green);
-}
-
-.product-card .product-tag {
-  border-color: var(--green);
-}
-
-.product-card .product-author {
-  opacity: 0.7;
 }
