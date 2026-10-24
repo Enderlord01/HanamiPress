@@ -1498,3 +1498,35 @@ img {
   position: relative;
   z-index: 1;
 }
+
+/* ===========================
+   CARD PRODOTTO CLICCABILE
+   Il link sta sul nome; ::after lo estende a tutta la card.
+   Il pulsante "Acquista" resta sopra e continua a funzionare.
+   =========================== */
+
+.product-card {
+  position: relative;
+}
+
+.product-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.product-card .product-buy {
+  position: relative;
+  z-index: 2;
+}
+
+.product-card:hover .product-name {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Descrizione vuota: niente spazio vuoto */
+.pp-description:empty {
+  display: none;
+}

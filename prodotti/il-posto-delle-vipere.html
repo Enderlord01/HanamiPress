@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Il posto delle vipere di Alice Savini — Hanami Press</title>
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="/mobile.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <a href="/" class="site-logo">Hanami Press</a>
+    <nav class="site-nav">
+      <a href="/catalogo.html">Catalogo</a>
+      <a href="#">Zine</a>
+      <a href="#">Stampe</a>
+      <a href="/eventi.html">Eventi</a>
+      <a href="/autori.html">Autori</a>
+      <a href="/contatti.html">Contatti</a>
+    </nav>
+    <div class="site-header-right">
+      <button id="cart-trigger" class="cart-trigger" aria-label="Apri carrello">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="9" cy="21" r="1"/>
+          <circle cx="20" cy="21" r="1"/>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+        </svg>
+        <span id="cart-count" class="cart-count">0</span>
+      </button>
+      <button class="nav-hamburger" aria-label="Menu" onclick="this.classList.toggle('is-open'); document.getElementById('nav-mobile').classList.toggle('is-open')">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav id="nav-mobile" class="nav-mobile">
+    <a href="/catalogo.html">Catalogo</a>
+    <a href="#">Zine</a>
+    <a href="#">Stampe</a>
+    <a href="/eventi.html">Eventi</a>
+    <a href="/autori.html">Autori</a>
+    <a href="/contatti.html">Contatti</a>
+  </nav>
+
+  <!-- PANNELLO CARRELLO -->
+  <div id="cart-overlay" class="cart-overlay"></div>
+  <aside id="cart-panel" class="cart-panel">
+    <div class="cart-panel-header">
+      <span class="cart-panel-title">Carrello</span>
+      <button id="cart-close" class="cart-close" aria-label="Chiudi carrello">×</button>
+    </div>
+    <div id="cart-empty" class="cart-empty"><span>Il tuo carrello è vuoto</span></div>
+    <div id="cart-items" class="cart-items"></div>
+    <div id="cart-footer" class="cart-footer" style="display: none;">
+      <div class="cart-zone-select">
+        <label for="cart-zone" class="cart-zone-label">Spedizione</label>
+        <select id="cart-zone" class="cart-zone-dropdown">
+          <option value="italy">Italia</option>
+          <option value="eu">Unione Europea</option>
+          <option value="world">Resto del mondo</option>
+        </select>
+      </div>
+      <div class="cart-totals">
+        <div class="cart-totals-row"><span>Subtotale</span><span id="cart-subtotal">€0.00</span></div>
+        <div class="cart-totals-row"><span>Spedizione</span><span id="cart-shipping">€0.00</span></div>
+        <div class="cart-totals-row cart-totals-row--total"><span>Totale</span><span id="cart-total">€0.00</span></div>
+      </div>
+      <button id="cart-checkout-btn" class="cart-checkout-btn">Vai al pagamento</button>
+    </div>
+  </aside>
+
+  <!-- ===========================================================
+       PAGINA PRODOTTO — MODELLO
+       Per un nuovo prodotto cambia: <title>, titolo, autore,
+       immagini, descrizione, specifiche, prezzo, attributi data-*
+       del bottone e i prodotti in "Ti potrebbe piacere pure".
+
+       Ordine su MOBILE (gestito dal CSS, non serve toccare l'HTML):
+       Titolo > Autore > Carosello foto > Informazioni >
+       Ti potrebbe piacere pure > Footer
+       =========================================================== -->
+  <main class="pp">
+
+    <!-- Le due colonne stanno nel loro contenitore: la scheda fissa si
+         ferma qui e non copre "Ti potrebbe piacere pure" -->
+    <div class="pp-main">
+
+    <!-- GALLERIA
+         Desktop: foto in colonna, scorrono con la pagina.
+         Mobile: carosello orizzontale con pallini. -->
+    <div class="pp-gallery">
+      <div class="pp-gallery-track">
+        <img class="pp-gallery-slide" src="/img/zine/ilpostodellevipere/ilpostodellevipere_01.jpg" alt="Il posto delle vipere — foto 1" />
+        <!-- Aggiungi o rimuovi <img class="pp-gallery-slide"> a piacere:
+             i pallini su mobile si adattano da soli -->
+      </div>
+      <div class="pp-dots" aria-hidden="true"></div>
+    </div>
+
+    <!-- SCHEDA PRODOTTO
+         Desktop: colonna destra fissa.
+         Mobile: titolo e autore stanno sopra la galleria, il resto sotto. -->
+    <aside class="pp-side">
+
+      <header class="pp-head">
+        <h1 class="pp-title">Il posto delle vipere</h1>
+        <a href="/autori.html" class="pp-author">Alice Savini</a>
+      </header>
+
+      <div class="pp-details">
+
+        <span class="pp-tag">Zine</span>
+
+        <p class="pp-description"></p>
+
+        <dl class="pp-specs">
+          <div class="pp-spec"><dt>Autore</dt><dd>Alice Savini</dd></div>
+          <div class="pp-spec"><dt>Anno</dt><dd></dd></div>
+          <div class="pp-spec"><dt>Rilegatura</dt><dd></dd></div>
+          <div class="pp-spec"><dt>Formato</dt><dd></dd></div>
+          <div class="pp-spec"><dt>Carta</dt><dd></dd></div>
+          <div class="pp-spec"><dt>Colore</dt><dd></dd></div>
+        </dl>
+
+        <div class="pp-purchase">
+          <span class="pp-price">€7</span>
+          <button class="product-buy"
+            data-name="Il posto delle vipere"
+            data-price="7"
+            data-category="zine"
+            data-image="/img/zine/ilpostodellevipere/ilpostodellevipere_01.jpg">Aggiungi al carrello</button>
+        </div>
+
+      </div>
+    </aside>
+
+    </div><!-- /pp-main -->
+
+    <!-- TI POTREBBE PIACERE PURE (stesse classi della home) -->
+    <section class="products-section pp-related">
+      <div class="products-header">
+        <span>Ti potrebbe piacere pure</span>
+      </div>
+      <div class="products-grid">
+        <article class="product-card">
+          <div class="product-image-wrap">
+            <img class="img-default" src="/img/stampe/victor/primavera_01.jpg" alt="Primavera 2025 - Risograph A4" />
+            <img class="img-hover" src="/img/stampe/victor/primavera_02.jpg" alt="Primavera 2025 - Risograph A4" />
+          </div>
+          <div class="product-info">
+            <div class="product-meta">
+              <a href="/prodotti/primavera-2025.html" class="product-link"><span class="product-name">Primavera 2025 - Risograph A4</span></a>
+              <span class="product-tag">Stampa</span>
+            </div>
+            <span class="product-author">Vic Annibalini</span>
+            <div class="product-bottom">
+              <span class="product-price">€10</span>
+              <button class="product-buy"
+                data-name="Primavera 2025 - Risograph A4"
+                data-price="10"
+                data-category="stampa"
+                data-image="/img/stampe/victor/primavera_01.jpg">Acquista</button>
+            </div>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-image-wrap">
+            <img class="img-default" src="/img/zine/nostalgia/nostalgia_01.jpg" alt="Nostalgia Miseria" />
+            <img class="img-hover" src="/img/zine/nostalgia/nostalgia_01.jpg" alt="Nostalgia Miseria" />
+          </div>
+          <div class="product-info">
+            <div class="product-meta">
+              <a href="/prodotti/nostalgia-miseria.html" class="product-link"><span class="product-name">Nostalgia Miseria</span></a>
+              <span class="product-tag">Zine</span>
+            </div>
+            <span class="product-author">L0sergod</span>
+            <div class="product-bottom">
+              <span class="product-price">€7</span>
+              <button class="product-buy"
+                data-name="Nostalgia Miseria"
+                data-price="7"
+                data-category="zine"
+                data-image="/img/zine/nostalgia/nostalgia_01.jpg">Acquista</button>
+            </div>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-image-wrap">
+            <img class="img-default" src="/img/zine/darkmagicbros/darkmagicbros_01.jpg" alt="Dark Magic Bros" />
+            <img class="img-hover" src="/img/zine/darkmagicbros/darkmagicbros_01.jpg" alt="Dark Magic Bros" />
+          </div>
+          <div class="product-info">
+            <div class="product-meta">
+              <a href="/prodotti/dark-magic-bros.html" class="product-link"><span class="product-name">Dark Magic Bros</span></a>
+              <span class="product-tag">Zine</span>
+            </div>
+            <span class="product-author">Deth P. Sun</span>
+            <div class="product-bottom">
+              <span class="product-price">€5</span>
+              <button class="product-buy"
+                data-name="Dark Magic Bros"
+                data-price="5"
+                data-category="zine"
+                data-image="/img/zine/darkmagicbros/darkmagicbros_01.jpg">Acquista</button>
+            </div>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-image-wrap">
+            <img class="img-default" src="/img/zine/pixelgore/pixelgore_01.jpg" alt="Pixelgore" />
+            <img class="img-hover" src="/img/zine/pixelgore/pixelgore_01.jpg" alt="Pixelgore" />
+          </div>
+          <div class="product-info">
+            <div class="product-meta">
+              <a href="/prodotti/pixelgore.html" class="product-link"><span class="product-name">Pixelgore</span></a>
+              <span class="product-tag">Zine</span>
+            </div>
+            <span class="product-author">???</span>
+            <div class="product-bottom">
+              <span class="product-price">€5</span>
+              <button class="product-buy"
+                data-name="Pixelgore"
+                data-price="5"
+                data-category="zine"
+                data-image="/img/zine/pixelgore/pixelgore_01.jpg">Acquista</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-left">
+      <nav class="footer-legal">
+        <a href="/cookie-policy.html">Cookie</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/termini.html">Termini</a>
+      </nav>
+      <span class="footer-copy">Hanami Press, 2026</span>
+    </div>
+    <a href="https://www.instagram.com/hanami.press" target="_blank" rel="noopener" class="footer-instagram" aria-label="Instagram">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+        <circle cx="12" cy="12" r="4"/>
+        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+      </svg>
+    </a>
+  </footer>
+
+  <script src="/cart.js"></script>
+  <script src="/cookie-consent.js"></script>
+
+  <!-- Pallini del carosello (visibili solo su mobile) -->
+  <script>
+    (function () {
+      const track = document.querySelector('.pp-gallery-track');
+      const dotsBox = document.querySelector('.pp-dots');
+      if (!track || !dotsBox) return;
+
+      const slides = track.querySelectorAll('.pp-gallery-slide');
+      if (slides.length <= 1) { dotsBox.style.display = 'none'; return; }
+
+      slides.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'pp-dot' + (i === 0 ? ' is-active' : '');
+        dot.setAttribute('aria-label', 'Vai alla foto ' + (i + 1));
+        dot.addEventListener('click', () => {
+          track.scrollTo({ left: i * track.clientWidth, behavior: 'smooth' });
+        });
+        dotsBox.appendChild(dot);
+      });
+
+      const dots = dotsBox.querySelectorAll('.pp-dot');
+      track.addEventListener('scroll', () => {
+        const index = Math.round(track.scrollLeft / track.clientWidth);
+        dots.forEach((d, i) => d.classList.toggle('is-active', i === index));
+      }, { passive: true });
+    })();
+  </script>
+
+</body>
+</html>
