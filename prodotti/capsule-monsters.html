@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Capsule Monsters (VERDE) di Game Freak — Hanami Press</title>
+  <title>Capsule Monsters di Game Freak — Hanami Press</title>
   <link rel="stylesheet" href="/style.css" />
   <link rel="stylesheet" href="/mobile.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -98,8 +98,8 @@
          Mobile: carosello orizzontale con pallini. -->
     <div class="pp-gallery">
       <div class="pp-gallery-track">
-        <img class="pp-gallery-slide" src="/img/capumon_01.png" alt="Capsule Monsters (VERDE) — foto 1" />
-        <img class="pp-gallery-slide" src="/img/capumon_02.jpg" alt="Capsule Monsters (VERDE) — foto 2" />
+        <img class="pp-gallery-slide" src="/img/capumon_01.png" alt="Capsule Monsters — foto 1" />
+        <img class="pp-gallery-slide" src="/img/capumon_02.jpg" alt="Capsule Monsters — foto 2" />
         <!-- Aggiungi o rimuovi <img class="pp-gallery-slide"> a piacere:
              i pallini su mobile si adattano da soli -->
       </div>
@@ -112,23 +112,29 @@
     <aside class="pp-side">
 
       <header class="pp-head">
-        <h1 class="pp-title">Capsule Monsters (VERDE)</h1>
+        <h1 class="pp-title">Capsule Monsters</h1>
         <a href="/autori.html" class="pp-author">Game Freak</a>
       </header>
 
       <div class="pp-details">
 
         <span class="pp-tag">Zine</span>
+        <fieldset class="pp-variants">
+          <legend>Colore</legend>
+          <label><input type="radio" name="variant" value="VERDE" checked><span>Verde</span></label>
+          <label><input type="radio" name="variant" value="ROSSO"><span>Rosso</span></label>
+        </fieldset>
+
 
         <p class="pp-description"></p>
 
         <dl class="pp-specs">
           <div class="pp-spec"><dt>Autore</dt><dd>Game Freak</dd></div>
-          <div class="pp-spec"><dt>Anno</dt><dd></dd></div>
-          <div class="pp-spec"><dt>Rilegatura</dt><dd></dd></div>
+          <div class="pp-spec"><dt>Anno</dt><dd>2026</dd></div>
+          <div class="pp-spec"><dt>Rilegatura</dt><dd>Filo</dd></div>
           <div class="pp-spec"><dt>Formato</dt><dd></dd></div>
-          <div class="pp-spec"><dt>Carta</dt><dd></dd></div>
-          <div class="pp-spec"><dt>Colore</dt><dd></dd></div>
+          <div class="pp-spec"><dt>Carta</dt><dd>160gsm + 100gsm</dd></div>
+          <div class="pp-spec"><dt>Colore</dt><dd>B/N</dd></div>
         </dl>
 
         <div class="pp-purchase">
@@ -287,6 +293,18 @@
         const index = Math.round(track.scrollLeft / track.clientWidth);
         dots.forEach((d, i) => d.classList.toggle('is-active', i === index));
       }, { passive: true });
+    })();
+  </script>
+
+  <script>
+    // Capsule Monsters: la scelta del colore decide quale articolo va nel carrello
+    (function () {
+      var btn = document.querySelector('.pp-purchase .product-buy');
+      document.querySelectorAll('input[name="variant"]').forEach(function (r) {
+        r.addEventListener('change', function () {
+          btn.dataset.name = 'Capsule Monsters (' + r.value + ')';
+        });
+      });
     })();
   </script>
 

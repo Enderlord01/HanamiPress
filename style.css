@@ -1530,3 +1530,54 @@ img {
 .pp-description:empty {
   display: none;
 }
+
+/* Scelta del colore (Capsule Monsters) */
+.pp-variants {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+.pp-variants legend {
+  float: left;
+  padding: 0;
+  margin-right: 0.6rem;
+  font-family: Bricolage Grotesque;
+  font-weight: 700;
+  color: var(--green);
+}
+
+.pp-variants label {
+  cursor: pointer;
+}
+
+.pp-variants input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.pp-variants span {
+  display: inline-block;
+  padding: 0.3rem 0.9rem;
+  border: 1px solid var(--green);
+  border-radius: 8px;
+  font-family: Bricolage Grotesque;
+  font-weight: 700;
+  color: var(--green);
+}
+
+.pp-variants input:checked + span {
+  background-color: var(--green);
+  color: #ffffeb;
+}
+
+.pp-variants input:focus-visible + span {
+  outline: 2px solid var(--pink);
+  outline-offset: 2px;
+}
