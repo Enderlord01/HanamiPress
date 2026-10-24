@@ -250,7 +250,7 @@ img {
   font-size: 2rem;
   font-weight: 700;
   letter-spacing: 0.01em;
-  text-transform: uppercas;
+  text-transform: uppercase;
   color: var(--green);
   line-height: 1.2;
 }
@@ -466,7 +466,7 @@ img {
   border-bottom: none;
   border-top: none;
   padding: 1.25rem 0;
-  green-space: nowrap;
+  white-space: nowrap;
 }
 
 .ticker-track {
@@ -507,7 +507,7 @@ img {
   text-transform: uppercase;
   line-height: 1;
   color: #ffffeb;
-  green-space: nowrap;
+  white-space: nowrap;
 }
 
 /* ===========================
@@ -559,7 +559,7 @@ img {
   border-radius: 8px;
   transition: background-color 0.15s, color 0.15s;
   text-decoration: none;
-  green-space: nowrap;
+  white-space: nowrap;
 }
 
 .newsletter-button:hover {
