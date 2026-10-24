@@ -183,7 +183,7 @@ img {
   flex-direction: column;
   height: 100%;
   box-sizing: border-box;
-  background-color: var(--green);
+  background-color: #ffffeb;
 }
 
 .product-card:nth-child(4n) {
@@ -298,8 +298,8 @@ img {
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--green);
-  background-color: #ffffeb;
+  color: #ffffeb;
+  background-color: var(--green);
   border: none;
   padding: 0.45rem 0.85rem;
   cursor: pointer;
@@ -309,8 +309,8 @@ img {
 
 .product-buy:hover {
   background-color: var(--green);
-  color: var(--pink);
-  outline: 2px solid #ff87ff;
+  color: #ffffeb;
+  outline: 2px solid var(--green);
   transform: rotate(-3deg);
 }
 
@@ -1618,4 +1618,20 @@ img {
   .cart-trigger {
     margin-left: 1rem;
   }
+}
+
+/* Card su sfondo crema: testi in verde per restare leggibili */
+.product-card .product-name,
+.product-card .product-author,
+.product-card .product-price,
+.product-card .product-tag {
+  color: var(--green);
+}
+
+.product-card .product-tag {
+  border-color: var(--green);
+}
+
+.product-card .product-author {
+  opacity: 0.7;
 }
