@@ -1481,7 +1481,7 @@ img {
   font-family: Bricolage Grotesque;
   font-size: 2rem;
   font-weight: 800;
-  color: var(--pink);
+  color: var(--green); /* era rosa su sfondo rosa: invisibile */
 }
 
 .pp-purchase .product-buy {
