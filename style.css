@@ -67,6 +67,7 @@ img {
   letter-spacing: 0.01em;
   color: var(--green);
   justify-self: start; 
+  white-space: nowrap;
 }
 
 .site-logo:hover {
@@ -91,6 +92,12 @@ img {
 
 .site-nav a:hover {
   transform: rotate(-5deg);
+}
+
+.site-header-right {
+  display: flex;
+  align-items: center;
+  justify-self: end;
 }
 
 .cart-trigger {
@@ -1488,6 +1495,14 @@ img {
   flex: 1;
   padding: 0.85rem 1.5rem;
   font-size: 0.85rem;
+  background-color: var(--green);
+  color: #ffffeb;
+}
+
+.pp-purchase .product-buy:hover {
+  background-color: var(--green);
+  color: #ffffeb;
+  outline: 2px solid #ffffeb;
 }
 
 /* ---------- TI POTREBBE PIACERE PURE ----------
@@ -1580,4 +1595,27 @@ img {
 .pp-variants input:focus-visible + span {
   outline: 2px solid var(--pink);
   outline-offset: 2px;
+}
+
+/* ===========================
+   HEADER su schermi medi (iPad in orizzontale, finestre strette)
+   Il menu si stringe così il logo non va a capo.
+   =========================== */
+
+@media (min-width: 769px) and (max-width: 1200px) {
+  .site-logo {
+    font-size: 1.6rem;
+  }
+
+  .site-nav {
+    gap: 1.25rem;
+  }
+
+  .site-nav a {
+    font-size: 0.85rem;
+  }
+
+  .cart-trigger {
+    margin-left: 1rem;
+  }
 }
