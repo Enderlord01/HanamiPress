@@ -1637,3 +1637,133 @@ img {
   height: 22px;
   display: block;
 }
+
+/* ===========================
+   EVENTI — TENDINE
+   =========================== */
+
+.events-section {
+  border-bottom: var(--border);
+}
+
+.event-item {
+  border-bottom: var(--border);
+}
+
+.event-item:last-child {
+  border-bottom: none;
+}
+
+.event-summary {
+  display: grid;
+  grid-template-columns: 5rem 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 1.25rem;
+  cursor: pointer;
+  list-style: none;
+  color: var(--pink);
+}
+
+.event-summary::-webkit-details-marker {
+  display: none;
+}
+
+.event-num {
+  font-family: Dela Gothic One, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.5rem;
+}
+
+.event-title {
+  font-family: Dela Gothic One, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  line-height: 1.2;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.event-toggle {
+  position: relative;
+  width: 22px;
+  height: 22px;
+}
+
+.event-toggle::before,
+.event-toggle::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 22px;
+  height: 2px;
+  background-color: var(--pink);
+  transform: translate(-50%, -50%);
+  transition: transform 0.2s;
+}
+
+.event-toggle::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.event-item[open] .event-toggle::after {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.event-item[open] .event-summary,
+.event-summary:hover {
+  background-color: var(--pink);
+  color: var(--green);
+}
+
+.event-item[open] .event-toggle::before,
+.event-item[open] .event-toggle::after,
+.event-summary:hover .event-toggle::before,
+.event-summary:hover .event-toggle::after {
+  background-color: var(--green);
+}
+
+.event-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.5rem 1.25rem 1.5rem calc(1.25rem + 5rem + 1rem);
+  background-color: #ffffeb;
+  color: var(--green);
+  font-size: 1rem;
+}
+
+.event-info {
+  display: flex;
+  gap: 1rem;
+}
+
+.event-label {
+  min-width: 4rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  align-self: center;
+}
+
+.event-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.event-link {
+  background-color: var(--green);
+  color: #ffffeb;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.event-link:hover {
+  background-color: var(--pink);
+  color: var(--green);
+}

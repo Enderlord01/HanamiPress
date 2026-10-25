@@ -152,6 +152,14 @@
     <div id="map"></div>
   </section>
 
+  <!-- ELENCO BANCHETTI -->
+  <div class="products-header">
+    <span>Tutti i banchetti</span>
+  </div>
+  <section class="events-section">
+    <div id="events-list" class="events-list"></div>
+  </section>
+
   <!-- FOOTER -->
 <footer class="site-footer">
   <div class="footer-left">
@@ -173,6 +181,53 @@
 
     <script src="/cart.js"></script>
 
+  <script>
+    const mercatini = [
+      { coords: [45.079388335059086, 7.698951186152351], nome: 'Suca Fest', citta: 'Torino', data: '17-18 Ottobre 2026', instagram: '' },
+      { coords: [41.9372010664445, 12.54097523527974], nome: 'Bada Festival 2026', citta: 'Roma', data: '2-3-4 Ottobre 2026', instagram: '' },
+      { coords: [44.50732203080067, 11.352828177716741], nome: 'Urca Festival 2026', citta: 'Bologna', data: '12-13 Settembre 2026', instagram: '' },
+      { coords: [43.90572842217128, 12.89835324435294], nome: 'Zoe Minimicro Festival', citta: 'Pesaro', data: '19-20-21 Giugno 2026', instagram: '' },
+      { coords: [44.491717579597115, 11.378220299163745], nome: 'PrPr Fest 2026', citta: 'Bologna', data: '23-24 Maggio 2026', instagram: '' },
+      { coords: [44.31018798925323, 12.3664519150844], nome: 'Beach Market by Incantina', citta: 'Lido Di Savio', data: '26 Aprile 2026', instagram: '' },
+      { coords: [43.85354710536593, 13.004486504677295], nome: 'Spervengul 2026', citta: 'Fano', data: '11 Aprile 2026', instagram: '' },
+      { coords: [43.97974912166839, 12.68972400349463], nome: 'Fumetti Futuri', citta: 'Misano Adriatico', data: '21 Marzo 2026', instagram: '' },
+      { coords: [43.91333209223348, 12.911590506526736], nome: 'Serpe Fest', citta: 'Pesaro', data: '14-15 Marzo 2026', instagram: '' },
+      { coords: [41.9372010664445, 12.54097523527974], nome: 'Bada Festival 2025', citta: 'Roma', data: '3-4-5 Ottobre 2025', instagram: '' },
+      { coords: [44.50732203080067, 11.352828177716741], nome: 'Urca Festival 2025', citta: 'Bologna', data: '13-14 Settembre 2025', instagram: '' },
+      { coords: [43.60004396693247, 13.49744512304513], nome: 'Brutta Kina', citta: 'Ancona', data: '12-13 Luglio 2025', instagram: '' },
+      { coords: [44.49487741711372, 11.331277716348053], nome: 'PrPr Fest 2025', citta: 'Bologna', data: '18 Maggio 2025', instagram: '' },
+      { coords: [43.85354710536593, 13.004486504677295], nome: 'Spervengul 2025', citta: 'Fano', data: '5 Aprile 2026', instagram: '' },
+      { coords: [41.9372010664445, 12.54097523527974], nome: 'Bada Festival 2024', citta: 'Roma', data: '4-5-6 Ottobre 2024', instagram: '' },
+      { coords: [44.494766933773754, 11.353468122870739], nome: 'Festa Delle Strade Strette', citta: 'Bologna', data: '21 Settembre 2024', instagram: '' },  
+    ];
+
+    // Tendine: stesse informazioni della mappa, numerate dal più vecchio (01) al più recente
+    const lista = document.getElementById('events-list');
+    mercatini.forEach((m, i) => {
+      const num = String(mercatini.length - i).padStart(2, '0');
+      const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${m.coords[0]},${m.coords[1]}`;
+      const ig = m.instagram
+        ? `<a class="event-link" href="${m.instagram}" target="_blank" rel="noopener">Instagram</a>`
+        : '';
+      const el = document.createElement('details');
+      el.className = 'event-item';
+      el.innerHTML = `
+        <summary class="event-summary">
+          <span class="event-num">${num}</span>
+          <span class="event-title">${m.nome}</span>
+          <span class="event-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="event-body">
+          <div class="event-info"><span class="event-label">Data</span><span>${m.data}</span></div>
+          <div class="event-info"><span class="event-label">Città</span><span>${m.citta}</span></div>
+          <div class="event-links">
+            <a class="event-link" href="${mapsUrl}" target="_blank" rel="noopener">Apri mappa</a>
+            ${ig}
+          </div>
+        </div>`;
+      lista.appendChild(el);
+    });
+  </script>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
   <script>
@@ -208,24 +263,6 @@
       popupAnchor: [0, -16]
     });
 
-    const mercatini = [
-      { coords: [45.079388335059086, 7.698951186152351], nome: 'Suca Fest', citta: 'Torino', data: '17-18 Ottobre 2026' },
-      { coords: [41.9372010664445, 12.54097523527974], nome: 'Bada Festival 2026', citta: 'Roma', data: '2-3-4 Ottobre 2026' },
-      { coords: [44.50732203080067, 11.352828177716741], nome: 'Urca Festival 2026', citta: 'Bologna', data: '12-13 Settembre 2026' },
-      { coords: [43.90572842217128, 12.89835324435294], nome: 'Zoe Minimicro Festival', citta: 'Pesaro', data: '19-20-21 Giugno 2026' },
-      { coords: [44.491717579597115, 11.378220299163745], nome: 'PrPr Fest 2026', citta: 'Bologna', data: '23-24 Maggio 2026' },
-      { coords: [44.31018798925323, 12.3664519150844], nome: 'Beach Market by Incantina', citta: 'Lido Di Savio', data: '26 Aprile 2026' },
-      { coords: [43.85354710536593, 13.004486504677295], nome: 'Spervengul 2026', citta: 'Fano', data: '11 Aprile 2026' },
-      { coords: [43.97974912166839, 12.68972400349463], nome: 'Fumetti Futuri', citta: 'Misano Adriatico', data: '21 Marzo 2026' },
-      { coords: [43.91333209223348, 12.911590506526736], nome: 'Serpe Fest', citta: 'Pesaro', data: '14-15 Marzo 2026' },
-      { coords: [41.9372010664445, 12.54097523527974], nome: 'Bada Festival 2025', citta: 'Roma', data: '3-4-5 Ottobre 2025' },
-      { coords: [44.50732203080067, 11.352828177716741], nome: 'Urca Festival 2025', citta: 'Bologna', data: '13-14 Settembre 2025' },
-      { coords: [43.60004396693247, 13.49744512304513], nome: 'Brutta Kina', citta: 'Ancona', data: '12-13 Luglio 2025' },
-      { coords: [44.49487741711372, 11.331277716348053], nome: 'PrPr Fest 2025', citta: 'Bologna', data: '18 Maggio 2025' },
-      { coords: [43.85354710536593, 13.004486504677295], nome: 'Spervengul 2025', citta: 'Fano', data: '5 Aprile 2026' },
-      { coords: [41.9372010664445, 12.54097523527974], nome: 'Bada Festival 2024', citta: 'Roma', data: '4-5-6 Ottobre 2024' },
-      { coords: [44.494766933773754, 11.353468122870739], nome: 'Festa Delle Strade Strette', citta: 'Bologna', data: '21 Settembre 2024' },  
-    ];
 
     mercatini.forEach(m => {
       const marker = L.marker(m.coords, { icon })
@@ -240,6 +277,7 @@
     });
 
     map.addLayer(markers);
+
 
   </script>
 
