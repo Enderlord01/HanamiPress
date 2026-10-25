@@ -1699,6 +1699,7 @@ img {
 }
 
 .event-body {
+  overflow: hidden;
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding: 1rem 1.25rem 2rem;

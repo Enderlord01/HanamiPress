@@ -229,6 +229,27 @@
           </dl>
         </div>`;
       lista.appendChild(el);
+
+      // Apertura e chiusura morbide
+      const summary = el.querySelector('summary');
+      const body = el.querySelector('.event-body');
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let anim = null;
+      const opts = { duration: 300, easing: 'ease-out' };
+
+      summary.addEventListener('click', e => {
+        e.preventDefault();
+        if (reduce) { el.open = !el.open; return; }
+        if (anim) anim.cancel();
+        if (!el.open) {
+          el.open = true;
+          anim = body.animate({ height: ['0px', body.offsetHeight + 'px'], opacity: [0, 1] }, opts);
+          anim.onfinish = () => { anim = null; };
+        } else {
+          anim = body.animate({ height: [body.offsetHeight + 'px', '0px'], opacity: [1, 0] }, opts);
+          anim.onfinish = () => { el.open = false; anim = null; };
+        }
+      });
     });
   </script>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
