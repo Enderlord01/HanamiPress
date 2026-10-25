@@ -207,25 +207,49 @@
       const num = String(mercatini.length - i).padStart(2, '0');
       const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${m.coords[0]},${m.coords[1]}`;
       const ig = m.instagram
-        ? `<a class="event-link" href="${m.instagram}" target="_blank" rel="noopener">Instagram</a>`
+        ? `<dt>Instagram</dt><dd><a href="${m.instagram}" target="_blank" rel="noopener">Apri profilo</a></dd>`
         : '';
       const el = document.createElement('details');
       el.className = 'event-item';
       el.innerHTML = `
         <summary class="event-summary">
-          <span class="event-num">${num}</span>
+          <span class="event-meta">
+            <span>N. ${num}</span><span class="event-arrow"></span>
+            <span>${m.citta}</span><span class="event-arrow"></span>
+            <span>${m.data}</span>
+          </span>
           <span class="event-title">${m.nome}</span>
-          <span class="event-toggle" aria-hidden="true"></span>
         </summary>
         <div class="event-body">
-          <div class="event-info"><span class="event-label">Data</span><span>${m.data}</span></div>
-          <div class="event-info"><span class="event-label">Città</span><span>${m.citta}</span></div>
-          <div class="event-links">
-            <a class="event-link" href="${mapsUrl}" target="_blank" rel="noopener">Apri mappa</a>
+          <dl class="event-details">
+            <dt>Data</dt><dd>${m.data}</dd>
+            <dt>Città</dt><dd>${m.citta}</dd>
+            <dt>Mappa</dt><dd><a href="${mapsUrl}" target="_blank" rel="noopener">Apri mappa</a></dd>
             ${ig}
-          </div>
+          </dl>
         </div>`;
       lista.appendChild(el);
+
+      // Apertura e chiusura morbide
+      const summary = el.querySelector('summary');
+      const body = el.querySelector('.event-body');
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let anim = null;
+      const opts = { duration: 300, easing: 'ease-out' };
+
+      summary.addEventListener('click', e => {
+        e.preventDefault();
+        if (reduce) { el.open = !el.open; return; }
+        if (anim) anim.cancel();
+        if (!el.open) {
+          el.open = true;
+          anim = body.animate({ height: ['0px', body.offsetHeight + 'px'], opacity: [0, 1] }, opts);
+          anim.onfinish = () => { anim = null; };
+        } else {
+          anim = body.animate({ height: [body.offsetHeight + 'px', '0px'], opacity: [1, 0] }, opts);
+          anim.onfinish = () => { el.open = false; anim = null; };
+        }
+      });
     });
   </script>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
