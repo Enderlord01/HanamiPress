@@ -703,8 +703,8 @@ img {
   position: absolute;
   top: -6px;
   right: -8px;
-  background-color: #00ffa1;
-  color: var(--green);
+  background-color: var(--green);
+  color: #ffffeb;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 0.65rem;
   font-weight: 700;
@@ -724,7 +724,7 @@ img {
 .cart-overlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(15, 55, 25, 0.6);
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.25s;
@@ -747,7 +747,7 @@ img {
   height: 100%;
   width: 400px;
   max-width: 90vw;
-  background-color: var(--green);
+  background-color: #ffffeb;
   border-left: var(--border);
   z-index: 9999;
   display: flex;
@@ -771,14 +771,14 @@ img {
 .cart-panel-title {
   font-family: Dela Gothic One;
   font-size: 1.5rem;
-  color: #00ffa1;
+  color: var(--pink);
   text-transform: uppercase;
 }
 
 .cart-close {
   background: none;
   border: none;
-  color: var(--pink);
+  color: var(--green);
   font-size: 1.75rem;
   line-height: 1;
   cursor: pointer;
@@ -793,7 +793,7 @@ img {
   padding: 2rem;
   text-align: center;
   font-size: 0.9rem;
-  color: var(--pink);
+  color: var(--green);
   opacity: 0.6;
 }
 
@@ -834,12 +834,12 @@ img {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.01em;
-  color: var(--pink);
+  color: var(--green);
 }
 
 .cart-item-price {
   font-size: 0.8rem;
-  color: var(--pink);
+  color: var(--green);
   opacity: 0.7;
 }
 
@@ -856,8 +856,8 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #00ffa1;
-  color: var(--green);
+  background-color: var(--green);
+  color: #ffffeb;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -872,7 +872,7 @@ img {
 
 .qty-value {
   font-size: 0.85rem;
-  color: var(--pink);
+  color: var(--green);
   min-width: 16px;
   text-align: center;
 }
@@ -880,7 +880,7 @@ img {
 .cart-item-remove {
   background: none;
   border: none;
-  color: var(--pink);
+  color: var(--green);
   font-size: 1.25rem;
   cursor: pointer;
   opacity: 0.5;
@@ -911,16 +911,16 @@ img {
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--pink);
+  color: var(--green);
   opacity: 0.6;
 }
 
 .cart-zone-dropdown {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 0.85rem;
-  color: var(--pink);
-  background-color: var(--green);
-  border: var(--border);
+  color: var(--green);
+  background-color: #ffffeb;
+  border: 1px solid var(--green);
   padding: 0.5rem;
   border-radius: 4px;
 }
@@ -935,7 +935,7 @@ img {
   display: flex;
   justify-content: space-between;
   font-size: 0.85rem;
-  color: var(--pink);
+  color: var(--green);
 }
 
 .cart-totals-row--total {
@@ -952,8 +952,8 @@ img {
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--green);
-  background-color: #00ffa1;
+  color: #ffffeb;
+  background-color: var(--green);
   border: none;
   padding: 0.85rem;
   cursor: pointer;
@@ -987,7 +987,7 @@ img {
 .success-text {
   font-family: Dela Gothic One;
   font-size: 2.5rem;
-  color: #00ffa1;
+  color: var(--pink);
   text-transform: uppercase;
   line-height: 1.2;
 }
@@ -1131,7 +1131,7 @@ img {
 .legal-index-num {
   font-family: Dela Gothic One;
   font-size: 0.7rem;
-  color: #00ffa1;
+  color: var(--pink);
   flex-shrink: 0;
 }
 
@@ -1170,7 +1170,7 @@ img {
 .legal-block-num {
   font-family: Dela Gothic One;
   font-size: 1.5rem;
-  color: #00ffa1;
+  color: var(--pink);
   line-height: 1;
 }
 
@@ -1319,7 +1319,7 @@ img {
 }
 
 .cookie-banner-btn--filled {
-  background-color: #00ffa1;
+  background-color: var(--pink);
   border: none;
   color: var(--green);
 }
