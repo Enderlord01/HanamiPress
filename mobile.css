@@ -63,6 +63,8 @@
   .cart-trigger {
     align-self: center;
     justify-self: unset;
+    margin-left: auto;
+    margin-right: 0;
   }
 
   .nav-mobile {
@@ -232,7 +234,7 @@
   }
 
   .wordmark-text {
-    font-size: calc((100vw - 2.5rem) / 10);
+    font-size: calc(100cqw / 10.2);
   }
 
   /* -------------------------
@@ -465,6 +467,8 @@
   .cart-trigger {
     align-self: center;
     justify-self: unset;
+    margin-left: auto;
+    margin-right: 0;
   }
 
   .nav-mobile {
