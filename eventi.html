@@ -213,12 +213,10 @@
       el.className = 'event-item';
       el.innerHTML = `
         <summary class="event-summary">
-          <span class="event-meta">
-            <span>N. ${num}</span><span class="event-arrow"></span>
-            <span>${m.citta}</span><span class="event-arrow"></span>
-            <span>${m.data}</span>
-          </span>
+          <span class="event-num">${num}</span>
           <span class="event-title">${m.nome}</span>
+          <span class="event-meta">${m.citta} · ${m.data}</span>
+          <span class="event-toggle" aria-hidden="true"></span>
         </summary>
         <div class="event-body">
           <dl class="event-details">
