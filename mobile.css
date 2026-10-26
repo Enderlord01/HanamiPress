@@ -653,10 +653,36 @@
 
 }
 
-/* Eventi — tendine su mobile e iPad verticale */
+/* Eventi — tendine su iPad verticale e mobile (come .products-header) */
 @media (max-width: 1100px) {
-  .event-title {
+  .event-summary {
+    grid-template-columns: 3rem minmax(0, 1fr) auto;
+    column-gap: 1rem;
     font-size: 1.5rem;
+  }
+
+  .event-meta {
+    display: none;
+  }
+
+  .event-body {
+    grid-template-columns: 3rem minmax(0, 1fr);
+    column-gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .event-summary {
+    grid-template-columns: 2.25rem minmax(0, 1fr) auto;
+    column-gap: 0.75rem;
+    padding: 1rem 1.25rem;
+    font-size: 1.25rem;
+  }
+
+  .event-toggle,
+  .event-toggle::before,
+  .event-toggle::after {
+    width: 20px;
   }
 
   .event-body {
@@ -665,6 +691,7 @@
 
   .event-details {
     grid-column: 1;
-    grid-template-columns: 6rem 1fr;
+    grid-template-columns: 6rem minmax(0, 1fr);
+    font-size: 0.85rem;
   }
 }
