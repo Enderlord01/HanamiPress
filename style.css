@@ -1657,8 +1657,8 @@ img {
 
 .event-summary {
   display: grid;
-  grid-template-columns: 4rem minmax(0, 1fr) auto auto;
-  align-items: center;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
   column-gap: 1.5rem;
   padding: 1.25rem;
   font-family: Dela Gothic One, "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -1686,15 +1686,11 @@ img {
   overflow-wrap: anywhere;
 }
 
-.event-meta {
-  font-size: 1rem;
-  white-space: nowrap;
-}
-
 .event-toggle {
   position: relative;
   width: 24px;
-  height: 24px;
+  height: 1.28em;
+  height: 1lh; /* altezza della prima riga: il + resta allineato ad essa */
 }
 
 .event-toggle::before,
@@ -1721,8 +1717,7 @@ img {
 .event-body {
   overflow: hidden;
   display: grid;
-  grid-template-columns: 4rem minmax(0, 1fr);
-  column-gap: 1.5rem;
+  grid-template-columns: minmax(0, 1fr);
   padding: 1.5rem 1.25rem 2rem;
   background-color: #ffffeb;
   color: var(--green);
@@ -1732,7 +1727,7 @@ img {
 }
 
 .event-details {
-  grid-column: 2;
+  grid-column: 1;
   display: grid;
   grid-template-columns: 8rem minmax(0, 1fr);
   row-gap: 0.75rem;
