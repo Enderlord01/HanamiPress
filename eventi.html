@@ -219,7 +219,7 @@
           <span class="event-title">#${num} - ${m.nome}</span>
           <span class="event-toggle" aria-hidden="true"></span>
         </summary>
-        <div class="event-body">
+        <div class="event-body"><div class="event-inner">
           <dl class="event-details">
             <dt>Data</dt><dd>${m.data}</dd>
             <dt>Città</dt><dd>${m.citta}</dd>
@@ -227,7 +227,7 @@
             <dt>Mappa</dt><dd><a href="${mapsUrl}" target="_blank" rel="noopener">Apri mappa</a></dd>
             ${ig}
           </dl>
-        </div>`;
+        </div></div>`;
       lista.appendChild(el);
 
       // Apertura e chiusura morbide
@@ -235,19 +235,25 @@
       const body = el.querySelector('.event-body');
       const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       let anim = null;
-      const opts = { duration: 300, easing: 'ease-out' };
+      const opts = { duration: 320, easing: 'cubic-bezier(0.4, 0, 0.2, 1)', fill: 'forwards' };
 
       summary.addEventListener('click', e => {
         e.preventDefault();
         if (reduce) { el.open = !el.open; return; }
+        const from = body.getBoundingClientRect().height;
         if (anim) anim.cancel();
-        if (!el.open) {
+        if (!el.open || el.classList.contains('is-closing')) {
+          el.classList.remove('is-closing');
           el.open = true;
-          anim = body.animate({ height: ['0px', body.offsetHeight + 'px'], opacity: [0, 1] }, opts);
-          anim.onfinish = () => { anim = null; };
+          const to = body.scrollHeight;
+          anim = body.animate({ height: [(anim ? from : 0) + 'px', to + 'px'] }, opts);
+          const a = anim;
+          a.onfinish = () => { a.cancel(); if (anim === a) anim = null; };
         } else {
-          anim = body.animate({ height: [body.offsetHeight + 'px', '0px'], opacity: [1, 0] }, opts);
-          anim.onfinish = () => { el.open = false; anim = null; };
+          el.classList.add('is-closing');
+          anim = body.animate({ height: [from + 'px', '0px'] }, opts);
+          const a = anim;
+          a.onfinish = () => { el.open = false; el.classList.remove('is-closing'); a.cancel(); if (anim === a) anim = null; };
         }
       });
     });
