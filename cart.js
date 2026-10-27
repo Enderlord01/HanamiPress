@@ -248,3 +248,9 @@ document.addEventListener('DOMContentLoaded', () => {
   renderCart();
   updateCartCount();
 });
+
+
+// Blocca lo zoom su iOS (Safari ignora user-scalable=no): pizzico e doppio tocco
+['gesturestart', 'gesturechange', 'gestureend'].forEach(function (ev) {
+  document.addEventListener(ev, function (e) { e.preventDefault(); });
+});

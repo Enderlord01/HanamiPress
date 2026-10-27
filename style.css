@@ -1751,3 +1751,8 @@ img {
 .event-details a:hover {
   text-decoration: none;
 }
+
+/* Niente zoom con doppio tocco */
+html {
+  touch-action: manipulation;
+}
