@@ -1670,6 +1670,7 @@ img {
   list-style: none;
   background-color: var(--green);
   color: var(--pink);
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .event-summary::-webkit-details-marker {
@@ -1677,7 +1678,7 @@ img {
 }
 
 .event-summary:hover,
-.event-item[open] .event-summary {
+.event-item[open]:not(.is-closing) .event-summary {
   background-color: var(--pink);
   color: var(--green);
 }
@@ -1711,16 +1712,20 @@ img {
   transform: translate(-50%, -50%) rotate(90deg);
 }
 
-.event-item[open] .event-toggle::after {
+.event-item[open]:not(.is-closing) .event-toggle::after {
   transform: translate(-50%, -50%) rotate(0deg);
 }
 
 .event-body {
   overflow: hidden;
+  background-color: #ffffeb;
+}
+
+/* Il padding sta qui dentro: se fosse su .event-body, l'altezza animata salterebbe */
+.event-inner {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   padding: 1.5rem 1.25rem 2rem;
-  background-color: #ffffeb;
   color: var(--green);
   font-family: Dela Gothic One, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1rem;
