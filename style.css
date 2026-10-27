@@ -345,6 +345,7 @@ img {
 
 .about-section {
   border-bottom: none;
+  background-color: #ffffeb;
 }
 
 .about-inner {
@@ -374,7 +375,7 @@ img {
   object-fit: cover;
   display: block;
   border-radius: 32px;
-  border: 1rem solid var(--green)
+  border: 1rem solid #ffffeb;
 }
 
 .about-section--reversed .about-content {
@@ -399,7 +400,7 @@ img {
   font-size: 2rem;
   font-weight: 800;
   line-height: 1.2;
-  color: #ffffeb;
+  color: var(--green);
   letter-spacing: 0.01em;
   text-align: left;
 }
