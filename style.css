@@ -222,13 +222,7 @@ img {
   border: 16px solid var(--green) 
 }
 
-.product-card:hover .img-default {
-  opacity: 0;
-}
 
-.product-card:hover .img-hover {
-  opacity: 1;
-}
 
 /* Product Info */
 .product-info {
@@ -310,12 +304,6 @@ img {
   border-radius: 8px;
 }
 
-.product-buy:hover {
-  background-color: var(--green);
-  color: #ffffeb;
-  outline: 2px solid var(--green);
-  transform: rotate(-3deg);
-}
 
 /* View All Link */
 .products-footer {
@@ -1504,11 +1492,6 @@ img {
   color: #ffffeb;
 }
 
-.pp-purchase .product-buy:hover {
-  background-color: var(--green);
-  color: #ffffeb;
-  outline: 2px solid #ffffeb;
-}
 
 /* ---------- TI POTREBBE PIACERE PURE ----------
    Usa le classi della home (.products-section, .products-grid,
@@ -1541,10 +1524,6 @@ img {
   z-index: 2;
 }
 
-.product-card:hover .product-name {
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
 
 /* Descrizione vuota: niente spazio vuoto */
 .pp-description:empty {
@@ -1677,7 +1656,6 @@ img {
   display: none;
 }
 
-.event-summary:hover,
 .event-item[open]:not(.is-closing) .event-summary {
   background-color: var(--pink);
   color: var(--green);
@@ -1760,4 +1738,38 @@ img {
 /* Niente zoom con doppio tocco */
 html {
   touch-action: manipulation;
+}
+
+/* Effetti hover solo su dispositivi con mouse: su iOS un hover che cambia
+   l'aspetto fa consumare il primo tocco e il click non parte */
+@media (hover: hover) {
+  .product-card:hover .img-default {
+    opacity: 0;
+  }
+
+  .product-card:hover .img-hover {
+    opacity: 1;
+  }
+
+  .product-buy:hover {
+    background-color: var(--green);
+    color: #ffffeb;
+    outline: 2px solid var(--green);
+    transform: rotate(-3deg);
+  }
+
+  .pp-purchase .product-buy:hover {
+    background-color: var(--green);
+    color: #ffffeb;
+    outline: 2px solid #ffffeb;
+  }
+
+  .product-card:hover .product-name {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .event-summary:hover {
+    background-color: var(--pink);
+    color: var(--green);
+  }
 }
