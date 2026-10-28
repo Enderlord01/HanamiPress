@@ -17,12 +17,28 @@ const SHIPPING = {
    --------------------------- */
 
 function getCart() {
-  const raw = localStorage.getItem(CART_STORAGE_KEY);
-  return raw ? JSON.parse(raw) : [];
+  // Il carrello salvato nel browser può contenere dati vecchi o rovinati
+  // (prezzo mancante, formato diverso): li scartiamo invece di bloccare il sito.
+  try {
+    const raw = localStorage.getItem(CART_STORAGE_KEY);
+    const parsed = raw ? JSON.parse(raw) : [];
+    if (!Array.isArray(parsed)) return [];
+    return parsed
+      .map(item => ({
+        ...item,
+        price: Number(item && item.price),
+        quantity: Number(item && item.quantity)
+      }))
+      .filter(item => item && item.name && item.price > 0 && item.quantity > 0);
+  } catch (e) {
+    return [];
+  }
 }
 
 function saveCart(cart) {
-  localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
+  try {
+    localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
+  } catch (e) { /* storage non disponibile: il carrello resta solo in questa pagina */ }
   renderCart();
   updateCartCount();
 }
