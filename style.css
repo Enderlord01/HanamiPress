@@ -201,8 +201,7 @@ img {
   width: 100%;
   padding-top: 100%;
   overflow: hidden;
-  border-bottom: var(--border);
-  background-color: var(--green); 
+  background-color: var(--green);
 }
 
 .product-image-wrap .img-default,
@@ -214,20 +213,26 @@ img {
   height: 100%;
   object-fit: cover;
   transition: opacity 0s;
+  /* cornice sempre presente, anche nell'immagine di default */
+  box-sizing: border-box;
+  border-radius: 32px;
+  border: 16px solid var(--green);
 }
 
 .product-image-wrap .img-hover {
   opacity: 0;
-  border-radius: 32px;
-  border: 16px solid var(--green) 
 }
 
-.product-card:hover .img-default {
-  opacity: 0;
-}
+/* Cambio immagine al passaggio del mouse: solo su computer con mouse,
+   non su mobile e iPad */
+@media (hover: hover) and (min-width: 1101px) {
+  .product-card:hover .img-default {
+    opacity: 0;
+  }
 
-.product-card:hover .img-hover {
-  opacity: 1;
+  .product-card:hover .img-hover {
+    opacity: 1;
+  }
 }
 
 /* Product Info */
