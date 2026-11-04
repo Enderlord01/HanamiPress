@@ -308,7 +308,7 @@ img {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--green);
-  background-color: var(--pink);
+  background-color: var(--salmon);
   border: none;
   padding: 0.45rem 0.85rem;
   cursor: pointer;
@@ -319,7 +319,7 @@ img {
 .product-buy:hover {
   background-color: var(--green);
   color: var(--pink);
-  outline: 2px solid var(--pink);
+  outline: 2px solid var(--salmon);
   transform: rotate(-3deg);
 }
 
