@@ -190,7 +190,7 @@
   }
 
   .about-text {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 
   .about-image-col {
@@ -555,7 +555,7 @@
   }
 
   .about-text {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 
   .newsletter-header {
@@ -686,5 +686,13 @@
   input,
   textarea {
     font-size: 16px;
+  }
+}
+
+/* Testo about a 1rem su tutti i dispositivi touch (telefono e iPad,
+   in verticale e in orizzontale) */
+@media (pointer: coarse) {
+  .about-text {
+    font-size: 1rem;
   }
 }
