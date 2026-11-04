@@ -13,6 +13,7 @@
   --pink: #ff87ff;
   --green: #0f3719;
   --border: 1px solid #ff87ff;
+  --salmon: #eb8787;
 }
 
 html {
@@ -159,7 +160,7 @@ img {
   font-size: 2rem;
   font-weight: 100;
   text-transform: uppercase;
-  background-color: var(--pink);
+  background-color: var(--salmon);
   color: var(--green);
 }
 
