@@ -247,7 +247,7 @@ img {
 
 .product-meta {
   display: flex;
-  align-items: baseline;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 0.5rem;
 }
@@ -275,6 +275,9 @@ img {
   white-space: nowrap;
   flex-shrink: 0;
   border-radius: 8px;
+  line-height: 1;
+  /* centra il tag sulla prima riga del titolo (24px x 1.2 = 28.8px) */
+  margin-top: calc((1.5rem * 1.2 - (0.75rem + 0.2rem + 2px)) / 2);
 }
 
 .product-author {
@@ -1536,9 +1539,21 @@ img {
   z-index: 2;
 }
 
-.product-card:hover .product-name {
-  text-decoration: underline;
-  text-underline-offset: 3px;
+.product-link {
+  text-decoration: none;
+  display: block;
+  line-height: 1.2; /* stessa interlinea del titolo, così il tag si allinea alla prima riga */
+}
+
+.product-name {
+  transition: color 0.2s;
+}
+
+/* Solo con il mouse: su touch il colore resterebbe dopo il tocco */
+@media (hover: hover) {
+  .product-card:hover .product-name {
+    color: var(--salmon);
+  }
 }
 
 /* Descrizione vuota: niente spazio vuoto */
