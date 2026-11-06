@@ -1481,7 +1481,6 @@ img {
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
-  background-color: var(--pink);
 }
 
 .pp-price {
@@ -1492,17 +1491,18 @@ img {
 }
 
 .pp-purchase .product-buy {
-  flex: 1;
+  flex: 0 0 auto;
+  margin-left: auto; /* a destra del prezzo */
   padding: 0.85rem 1.5rem;
   font-size: 0.85rem;
-  background-color: var(--green);
-  color: #ffffeb;
+  background-color: salmon;
+  color: var(--green);
 }
 
 .pp-purchase .product-buy:hover {
-  background-color: var(--green);
-  color: #ffffeb;
-  outline: 2px solid #ffffeb;
+  background-color: salmon;
+  color: var(--green);
+  outline: 2px solid var(--green);
 }
 
 /* ---------- TI POTREBBE PIACERE PURE ----------
