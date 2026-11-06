@@ -1495,12 +1495,12 @@ img {
   margin-left: auto; /* a destra del prezzo */
   padding: 0.85rem 1.5rem;
   font-size: 0.85rem;
-  background-color: salmon;
+  background-color: var(--salmon);
   color: var(--green);
 }
 
 .pp-purchase .product-buy:hover {
-  background-color: salmon;
+  background-color: var(--salmon);
   color: var(--green);
   outline: 2px solid var(--green);
 }
