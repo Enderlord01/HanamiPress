@@ -389,7 +389,7 @@
   .pp-dots {
     position: absolute;
     left: 50%;
-    bottom: 0.9rem;
+    bottom: calc(0.9rem + 16px); /* sopra la cornice crema */
     transform: translateX(-50%);
     display: flex;
     justify-content: center;
