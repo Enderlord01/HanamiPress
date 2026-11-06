@@ -1756,3 +1756,11 @@ img {
 html {
   touch-action: manipulation;
 }
+
+/* Freccia dei link esterni: SVG invece del carattere, che molti dispositivi non hanno */
+.link-arrow {
+  width: 0.8em;
+  height: 0.8em;
+  margin-left: 0.2em;
+  vertical-align: -0.05em;
+}
