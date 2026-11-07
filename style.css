@@ -637,7 +637,7 @@ img {
 
 #map {
   width: 100%;
-  height: 500px;
+  aspect-ratio: 2 / 1; /* desktop e iPad orizzontale */
   border-radius: 32px; /* angoli arrotondati come le immagini delle card */
   overflow: hidden;
   isolation: isolate;
