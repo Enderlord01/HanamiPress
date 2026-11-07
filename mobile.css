@@ -711,6 +711,8 @@
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     gap: 0;
+    align-items: stretch; /* tutte le card alte come la piu alta */
+    background-color: var(--green);
   }
 
   .pp-related .products-grid::-webkit-scrollbar {
@@ -719,6 +721,7 @@
 
   .pp-related .product-card {
     flex: 0 0 50%;
+    height: auto;
     min-width: 0;
     scroll-snap-align: start;
     border-right: var(--border);
