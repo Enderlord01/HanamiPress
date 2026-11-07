@@ -271,13 +271,13 @@ img {
   text-transform: uppercase;
   color: var(--pink);
   border: 1px solid var(--pink);
-  padding: 0.1rem 0.4rem;
+  padding: 0.25rem 0.6rem; /* stesse proporzioni del tag nella pagina prodotto */
   white-space: nowrap;
   flex-shrink: 0;
   border-radius: 8px;
   line-height: 1;
   /* centra il tag sulla prima riga del titolo (24px x 1.2 = 28.8px) */
-  margin-top: calc((1.5rem * 1.2 - (0.75rem + 0.2rem + 2px)) / 2);
+  margin-top: calc((1.5rem * 1.2 - (0.75rem + 0.5rem + 2px)) / 2);
 }
 
 .product-author {
