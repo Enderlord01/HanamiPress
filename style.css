@@ -1363,9 +1363,11 @@ img {
   width: 100%;
   height: auto;
   display: block;
-  /* cornice crema con angoli arrotondati, come le immagini delle card */
-  border: 16px solid #ffffeb;
-  border-radius: 32px;
+  border-bottom: var(--border);
+}
+
+.pp-gallery-slide:last-child {
+  border-bottom: none;
 }
 
 .pp-dots {
