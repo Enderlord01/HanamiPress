@@ -1547,6 +1547,12 @@ img {
 
 .product-name {
   transition: color 0.2s;
+  /* massimo 2 righe, poi puntini di sospensione */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
 }
 
 /* Solo con il mouse: su touch il colore resterebbe dopo il tocco */
