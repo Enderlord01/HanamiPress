@@ -701,3 +701,54 @@
     -webkit-hyphens: auto;
   }
 }
+
+/* Card consigliate scorrevoli (pagina prodotto) su mobile e iPad */
+@media (max-width: 1100px) {
+  .pp-related .products-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 0;
+  }
+
+  .pp-related .products-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .pp-related .product-card {
+    flex: 0 0 50%;
+    min-width: 0;
+    scroll-snap-align: start;
+    border-right: var(--border);
+  }
+
+  .pp-related-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 1.1rem 1.25rem;
+    background-color: var(--salmon);
+  }
+
+  .pp-related-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid var(--green);
+    box-sizing: border-box;
+  }
+
+  .pp-related-dot.is-active {
+    background-color: var(--green);
+  }
+}
+
+@media (max-width: 599px) {
+  .pp-related .product-card {
+    flex-basis: 100%;
+    border-right: none;
+  }
+}

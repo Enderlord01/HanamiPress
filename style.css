@@ -1779,3 +1779,8 @@ html {
   margin-left: 0.2em;
   vertical-align: -0.05em;
 }
+
+/* Pallini delle card consigliate: barra come .products-header, solo dove le card scorrono */
+.pp-related-dots {
+  display: none;
+}
