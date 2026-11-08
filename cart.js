@@ -254,3 +254,20 @@ document.addEventListener('DOMContentLoaded', () => {
 ['gesturestart', 'gesturechange', 'gestureend'].forEach(function (ev) {
   document.addEventListener(ev, function (e) { e.preventDefault(); });
 });
+
+// Pagina prodotto: la scheda fissa parte esattamente sotto l'header, qualunque sia la sua altezza
+// (su iPad orizzontale l'header e' piu' basso che su desktop)
+(function () {
+  function setHeaderHeight() {
+    var pp = document.querySelector('.pp');
+    var header = document.querySelector('.site-header');
+    if (pp && header) pp.style.setProperty('--header-h', header.offsetHeight + 'px');
+  }
+  setHeaderHeight();
+  window.addEventListener('load', setHeaderHeight);
+  window.addEventListener('resize', setHeaderHeight);
+  if (document.fonts) {
+    if (document.fonts.ready) document.fonts.ready.then(setHeaderHeight);
+    if (document.fonts.addEventListener) document.fonts.addEventListener('loadingdone', setHeaderHeight);
+  }
+})();
