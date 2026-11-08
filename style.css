@@ -1345,6 +1345,8 @@ img {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: start;
+  /* Sfondo crema + linea rosa della colonna destra, a tutta altezza anche se la scheda e' piu' bassa */
+  background: linear-gradient(to right, transparent 50%, var(--pink) 50% calc(50% + 1px), #ffffeb calc(50% + 1px));
 }
 
 /* ---------- GALLERIA (desktop: colonna che scorre) ---------- */
@@ -1381,27 +1383,16 @@ img {
   grid-row: 1;
   position: sticky;
   top: var(--header-h);
-  height: calc(100vh - var(--header-h));
-  height: calc(100dvh - var(--header-h)); /* iPad: tiene conto della barra di Safari */
-  border-left: var(--border);
+  align-self: start;
+  /* La colonna abbraccia il contenuto (niente vuoto sopra/sotto); se il contenuto
+     e' piu' alto dello schermo scorre dentro la colonna */
+  max-height: calc(100vh - var(--header-h));
+  max-height: calc(100dvh - var(--header-h)); /* iPad: tiene conto della barra di Safari */
   padding: 2.5rem;
   display: flex;
   flex-direction: column;
-  /* Centrato con i margini auto invece di justify-content: center: se il contenuto
-     e' piu' alto della colonna, con center la parte in alto (titolo) verrebbe tagliata
-     e non si potrebbe raggiungere scorrendo */
-  justify-content: flex-start;
   gap: 1.5rem;
   overflow-y: auto;
-  background-color: #ffffeb;
-}
-
-.pp-side > :first-child {
-  margin-top: auto;
-}
-
-.pp-side > :last-child {
-  margin-bottom: auto;
 }
 
 .pp-head {

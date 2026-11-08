@@ -324,6 +324,7 @@
   @media (max-width: 599px), (orientation: landscape) {
   .pp-main {
     grid-template-columns: 1fr;
+    background: none;
   }
 
   /* La scheda "si scioglie": titolo/autore e dettagli diventano
