@@ -763,9 +763,9 @@
   }
 }
 
-/* Pagina prodotto su iPad (e telefoni) in orizzontale: descrizione 0.5rem piu piccola */
+/* Pagina prodotto su iPad (e telefoni) in orizzontale: descrizione a 1rem */
 @media (pointer: coarse) and (orientation: landscape) and (min-width: 769px) {
   .pp-description {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 }
