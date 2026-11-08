@@ -1387,10 +1387,21 @@ img {
   padding: 2.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* Centrato con i margini auto invece di justify-content: center: se il contenuto
+     e' piu' alto della colonna, con center la parte in alto (titolo) verrebbe tagliata
+     e non si potrebbe raggiungere scorrendo */
+  justify-content: flex-start;
   gap: 1.5rem;
   overflow-y: auto;
   background-color: #ffffeb;
+}
+
+.pp-side > :first-child {
+  margin-top: auto;
+}
+
+.pp-side > :last-child {
+  margin-bottom: auto;
 }
 
 .pp-head {
