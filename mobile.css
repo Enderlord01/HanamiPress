@@ -762,3 +762,10 @@
     aspect-ratio: 1 / 1;
   }
 }
+
+/* Pagina prodotto su iPad (e telefoni) in orizzontale: descrizione 0.5rem piu piccola */
+@media (pointer: coarse) and (orientation: landscape) and (min-width: 769px) {
+  .pp-description {
+    font-size: 1.5rem;
+  }
+}
