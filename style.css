@@ -58,7 +58,8 @@ img {
   border-bottom: none;
   position: sticky;
   top: 0;
-  background-color: var(--pink);
+  /* Rosa pieno fino a 20px dal bordo basso, poi sfuma verso il trasparente */
+  background: linear-gradient(to bottom, var(--pink) calc(100% - 20px), transparent 100%);
   z-index: 100;
 }
 
