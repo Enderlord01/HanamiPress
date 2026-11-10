@@ -138,6 +138,11 @@
     text-align: left 
   }
 
+  .products-footer {
+    font-size: 1.25rem;
+    padding: 1rem 1.25rem;
+  }
+
   /* -------------------------
      PRODUCTS — 1 colonna
      ------------------------- */
@@ -543,7 +548,8 @@
     grid-template-rows: none;
   }
 
-  .products-header {
+  .products-header,
+  .products-footer {
     font-size: 1.5rem;
   }
 
