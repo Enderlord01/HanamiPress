@@ -58,8 +58,10 @@ img {
   border-bottom: none;
   position: sticky;
   top: 0;
-  /* Rosa pieno fino a 20px dal bordo basso, poi sfuma verso il trasparente */
-  background: linear-gradient(to bottom, var(--pink) calc(100% - 20px), transparent 100%);
+  /* Rosa semitrasparente: quello che scorre sotto l'header risulta sfocato */
+  background-color: rgba(255, 135, 255, 0.6);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
   z-index: 100;
 }
 
