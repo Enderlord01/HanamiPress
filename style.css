@@ -1795,3 +1795,89 @@ html {
 .pp-related-dots {
   display: none;
 }
+
+/* ===========================
+   CAROSELLO HOME (parallasse)
+   Cornice stondata come l'immagine di .about-section; pallini come quelli
+   del carosello della pagina prodotto su mobile.
+   =========================== */
+
+.hc-section {
+  position: relative;
+  background-color: var(--pink);
+}
+
+.hc-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.hc-track::-webkit-scrollbar {
+  display: none;
+}
+
+.hc-slide {
+  flex: 0 0 50%;
+  box-sizing: border-box;
+  aspect-ratio: 8 / 5;          /* come l'immagine about su desktop (640x400) */
+  position: relative;
+  overflow: hidden;
+  border-radius: 32px;
+  border: 1rem solid var(--pink); /* stessa cornice dell'immagine about */
+  scroll-snap-align: start;
+}
+
+/* L'immagine e' piu' larga della cornice: scorre un po' piu' piano della cornice (parallasse) */
+.hc-slide img {
+  position: absolute;
+  top: 0;
+  left: -10%;
+  width: 120%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  will-change: transform;
+}
+
+.hc-dots {
+  position: absolute;
+  left: 50%;
+  bottom: 1.9rem; /* sopra la foto, oltre la cornice di 1rem */
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.7rem;
+  border-radius: 999px;
+  background-color: rgba(15, 55, 25, 0.6);
+}
+
+.hc-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: none;
+  border: 1px solid var(--pink);
+  padding: 0;
+  cursor: pointer;
+}
+
+.hc-dot.is-active {
+  background-color: var(--pink);
+}
+
+/* iPad (immagine about 410x320) */
+@media (min-width: 600px) and (max-width: 1100px) {
+  .hc-slide { aspect-ratio: 41 / 32; }
+}
+
+/* Telefono: una foto per volta, come l'immagine about (390x211) */
+@media (max-width: 599px) {
+  .hc-slide {
+    flex-basis: 100%;
+    aspect-ratio: 390 / 211;
+  }
+}
