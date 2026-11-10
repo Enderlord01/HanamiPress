@@ -1,39 +1,75 @@
-/* Carosello home: pallini + parallasse.
-   L'immagine si muove un po' meno della cornice mentre si scorre. */
+/* Carosello home: loop infinito, pallini e parallasse.
+   Le slide vengono copiate prima e dopo (3 serie identiche): si parte dalla serie
+   centrale e, finito lo scorrimento, si torna in modo invisibile alla serie centrale.
+   Dopo l'ultima foto si ritorna quindi alla prima. */
 (function () {
   var track = document.querySelector('.hc-track');
   var bar = document.querySelector('.hc-dots');
   if (!track || !bar) return;
 
-  var slides = track.querySelectorAll('.hc-slide');
+  var originals = Array.prototype.slice.call(track.querySelectorAll('.hc-slide'));
+  var N = originals.length;
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var ticking = false;
+  var settleTimer = null;
+
+  function clones() {
+    return originals.map(function (s) {
+      var c = s.cloneNode(true);
+      c.setAttribute('aria-hidden', 'true');
+      return c;
+    });
+  }
+  var before = clones(), after = clones();
+  before.forEach(function (c) { track.insertBefore(c, originals[0]); });
+  after.forEach(function (c) { track.appendChild(c); });
+
+  var slides = track.querySelectorAll('.hc-slide');
 
   function slideW() { return slides[0].getBoundingClientRect().width; }
 
+  function jumpTo(left) {
+    track.style.scrollSnapType = 'none';
+    track.scrollLeft = left;
+    track.style.scrollSnapType = '';
+  }
+
   function build() {
-    var perView = Math.max(1, Math.round(track.clientWidth / slideW()));
-    var n = Math.max(1, slides.length - perView + 1);
     bar.innerHTML = '';
-    bar.style.display = n <= 1 ? 'none' : 'flex';
-    for (var i = 0; i < n; i++) {
+    bar.style.display = N <= 1 ? 'none' : 'flex';
+    for (var i = 0; i < N; i++) {
       (function (i) {
         var d = document.createElement('button');
         d.className = 'hc-dot';
         d.setAttribute('aria-label', 'Vai alla foto ' + (i + 1));
         d.addEventListener('click', function () {
-          track.scrollTo({ left: i * slideW(), behavior: 'smooth' });
+          var cur = Math.round(track.scrollLeft / slideW());
+          var curMod = ((cur % N) + N) % N;
+          /* strada piu' corta, passando anche per il giro completo */
+          var diff = i - curMod;
+          if (diff > N / 2) diff -= N;
+          if (diff < -N / 2) diff += N;
+          track.scrollTo({ left: (cur + diff) * slideW(), behavior: 'smooth' });
         });
         bar.appendChild(d);
       })(i);
     }
+    jumpTo(N * slideW());
+    update();
+  }
+
+  function settle() {
+    var w = slideW();
+    var i = Math.round(track.scrollLeft / w);
+    if (i < N) jumpTo(track.scrollLeft + N * w);
+    else if (i >= 2 * N) jumpTo(track.scrollLeft - N * w);
     update();
   }
 
   function update() {
     ticking = false;
     var w = slideW();
-    var i = Math.round(track.scrollLeft / w);
+    var i = ((Math.round(track.scrollLeft / w) % N) + N) % N;
     for (var k = 0; k < bar.children.length; k++) {
       bar.children[k].classList.toggle('is-active', k === i);
     }
@@ -42,6 +78,7 @@
     var tc = tRect.left + tRect.width / 2;
     for (var s = 0; s < slides.length; s++) {
       var r = slides[s].getBoundingClientRect();
+      if (r.right < tRect.left - r.width || r.left > tRect.right + r.width) continue;
       var p = (r.left + r.width / 2 - tc) / r.width;      /* 0 = al centro */
       var max = r.width * 0.1;                            /* margine disponibile */
       var x = Math.max(-max, Math.min(max, -p * max));
@@ -51,6 +88,8 @@
 
   function onScroll() {
     if (!ticking) { ticking = true; requestAnimationFrame(update); }
+    clearTimeout(settleTimer);
+    settleTimer = setTimeout(settle, 140);
   }
 
   track.addEventListener('scroll', onScroll, { passive: true });
