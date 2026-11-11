@@ -1,4 +1,4 @@
-/* Carosello home: loop infinito, pallini e parallasse.
+/* Carosello home: loop infinito, autoscorrimento, pallini e parallasse.
    Le slide vengono copiate prima e dopo (3 serie identiche): si parte dalla serie
    centrale e, finito lo scorrimento, si torna in modo invisibile alla serie centrale.
    Dopo l'ultima foto si ritorna quindi alla prima. */
@@ -12,6 +12,20 @@
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var ticking = false;
   var settleTimer = null;
+  var section = track.parentElement;
+
+  /* Autoscorrimento: la cornice si riempie di verde (CSS, --hc-interval) e a fine animazione
+     si passa alla foto successiva. A fine scorrimento (anche manuale) il giro riparte. */
+  function restartFill() {
+    if (reduce) return;
+    section.classList.remove('is-filling');
+    void section.offsetWidth;
+    section.classList.add('is-filling');
+  }
+  section.addEventListener('animationend', function (e) {
+    if (e.target !== section) return;
+    track.scrollBy({ left: slideW(), behavior: 'smooth' });
+  });
 
   function clones() {
     return originals.map(function (s) {
@@ -56,6 +70,7 @@
     }
     jumpTo(N * slideW());
     update();
+    restartFill();
   }
 
   function settle() {
@@ -64,6 +79,7 @@
     if (i < N) jumpTo(track.scrollLeft + N * w);
     else if (i >= 2 * N) jumpTo(track.scrollLeft - N * w);
     update();
+    restartFill();
   }
 
   function update() {

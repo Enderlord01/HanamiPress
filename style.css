@@ -14,7 +14,7 @@
   --green: #0f3719;
   --border: 1px solid #ff87ff;
   --salmon: #eb8787;
-  --yellow: #ffff87;
+  --yellow: #d7d700;
 }
 
 html {
@@ -1829,9 +1829,38 @@ html {
 .hc-section {
   position: relative;
   background-color: var(--pink);
+  --hc-interval: 5s; /* tempo tra una foto e la successiva */
+}
+
+/* Cornice: si riempie di verde da sinistra a destra mentre aspetta di scorrere alla foto successiva */
+.hc-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--green);
+  transform: scaleX(0);
+  transform-origin: left center;
+  pointer-events: none;
+}
+
+.hc-section.is-filling::before {
+  animation: hc-fill var(--hc-interval) linear forwards;
+}
+
+@media (hover: hover) {
+  .hc-section:hover::before {
+    animation-play-state: paused; /* con il mouse sopra l'autoscorrimento si ferma */
+  }
+}
+
+@keyframes hc-fill {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
 }
 
 .hc-track {
+  position: relative;
+  z-index: 1;
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -1850,7 +1879,7 @@ html {
   position: relative;
   overflow: hidden;
   border-radius: 32px;
-  border: 1rem solid var(--pink); /* stessa cornice dell'immagine about */
+  border: 1rem solid transparent; /* cornice: mostra lo sfondo della sezione (rosa, poi si riempie di verde) */
   scroll-snap-align: start;
 }
 
@@ -1882,12 +1911,14 @@ html {
   letter-spacing: 0.01em;
   text-transform: none;
   color: var(--pink);
-  -webkit-text-stroke: 0.1em #ffffeb; /* outline crema, disegnato sotto il riempimento */
+  -webkit-text-stroke: 0.4em #ffffeb; /* outline crema, disegnato sotto il riempimento (visibile 0.2em fuori) */
   paint-order: stroke fill;
+  stroke-linejoin: round; /* angoli dell'outline arrotondati */
 }
 
 .hc-dots {
   position: absolute;
+  z-index: 2;
   left: 50%;
   bottom: 1.9rem; /* sopra la foto, oltre la cornice di 1rem */
   transform: translateX(-50%);
