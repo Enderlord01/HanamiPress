@@ -111,6 +111,10 @@
     animation-duration: 30s;
   }
 
+  .ticker-section--reverse .ticker-track {
+    animation-duration: 59s; /* stessa velocita' (px/s) del primo ticker */
+  }
+
   .ticker-track span {
     font-size: 1.25rem;
   }
