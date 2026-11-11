@@ -504,14 +504,18 @@ img {
   opacity: 1;
 }
 
-/* Secondo ticker: direzione opposta, testo giallo */
+/* Secondo ticker: direzione opposta, sfondo giallo e testo verde */
+.ticker-section--reverse {
+  background-color: var(--yellow);
+}
+
 .ticker-section--reverse .ticker-track {
   animation-name: scroll-right;
   animation-duration: 67s; /* stessa velocita' (px/s) del primo ticker */
 }
 
 .ticker-section--reverse .ticker-track span {
-  color: var(--yellow);
+  color: var(--green);
 }
 
 @keyframes scroll-right {
