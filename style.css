@@ -1899,7 +1899,7 @@ html {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) rotate(-2deg); /* 2 gradi in senso antiorario */
   z-index: 2;
   margin: 0;
   pointer-events: none; /* non blocca lo scorrimento del carosello */
@@ -1909,7 +1909,7 @@ html {
   font-weight: 100;
   line-height: 1;
   letter-spacing: 0.01em;
-  text-transform: none;
+  text-transform: uppercase;
   color: var(--pink);
   -webkit-text-stroke: 0.4em #ffffeb; /* outline crema, disegnato sotto il riempimento (visibile 0.2em fuori) */
   paint-order: stroke fill;
