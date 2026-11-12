@@ -1847,6 +1847,11 @@ html {
   animation: hc-fill var(--hc-interval) linear forwards;
 }
 
+/* Dito sul carosello: riempimento in pausa */
+.hc-section.is-held::before {
+  animation-play-state: paused;
+}
+
 @media (hover: hover) {
   .hc-section:hover::before {
     animation-play-state: paused; /* con il mouse sopra l'autoscorrimento si ferma */

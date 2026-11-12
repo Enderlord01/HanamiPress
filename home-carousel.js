@@ -18,10 +18,30 @@
      si passa alla foto successiva. A fine scorrimento (anche manuale) il giro riparte. */
   function restartFill() {
     if (reduce) return;
-    section.classList.remove('is-filling');
+    section.classList.remove('is-filling', 'is-held');
     void section.offsetWidth;
     section.classList.add('is-filling');
   }
+  /* Mentre il dito e' sul carosello il riempimento e' in pausa; al rilascio (e a fine scorrimento) riparte da zero */
+  var touching = false;
+  function holdFill(on) {
+    section.classList.toggle('is-held', on);
+  }
+  ['touchstart', 'pointerdown', 'wheel'].forEach(function (ev) {
+    track.addEventListener(ev, function () {
+      touching = ev !== 'wheel';
+      holdFill(true);
+      clearTimeout(settleTimer);
+      settleTimer = setTimeout(settle, 400);
+    }, { passive: true });
+  });
+  ['touchend', 'touchcancel', 'pointerup', 'pointercancel'].forEach(function (ev) {
+    track.addEventListener(ev, function () {
+      touching = false;
+      clearTimeout(settleTimer);
+      settleTimer = setTimeout(settle, 200);
+    }, { passive: true });
+  });
   section.addEventListener('animationend', function (e) {
     if (e.target !== section) return;
     track.scrollBy({ left: slideW(), behavior: 'smooth' });
@@ -74,6 +94,7 @@
   }
 
   function settle() {
+    if (touching) return;
     var w = slideW();
     var i = Math.round(track.scrollLeft / w);
     if (i < N) jumpTo(track.scrollLeft + N * w);
@@ -109,7 +130,13 @@
   }
 
   track.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', build);
+  var lastW = window.innerWidth;
+  window.addEventListener('resize', function () {
+    /* la barra del browser su mobile cambia solo l'altezza durante lo scroll: non e' un vero resize */
+    if (window.innerWidth === lastW) return;
+    lastW = window.innerWidth;
+    build();
+  });
   window.addEventListener('load', build);
   build();
 })();
