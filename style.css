@@ -24,8 +24,16 @@ html {
   text-size-adjust: 100%;
 }
 
+/* I controlli dei moduli non ereditano il font dal body: lo forziamo */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Bricolage Grotesque", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: var(--green);
   color: var(--pink);
   -webkit-font-smoothing: antialiased;
@@ -309,7 +317,7 @@ img {
 }
 
 .product-buy {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Bricolage Grotesque", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -589,7 +597,7 @@ img {
 }
 
 .newsletter-button {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Bricolage Grotesque", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -678,7 +686,7 @@ img {
   border: var(--border);
   border-radius: 0;
   box-shadow: none;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Bricolage Grotesque", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 0.85rem;
 }
 
@@ -698,14 +706,14 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Bricolage Grotesque", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 0.75rem;
   font-weight: 700;
   color: var(--green);
 }
 
 .popup-citta {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Bricolage Grotesque", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 0.85rem;
   margin-bottom: 0.5rem;
   text-transform: uppercase;
@@ -713,7 +721,7 @@ img {
 }
 
 .popup-event {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Bricolage Grotesque", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 0.8rem;
   padding: 0.4rem 0;
   border-top: 1px solid #ff87ff;
@@ -752,7 +760,7 @@ img {
   right: -8px;
   background-color: var(--green);
   color: #ffffeb;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Bricolage Grotesque", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 0.65rem;
   font-weight: 700;
   width: 18px;
@@ -963,7 +971,7 @@ img {
 }
 
 .cart-zone-dropdown {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Bricolage Grotesque", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 0.85rem;
   color: var(--green);
   background-color: #ffffeb;
@@ -994,7 +1002,7 @@ img {
 }
 
 .cart-checkout-btn {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Bricolage Grotesque", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0.05em;
@@ -1048,7 +1056,7 @@ img {
 }
 
 .success-button {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Bricolage Grotesque", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -1264,7 +1272,7 @@ img {
 
 .legal-button {
   grid-column: 2;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Bricolage Grotesque", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -1333,7 +1341,7 @@ img {
 }
 
 .cookie-banner-btn {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Bricolage Grotesque", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.08em;
