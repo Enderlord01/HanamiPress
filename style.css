@@ -19,6 +19,9 @@
 
 html {
   font-size: 16px;
+  /* Impedisce a Safari/iOS di ingrandire da solo i blocchi con molto testo (ticker con dimensioni diverse) */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
