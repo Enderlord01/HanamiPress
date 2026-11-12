@@ -1915,8 +1915,7 @@ html {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
-  width: 28rem;          /* desktop e iPad */
-  max-width: 60%;
+  width: 50vw;           /* meta' della larghezza dello schermo, su tutti i dispositivi */
   height: auto;
   pointer-events: none; /* non blocca lo scorrimento del carosello */
 }
@@ -1956,7 +1955,6 @@ html {
 
 /* Telefono: una foto per volta, come l'immagine about (390x211) */
 @media (max-width: 599px) {
-  .hc-title { width: 14rem; max-width: 65%; }
 
   .hc-slide {
     aspect-ratio: 4 / 3;
