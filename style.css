@@ -1913,21 +1913,12 @@ html {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) rotate(-2deg); /* 2 gradi in senso antiorario */
+  transform: translate(-50%, -50%);
   z-index: 2;
-  margin: 0;
+  width: 28rem;          /* desktop e iPad */
+  max-width: 60%;
+  height: auto;
   pointer-events: none; /* non blocca lo scorrimento del carosello */
-  white-space: nowrap;
-  font-family: Dela Gothic One, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 3rem;      /* doppio del logo dell'header (1.5rem) */
-  font-weight: 100;
-  line-height: 1;
-  letter-spacing: 0.01em;
-  text-transform: uppercase;
-  color: var(--pink);
-  -webkit-text-stroke: 0.4em #ffffeb; /* outline crema, disegnato sotto il riempimento (visibile 0.2em fuori) */
-  paint-order: stroke fill;
-  stroke-linejoin: round; /* angoli dell'outline arrotondati */
 }
 
 .hc-dots {
@@ -1963,14 +1954,9 @@ html {
   .hc-slide { aspect-ratio: 3 / 2; }
 }
 
-/* Dove il logo dell'header e' 1.5rem il titolo e' 3rem (doppio) */
-@media (min-width: 600px) and (max-width: 768px), (min-width: 600px) and (max-width: 1100px) and (orientation: portrait) {
-  .hc-title { font-size: 3rem; }
-}
-
 /* Telefono: una foto per volta, come l'immagine about (390x211) */
 @media (max-width: 599px) {
-  .hc-title { font-size: 1.5rem; } /* come il logo dell'header */
+  .hc-title { width: 14rem; max-width: 65%; }
 
   .hc-slide {
     aspect-ratio: 4 / 3;
