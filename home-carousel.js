@@ -14,23 +14,27 @@
   var settleTimer = null;
   var section = track.parentElement;
 
-  /* Autoscorrimento: la cornice si riempie di verde (CSS, --hc-interval) e a fine animazione
-     si passa alla foto successiva. A fine scorrimento (anche manuale) il giro riparte. */
-  function restartFill() {
-    if (reduce) return;
-    section.classList.remove('is-filling', 'is-held');
-    void section.offsetWidth;
-    section.classList.add('is-filling');
-  }
-  /* Mentre il dito e' sul carosello il riempimento e' in pausa; al rilascio (e a fine scorrimento) riparte da zero */
+  /* Autoscorrimento: ogni INTERVAL ms si passa alla foto successiva. Il conteggio riparte
+     a fine scorrimento (anche manuale), e sta fermo mentre il dito o il mouse sono sul carosello. */
+  var INTERVAL = 5000;
+  var autoTimer = null;
   var touching = false;
-  function holdFill(on) {
-    section.classList.toggle('is-held', on);
+
+  function stopAuto() {
+    clearTimeout(autoTimer);
+    autoTimer = null;
+  }
+  function startAuto() {
+    stopAuto();
+    if (reduce) return;
+    autoTimer = setTimeout(function () {
+      track.scrollBy({ left: slideW(), behavior: 'smooth' });
+    }, INTERVAL);
   }
   ['touchstart', 'pointerdown', 'wheel'].forEach(function (ev) {
     track.addEventListener(ev, function () {
       touching = ev !== 'wheel';
-      holdFill(true);
+      stopAuto();
       clearTimeout(settleTimer);
       settleTimer = setTimeout(settle, 400);
     }, { passive: true });
@@ -42,10 +46,10 @@
       settleTimer = setTimeout(settle, 200);
     }, { passive: true });
   });
-  section.addEventListener('animationend', function (e) {
-    if (e.target !== section) return;
-    track.scrollBy({ left: slideW(), behavior: 'smooth' });
-  });
+  if (window.matchMedia && window.matchMedia('(hover: hover)').matches) {
+    section.addEventListener('mouseenter', stopAuto);
+    section.addEventListener('mouseleave', startAuto);
+  }
 
   function clones() {
     return originals.map(function (s) {
@@ -90,7 +94,7 @@
     }
     jumpTo(N * slideW());
     update();
-    restartFill();
+    startAuto();
   }
 
   function settle() {
@@ -100,7 +104,7 @@
     if (i < N) jumpTo(track.scrollLeft + N * w);
     else if (i >= 2 * N) jumpTo(track.scrollLeft - N * w);
     update();
-    restartFill();
+    startAuto();
   }
 
   function update() {
