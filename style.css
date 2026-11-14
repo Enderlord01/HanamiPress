@@ -1773,7 +1773,7 @@ img {
 
 .event-body {
   overflow: hidden;
-  background-color: #ffffeb;
+  background-color: var(--pink);
 }
 
 /* Il padding sta qui dentro: se fosse su .event-body, l'altezza animata salterebbe */
@@ -1781,7 +1781,7 @@ img {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   padding: 1.5rem 1.25rem 2rem;
-  color: var(--green);
+  color: #ffffeb;
   font-family: Dela Gothic One, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1rem;
   text-transform: uppercase;
@@ -1803,7 +1803,7 @@ img {
 }
 
 .event-details a {
-  color: var(--green);
+  color: #ffffeb;
   text-decoration: underline;
   text-underline-offset: 4px;
 }
