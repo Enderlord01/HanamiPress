@@ -44,7 +44,7 @@
     display: block;
     width: 100%;
     height: 2px;
-    background-color: var(--green);
+    background-color: #ffffeb;
     transition: transform 0.2s, opacity 0.2s;
   }
 
@@ -477,7 +477,7 @@
     display: block;
     width: 100%;
     height: 2px;
-    background-color: var(--green);
+    background-color: #ffffeb;
     transition: transform 0.2s, opacity 0.2s;
   }
 

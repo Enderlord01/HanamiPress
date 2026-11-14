@@ -79,7 +79,7 @@ img {
   font-size: 1.5rem; /* = .product-name: stessa grandezza ovunque */
   font-weight: 100;
   letter-spacing: 0.01em;
-  color: var(--green);
+  color: #ffffeb;
   justify-self: start; 
   white-space: nowrap;
 }
@@ -100,7 +100,7 @@ img {
   font-weight: 500;
   letter-spacing: 0.01em;
   text-transform: uppercase;
-  color: var(--green);
+  color: #ffffeb;
   transition: opacity 0.15s;
 }
 
@@ -743,7 +743,7 @@ img {
   justify-content: center;
   background: none;
   border: none;
-  color: var(--green);
+  color: #ffffeb;
   cursor: pointer;
   padding: 0.25rem;
   margin-left: 1.5rem;
