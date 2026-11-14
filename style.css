@@ -1839,38 +1839,6 @@ html {
 .hc-section {
   position: relative;
   background-color: var(--pink);
-  --hc-interval: 5s; /* tempo tra una foto e la successiva */
-}
-
-/* Cornice: si riempie di verde da sinistra a destra mentre aspetta di scorrere alla foto successiva */
-.hc-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: var(--green);
-  transform: scaleX(0);
-  transform-origin: left center;
-  pointer-events: none;
-}
-
-.hc-section.is-filling::before {
-  animation: hc-fill var(--hc-interval) linear forwards;
-}
-
-/* Dito sul carosello: riempimento in pausa */
-.hc-section.is-held::before {
-  animation-play-state: paused;
-}
-
-@media (hover: hover) {
-  .hc-section:hover::before {
-    animation-play-state: paused; /* con il mouse sopra l'autoscorrimento si ferma */
-  }
-}
-
-@keyframes hc-fill {
-  from { transform: scaleX(0); }
-  to   { transform: scaleX(1); }
 }
 
 .hc-track {
