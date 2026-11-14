@@ -197,7 +197,7 @@ img {
   flex-direction: column;
   height: 100%;
   box-sizing: border-box;
-  background-color: var(--green);
+  background-color: #ffffeb;
 }
 
 .product-card:nth-child(4n) {
@@ -214,7 +214,7 @@ img {
   width: 100%;
   padding-top: 100%;
   overflow: hidden;
-  background-color: var(--green);
+  background-color: #ffffeb;
 }
 
 .product-image-wrap .img-default,
@@ -435,6 +435,7 @@ img {
   padding: 1.25rem;
   height: auto;
   border-top: none;
+  background-color: #ffffeb;
 }
 
 .footer-left {
@@ -543,6 +544,7 @@ img {
   border-bottom: var(--border);
   overflow: hidden;
   container-type: inline-size;
+  background-color: #ffffeb;
 }
 
 .wordmark-text {
@@ -553,7 +555,7 @@ img {
   letter-spacing: -0.02em;
   text-transform: uppercase;
   line-height: 1;
-  color: #ffffeb;
+  color: var(--pink);
   white-space: nowrap;
 }
 
@@ -563,6 +565,7 @@ img {
 
 .newsletter-section {
   border-bottom: var(--border);
+  background-color: #ffffeb;
 }
 
 .newsletter-header {
