@@ -8,6 +8,7 @@ const CART_STORAGE_KEY = 'hanami_cart';
 const SHIPPING = {
   italy_zine: 2,
   italy_other: 8,
+  hand: 0,     // consegna a mano: disponibile solo se nel carrello c'e' un prodotto con data-hand="si"
   eu: 12,      // PLACEHOLDER — modifica con il costo reale
   world: 20    // PLACEHOLDER — modifica con il costo reale
 };
@@ -69,8 +70,33 @@ function getSubtotal(cart) {
   return cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 }
 
+// Consegna a mano: l'opzione esiste solo se l'ordine contiene almeno un prodotto che la prevede
+function cartHasHandDelivery(cart) {
+  return cart.some(item => item.hand);
+}
+
+// Aggiunge o toglie "Consegna a mano" dal menu di spedizione in base al contenuto del carrello
+function syncShippingOptions(cart) {
+  const select = document.getElementById('cart-zone');
+  if (!select) return;
+  const option = select.querySelector('option[value="hand"]');
+  if (cartHasHandDelivery(cart)) {
+    if (!option) {
+      const opt = document.createElement('option');
+      opt.value = 'hand';
+      opt.textContent = 'Consegna a mano';
+      select.appendChild(opt);
+    }
+  } else if (option) {
+    if (select.value === 'hand') select.value = 'italy';
+    option.remove();
+  }
+}
+
 function getShippingCost(cart, zone) {
   if (cart.length === 0) return 0;
+
+  if (zone === 'hand' && cartHasHandDelivery(cart)) return SHIPPING.hand;
 
   if (zone === 'italy') {
     const hasNonZine = cart.some(item => item.category !== 'zine');
@@ -102,6 +128,8 @@ function renderCart() {
   const footer = document.getElementById('cart-footer');
 
   if (!itemsContainer) return;
+
+  syncShippingOptions(cart);
 
   if (cart.length === 0) {
     itemsContainer.innerHTML = '';
@@ -226,7 +254,8 @@ document.addEventListener('DOMContentLoaded', () => {
         name: button.dataset.name,
         price: parseFloat(button.dataset.price),
         category: button.dataset.category,
-        image: button.dataset.image
+        image: button.dataset.image,
+        hand: button.dataset.hand === 'si'
       };
       addToCart(product);
     });

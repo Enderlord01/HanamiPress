@@ -328,6 +328,12 @@ img {
   border-radius: 8px;
 }
 
+.product-buy:disabled,
+.product-buy:disabled:hover {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
 .product-buy:hover {
   background-color: var(--green);
   color: var(--pink);
