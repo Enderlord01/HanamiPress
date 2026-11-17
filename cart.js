@@ -263,11 +263,27 @@ document.addEventListener('DOMContentLoaded', () => {
     var header = document.querySelector('.site-header');
     if (pp && header) pp.style.setProperty('--header-h', header.offsetHeight + 'px');
   }
-  setHeaderHeight();
-  window.addEventListener('load', setHeaderHeight);
-  window.addEventListener('resize', setHeaderHeight);
+  // Barra fissa in basso (mobile/iPad): misura titolo+autore e prezzo+pulsante
+  function setBarHeight() {
+    var root = document.documentElement;
+    var head = document.querySelector('.pp-head');
+    var purchase = document.querySelector('.pp-purchase');
+    if (!head || !purchase) return;
+    if (getComputedStyle(head).position !== 'fixed') {
+      root.style.removeProperty('--pp-purchase-h');
+      root.style.removeProperty('--pp-bar-h');
+      return;
+    }
+    var p = purchase.offsetHeight, h = head.offsetHeight;
+    root.style.setProperty('--pp-purchase-h', p + 'px');
+    root.style.setProperty('--pp-bar-h', (p + h) + 'px');
+  }
+  function setHeights() { setHeaderHeight(); setBarHeight(); }
+  setHeights();
+  window.addEventListener('load', setHeights);
+  window.addEventListener('resize', setHeights);
   if (document.fonts) {
-    if (document.fonts.ready) document.fonts.ready.then(setHeaderHeight);
-    if (document.fonts.addEventListener) document.fonts.addEventListener('loadingdone', setHeaderHeight);
+    if (document.fonts.ready) document.fonts.ready.then(setHeights);
+    if (document.fonts.addEventListener) document.fonts.addEventListener('loadingdone', setHeights);
   }
 })();
