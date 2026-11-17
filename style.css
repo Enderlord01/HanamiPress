@@ -337,9 +337,9 @@ img {
 /* View All Link — stessa altezza e carattere di .products-header, ma minuscolo con l'iniziale maiuscola */
 .products-footer {
   padding: 1.25rem;
-  border-top: none;
+  border-top: 1px solid var(--pink);
   text-align: right;
-  background-color: #ffffeb;
+  background-color: var(--yellow);
   font-family: Dela Gothic One;
   font-size: 1.5rem; /* = .product-name */
   font-weight: 100;
