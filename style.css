@@ -1381,8 +1381,8 @@ img {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: start;
-  /* Sfondo crema + linea rosa della colonna destra, a tutta altezza anche se la scheda e' piu' bassa */
-  background: linear-gradient(to right, transparent 50%, var(--pink) 50% calc(50% + 1px), #ffffeb calc(50% + 1px));
+  /* Sfondo crema (anche dietro le foto) + linea rosa tra le due colonne, a tutta altezza anche se la scheda e' piu' bassa */
+  background: linear-gradient(to right, #ffffeb 50%, var(--pink) 50% calc(50% + 1px), #ffffeb calc(50% + 1px));
 }
 
 /* ---------- GALLERIA (desktop: colonna che scorre) ---------- */
@@ -1390,6 +1390,7 @@ img {
 .pp-gallery {
   grid-column: 1;
   grid-row: 1;
+  background-color: #ffffeb; /* sfondo dietro le foto (se hanno parti trasparenti) */
 }
 
 .pp-gallery-track {
