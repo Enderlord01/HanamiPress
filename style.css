@@ -34,7 +34,7 @@ textarea {
 
 body {
   font-family: "Bricolage Grotesque", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background-color: var(--green);
+  background-color: var(--yellow);
   color: var(--pink);
   -webkit-font-smoothing: antialiased;
   overflow-y: scroll;
