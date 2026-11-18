@@ -917,7 +917,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--green);
+  background-color: var(--salmon);
   color: #ffffeb;
   border: none;
   border-radius: 4px;
@@ -1014,7 +1014,7 @@ img {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: #ffffeb;
-  background-color: var(--green);
+  background-color: var(--salmon);
   border: none;
   padding: 0.85rem;
   cursor: pointer;
