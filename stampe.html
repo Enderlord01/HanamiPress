@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Stampe - Hanami Press</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="mobile.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <a href="/index.html" class="site-logo">Hanami Press</a>
+    <nav class="site-nav">
+      <a href="/catalogo.html">Catalogo</a>
+      <a href="/zine.html">Zine</a>
+      <a href="/stampe.html">Stampe</a>
+      <a href="/eventi.html">Eventi</a>
+      <a href="/autori.html">Autori</a>
+      <a href="/contatti.html">Contatti</a>
+    </nav>
+
+    <!-- CARRELLO -->
+    <button id="cart-trigger" class="cart-trigger" aria-label="Apri carrello">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="9" cy="21" r="1"/>
+        <circle cx="20" cy="21" r="1"/>
+        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+      </svg>
+      <span id="cart-count" class="cart-count">0</span>
+    </button>
+
+    <button class="nav-hamburger" aria-label="Menu" onclick="this.classList.toggle('is-open'); document.getElementById('nav-mobile').classList.toggle('is-open')">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <nav id="nav-mobile" class="nav-mobile">
+    <a href="/catalogo.html">Catalogo</a>
+    <a href="/zine.html">Zine</a>
+    <a href="/stampe.html">Stampe</a>
+    <a href="/eventi.html">Eventi</a>
+    <a href="/autori.html">Autori</a>
+    <a href="/contatti.html">Contatti</a>
+  </nav>
+
+  <!-- PANNELLO CARRELLO -->
+  <div id="cart-overlay" class="cart-overlay"></div>
+  <aside id="cart-panel" class="cart-panel">
+    <div class="cart-panel-header">
+      <span class="cart-panel-title">Carrello</span>
+      <button id="cart-close" class="cart-close" aria-label="Chiudi carrello">×</button>
+    </div>
+
+    <div id="cart-empty" class="cart-empty">
+      <span>Il tuo carrello è vuoto</span>
+    </div>
+
+    <div id="cart-items" class="cart-items"></div>
+
+    <div id="cart-footer" class="cart-footer" style="display: none;">
+      <div class="cart-zone-select">
+        <label for="cart-zone" class="cart-zone-label">Spedizione</label>
+        <select id="cart-zone" class="cart-zone-dropdown">
+          <option value="italy">Italia</option>
+          <option value="eu">Unione Europea</option>
+          <option value="world">Resto del mondo</option>
+        </select>
+      </div>
+
+      <div class="cart-totals">
+        <div class="cart-totals-row">
+          <span>Subtotale</span>
+          <span id="cart-subtotal">€0.00</span>
+        </div>
+        <div class="cart-totals-row">
+          <span>Spedizione</span>
+          <span id="cart-shipping">€0.00</span>
+        </div>
+        <div class="cart-totals-row cart-totals-row--total">
+          <span>Totale</span>
+          <span id="cart-total">€0.00</span>
+        </div>
+      </div>
+
+      <button id="cart-checkout-btn" class="cart-checkout-btn">Vai al pagamento</button>
+    </div>
+  </aside>
+
+  <!-- TICKER -->
+  <div class="ticker-section">
+    <div class="ticker-track">
+      <span>Zine</span>
+      <span class="ticker-dot">·</span>
+      <span>Stampe</span>
+      <span class="ticker-dot">·</span>
+      <span>Uncinetto</span>
+      <span class="ticker-dot">·</span>
+      <span>Spillette</span>
+      <span class="ticker-dot">·</span>
+      <span>Zine</span>
+      <span class="ticker-dot">·</span>
+      <span>Stampe</span>
+      <span class="ticker-dot">·</span>
+      <span>Uncinetto</span>
+      <span class="ticker-dot">·</span>
+      <span>Spillette</span>
+      <span class="ticker-dot">·</span>
+      <span>Zine</span>
+      <span class="ticker-dot">·</span>
+      <span>Stampe</span>
+      <span class="ticker-dot">·</span>
+      <span>Uncinetto</span>
+      <span class="ticker-dot">·</span>
+      <span>Spillette</span>
+      <span class="ticker-dot">·</span>
+      <span>Zine</span>
+      <span class="ticker-dot">·</span>
+      <span>Stampe</span>
+      <span class="ticker-dot">·</span>
+      <span>Uncinetto</span>
+      <span class="ticker-dot">·</span>
+      <span>Spillette</span>
+      <span class="ticker-dot">·</span>
+      <span>Zine</span>
+      <span class="ticker-dot">·</span>
+      <span>Stampe</span>
+      <span class="ticker-dot">·</span>
+      <span>Uncinetto</span>
+      <span class="ticker-dot">·</span>
+      <span>Spillette</span>
+      <span class="ticker-dot">·</span>
+    </div>
+  </div>
+
+  <!-- PRODUCTS GRID -->
+  <section class="products-section">
+
+    <div class="products-header">
+      <span>Stampe</span>
+    </div>
+
+    <div class="products-grid">
+      <!-- Product 2 -->
+      <article class="product-card">
+        <div class="product-image-wrap">
+          <img class="img-default" src="/img/pony_01.png" alt="Pony - Risograph A3" />
+          <img class="img-hover" src="/img/pony_02.jpg" alt="Pony - Risograph A3" />
+        </div>
+        <div class="product-info">
+          <div class="product-meta">
+            <a href="/prodotti/pony.html" class="product-link"><span class="product-name">Pony - Risograph A3</span></a>
+            <span class="product-tag">Stampa</span>
+          </div>
+          <span class="product-author">Shuai Ma</span>
+          <div class="product-bottom">
+            <span class="product-price">€15</span>
+            <button class="product-buy"
+              data-name="Pony - Risograph A3"
+              data-price="15"
+              data-category="stampa"
+              data-image="/img/pony_01.png"
+              aria-label="Aggiungi al carrello" title="Aggiungi al carrello"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g transform="translate(0 4) scale(.8)"><circle cx="9" cy="21" r="1.2"/><circle cx="20" cy="21" r="1.2"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></g><path d="M20 1.6v4.8M17.6 4h4.8"/></svg></button>
+          </div>
+        </div>
+      </article>
+      <!-- Product 7 -->
+      <article class="product-card">
+        <div class="product-image-wrap">
+          <img class="img-default" src="/img/stampe/victor/primavera_01.jpg" alt="Primavera 2025 - Risograph A4" />
+          <img class="img-hover" src="/img/stampe/victor/primavera_02.jpg" alt="Primavera 2025 - Risograph A4" />
+        </div>
+        <div class="product-info">
+          <div class="product-meta">
+            <a href="/prodotti/primavera-2025.html" class="product-link"><span class="product-name">Primavera 2025 - Risograph A4</span></a>
+            <span class="product-tag">Stampe</span>
+          </div>
+          <span class="product-author">Vic Annibalini</span>
+          <div class="product-bottom">
+            <span class="product-price">€10</span>
+            <button class="product-buy"
+              data-name="Primavera 2025 - Risograph A4"
+              data-price="10"
+              data-category="stampa"
+              data-image="/img/stampe/victor/primavera_01.jpg"
+              aria-label="Aggiungi al carrello" title="Aggiungi al carrello"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g transform="translate(0 4) scale(.8)"><circle cx="9" cy="21" r="1.2"/><circle cx="20" cy="21" r="1.2"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></g><path d="M20 1.6v4.8M17.6 4h4.8"/></svg></button>
+          </div>
+        </div>
+      </article>
+      <!-- Product 12 -->
+      <article class="product-card">
+        <div class="product-image-wrap">
+          <img class="img-default" src="/img/stampe/blobblob/blobblob_01.jpg" alt="Blob Blob - Risograph 10x15" />
+          <img class="img-hover" src="/img/stampe/blobblob/blobblob_01.jpg" alt="Blob Blob - Risograph 10x15" />
+        </div>
+        <div class="product-info">
+          <div class="product-meta">
+            <a href="/prodotti/blob-blob.html" class="product-link"><span class="product-name">Blob Blob - Risograph 10x15</span></a>
+            <span class="product-tag">Stampa</span>
+          </div>
+          <span class="product-author">Chiara Simoni</span>
+          <div class="product-bottom">
+            <span class="product-price">€7</span>
+            <button class="product-buy"
+              data-name="Blob Blob - Risograph 10x15"
+              data-price="7"
+              data-category="stampa"
+              data-image="/img/stampe/blobblob/blobblob_01.jpg"
+              aria-label="Aggiungi al carrello" title="Aggiungi al carrello"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g transform="translate(0 4) scale(.8)"><circle cx="9" cy="21" r="1.2"/><circle cx="20" cy="21" r="1.2"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></g><path d="M20 1.6v4.8M17.6 4h4.8"/></svg></button>
+          </div>
+        </div>
+      </article>
+    </div>
+
+  </section>
+
+  <!-- WORDMARK -->
+  <section class="wordmark-section">
+    <span class="wordmark-text">Hanami Press</span>
+  </section>
+
+  <!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-left">
+    <nav class="footer-legal">
+      <a href="/cookie-policy.html">Cookie</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/termini.html">Termini</a>
+    </nav>
+    <span class="footer-copy">Hanami Press, 2026</span>
+  </div>
+  <a href="https://www.instagram.com/hanami.press" target="_blank" rel="noopener" class="footer-instagram" aria-label="Instagram">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+      <circle cx="12" cy="12" r="4"/>
+      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+    </svg>
+  </a>
+</footer>
+
+  <script src="cart.js"></script>
+  <script src="/wordmark.js"></script>
+
+  <script src="/cookie-consent.js"></script>
+
+</body>
+</html>
