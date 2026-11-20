@@ -1924,3 +1924,32 @@ html {
     aspect-ratio: 4 / 3;
   }
 }
+
+/* ===========================
+   DELA GOTHIC: dimensione unica (wordmark escluso)
+   Desktop 2rem, mobile 1.5rem (vedi fondo di mobile.css).
+   Escluso l'header desktop (logo e menu): a 2rem il menu non ci sta.
+   =========================== */
+
+.products-header,
+.product-name,
+.products-footer,
+.view-all,
+.about-label,
+.ticker-track span,
+.newsletter-header,
+.cart-panel-title,
+.success-text,
+.legal-index-num,
+.legal-block-num,
+.legal-heading,
+.pp-title,
+.event-summary,
+.event-title,
+.event-inner,
+.event-inner dt,
+.event-inner dd,
+.event-inner a,
+.nav-mobile a {
+  font-size: 2rem;
+}

@@ -732,10 +732,6 @@
     border-top: var(--border);
   }
 
-  .pp-title {
-    font-size: 1.5rem;
-  }
-
   /* Prezzo e pulsante: ancorati sotto il titolo */
   .pp-purchase {
     position: fixed;
@@ -759,4 +755,32 @@
     max-height: calc(100vh - var(--header-h) - var(--pp-bar-h));
     max-height: calc(100dvh - var(--header-h) - var(--pp-bar-h));
   }
+}
+
+/* Dela Gothic: 1.5rem su mobile (telefono e iPad verticale), wordmark escluso */
+@media (max-width: 768px), (min-width: 600px) and (max-width: 1100px) and (orientation: portrait) {
+  .site-logo,
+  .site-nav a,
+  .products-header,
+  .product-name,
+  .products-footer,
+  .view-all,
+  .about-label,
+  .ticker-track span,
+  .newsletter-header,
+  .cart-panel-title,
+  .success-text,
+  .legal-index-num,
+  .legal-block-num,
+  .legal-heading,
+  .pp-title,
+  .event-summary,
+  .event-title,
+  .event-inner,
+  .event-inner dt,
+  .event-inner dd,
+  .event-inner a,
+  .nav-mobile a {
+  font-size: 1.5rem;
+}
 }
