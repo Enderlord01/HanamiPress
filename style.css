@@ -1946,10 +1946,14 @@ html {
 .pp-title,
 .event-summary,
 .event-title,
+.nav-mobile a {
+  font-size: 2rem;
+}
+
+/* Dettagli delle tendine eventi: 1.5rem ovunque */
 .event-inner,
 .event-inner dt,
 .event-inner dd,
-.event-inner a,
-.nav-mobile a {
-  font-size: 2rem;
+.event-inner a {
+  font-size: 1.5rem;
 }
