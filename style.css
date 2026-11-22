@@ -1968,3 +1968,69 @@ html {
 .event-inner a {
   font-size: 1.5rem;
 }
+
+/* ===========================
+   SCHERMO DI RIPOSO (sleep.js)
+   =========================== */
+
+/* Rosa a tutto schermo in modalita' "schiarisci" (lighten) */
+.sleep-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 99998;
+  background-color: var(--pink);
+  mix-blend-mode: lighten;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease; /* uscita rapida */
+}
+
+.sleep-bg.is-on {
+  opacity: 1;
+  transition: opacity 2.5s ease-in-out; /* entrata morbida */
+}
+
+/* Video + scritta, sopra il rosa */
+.sleep-box {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.25s ease, visibility 0s linear 0.25s;
+}
+
+.sleep-box.is-active {
+  visibility: visible;
+  pointer-events: auto; /* assorbe il tocco che sveglia lo schermo */
+}
+
+.sleep-box.is-on {
+  opacity: 1;
+  transition: opacity 2.5s ease-in-out 0.8s, visibility 0s;
+}
+
+/* Il video e' il 50% dello schermo (quadrato, quindi il lato minore) */
+.sleep-video {
+  width: min(50vw, 50vh);
+  width: min(50vw, 50dvh);
+  height: auto;
+  aspect-ratio: 1 / 1;
+  display: block;
+  pointer-events: none;
+}
+
+.sleep-text {
+  margin: 0;
+  font-family: Dela Gothic One;
+  font-size: 2rem;
+  font-weight: 400;
+  color: #ffffeb;
+  text-align: center;
+}
