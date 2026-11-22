@@ -1,8 +1,8 @@
-/* Schermo di riposo: dopo 60 s senza attività il sito si copre di rosa
+/* Schermo di riposo: dopo 15 s senza attività il sito si copre di rosa
    (modalità "schiarisci"), con l'animazione mimi_zzz.gif e la scritta "Zzz...".
    Un tocco, un movimento del mouse, un tasto o lo scroll lo fanno sparire. */
 (function () {
-  var IDLE_MS = 60000;      // un minuto
+  var IDLE_MS = 15000;      // 15 secondi
   var GRACE_MS = 600;       // dopo l'apparizione ignora eventi spuri
   var SWALLOW_MS = 400;     // dopo il risveglio il primo tocco non deve cliccare sotto
   var VIDEO_SRC = '/mimi_zzz.gif';
