@@ -2018,7 +2018,7 @@ html {
 
 /* L'animazione e' larga il 25% della larghezza dello schermo (su ogni dispositivo) */
 .sleep-video {
-  width: 25vw;
+  width: 40vw;
   height: auto;
   aspect-ratio: 1 / 1;
   display: block;
@@ -2030,6 +2030,6 @@ html {
   font-family: Dela Gothic One;
   font-size: 2rem;
   font-weight: 400;
-  color: #ffffeb;
+  color: var(--salmon);
   text-align: center;
 }
