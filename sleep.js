@@ -1,11 +1,11 @@
 /* Schermo di riposo: dopo 60 s senza attività il sito si copre di rosa
-   (modalità "schiarisci"), con il video mimi_zzz.webm e la scritta "Zzz...".
+   (modalità "schiarisci"), con l'animazione mimi_zzz.gif e la scritta "Zzz...".
    Un tocco, un movimento del mouse, un tasto o lo scroll lo fanno sparire. */
 (function () {
   var IDLE_MS = 60000;      // un minuto
   var GRACE_MS = 600;       // dopo l'apparizione ignora eventi spuri
   var SWALLOW_MS = 400;     // dopo il risveglio il primo tocco non deve cliccare sotto
-  var VIDEO_SRC = '/mimi_zzz.webm';
+  var VIDEO_SRC = '/mimi_zzz.gif';
 
   var bg, box, video, idleTimer, hideTimer, asleep = false, shownAt = 0, built = false;
 
@@ -21,16 +21,10 @@
     box.className = 'sleep-box';
     box.setAttribute('aria-hidden', 'true');
 
-    video = document.createElement('video');
+    video = document.createElement('img');
     video.className = 'sleep-video';
-    video.muted = true;
-    video.loop = true;
-    video.playsInline = true;
-    video.preload = 'none';
-    video.setAttribute('muted', '');
-    video.setAttribute('playsinline', '');
-    video.setAttribute('disablepictureinpicture', '');
-    video.tabIndex = -1;
+    video.alt = '';
+    video.decoding = 'async';
 
     var text = document.createElement('p');
     text.className = 'sleep-text';
@@ -47,9 +41,8 @@
     clearTimeout(hideTimer);
     asleep = true;
     shownAt = Date.now();
-    if (!video.getAttribute('src')) video.src = VIDEO_SRC; // carica il video solo la prima volta
-    var p = video.play();
-    if (p && p.catch) p.catch(function () {});
+    // la GIF viene scaricata solo la prima volta; rimettendo il src riparte da capo
+    video.src = VIDEO_SRC;
     // due frame: prima il browser registra lo stato iniziale, poi parte la transizione
     requestAnimationFrame(function () {
       requestAnimationFrame(function () {
@@ -68,8 +61,7 @@
     hideTimer = setTimeout(function () {
       if (asleep) return;
       box.classList.remove('is-active');
-      video.pause();
-      try { video.currentTime = 0; } catch (e) {}
+      video.removeAttribute('src'); // ferma la GIF
     }, SWALLOW_MS);
   }
 

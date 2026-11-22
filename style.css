@@ -2016,10 +2016,9 @@ html {
   transition: opacity 2.5s ease-in-out 0.8s, visibility 0s;
 }
 
-/* Il video e' il 50% dello schermo (quadrato, quindi il lato minore) */
+/* L'animazione e' larga il 25% della larghezza dello schermo (su ogni dispositivo) */
 .sleep-video {
-  width: min(50vw, 50vh);
-  width: min(50vw, 50dvh);
+  width: 25vw;
   height: auto;
   aspect-ratio: 1 / 1;
   display: block;
