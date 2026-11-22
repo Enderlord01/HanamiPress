@@ -789,3 +789,10 @@
     font-size: 1rem;
   }
 }
+
+/* Icona Instagram autori: due righe di bio (1.5rem x 1.2 x 2) dove la bio e' a 1.5rem */
+@media (max-width: 1100px), (pointer: coarse) {
+  .author-instagram {
+    margin-top: 3.6rem;
+  }
+}
