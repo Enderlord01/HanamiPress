@@ -1990,7 +1990,7 @@ html {
   transition: opacity 2.5s ease-in-out; /* entrata morbida */
 }
 
-/* Video + scritta, sopra il rosa */
+/* Scritta, sopra il rosa */
 .sleep-box {
   position: fixed;
   inset: 0;
@@ -1999,7 +1999,6 @@ html {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -2016,20 +2015,11 @@ html {
   transition: opacity 2.5s ease-in-out 0.8s, visibility 0s;
 }
 
-/* L'animazione e' larga il 25% della larghezza dello schermo (su ogni dispositivo) */
-.sleep-video {
-  width: 40vw;
-  height: auto;
-  aspect-ratio: 1 / 1;
-  display: block;
-  pointer-events: none;
-}
-
 .sleep-text {
   margin: 0;
   font-family: Dela Gothic One;
   font-size: 2rem;
   font-weight: 400;
-  color: var(--salmon);
+  color: var(--green);
   text-align: center;
 }

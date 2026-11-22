@@ -1,13 +1,12 @@
 /* Schermo di riposo: dopo 15 s senza attività il sito si copre di rosa
-   (modalità "schiarisci"), con l'animazione mimi_zzz.gif e la scritta "Zzz...".
+   (modalità "schiarisci") con la scritta "Zzz...".
    Un tocco, un movimento del mouse, un tasto o lo scroll lo fanno sparire. */
 (function () {
   var IDLE_MS = 15000;      // 15 secondi
   var GRACE_MS = 600;       // dopo l'apparizione ignora eventi spuri
   var SWALLOW_MS = 400;     // dopo il risveglio il primo tocco non deve cliccare sotto
-  var VIDEO_SRC = '/mimi_zzz.gif';
-
-  var bg, box, video, idleTimer, hideTimer, asleep = false, shownAt = 0, built = false;
+  
+  var bg, box, idleTimer, hideTimer, asleep = false, shownAt = 0, built = false;
 
   function build() {
     if (built) return;
@@ -21,16 +20,10 @@
     box.className = 'sleep-box';
     box.setAttribute('aria-hidden', 'true');
 
-    video = document.createElement('img');
-    video.className = 'sleep-video';
-    video.alt = '';
-    video.decoding = 'async';
-
     var text = document.createElement('p');
     text.className = 'sleep-text';
     text.textContent = 'Zzz...';
 
-    box.appendChild(video);
     box.appendChild(text);
     document.body.appendChild(bg);
     document.body.appendChild(box);
@@ -41,8 +34,6 @@
     clearTimeout(hideTimer);
     asleep = true;
     shownAt = Date.now();
-    // la GIF viene scaricata solo la prima volta; rimettendo il src riparte da capo
-    video.src = VIDEO_SRC;
     // due frame: prima il browser registra lo stato iniziale, poi parte la transizione
     requestAnimationFrame(function () {
       requestAnimationFrame(function () {
@@ -61,7 +52,6 @@
     hideTimer = setTimeout(function () {
       if (asleep) return;
       box.classList.remove('is-active');
-      video.removeAttribute('src'); // ferma la GIF
     }, SWALLOW_MS);
   }
 
