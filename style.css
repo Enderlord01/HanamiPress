@@ -1137,6 +1137,20 @@ img {
   opacity: 1;
 }
 
+/* Desktop (mouse, schermo largo): il pulsante sta al centro della pagina.
+   Su mobile e tablet resta a destra, per non sovrapporsi alla barra fissa. */
+@media (min-width: 1101px) and (hover: hover) and (pointer: fine) {
+  .back-to-top {
+    right: auto;
+    left: 50%;
+    transform: translate(-50%, 10px);
+  }
+
+  .back-to-top.is-visible {
+    transform: translate(-50%, 0);
+  }
+}
+
 /* ===========================
    PAGINE LEGALI
    =========================== */
