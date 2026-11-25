@@ -1093,7 +1093,7 @@ img {
 /* Icona Instagram sotto la bio degli autori */
 .author-instagram {
   display: inline-flex;
-  margin-top: 4.8rem; /* due righe di bio (2rem x 1.2 x 2) */
+  margin-top: 2.4rem; /* una riga vuota di bio (2rem x 1.2) */
   color: var(--pink);
   transition: opacity 0.15s;
 }
