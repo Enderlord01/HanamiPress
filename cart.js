@@ -34,6 +34,9 @@ function addToCart(product) {
 
   if (existing) {
     existing.quantity += 1;
+    // allinea il prezzo a quello attuale (sconti aggiunti o tolti dopo che l'articolo era nel carrello)
+    existing.price = product.price;
+    existing.oldPrice = product.oldPrice;
   } else {
     cart.push({ ...product, quantity: 1 });
   }
@@ -146,7 +149,7 @@ function renderCart() {
       <img src="${item.image}" alt="${item.name}" class="cart-item-image" />
       <div class="cart-item-info">
         <span class="cart-item-name">${item.name}</span>
-        <span class="cart-item-price">€${item.price.toFixed(2)}</span>
+        <span class="cart-item-price">${item.oldPrice ? `<s class="price-old">€${item.oldPrice.toFixed(2)}</s> ` : ''}€${item.price.toFixed(2)}</span>
         <div class="cart-item-qty">
           <button class="qty-btn" onclick="updateQuantity('${item.name}', -1)">−</button>
           <span class="qty-value">${item.quantity}</span>
@@ -253,6 +256,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const product = {
         name: button.dataset.name,
         price: parseFloat(button.dataset.price),
+        oldPrice: button.dataset.priceOld ? parseFloat(button.dataset.priceOld) : null,
         category: button.dataset.category,
         image: button.dataset.image,
         hand: button.dataset.hand === 'si'

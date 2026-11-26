@@ -2037,3 +2037,12 @@ html {
   color: var(--green);
   text-align: center;
 }
+
+/* Prezzo scontato: vecchio prezzo barrato accanto al nuovo */
+.price-old {
+  font-weight: 500;
+  opacity: 0.55;
+  text-decoration: line-through;
+  text-decoration-thickness: 0.08em;
+  margin-right: 0.15em;
+}
