@@ -149,7 +149,7 @@ function renderCart() {
       <img src="${item.image}" alt="${item.name}" class="cart-item-image" />
       <div class="cart-item-info">
         <span class="cart-item-name">${item.name}</span>
-        <span class="cart-item-price">${item.oldPrice ? `<s class="price-old">€${item.oldPrice.toFixed(2)}</s> ` : ''}€${item.price.toFixed(2)}</span>
+        <span class="cart-item-price">€${item.price.toFixed(2)}${item.oldPrice ? ` <s class="price-old">€${item.oldPrice.toFixed(2)}</s>` : ''}</span>
         <div class="cart-item-qty">
           <button class="qty-btn" onclick="updateQuantity('${item.name}', -1)">−</button>
           <span class="qty-value">${item.quantity}</span>
