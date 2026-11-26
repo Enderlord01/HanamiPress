@@ -744,6 +744,31 @@
     gap: 1rem;
   }
 
+  /* Prezzo scontato nella barra: nuovo e vecchio sulla stessa riga */
+  .pp-purchase .pp-price {
+    white-space: nowrap;
+  }
+
+  .pp-purchase .price-old {
+    font-size: 0.55em;
+  }
+
+  .pp-purchase .product-buy {
+    flex: 0 1 auto;
+    min-width: 0;
+    padding: 0.85rem 1rem;
+    white-space: nowrap;
+  }
+
+  /* Telefoni molto stretti (320px): pulsante un po' piu' piccolo */
+  @media (max-width: 340px) {
+    .pp-purchase .product-buy {
+      padding: 0.85rem 0.6rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.06em;
+    }
+  }
+
   /* Lo spazio per la barra: contenuti e footer non finiscono sotto di lei */
   body:has(.pp) {
     padding-bottom: var(--pp-bar-h);
