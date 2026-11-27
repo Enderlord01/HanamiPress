@@ -2,7 +2,7 @@
    (modalità "schiarisci") con la scritta "Zzz...".
    Un tocco, un movimento del mouse, un tasto o lo scroll lo fanno sparire. */
 (function () {
-  var IDLE_MS = 15000;      // 15 secondi
+  var IDLE_MS = 30000;      // 30 secondi
   var GRACE_MS = 600;       // dopo l'apparizione ignora eventi spuri
   var SWALLOW_MS = 400;     // dopo il risveglio il primo tocco non deve cliccare sotto
   
